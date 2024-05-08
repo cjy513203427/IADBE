@@ -53,7 +53,7 @@ for dataset in datasets:
     engine = Engine(
         max_epochs=50,
         callbacks=callbacks,
-        pixel_metrics=["AUROC", "PRO"],
+        pixel_metrics=["AUROC", "PRO"], image_metrics=["AUROC", "PRO"],
         accelerator="auto",  # \<"cpu", "gpu", "tpu", "ipu", "hpu", "auto">,
         devices=1,
         logger=False,

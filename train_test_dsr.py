@@ -2,7 +2,7 @@ import logging
 from anomalib import TaskType
 from anomalib.data import MVTec
 from anomalib.engine import Engine
-from anomalib.models import Csflow
+from anomalib.models import Dsr
 from lightning.pytorch.callbacks import EarlyStopping, ModelCheckpoint
 
 # configure logger
@@ -18,39 +18,21 @@ for dataset in datasets:
     datamodule = MVTec(
         category=dataset,
         image_size=256,
-        train_batch_size=256,
-        eval_batch_size=256,
+        train_batch_size=8,
+        eval_batch_size=8,
         num_workers=0,
         task=task,
     )
 
     '''
-        cross_conv_hidden_channels: int = 1024,
-        n_coupling_blocks: int = 4,
-        clamp: int = 3,
-        num_channels: int = 3,
+        latent_anomaly_strength: 0.2
+        upsampling_train_ratio: 0.7
     '''
-    model = Csflow()
-
-    callbacks = [
-        ModelCheckpoint(
-            mode="max",
-            monitor="pixel_AUROC",
-        ),
-        EarlyStopping(
-            monitor="pixel_AUROC",
-            mode="max",
-            patience=3,
-        ),
-    ]
+    model = Dsr()
 
     engine = Engine(
-        max_epochs=240,
-        callbacks=callbacks,
-        pixel_metrics=["AUROC", "PRO"], image_metrics=["AUROC", "PRO"],
-        accelerator="auto",  # \<"cpu", "gpu", "tpu", "ipu", "hpu", "auto">,
-        devices=1,
-        logger=False,
+        max_epochs=700,
+        pixel_metrics=["AUROC", "PRO"], image_metrics=["AUROC", "PRO"]
     )
 
     logger.info(f"================== Start training for dataset: {dataset} ==================")
