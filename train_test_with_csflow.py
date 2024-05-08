@@ -1,13 +1,19 @@
+import logging
 from anomalib import TaskType
 from anomalib.data import MVTec
 from anomalib.engine import Engine
 from anomalib.models import Csflow
 from lightning.pytorch.callbacks import EarlyStopping, ModelCheckpoint
 
+# configure logger
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
 datasets = ['screw', 'pill', 'capsule', 'carpet', 'grid', 'tile', 'wood', 'zipper', 'cable', 'toothbrush', 'transistor',
             'metal_nut', 'bottle', 'hazelnut', 'leather']
 
 for dataset in datasets:
+    logger.info(f"================== Processing dataset: {dataset} ==================")
     task = TaskType.SEGMENTATION
     datamodule = MVTec(
         category=dataset,
@@ -47,6 +53,8 @@ for dataset in datasets:
         logger=False,
     )
 
+    logger.info(f"================== Start training for dataset: {dataset} ==================")
     engine.fit(datamodule=datamodule, model=model)
 
+    logger.info(f"================== Start testing for dataset: {dataset} ==================")
     engine.test(datamodule=datamodule, model=model)

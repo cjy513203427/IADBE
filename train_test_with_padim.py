@@ -17,7 +17,6 @@ for dataset in datasets:
     datamodule = MVTec(category=dataset, num_workers=0, train_batch_size=256,
                        eval_batch_size=256)
     # metrics is under "anomalib/metrics/"
-    # engine = Engine(pixel_metrics=["AUROC", "AUPR", "PRO"], image_metrics=["AUROC", "AUPR", "PRO"], task=TaskType.SEGMENTATION)
     engine = Engine(pixel_metrics=["AUROC", "PRO"], image_metrics=["AUROC", "PRO"], task=TaskType.SEGMENTATION)
 
     logger.info(f"================== Start training for dataset: {dataset} ==================")
