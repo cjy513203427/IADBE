@@ -19,6 +19,8 @@ Installing the library with Conda
 yes | conda create -n IADBE python=3.10
 conda activate IADBE
 
+pip install -r requirements.txt
+
 # Or using your favorite virtual environment
 # ...
 
