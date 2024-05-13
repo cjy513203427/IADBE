@@ -7,7 +7,8 @@ reproduce and identify previous research, be bug free and easy to deploy.
 
 # 📦 Environment Setting
 
-IADBE provides two ways to install the library. The first is through Conda, and the second is through Docker. Conda is recommended if you want to make some changes to the dependency. If you don't want to make changes to the library, just use Docker.
+IADBE offers two ways to install the library: Conda and Docker. Use Conda if you want to make changes to dependencies and work in dev mode. 
+Use Docker if you want to copy our environment(cuda, nvcc, python...) exactly.
 
 <details>
 <summary>Install from Conda</summary>
@@ -19,13 +20,28 @@ Installing the library with Conda
 yes | conda create -n IADBE python=3.10
 conda activate IADBE
 
+# Clone the repository and install in editable mode
+git clone https://github.com/cjy513203427/IADBE.git
+cd IADBE
+
+# Install requirements.txt
 pip install -r requirements.txt
 
 # Or using your favorite virtual environment
 # ...
 
-# Clone the repository and install in editable mode
-git clone https://github.com/cjy513203427/IADBE.git
+```
+
+This will install Anomalib CLI. Anomalib CLI is a command line interface for training, testing.
+```bash
+# Get help for the installation arguments
+anomalib install -h
+
+# Install the full package
+anomalib install
+
+# Install with verbose output
+anomalib install -v
 ```
 </details>
     
@@ -36,10 +52,12 @@ Installing the library with Docker
 ```bash
 # Clone the repository and install in editable mode
 git clone https://github.com/cjy513203427/IADBE.git
+cd IADBE
+
 # Build docker image
-docker build - t stream .
+docker build -t iadbe .
 # Run docker container
-docker run -it --rm -p 3001:3001 stream
+docker run -it --rm iadbe bash
 ```
 </details>
 
