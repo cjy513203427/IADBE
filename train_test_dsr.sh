@@ -1,7 +1,7 @@
 #!/bin/bash
 
 datasets=('screw' 'pill' 'capsule' 'carpet' 'grid' 'tile' 'wood' 'zipper' 'cable' 'toothbrush' 'transistor' 'metal_nut' 'bottle' 'hazelnut' 'leather')
-config_file="./configs/dsr.yaml"
+config_file="./configs/models/dsr.yaml"
 
 for dataset in "${datasets[@]}"
 do

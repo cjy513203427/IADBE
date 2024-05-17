@@ -1,7 +1,7 @@
 #!/bin/bash
 
 datasets=('screw' 'pill' 'capsule' 'carpet' 'grid' 'tile' 'wood' 'zipper' 'cable' 'toothbrush' 'transistor' 'metal_nut' 'bottle' 'hazelnut' 'leather')
-config_file="./configs/ganomaly.yaml"
+config_file="./configs/models/ganomaly.yaml"
 
 for dataset in "${datasets[@]}"
 do
