@@ -18,8 +18,8 @@ for dataset in datasets:
     datamodule = MVTec(
         category=dataset,
         image_size=256,
-        train_batch_size=16,
-        eval_batch_size=16,
+        train_batch_size=64,
+        eval_batch_size=64,
         num_workers=0,
         task=task,
     )
