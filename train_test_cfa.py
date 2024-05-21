@@ -42,12 +42,12 @@ for dataset in datasets:
         EarlyStopping(
             monitor="pixel_AUROC",
             mode="max",
-            patience=3,
+            patience=5,
         ),
     ]
 
     engine = Engine(
-        max_epochs=500,
+        max_epochs=30,
         callbacks=callbacks,
         pixel_metrics=["AUROC", "PRO"], image_metrics=["AUROC", "PRO"],
         accelerator="auto",  # \<"cpu", "gpu", "tpu", "ipu", "hpu", "auto">,

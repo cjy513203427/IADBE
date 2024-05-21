@@ -1,0 +1,2741 @@
+/home/jinyao/anaconda3/envs/IADBE/bin/python /home/jinyao/PycharmProjects/IADBE/train_test_cfa.py
+2024-05-21 12:25:44,328 - INFO - ================== Processing dataset: screw ==================
+2024-05-21 12:25:44,328 - INFO - Initializing Cfa model.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:110: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  torch.has_cuda,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:111: UserWarning: 'has_cudnn' is deprecated, please use 'torch.backends.cudnn.is_available()'
+  torch.has_cudnn,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:117: UserWarning: 'has_mps' is deprecated, please use 'torch.backends.mps.is_built()'
+  torch.has_mps,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:118: UserWarning: 'has_mkldnn' is deprecated, please use 'torch.backends.mkldnn.is_available()'
+  torch.has_mkldnn,
+2024-05-21 12:25:45,150 - INFO - ================== Start training for dataset: screw ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 12:25:45,241 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 12:25:45,242 - INFO - Found the dataset.
+You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CfaModel                 | 31.3 M
+1 | loss                  | CfaLoss                  | 0
+2 | _transform            | Compose                  | 0
+3 | normalization_metrics | MinMax                   | 0
+4 | image_threshold       | F1AdaptiveThreshold      | 0
+5 | pixel_threshold       | F1AdaptiveThreshold      | 0
+6 | image_metrics         | AnomalibMetricCollection | 0
+7 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+31.3 M    Trainable params
+0         Non-trainable params
+31.3 M    Total params
+125.169   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Training: |          | 0/? [00:00<?, ?it/s]
+ 10%|█         | 1/10 [00:01<00:09,  1.10s/it]
+ 20%|██        | 2/10 [00:02<00:08,  1.00s/it]
+ 30%|███       | 3/10 [00:02<00:06,  1.11it/s]
+ 40%|████      | 4/10 [00:03<00:05,  1.15it/s]
+ 50%|█████     | 5/10 [00:04<00:04,  1.16it/s]
+ 60%|██████    | 6/10 [00:05<00:03,  1.15it/s]
+ 70%|███████   | 7/10 [00:06<00:02,  1.17it/s]
+ 80%|████████  | 8/10 [00:07<00:01,  1.16it/s]
+ 90%|█████████ | 9/10 [00:07<00:00,  1.16it/s]
+100%|██████████| 10/10 [00:08<00:00,  1.13it/s]
+Epoch 0: 100%|██████████| 10/10 [00:10<00:00,  0.96it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  3.60it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.44it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.21it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.13it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.07it/s]
+Epoch 1: 100%|██████████| 10/10 [00:09<00:00,  1.04it/s, pixel_AUROC=0.957, pixel_PRO=0.139]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  3.96it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.57it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.28it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.18it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.14it/s]
+Epoch 2: 100%|██████████| 10/10 [00:10<00:00,  1.00it/s, pixel_AUROC=0.964, pixel_PRO=0.205]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  4.00it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.58it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.30it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.19it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.13it/s]
+Epoch 3: 100%|██████████| 10/10 [00:09<00:00,  1.09it/s, pixel_AUROC=0.950, pixel_PRO=0.240]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.03it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.57it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.30it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.20it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.15it/s]
+Epoch 4: 100%|██████████| 10/10 [00:10<00:00,  0.98it/s, pixel_AUROC=0.974, pixel_PRO=0.285]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.01it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.57it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.30it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.20it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.15it/s]
+Epoch 5: 100%|██████████| 10/10 [00:10<00:00,  0.99it/s, pixel_AUROC=0.976, pixel_PRO=0.333]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  3.96it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.59it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.30it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.20it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.14it/s]
+Epoch 6: 100%|██████████| 10/10 [00:10<00:00,  0.96it/s, pixel_AUROC=0.978, pixel_PRO=0.348]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  3.97it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.55it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.29it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.20it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.15it/s]
+Epoch 7: 100%|██████████| 10/10 [00:09<00:00,  1.11it/s, pixel_AUROC=0.979, pixel_PRO=0.353]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  3.97it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.57it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.27it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.18it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.13it/s]
+Epoch 8: 100%|██████████| 10/10 [00:09<00:00,  1.08it/s, pixel_AUROC=0.980, pixel_PRO=0.371]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.01it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.55it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.26it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.16it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.11it/s]
+Epoch 9: 100%|██████████| 10/10 [00:09<00:00,  1.09it/s, pixel_AUROC=0.981, pixel_PRO=0.363]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  3.96it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.57it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.30it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.19it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.14it/s]
+Epoch 10: 100%|██████████| 10/10 [00:09<00:00,  1.01it/s, pixel_AUROC=0.981, pixel_PRO=0.365]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.02it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.58it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.32it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.21it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.15it/s]
+Epoch 11: 100%|██████████| 10/10 [00:09<00:00,  1.05it/s, pixel_AUROC=0.982, pixel_PRO=0.369]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  3.97it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.58it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.30it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.20it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.14it/s]
+Epoch 12: 100%|██████████| 10/10 [00:09<00:00,  1.02it/s, pixel_AUROC=0.983, pixel_PRO=0.367]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  3.98it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.56it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.30it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.20it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.15it/s]
+Epoch 13: 100%|██████████| 10/10 [00:10<00:00,  1.00it/s, pixel_AUROC=0.983, pixel_PRO=0.373]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  3.99it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.55it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.29it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.19it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.13it/s]
+Epoch 14: 100%|██████████| 10/10 [00:10<00:00,  0.98it/s, pixel_AUROC=0.983, pixel_PRO=0.382]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.01it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.58it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.31it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.20it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.15it/s]
+Epoch 15: 100%|██████████| 10/10 [00:09<00:00,  1.06it/s, pixel_AUROC=0.984, pixel_PRO=0.382]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  3.95it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.49it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.26it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.17it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.12it/s]
+Epoch 16: 100%|██████████| 10/10 [00:10<00:00,  0.98it/s, pixel_AUROC=0.984, pixel_PRO=0.393]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  3.96it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.56it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.30it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.20it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.13it/s]
+Epoch 17: 100%|██████████| 10/10 [00:09<00:00,  1.06it/s, pixel_AUROC=0.984, pixel_PRO=0.398]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  3.97it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.63it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.33it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.25it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.18it/s]
+Epoch 18: 100%|██████████| 10/10 [00:09<00:00,  1.09it/s, pixel_AUROC=0.984, pixel_PRO=0.391]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  3.96it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.55it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.30it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.21it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.15it/s]
+Epoch 19: 100%|██████████| 10/10 [00:09<00:00,  1.07it/s, pixel_AUROC=0.985, pixel_PRO=0.403]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.03it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.50it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.25it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.16it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.12it/s]
+Epoch 20: 100%|██████████| 10/10 [00:09<00:00,  1.01it/s, pixel_AUROC=0.985, pixel_PRO=0.397]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.01it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.57it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.30it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.19it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.14it/s]
+Epoch 21: 100%|██████████| 10/10 [00:09<00:00,  1.00it/s, pixel_AUROC=0.985, pixel_PRO=0.400]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.02it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.52it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.26it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.17it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.12it/s]
+Epoch 22: 100%|██████████| 10/10 [00:09<00:00,  1.04it/s, pixel_AUROC=0.985, pixel_PRO=0.401]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  4.00it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.56it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.29it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.19it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.14it/s]
+Epoch 23: 100%|██████████| 10/10 [00:10<00:00,  0.98it/s, pixel_AUROC=0.985, pixel_PRO=0.405]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  3.98it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.55it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.29it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.19it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.13it/s]
+Epoch 24: 100%|██████████| 10/10 [00:09<00:00,  1.03it/s, pixel_AUROC=0.985, pixel_PRO=0.396]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  3.99it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.58it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.31it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.20it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.14it/s]
+Epoch 25: 100%|██████████| 10/10 [00:10<00:00,  1.00it/s, pixel_AUROC=0.985, pixel_PRO=0.392]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  3.99it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.56it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.29it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.19it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.14it/s]
+Epoch 26: 100%|██████████| 10/10 [00:09<00:00,  1.05it/s, pixel_AUROC=0.985, pixel_PRO=0.412]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.05it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.57it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.29it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.19it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.14it/s]
+Epoch 27: 100%|██████████| 10/10 [00:09<00:00,  1.00it/s, pixel_AUROC=0.985, pixel_PRO=0.391]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.00it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.59it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.31it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.20it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.15it/s]
+Epoch 28: 100%|██████████| 10/10 [00:09<00:00,  1.03it/s, pixel_AUROC=0.985, pixel_PRO=0.392]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  4.00it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.55it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.31it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.20it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.15it/s]
+Epoch 29: 100%|██████████| 10/10 [00:10<00:00,  0.99it/s, pixel_AUROC=0.985, pixel_PRO=0.393]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  3.98it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.58it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.31it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.20it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.15it/s]
+Epoch 29: 100%|██████████| 10/10 [00:19<00:00,  0.52it/s, pixel_AUROC=0.985, pixel_PRO=0.402]
+`Trainer.fit` stopped: `max_epochs=30` reached.
+2024-05-21 12:35:25,787 - INFO - Training took 580.39 seconds
+2024-05-21 12:35:25,787 - INFO - ================== Start testing for dataset: screw ==================
+2024-05-21 12:35:25,788 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 5/5 [00:29<00:00,  0.17it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.8768190145492554     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9853608012199402     │
+│         pixel_PRO         │    0.40239042043685913    │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 12:35:55,740 - INFO - Testing took 29.74217677116394 seconds
+Throughput (batch_size=32) : 5.379565901683614 FPS
+2024-05-21 12:35:55,829 - INFO - ================== Processing dataset: pill ==================
+2024-05-21 12:35:55,829 - INFO - Initializing Cfa model.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-05-21 12:35:56,636 - INFO - ================== Start training for dataset: pill ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 12:35:56,646 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 12:35:56,646 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CfaModel                 | 31.3 M
+1 | loss                  | CfaLoss                  | 0
+2 | _transform            | Compose                  | 0
+3 | normalization_metrics | MinMax                   | 0
+4 | image_threshold       | F1AdaptiveThreshold      | 0
+5 | pixel_threshold       | F1AdaptiveThreshold      | 0
+6 | image_metrics         | AnomalibMetricCollection | 0
+7 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+31.3 M    Trainable params
+0         Non-trainable params
+31.3 M    Total params
+125.169   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Training: |          | 0/? [00:00<?, ?it/s]
+ 11%|█         | 1/9 [00:00<00:06,  1.20it/s]
+ 22%|██▏       | 2/9 [00:01<00:05,  1.20it/s]
+ 33%|███▎      | 3/9 [00:02<00:05,  1.20it/s]
+ 44%|████▍     | 4/9 [00:03<00:04,  1.19it/s]
+ 56%|█████▌    | 5/9 [00:04<00:03,  1.19it/s]
+ 67%|██████▋   | 6/9 [00:05<00:02,  1.19it/s]
+ 78%|███████▊  | 7/9 [00:05<00:01,  1.19it/s]
+ 89%|████████▉ | 8/9 [00:06<00:00,  1.19it/s]
+100%|██████████| 9/9 [00:07<00:00,  1.28it/s]
+Epoch 0: 100%|██████████| 9/9 [00:08<00:00,  1.08it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:01,  4.01it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.48it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.23it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.15it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:04<00:00,  1.11it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.25it/s]
+Epoch 1: 100%|██████████| 9/9 [00:08<00:00,  1.09it/s, pixel_AUROC=0.968, pixel_PRO=0.718]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:01,  4.01it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.50it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.26it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.18it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:04<00:00,  1.12it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.27it/s]
+Epoch 2: 100%|██████████| 9/9 [00:08<00:00,  1.10it/s, pixel_AUROC=0.970, pixel_PRO=0.754]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:01,  4.00it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.54it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.27it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.18it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:04<00:00,  1.12it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.27it/s]
+Epoch 3: 100%|██████████| 9/9 [00:08<00:00,  1.09it/s, pixel_AUROC=0.965, pixel_PRO=0.772]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:01,  4.01it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.49it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.23it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.15it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:04<00:00,  1.10it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.26it/s]
+Epoch 4: 100%|██████████| 9/9 [00:08<00:00,  1.09it/s, pixel_AUROC=0.874, pixel_PRO=0.786]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:01,  4.03it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.50it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.24it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.16it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:04<00:00,  1.10it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.26it/s]
+Epoch 5: 100%|██████████| 9/9 [00:08<00:00,  1.10it/s, pixel_AUROC=0.915, pixel_PRO=0.798]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:01,  4.00it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.51it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.25it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.16it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:04<00:00,  1.11it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.26it/s]
+Epoch 6: 100%|██████████| 9/9 [00:08<00:00,  1.10it/s, pixel_AUROC=0.979, pixel_PRO=0.791]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:01,  3.98it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.50it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.25it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.16it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:04<00:00,  1.12it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.27it/s]
+Epoch 7: 100%|██████████| 9/9 [00:08<00:00,  1.09it/s, pixel_AUROC=0.980, pixel_PRO=0.791]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:01,  4.02it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.51it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.24it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.16it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:04<00:00,  1.11it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.26it/s]
+Epoch 8: 100%|██████████| 9/9 [00:08<00:00,  1.11it/s, pixel_AUROC=0.981, pixel_PRO=0.785]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:01,  3.98it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.50it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.25it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.17it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:04<00:00,  1.10it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.26it/s]
+Epoch 9: 100%|██████████| 9/9 [00:08<00:00,  1.10it/s, pixel_AUROC=0.981, pixel_PRO=0.784]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:01,  3.92it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.50it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.24it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.16it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:04<00:00,  1.11it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.26it/s]
+Epoch 10: 100%|██████████| 9/9 [00:08<00:00,  1.09it/s, pixel_AUROC=0.981, pixel_PRO=0.782]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:01,  4.01it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.51it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.26it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.19it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:04<00:00,  1.13it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.29it/s]
+Epoch 11: 100%|██████████| 9/9 [00:08<00:00,  1.10it/s, pixel_AUROC=0.982, pixel_PRO=0.777]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:01,  3.94it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.51it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.25it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.16it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:04<00:00,  1.11it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.26it/s]
+Epoch 12: 100%|██████████| 9/9 [00:08<00:00,  1.11it/s, pixel_AUROC=0.982, pixel_PRO=0.775]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:01,  4.00it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.52it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.26it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.18it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:04<00:00,  1.13it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.28it/s]
+Epoch 13: 100%|██████████| 9/9 [00:08<00:00,  1.12it/s, pixel_AUROC=0.982, pixel_PRO=0.769]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:01,  3.99it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.50it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.25it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.17it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:04<00:00,  1.12it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.27it/s]
+Epoch 14: 100%|██████████| 9/9 [00:08<00:00,  1.09it/s, pixel_AUROC=0.982, pixel_PRO=0.770]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:01,  3.94it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.49it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.24it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.16it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:04<00:00,  1.10it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.25it/s]
+Epoch 15: 100%|██████████| 9/9 [00:08<00:00,  1.06it/s, pixel_AUROC=0.982, pixel_PRO=0.769]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:01,  4.16it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.50it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.24it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.15it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:04<00:00,  1.10it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.25it/s]
+Epoch 16: 100%|██████████| 9/9 [00:08<00:00,  1.07it/s, pixel_AUROC=0.982, pixel_PRO=0.764]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:01,  4.17it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.51it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.25it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.17it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:04<00:00,  1.12it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.27it/s]
+Epoch 17: 100%|██████████| 9/9 [00:08<00:00,  1.10it/s, pixel_AUROC=0.982, pixel_PRO=0.770]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:01,  4.15it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.53it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.26it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.17it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:04<00:00,  1.12it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.28it/s]
+Epoch 18: 100%|██████████| 9/9 [00:08<00:00,  1.10it/s, pixel_AUROC=0.982, pixel_PRO=0.768]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:01,  4.11it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.52it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.25it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.17it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:04<00:00,  1.11it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.26it/s]
+Epoch 19: 100%|██████████| 9/9 [00:08<00:00,  1.05it/s, pixel_AUROC=0.982, pixel_PRO=0.762]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:01,  3.60it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.42it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.17it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.09it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:04<00:00,  1.06it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.20it/s]
+Epoch 20: 100%|██████████| 9/9 [00:08<00:00,  1.10it/s, pixel_AUROC=0.982, pixel_PRO=0.759]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:01,  3.56it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.48it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.24it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.16it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:04<00:00,  1.11it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.26it/s]
+Epoch 21: 100%|██████████| 9/9 [00:08<00:00,  1.12it/s, pixel_AUROC=0.982, pixel_PRO=0.757]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:01,  4.00it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.52it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.26it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.18it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:04<00:00,  1.12it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.28it/s]
+Epoch 22: 100%|██████████| 9/9 [00:08<00:00,  1.11it/s, pixel_AUROC=0.982, pixel_PRO=0.758]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:01,  4.02it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.50it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.24it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.16it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:04<00:00,  1.11it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.27it/s]
+Epoch 23: 100%|██████████| 9/9 [00:08<00:00,  1.12it/s, pixel_AUROC=0.982, pixel_PRO=0.755]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:01,  4.10it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.50it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.25it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.17it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:04<00:00,  1.12it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.27it/s]
+Epoch 23: 100%|██████████| 9/9 [00:17<00:00,  0.51it/s, pixel_AUROC=0.982, pixel_PRO=0.751]
+2024-05-21 12:43:15,321 - INFO - Training took 438.60 seconds
+2024-05-21 12:43:15,321 - INFO - ================== Start testing for dataset: pill ==================
+2024-05-21 12:43:15,322 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 6/6 [00:31<00:00,  0.19it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9309874773025513     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9820829629898071     │
+│         pixel_PRO         │    0.7514631748199463     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 12:43:47,937 - INFO - Testing took 32.40107750892639 seconds
+Throughput (batch_size=32) : 5.154149578945084 FPS
+2024-05-21 12:43:48,028 - INFO - ================== Processing dataset: capsule ==================
+2024-05-21 12:43:48,028 - INFO - Initializing Cfa model.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-05-21 12:43:48,755 - INFO - ================== Start training for dataset: capsule ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 12:43:48,765 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 12:43:48,765 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CfaModel                 | 31.3 M
+1 | loss                  | CfaLoss                  | 0
+2 | _transform            | Compose                  | 0
+3 | normalization_metrics | MinMax                   | 0
+4 | image_threshold       | F1AdaptiveThreshold      | 0
+5 | pixel_threshold       | F1AdaptiveThreshold      | 0
+6 | image_metrics         | AnomalibMetricCollection | 0
+7 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+31.3 M    Trainable params
+0         Non-trainable params
+31.3 M    Total params
+125.169   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Training: |          | 0/? [00:00<?, ?it/s]
+ 14%|█▍        | 1/7 [00:01<00:07,  1.29s/it]
+ 29%|██▊       | 2/7 [00:02<00:06,  1.29s/it]
+ 43%|████▎     | 3/7 [00:03<00:05,  1.29s/it]
+ 57%|█████▋    | 4/7 [00:05<00:03,  1.28s/it]
+ 71%|███████▏  | 5/7 [00:06<00:02,  1.28s/it]
+ 86%|████████▌ | 6/7 [00:07<00:01,  1.28s/it]
+100%|██████████| 7/7 [00:08<00:00,  1.25s/it]
+Epoch 0: 100%|██████████| 7/7 [00:09<00:00,  0.73it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.06it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.15it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.91it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.82it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.98it/s]
+Epoch 1: 100%|██████████| 7/7 [00:09<00:00,  0.72it/s, pixel_AUROC=0.184, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.07it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.15it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.92it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.83it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.99it/s]
+Epoch 2: 100%|██████████| 7/7 [00:09<00:00,  0.72it/s, pixel_AUROC=0.172, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.05it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.17it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.92it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.83it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  1.00it/s]
+Epoch 3: 100%|██████████| 7/7 [00:09<00:00,  0.71it/s, pixel_AUROC=0.185, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  3.59it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.14it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.92it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.82it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.99it/s]
+Epoch 4: 100%|██████████| 7/7 [00:09<00:00,  0.71it/s, pixel_AUROC=0.168, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.06it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.18it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.93it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.84it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.01it/s]
+Epoch 5: 100%|██████████| 7/7 [00:09<00:00,  0.74it/s, pixel_AUROC=0.151, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.03it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.17it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.93it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.84it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.00it/s]
+Epoch 6: 100%|██████████| 7/7 [00:09<00:00,  0.72it/s, pixel_AUROC=0.148, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.05it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.15it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.92it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.83it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  1.00it/s]
+Epoch 7: 100%|██████████| 7/7 [00:09<00:00,  0.73it/s, pixel_AUROC=0.148, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.05it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.18it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.93it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.84it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.01it/s]
+Epoch 7: 100%|██████████| 7/7 [00:18<00:00,  0.39it/s, pixel_AUROC=0.150, pixel_PRO=1.000]
+2024-05-21 12:46:24,904 - INFO - Training took 156.08 seconds
+2024-05-21 12:46:24,904 - INFO - ================== Start testing for dataset: capsule ==================
+2024-05-21 12:46:24,905 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 5/5 [00:29<00:00,  0.17it/s]
+2024-05-21 12:46:55,978 - INFO - Testing took 30.868369102478027 seconds
+Throughput (batch_size=32) : 4.276222030447452 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.4816513657569885     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.14956170320510864    │
+│         pixel_PRO         │    0.9999983906745911     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 12:46:56,068 - INFO - ================== Processing dataset: carpet ==================
+2024-05-21 12:46:56,068 - INFO - Initializing Cfa model.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-05-21 12:46:56,824 - INFO - ================== Start training for dataset: carpet ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 12:46:56,834 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 12:46:56,835 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CfaModel                 | 31.3 M
+1 | loss                  | CfaLoss                  | 0
+2 | _transform            | Compose                  | 0
+3 | normalization_metrics | MinMax                   | 0
+4 | image_threshold       | F1AdaptiveThreshold      | 0
+5 | pixel_threshold       | F1AdaptiveThreshold      | 0
+6 | image_metrics         | AnomalibMetricCollection | 0
+7 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+31.3 M    Trainable params
+0         Non-trainable params
+31.3 M    Total params
+125.169   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Training: |          | 0/? [00:00<?, ?it/s]
+ 11%|█         | 1/9 [00:01<00:09,  1.24s/it]
+ 22%|██▏       | 2/9 [00:02<00:08,  1.27s/it]
+ 33%|███▎      | 3/9 [00:03<00:07,  1.28s/it]
+ 44%|████▍     | 4/9 [00:05<00:06,  1.28s/it]
+ 56%|█████▌    | 5/9 [00:06<00:05,  1.29s/it]
+ 67%|██████▋   | 6/9 [00:07<00:03,  1.29s/it]
+ 78%|███████▊  | 7/9 [00:08<00:02,  1.28s/it]
+ 89%|████████▉ | 8/9 [00:10<00:01,  1.29s/it]
+100%|██████████| 9/9 [00:11<00:00,  1.25s/it]
+Epoch 0: 100%|██████████| 9/9 [00:12<00:00,  0.75it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.04it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.20it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.94it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:04<00:00,  0.95it/s]
+Epoch 1: 100%|██████████| 9/9 [00:12<00:00,  0.74it/s, pixel_AUROC=0.295, pixel_PRO=0.994]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.08it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.21it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.94it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:04<00:00,  0.95it/s]
+Epoch 2: 100%|██████████| 9/9 [00:12<00:00,  0.75it/s, pixel_AUROC=0.223, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.08it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.19it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.94it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:04<00:00,  0.95it/s]
+Epoch 3: 100%|██████████| 9/9 [00:12<00:00,  0.73it/s, pixel_AUROC=0.211, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.11it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.22it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.94it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:04<00:00,  0.95it/s]
+Epoch 4: 100%|██████████| 9/9 [00:12<00:00,  0.74it/s, pixel_AUROC=0.217, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.09it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.21it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.93it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:04<00:00,  0.95it/s]
+Epoch 5: 100%|██████████| 9/9 [00:12<00:00,  0.75it/s, pixel_AUROC=0.222, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.09it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.20it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.94it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:04<00:00,  0.96it/s]
+Epoch 5: 100%|██████████| 9/9 [00:19<00:00,  0.46it/s, pixel_AUROC=0.223, pixel_PRO=1.000]
+2024-05-21 12:49:06,618 - INFO - Training took 129.73 seconds
+2024-05-21 12:49:06,618 - INFO - ================== Start testing for dataset: carpet ==================
+2024-05-21 12:49:06,620 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 4/4 [00:26<00:00,  0.15it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │            0.5            │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.2226652204990387     │
+│         pixel_PRO         │    0.9999685883522034     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 12:49:34,316 - INFO - Testing took 27.49984312057495 seconds
+Throughput (batch_size=32) : 4.2545697256164505 FPS
+2024-05-21 12:49:34,402 - INFO - ================== Processing dataset: grid ==================
+2024-05-21 12:49:34,402 - INFO - Initializing Cfa model.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-05-21 12:49:35,174 - INFO - ================== Start training for dataset: grid ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 12:49:35,184 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 12:49:35,184 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CfaModel                 | 31.3 M
+1 | loss                  | CfaLoss                  | 0
+2 | _transform            | Compose                  | 0
+3 | normalization_metrics | MinMax                   | 0
+4 | image_threshold       | F1AdaptiveThreshold      | 0
+5 | pixel_threshold       | F1AdaptiveThreshold      | 0
+6 | image_metrics         | AnomalibMetricCollection | 0
+7 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+31.3 M    Trainable params
+0         Non-trainable params
+31.3 M    Total params
+125.169   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Training: |          | 0/? [00:00<?, ?it/s]
+ 11%|█         | 1/9 [00:00<00:06,  1.16it/s]
+ 22%|██▏       | 2/9 [00:01<00:05,  1.18it/s]
+ 33%|███▎      | 3/9 [00:02<00:05,  1.19it/s]
+ 44%|████▍     | 4/9 [00:03<00:04,  1.20it/s]
+ 56%|█████▌    | 5/9 [00:04<00:03,  1.20it/s]
+ 67%|██████▋   | 6/9 [00:05<00:02,  1.17it/s]
+ 78%|███████▊  | 7/9 [00:05<00:01,  1.17it/s]
+ 89%|████████▉ | 8/9 [00:06<00:00,  1.16it/s]
+100%|██████████| 9/9 [00:07<00:00,  1.28it/s]
+Epoch 0: 100%|██████████| 9/9 [00:07<00:00,  1.13it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  3.99it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.64it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.75it/s]
+Epoch 1: 100%|██████████| 9/9 [00:08<00:00,  1.11it/s, pixel_AUROC=0.885, pixel_PRO=0.293]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  3.99it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.68it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.86it/s]
+Epoch 2: 100%|██████████| 9/9 [00:08<00:00,  1.10it/s, pixel_AUROC=0.924, pixel_PRO=0.319]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  3.96it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.61it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.78it/s]
+Epoch 3: 100%|██████████| 9/9 [00:08<00:00,  1.10it/s, pixel_AUROC=0.883, pixel_PRO=0.388]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  3.98it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.63it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.81it/s]
+Epoch 4: 100%|██████████| 9/9 [00:08<00:00,  1.09it/s, pixel_AUROC=0.952, pixel_PRO=0.429]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  3.96it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.58it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.73it/s]
+Epoch 5: 100%|██████████| 9/9 [00:07<00:00,  1.13it/s, pixel_AUROC=0.958, pixel_PRO=0.437]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  3.96it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.68it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.83it/s]
+Epoch 6: 100%|██████████| 9/9 [00:08<00:00,  1.11it/s, pixel_AUROC=0.961, pixel_PRO=0.441]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  3.99it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.61it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.78it/s]
+Epoch 7: 100%|██████████| 9/9 [00:08<00:00,  1.10it/s, pixel_AUROC=0.962, pixel_PRO=0.475]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.05it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.65it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.80it/s]
+Epoch 8: 100%|██████████| 9/9 [00:08<00:00,  1.11it/s, pixel_AUROC=0.964, pixel_PRO=0.464]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.00it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.54it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.73it/s]
+Epoch 9: 100%|██████████| 9/9 [00:07<00:00,  1.13it/s, pixel_AUROC=0.966, pixel_PRO=0.466]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  3.99it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.65it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.81it/s]
+Epoch 10: 100%|██████████| 9/9 [00:07<00:00,  1.13it/s, pixel_AUROC=0.966, pixel_PRO=0.483]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  3.98it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.64it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.80it/s]
+Epoch 11: 100%|██████████| 9/9 [00:08<00:00,  1.10it/s, pixel_AUROC=0.967, pixel_PRO=0.467]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  3.96it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.63it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.80it/s]
+Epoch 12: 100%|██████████| 9/9 [00:08<00:00,  1.10it/s, pixel_AUROC=0.968, pixel_PRO=0.486]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.02it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.57it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.76it/s]
+Epoch 13: 100%|██████████| 9/9 [00:07<00:00,  1.14it/s, pixel_AUROC=0.968, pixel_PRO=0.482]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.02it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.67it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.84it/s]
+Epoch 14: 100%|██████████| 9/9 [00:08<00:00,  1.10it/s, pixel_AUROC=0.969, pixel_PRO=0.487]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  3.96it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.64it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.82it/s]
+Epoch 15: 100%|██████████| 9/9 [00:08<00:00,  1.12it/s, pixel_AUROC=0.969, pixel_PRO=0.458]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  3.99it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.62it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.81it/s]
+Epoch 16: 100%|██████████| 9/9 [00:07<00:00,  1.15it/s, pixel_AUROC=0.970, pixel_PRO=0.467]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.00it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.62it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.79it/s]
+Epoch 17: 100%|██████████| 9/9 [00:08<00:00,  1.10it/s, pixel_AUROC=0.970, pixel_PRO=0.463]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.01it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.57it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.74it/s]
+Epoch 18: 100%|██████████| 9/9 [00:07<00:00,  1.14it/s, pixel_AUROC=0.970, pixel_PRO=0.461]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  3.99it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.62it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.80it/s]
+Epoch 19: 100%|██████████| 9/9 [00:07<00:00,  1.24it/s, pixel_AUROC=0.971, pixel_PRO=0.462]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  3.95it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.72it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.87it/s]
+Epoch 20: 100%|██████████| 9/9 [00:07<00:00,  1.13it/s, pixel_AUROC=0.971, pixel_PRO=0.503]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.00it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.62it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.80it/s]
+Epoch 21: 100%|██████████| 9/9 [00:07<00:00,  1.27it/s, pixel_AUROC=0.972, pixel_PRO=0.481]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.03it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.63it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.80it/s]
+Epoch 22: 100%|██████████| 9/9 [00:08<00:00,  1.10it/s, pixel_AUROC=0.972, pixel_PRO=0.485]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.01it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.63it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.80it/s]
+Epoch 23: 100%|██████████| 9/9 [00:08<00:00,  1.11it/s, pixel_AUROC=0.972, pixel_PRO=0.484]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.02it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.65it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.80it/s]
+Epoch 24: 100%|██████████| 9/9 [00:08<00:00,  1.11it/s, pixel_AUROC=0.972, pixel_PRO=0.478]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.00it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.59it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.77it/s]
+Epoch 25: 100%|██████████| 9/9 [00:08<00:00,  1.12it/s, pixel_AUROC=0.972, pixel_PRO=0.478]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  3.97it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.61it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.77it/s]
+Epoch 26: 100%|██████████| 9/9 [00:07<00:00,  1.16it/s, pixel_AUROC=0.972, pixel_PRO=0.482]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  3.51it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.60it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.78it/s]
+Epoch 27: 100%|██████████| 9/9 [00:08<00:00,  1.10it/s, pixel_AUROC=0.973, pixel_PRO=0.496]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  3.93it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.59it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.77it/s]
+Epoch 28: 100%|██████████| 9/9 [00:07<00:00,  1.16it/s, pixel_AUROC=0.973, pixel_PRO=0.490]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  3.98it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.59it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.76it/s]
+Epoch 29: 100%|██████████| 9/9 [00:07<00:00,  1.16it/s, pixel_AUROC=0.973, pixel_PRO=0.498]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  3.97it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.61it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.78it/s]
+Epoch 29: 100%|██████████| 9/9 [00:12<00:00,  0.72it/s, pixel_AUROC=0.973, pixel_PRO=0.493]
+`Trainer.fit` stopped: `max_epochs=30` reached.
+2024-05-21 12:56:01,993 - INFO - Training took 386.75 seconds
+2024-05-21 12:56:01,994 - INFO - ================== Start testing for dataset: grid ==================
+2024-05-21 12:56:01,995 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 3/3 [00:14<00:00,  0.21it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.8404344320297241     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9730237722396851     │
+│         pixel_PRO         │    0.4927663803100586     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 12:56:17,266 - INFO - Testing took 15.083417654037476 seconds
+Throughput (batch_size=32) : 5.1712418093203985 FPS
+2024-05-21 12:56:17,348 - INFO - ================== Processing dataset: tile ==================
+2024-05-21 12:56:17,348 - INFO - Initializing Cfa model.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-05-21 12:56:18,071 - INFO - ================== Start training for dataset: tile ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 12:56:18,081 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 12:56:18,081 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CfaModel                 | 31.3 M
+1 | loss                  | CfaLoss                  | 0
+2 | _transform            | Compose                  | 0
+3 | normalization_metrics | MinMax                   | 0
+4 | image_threshold       | F1AdaptiveThreshold      | 0
+5 | pixel_threshold       | F1AdaptiveThreshold      | 0
+6 | image_metrics         | AnomalibMetricCollection | 0
+7 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+31.3 M    Trainable params
+0         Non-trainable params
+31.3 M    Total params
+125.169   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Training: |          | 0/? [00:00<?, ?it/s]
+ 12%|█▎        | 1/8 [00:00<00:06,  1.10it/s]
+ 25%|██▌       | 2/8 [00:01<00:05,  1.08it/s]
+ 38%|███▊      | 3/8 [00:02<00:04,  1.09it/s]
+ 50%|█████     | 4/8 [00:03<00:03,  1.10it/s]
+ 62%|██████▎   | 5/8 [00:04<00:02,  1.09it/s]
+ 75%|███████▌  | 6/8 [00:05<00:01,  1.08it/s]
+ 88%|████████▊ | 7/8 [00:06<00:00,  1.09it/s]
+100%|██████████| 8/8 [00:06<00:00,  1.21it/s]
+Epoch 0: 100%|██████████| 8/8 [00:07<00:00,  1.06it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.03it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.50it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:02<00:00,  1.18it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.21it/s]
+Epoch 1: 100%|██████████| 8/8 [00:07<00:00,  1.03it/s, pixel_AUROC=0.328, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.01it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.50it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:02<00:00,  1.19it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.21it/s]
+Epoch 2: 100%|██████████| 8/8 [00:07<00:00,  1.04it/s, pixel_AUROC=0.341, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.05it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.51it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:02<00:00,  1.19it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.21it/s]
+Epoch 3: 100%|██████████| 8/8 [00:07<00:00,  1.07it/s, pixel_AUROC=0.311, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  3.97it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.46it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:02<00:00,  1.18it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.20it/s]
+Epoch 4: 100%|██████████| 8/8 [00:07<00:00,  1.07it/s, pixel_AUROC=0.312, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.01it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.49it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:02<00:00,  1.20it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.22it/s]
+Epoch 5: 100%|██████████| 8/8 [00:07<00:00,  1.07it/s, pixel_AUROC=0.310, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.08it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.50it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:02<00:00,  1.19it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.22it/s]
+Epoch 6: 100%|██████████| 8/8 [00:07<00:00,  1.06it/s, pixel_AUROC=0.313, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.07it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.52it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:02<00:00,  1.21it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.23it/s]
+Epoch 6: 100%|██████████| 8/8 [00:13<00:00,  0.58it/s, pixel_AUROC=0.318, pixel_PRO=1.000]
+2024-05-21 12:58:02,764 - INFO - Training took 104.62 seconds
+2024-05-21 12:58:02,764 - INFO - ================== Start testing for dataset: tile ==================
+2024-05-21 12:58:02,765 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 4/4 [00:23<00:00,  0.17it/s]
+2024-05-21 12:58:27,792 - INFO - Testing took 24.820757627487183 seconds
+Throughput (batch_size=32) : 4.713796482603376 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │           0.375           │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.3182905316352844     │
+│         pixel_PRO         │     0.999919593334198     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 12:58:27,878 - INFO - ================== Processing dataset: wood ==================
+2024-05-21 12:58:27,878 - INFO - Initializing Cfa model.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-05-21 12:58:28,649 - INFO - ================== Start training for dataset: wood ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 12:58:28,659 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 12:58:28,659 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CfaModel                 | 31.3 M
+1 | loss                  | CfaLoss                  | 0
+2 | _transform            | Compose                  | 0
+3 | normalization_metrics | MinMax                   | 0
+4 | image_threshold       | F1AdaptiveThreshold      | 0
+5 | pixel_threshold       | F1AdaptiveThreshold      | 0
+6 | image_metrics         | AnomalibMetricCollection | 0
+7 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+31.3 M    Trainable params
+0         Non-trainable params
+31.3 M    Total params
+125.169   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Training: |          | 0/? [00:00<?, ?it/s]
+ 12%|█▎        | 1/8 [00:01<00:08,  1.28s/it]
+ 25%|██▌       | 2/8 [00:02<00:07,  1.27s/it]
+ 38%|███▊      | 3/8 [00:03<00:06,  1.27s/it]
+ 50%|█████     | 4/8 [00:05<00:05,  1.27s/it]
+ 62%|██████▎   | 5/8 [00:06<00:03,  1.27s/it]
+ 75%|███████▌  | 6/8 [00:07<00:02,  1.27s/it]
+ 88%|████████▊ | 7/8 [00:08<00:01,  1.27s/it]
+100%|██████████| 8/8 [00:09<00:00,  1.23s/it]
+Epoch 0: 100%|██████████| 8/8 [00:10<00:00,  0.75it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.03it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.13it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:02<00:00,  1.19it/s]
+Epoch 1: 100%|██████████| 8/8 [00:10<00:00,  0.74it/s, pixel_AUROC=0.372, pixel_PRO=0.995]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.04it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.14it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:02<00:00,  1.21it/s]
+Epoch 2: 100%|██████████| 8/8 [00:10<00:00,  0.74it/s, pixel_AUROC=0.347, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.05it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.13it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:02<00:00,  1.19it/s]
+Epoch 3: 100%|██████████| 8/8 [00:10<00:00,  0.74it/s, pixel_AUROC=0.342, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.01it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.14it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:02<00:00,  1.21it/s]
+Epoch 4: 100%|██████████| 8/8 [00:10<00:00,  0.73it/s, pixel_AUROC=0.337, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.07it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.13it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:02<00:00,  1.20it/s]
+Epoch 5: 100%|██████████| 8/8 [00:10<00:00,  0.74it/s, pixel_AUROC=0.346, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.03it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.15it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:02<00:00,  1.21it/s]
+Epoch 5: 100%|██████████| 8/8 [00:16<00:00,  0.50it/s, pixel_AUROC=0.351, pixel_PRO=1.000]
+2024-05-21 13:00:15,552 - INFO - Training took 106.84 seconds
+2024-05-21 13:00:15,552 - INFO - ================== Start testing for dataset: wood ==================
+2024-05-21 13:00:15,553 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 3/3 [00:17<00:00,  0.17it/s]
+2024-05-21 13:00:34,291 - INFO - Testing took 18.55595827102661 seconds
+Throughput (batch_size=32) : 4.257392630773 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │           0.625           │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.35066965222358704    │
+│         pixel_PRO         │    0.9999838471412659     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 13:00:34,374 - INFO - ================== Processing dataset: zipper ==================
+2024-05-21 13:00:34,374 - INFO - Initializing Cfa model.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-05-21 13:00:35,122 - INFO - ================== Start training for dataset: zipper ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 13:00:35,132 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 13:00:35,132 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CfaModel                 | 31.3 M
+1 | loss                  | CfaLoss                  | 0
+2 | _transform            | Compose                  | 0
+3 | normalization_metrics | MinMax                   | 0
+4 | image_threshold       | F1AdaptiveThreshold      | 0
+5 | pixel_threshold       | F1AdaptiveThreshold      | 0
+6 | image_metrics         | AnomalibMetricCollection | 0
+7 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+31.3 M    Trainable params
+0         Non-trainable params
+31.3 M    Total params
+125.169   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Training: |          | 0/? [00:00<?, ?it/s]
+ 12%|█▎        | 1/8 [00:00<00:05,  1.17it/s]
+ 25%|██▌       | 2/8 [00:01<00:05,  1.16it/s]
+ 38%|███▊      | 3/8 [00:02<00:04,  1.19it/s]
+ 50%|█████     | 4/8 [00:03<00:03,  1.19it/s]
+ 62%|██████▎   | 5/8 [00:04<00:02,  1.19it/s]
+ 75%|███████▌  | 6/8 [00:05<00:01,  1.19it/s]
+ 88%|████████▊ | 7/8 [00:05<00:00,  1.19it/s]
+100%|██████████| 8/8 [00:06<00:00,  1.27it/s]
+Epoch 0: 100%|██████████| 8/8 [00:07<00:00,  1.08it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.01it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.58it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.39it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.28it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:03<00:00,  1.31it/s]
+Epoch 1: 100%|██████████| 8/8 [00:06<00:00,  1.16it/s, pixel_AUROC=0.282, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.04it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.58it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.31it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.23it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:03<00:00,  1.28it/s]
+Epoch 2: 100%|██████████| 8/8 [00:06<00:00,  1.27it/s, pixel_AUROC=0.261, pixel_PRO=0.996]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.02it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.62it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.33it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.24it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:03<00:00,  1.28it/s]
+Epoch 3: 100%|██████████| 8/8 [00:06<00:00,  1.26it/s, pixel_AUROC=0.268, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  3.97it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.59it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.32it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.24it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:03<00:00,  1.27it/s]
+Epoch 4: 100%|██████████| 8/8 [00:06<00:00,  1.27it/s, pixel_AUROC=0.251, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  4.00it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.60it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.37it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.27it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:03<00:00,  1.31it/s]
+Epoch 5: 100%|██████████| 8/8 [00:05<00:00,  1.35it/s, pixel_AUROC=0.237, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.04it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.63it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.39it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.28it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:03<00:00,  1.31it/s]
+Epoch 5: 100%|██████████| 8/8 [00:13<00:00,  0.61it/s, pixel_AUROC=0.233, pixel_PRO=1.000]
+2024-05-21 13:02:04,512 - INFO - Training took 89.32 seconds
+2024-05-21 13:02:04,512 - INFO - ================== Start testing for dataset: zipper ==================
+2024-05-21 13:02:04,513 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 5/5 [00:28<00:00,  0.17it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.40336135029792786    │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.23301629722118378    │
+│         pixel_PRO         │     0.999979555606842     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 13:02:34,395 - INFO - Testing took 29.66945743560791 seconds
+Throughput (batch_size=32) : 5.089408875363416 FPS
+2024-05-21 13:02:34,483 - INFO - ================== Processing dataset: cable ==================
+2024-05-21 13:02:34,483 - INFO - Initializing Cfa model.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-05-21 13:02:35,212 - INFO - ================== Start training for dataset: cable ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 13:02:35,222 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 13:02:35,223 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CfaModel                 | 31.3 M
+1 | loss                  | CfaLoss                  | 0
+2 | _transform            | Compose                  | 0
+3 | normalization_metrics | MinMax                   | 0
+4 | image_threshold       | F1AdaptiveThreshold      | 0
+5 | pixel_threshold       | F1AdaptiveThreshold      | 0
+6 | image_metrics         | AnomalibMetricCollection | 0
+7 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+31.3 M    Trainable params
+0         Non-trainable params
+31.3 M    Total params
+125.169   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Training: |          | 0/? [00:00<?, ?it/s]
+ 14%|█▍        | 1/7 [00:01<00:08,  1.34s/it]
+ 29%|██▊       | 2/7 [00:02<00:06,  1.35s/it]
+ 43%|████▎     | 3/7 [00:04<00:05,  1.35s/it]
+ 57%|█████▋    | 4/7 [00:05<00:03,  1.31s/it]
+ 71%|███████▏  | 5/7 [00:06<00:02,  1.30s/it]
+ 86%|████████▌ | 6/7 [00:07<00:01,  1.32s/it]
+100%|██████████| 7/7 [00:09<00:00,  1.31s/it]
+Epoch 0: 100%|██████████| 7/7 [00:10<00:00,  0.69it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.05it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.11it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.92it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.84it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.85it/s]
+Epoch 1: 100%|██████████| 7/7 [00:10<00:00,  0.68it/s, pixel_AUROC=0.178, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.00it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.08it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.91it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.84it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.86it/s]
+Epoch 2: 100%|██████████| 7/7 [00:10<00:00,  0.68it/s, pixel_AUROC=0.165, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.04it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.09it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.91it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.83it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.85it/s]
+Epoch 3: 100%|██████████| 7/7 [00:10<00:00,  0.69it/s, pixel_AUROC=0.172, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.02it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.10it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.91it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.83it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.85it/s]
+Epoch 4: 100%|██████████| 7/7 [00:10<00:00,  0.70it/s, pixel_AUROC=0.195, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.03it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.09it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.90it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.82it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.84it/s]
+Epoch 5: 100%|██████████| 7/7 [00:10<00:00,  0.68it/s, pixel_AUROC=0.178, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.03it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.10it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.91it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.84it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.86it/s]
+Epoch 6: 100%|██████████| 7/7 [00:09<00:00,  0.70it/s, pixel_AUROC=0.187, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.01it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.09it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.91it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.83it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.85it/s]
+Epoch 7: 100%|██████████| 7/7 [00:10<00:00,  0.68it/s, pixel_AUROC=0.198, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.04it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.12it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.92it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.84it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.85it/s]
+Epoch 8: 100%|██████████| 7/7 [00:10<00:00,  0.69it/s, pixel_AUROC=0.218, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.04it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.10it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.92it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.84it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.86it/s]
+Epoch 9: 100%|██████████| 7/7 [00:09<00:00,  0.70it/s, pixel_AUROC=0.229, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.01it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.08it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.90it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.82it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.84it/s]
+Epoch 10: 100%|██████████| 7/7 [00:10<00:00,  0.68it/s, pixel_AUROC=0.233, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.01it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.08it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.90it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.82it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.84it/s]
+Epoch 11: 100%|██████████| 7/7 [00:10<00:00,  0.70it/s, pixel_AUROC=0.237, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.02it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.10it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.91it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.83it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.84it/s]
+Epoch 12: 100%|██████████| 7/7 [00:10<00:00,  0.69it/s, pixel_AUROC=0.240, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.05it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.10it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.91it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.83it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.85it/s]
+Epoch 13: 100%|██████████| 7/7 [00:09<00:00,  0.70it/s, pixel_AUROC=0.240, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  4.00it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.11it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.93it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.84it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.86it/s]
+Epoch 14: 100%|██████████| 7/7 [00:10<00:00,  0.69it/s, pixel_AUROC=0.240, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.06it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.09it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.91it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.83it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.85it/s]
+Epoch 15: 100%|██████████| 7/7 [00:10<00:00,  0.69it/s, pixel_AUROC=0.241, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.04it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.10it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.91it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.83it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.85it/s]
+Epoch 16: 100%|██████████| 7/7 [00:10<00:00,  0.69it/s, pixel_AUROC=0.241, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.04it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.10it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.91it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.83it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.85it/s]
+Epoch 17: 100%|██████████| 7/7 [00:10<00:00,  0.68it/s, pixel_AUROC=0.241, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.03it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.09it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.90it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.82it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.84it/s]
+Epoch 18: 100%|██████████| 7/7 [00:10<00:00,  0.69it/s, pixel_AUROC=0.241, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.03it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.10it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.91it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.84it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.86it/s]
+Epoch 19: 100%|██████████| 7/7 [00:10<00:00,  0.69it/s, pixel_AUROC=0.241, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.07it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.09it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.91it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.83it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.85it/s]
+Epoch 20: 100%|██████████| 7/7 [00:10<00:00,  0.68it/s, pixel_AUROC=0.241, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.03it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.08it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.90it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.82it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.84it/s]
+Epoch 21: 100%|██████████| 7/7 [00:10<00:00,  0.68it/s, pixel_AUROC=0.241, pixel_PRO=0.999]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.02it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.09it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.91it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.83it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.84it/s]
+Epoch 22: 100%|██████████| 7/7 [00:10<00:00,  0.68it/s, pixel_AUROC=0.241, pixel_PRO=0.998]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  4.00it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.10it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.91it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.83it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.84it/s]
+Epoch 23: 100%|██████████| 7/7 [00:10<00:00,  0.69it/s, pixel_AUROC=0.241, pixel_PRO=0.998]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.04it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.09it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.91it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.83it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.84it/s]
+Epoch 24: 100%|██████████| 7/7 [00:10<00:00,  0.68it/s, pixel_AUROC=0.242, pixel_PRO=0.998]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.08it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.09it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.91it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.83it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.85it/s]
+Epoch 25: 100%|██████████| 7/7 [00:10<00:00,  0.68it/s, pixel_AUROC=0.242, pixel_PRO=0.998]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.04it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.09it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.91it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.83it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.84it/s]
+Epoch 26: 100%|██████████| 7/7 [00:10<00:00,  0.68it/s, pixel_AUROC=0.243, pixel_PRO=0.998]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.08it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.09it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.91it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.83it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.84it/s]
+Epoch 27: 100%|██████████| 7/7 [00:10<00:00,  0.68it/s, pixel_AUROC=0.243, pixel_PRO=0.998]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.02it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.09it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.90it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.82it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.84it/s]
+Epoch 28: 100%|██████████| 7/7 [00:10<00:00,  0.68it/s, pixel_AUROC=0.244, pixel_PRO=0.997]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:01,  3.97it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.08it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.90it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.82it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.84it/s]
+Epoch 29: 100%|██████████| 7/7 [00:10<00:00,  0.68it/s, pixel_AUROC=0.245, pixel_PRO=0.991]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  4.10it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.08it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:03<00:02,  0.90it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.82it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.83it/s]
+Epoch 29: 100%|██████████| 7/7 [00:20<00:00,  0.34it/s, pixel_AUROC=0.246, pixel_PRO=0.990]
+`Trainer.fit` stopped: `max_epochs=30` reached.
+2024-05-21 13:12:54,357 - INFO - Training took 619.08 seconds
+2024-05-21 13:12:54,357 - INFO - ================== Start testing for dataset: cable ==================
+2024-05-21 13:12:54,359 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 5/5 [00:34<00:00,  0.15it/s]
+2024-05-21 13:13:30,161 - INFO - Testing took 35.59389138221741 seconds
+Throughput (batch_size=32) : 4.214206263351681 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.6195652484893799     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.24634024500846863    │
+│         pixel_PRO         │    0.9900855422019958     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 13:13:30,250 - INFO - ================== Processing dataset: toothbrush ==================
+2024-05-21 13:13:30,250 - INFO - Initializing Cfa model.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-05-21 13:13:30,984 - INFO - ================== Start training for dataset: toothbrush ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 13:13:30,995 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 13:13:30,995 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CfaModel                 | 31.3 M
+1 | loss                  | CfaLoss                  | 0
+2 | _transform            | Compose                  | 0
+3 | normalization_metrics | MinMax                   | 0
+4 | image_threshold       | F1AdaptiveThreshold      | 0
+5 | pixel_threshold       | F1AdaptiveThreshold      | 0
+6 | image_metrics         | AnomalibMetricCollection | 0
+7 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+31.3 M    Trainable params
+0         Non-trainable params
+31.3 M    Total params
+125.169   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Training: |          | 0/? [00:00<?, ?it/s]
+ 50%|█████     | 1/2 [00:01<00:01,  1.25s/it]
+100%|██████████| 2/2 [00:02<00:00,  1.19s/it]
+Epoch 0: 100%|██████████| 2/2 [00:02<00:00,  0.77it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  3.99it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.75it/s]
+Epoch 1: 100%|██████████| 2/2 [00:02<00:00,  0.78it/s, pixel_AUROC=0.909, pixel_PRO=0.386]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  3.97it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.88it/s]
+Epoch 2: 100%|██████████| 2/2 [00:02<00:00,  0.76it/s, pixel_AUROC=0.812, pixel_PRO=0.987]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  3.96it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.92it/s]
+Epoch 3: 100%|██████████| 2/2 [00:02<00:00,  0.78it/s, pixel_AUROC=0.918, pixel_PRO=0.245]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  4.00it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.94it/s]
+Epoch 4: 100%|██████████| 2/2 [00:02<00:00,  0.77it/s, pixel_AUROC=0.949, pixel_PRO=0.345]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  4.02it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.96it/s]
+Epoch 5: 100%|██████████| 2/2 [00:02<00:00,  0.77it/s, pixel_AUROC=0.908, pixel_PRO=0.327]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  4.04it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.93it/s]
+Epoch 6: 100%|██████████| 2/2 [00:02<00:00,  0.77it/s, pixel_AUROC=0.938, pixel_PRO=0.309]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  3.95it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.91it/s]
+Epoch 7: 100%|██████████| 2/2 [00:02<00:00,  0.76it/s, pixel_AUROC=0.875, pixel_PRO=0.323]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  3.99it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.90it/s]
+Epoch 8: 100%|██████████| 2/2 [00:02<00:00,  0.76it/s, pixel_AUROC=0.975, pixel_PRO=0.331]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  3.98it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.94it/s]
+Epoch 9: 100%|██████████| 2/2 [00:02<00:00,  0.76it/s, pixel_AUROC=0.976, pixel_PRO=0.309]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  4.01it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.87it/s]
+Epoch 10: 100%|██████████| 2/2 [00:02<00:00,  0.76it/s, pixel_AUROC=0.973, pixel_PRO=0.307]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  3.57it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.82it/s]
+Epoch 11: 100%|██████████| 2/2 [00:02<00:00,  0.78it/s, pixel_AUROC=0.972, pixel_PRO=0.337]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  4.01it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.91it/s]
+Epoch 12: 100%|██████████| 2/2 [00:02<00:00,  0.77it/s, pixel_AUROC=0.974, pixel_PRO=0.353]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  4.00it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.94it/s]
+Epoch 13: 100%|██████████| 2/2 [00:02<00:00,  0.75it/s, pixel_AUROC=0.981, pixel_PRO=0.335]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  3.97it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.90it/s]
+Epoch 14: 100%|██████████| 2/2 [00:02<00:00,  0.76it/s, pixel_AUROC=0.982, pixel_PRO=0.327]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  3.99it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.92it/s]
+Epoch 15: 100%|██████████| 2/2 [00:02<00:00,  0.79it/s, pixel_AUROC=0.981, pixel_PRO=0.329]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  4.02it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.89it/s]
+Epoch 16: 100%|██████████| 2/2 [00:02<00:00,  0.76it/s, pixel_AUROC=0.982, pixel_PRO=0.373]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  4.02it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.92it/s]
+Epoch 17: 100%|██████████| 2/2 [00:02<00:00,  0.77it/s, pixel_AUROC=0.983, pixel_PRO=0.377]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  3.98it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.91it/s]
+Epoch 18: 100%|██████████| 2/2 [00:02<00:00,  0.75it/s, pixel_AUROC=0.984, pixel_PRO=0.341]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  3.95it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.92it/s]
+Epoch 19: 100%|██████████| 2/2 [00:02<00:00,  0.77it/s, pixel_AUROC=0.984, pixel_PRO=0.336]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  4.01it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.91it/s]
+Epoch 20: 100%|██████████| 2/2 [00:02<00:00,  0.76it/s, pixel_AUROC=0.984, pixel_PRO=0.385]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  3.67it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.82it/s]
+Epoch 21: 100%|██████████| 2/2 [00:02<00:00,  0.76it/s, pixel_AUROC=0.984, pixel_PRO=0.376]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  4.01it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.92it/s]
+Epoch 22: 100%|██████████| 2/2 [00:02<00:00,  0.75it/s, pixel_AUROC=0.985, pixel_PRO=0.327]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  4.02it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.89it/s]
+Epoch 23: 100%|██████████| 2/2 [00:02<00:00,  0.77it/s, pixel_AUROC=0.985, pixel_PRO=0.320]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  4.07it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.91it/s]
+Epoch 24: 100%|██████████| 2/2 [00:02<00:00,  0.76it/s, pixel_AUROC=0.985, pixel_PRO=0.338]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  4.11it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.86it/s]
+Epoch 25: 100%|██████████| 2/2 [00:02<00:00,  0.76it/s, pixel_AUROC=0.985, pixel_PRO=0.329]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  3.98it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.90it/s]
+Epoch 26: 100%|██████████| 2/2 [00:02<00:00,  0.76it/s, pixel_AUROC=0.985, pixel_PRO=0.332]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  4.00it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.90it/s]
+Epoch 27: 100%|██████████| 2/2 [00:02<00:00,  0.77it/s, pixel_AUROC=0.986, pixel_PRO=0.333]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  4.04it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.92it/s]
+Epoch 28: 100%|██████████| 2/2 [00:02<00:00,  0.76it/s, pixel_AUROC=0.986, pixel_PRO=0.328]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  4.01it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.91it/s]
+Epoch 29: 100%|██████████| 2/2 [00:02<00:00,  0.77it/s, pixel_AUROC=0.986, pixel_PRO=0.329]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  4.00it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  2.82it/s]
+Epoch 29: 100%|██████████| 2/2 [00:06<00:00,  0.32it/s, pixel_AUROC=0.986, pixel_PRO=0.330]
+`Trainer.fit` stopped: `max_epochs=30` reached.
+2024-05-21 13:16:33,969 - INFO - Training took 182.93 seconds
+2024-05-21 13:16:33,969 - INFO - ================== Start testing for dataset: toothbrush ==================
+2024-05-21 13:16:33,970 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 2/2 [00:08<00:00,  0.25it/s]
+2024-05-21 13:16:43,412 - INFO - Testing took 9.271526575088501 seconds
+Throughput (batch_size=32) : 4.529998340602188 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9805555939674377     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9857743382453918     │
+│         pixel_PRO         │    0.33041805028915405    │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 13:16:43,492 - INFO - ================== Processing dataset: transistor ==================
+2024-05-21 13:16:43,492 - INFO - Initializing Cfa model.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-05-21 13:16:44,242 - INFO - ================== Start training for dataset: transistor ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 13:16:44,253 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 13:16:44,254 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CfaModel                 | 31.3 M
+1 | loss                  | CfaLoss                  | 0
+2 | _transform            | Compose                  | 0
+3 | normalization_metrics | MinMax                   | 0
+4 | image_threshold       | F1AdaptiveThreshold      | 0
+5 | pixel_threshold       | F1AdaptiveThreshold      | 0
+6 | image_metrics         | AnomalibMetricCollection | 0
+7 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+31.3 M    Trainable params
+0         Non-trainable params
+31.3 M    Total params
+125.169   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Training: |          | 0/? [00:00<?, ?it/s]
+ 14%|█▍        | 1/7 [00:01<00:07,  1.31s/it]
+ 29%|██▊       | 2/7 [00:02<00:06,  1.33s/it]
+ 43%|████▎     | 3/7 [00:03<00:05,  1.33s/it]
+ 57%|█████▋    | 4/7 [00:05<00:04,  1.34s/it]
+ 71%|███████▏  | 5/7 [00:06<00:02,  1.34s/it]
+ 86%|████████▌ | 6/7 [00:08<00:01,  1.34s/it]
+100%|██████████| 7/7 [00:08<00:00,  1.27s/it]
+Epoch 0: 100%|██████████| 7/7 [00:09<00:00,  0.71it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.02it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.11it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.89it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.12it/s]
+Epoch 1: 100%|██████████| 7/7 [00:09<00:00,  0.72it/s, pixel_AUROC=0.275, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.00it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.15it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.93it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.17it/s]
+Epoch 2: 100%|██████████| 7/7 [00:09<00:00,  0.71it/s, pixel_AUROC=0.263, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.00it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.13it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.91it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.15it/s]
+Epoch 3: 100%|██████████| 7/7 [00:09<00:00,  0.71it/s, pixel_AUROC=0.262, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  3.99it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.14it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.91it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.15it/s]
+Epoch 4: 100%|██████████| 7/7 [00:09<00:00,  0.71it/s, pixel_AUROC=0.255, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.02it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.14it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.91it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.15it/s]
+Epoch 5: 100%|██████████| 7/7 [00:09<00:00,  0.72it/s, pixel_AUROC=0.266, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.06it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.17it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.94it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.18it/s]
+Epoch 5: 100%|██████████| 7/7 [00:16<00:00,  0.43it/s, pixel_AUROC=0.261, pixel_PRO=1.000]
+2024-05-21 13:18:31,957 - INFO - Training took 107.65 seconds
+2024-05-21 13:18:31,957 - INFO - ================== Start testing for dataset: transistor ==================
+2024-05-21 13:18:31,958 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 4/4 [00:22<00:00,  0.18it/s]
+2024-05-21 13:18:55,941 - INFO - Testing took 23.791857719421387 seconds
+Throughput (batch_size=32) : 4.203118612228822 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.44999998807907104    │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.2606470584869385     │
+│         pixel_PRO         │    0.9999796152114868     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 13:18:56,028 - INFO - ================== Processing dataset: metal_nut ==================
+2024-05-21 13:18:56,028 - INFO - Initializing Cfa model.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-05-21 13:18:56,816 - INFO - ================== Start training for dataset: metal_nut ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 13:18:56,826 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 13:18:56,827 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CfaModel                 | 31.3 M
+1 | loss                  | CfaLoss                  | 0
+2 | _transform            | Compose                  | 0
+3 | normalization_metrics | MinMax                   | 0
+4 | image_threshold       | F1AdaptiveThreshold      | 0
+5 | pixel_threshold       | F1AdaptiveThreshold      | 0
+6 | image_metrics         | AnomalibMetricCollection | 0
+7 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+31.3 M    Trainable params
+0         Non-trainable params
+31.3 M    Total params
+125.169   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Training: |          | 0/? [00:00<?, ?it/s]
+ 14%|█▍        | 1/7 [00:00<00:03,  1.54it/s]
+ 29%|██▊       | 2/7 [00:01<00:03,  1.54it/s]
+ 43%|████▎     | 3/7 [00:01<00:02,  1.56it/s]
+ 57%|█████▋    | 4/7 [00:02<00:01,  1.56it/s]
+ 71%|███████▏  | 5/7 [00:03<00:01,  1.56it/s]
+ 86%|████████▌ | 6/7 [00:03<00:00,  1.56it/s]
+100%|██████████| 7/7 [00:04<00:00,  1.58it/s]
+Epoch 0: 100%|██████████| 7/7 [00:05<00:00,  1.30it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.00it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.78it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:01<00:00,  1.53it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:02<00:00,  1.59it/s]
+Epoch 1: 100%|██████████| 7/7 [00:05<00:00,  1.32it/s, pixel_AUROC=0.298, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  3.94it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.80it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:01<00:00,  1.55it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:02<00:00,  1.63it/s]
+Epoch 2: 100%|██████████| 7/7 [00:05<00:00,  1.30it/s, pixel_AUROC=0.317, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  3.92it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.84it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:01<00:00,  1.59it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:02<00:00,  1.68it/s]
+Epoch 3: 100%|██████████| 7/7 [00:05<00:00,  1.32it/s, pixel_AUROC=0.339, pixel_PRO=0.991]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.04it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.85it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:01<00:00,  1.59it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:02<00:00,  1.68it/s]
+Epoch 4: 100%|██████████| 7/7 [00:05<00:00,  1.31it/s, pixel_AUROC=0.353, pixel_PRO=0.983]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.03it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.83it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:01<00:00,  1.57it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:02<00:00,  1.65it/s]
+Epoch 5: 100%|██████████| 7/7 [00:05<00:00,  1.30it/s, pixel_AUROC=0.367, pixel_PRO=0.986]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.03it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.83it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:01<00:00,  1.57it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:02<00:00,  1.66it/s]
+Epoch 6: 100%|██████████| 7/7 [00:05<00:00,  1.29it/s, pixel_AUROC=0.369, pixel_PRO=0.985]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.03it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.82it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:01<00:00,  1.57it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:02<00:00,  1.66it/s]
+Epoch 7: 100%|██████████| 7/7 [00:05<00:00,  1.30it/s, pixel_AUROC=0.370, pixel_PRO=0.982]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.02it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.82it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:01<00:00,  1.56it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:02<00:00,  1.64it/s]
+Epoch 8: 100%|██████████| 7/7 [00:05<00:00,  1.29it/s, pixel_AUROC=0.370, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.03it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.82it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:01<00:00,  1.57it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:02<00:00,  1.65it/s]
+Epoch 9: 100%|██████████| 7/7 [00:05<00:00,  1.29it/s, pixel_AUROC=0.367, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.00it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.83it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:01<00:00,  1.56it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:02<00:00,  1.65it/s]
+Epoch 10: 100%|██████████| 7/7 [00:05<00:00,  1.30it/s, pixel_AUROC=0.365, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.05it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.83it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:01<00:00,  1.57it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:02<00:00,  1.65it/s]
+Epoch 11: 100%|██████████| 7/7 [00:05<00:00,  1.30it/s, pixel_AUROC=0.364, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.04it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.81it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:01<00:00,  1.57it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:02<00:00,  1.65it/s]
+Epoch 12: 100%|██████████| 7/7 [00:05<00:00,  1.32it/s, pixel_AUROC=0.362, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.06it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.81it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:01<00:00,  1.57it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:02<00:00,  1.65it/s]
+Epoch 12: 100%|██████████| 7/7 [00:10<00:00,  0.67it/s, pixel_AUROC=0.360, pixel_PRO=1.000]
+2024-05-21 13:21:19,995 - INFO - Training took 143.11 seconds
+2024-05-21 13:21:19,995 - INFO - ================== Start testing for dataset: metal_nut ==================
+2024-05-21 13:21:19,997 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 4/4 [00:21<00:00,  0.19it/s]
+2024-05-21 13:21:41,887 - INFO - Testing took 21.689403772354126 seconds
+Throughput (batch_size=32) : 5.302128228466196 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.3978494703769684     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │     0.359812468290329     │
+│         pixel_PRO         │    0.9999842643737793     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 13:21:41,973 - INFO - ================== Processing dataset: bottle ==================
+2024-05-21 13:21:41,973 - INFO - Initializing Cfa model.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-05-21 13:21:42,756 - INFO - ================== Start training for dataset: bottle ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 13:21:42,766 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 13:21:42,766 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CfaModel                 | 31.3 M
+1 | loss                  | CfaLoss                  | 0
+2 | _transform            | Compose                  | 0
+3 | normalization_metrics | MinMax                   | 0
+4 | image_threshold       | F1AdaptiveThreshold      | 0
+5 | pixel_threshold       | F1AdaptiveThreshold      | 0
+6 | image_metrics         | AnomalibMetricCollection | 0
+7 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+31.3 M    Trainable params
+0         Non-trainable params
+31.3 M    Total params
+125.169   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Training: |          | 0/? [00:00<?, ?it/s]
+ 14%|█▍        | 1/7 [00:00<00:05,  1.19it/s]
+ 29%|██▊       | 2/7 [00:01<00:04,  1.19it/s]
+ 43%|████▎     | 3/7 [00:02<00:03,  1.20it/s]
+ 57%|█████▋    | 4/7 [00:03<00:02,  1.19it/s]
+ 71%|███████▏  | 5/7 [00:04<00:01,  1.18it/s]
+ 86%|████████▌ | 6/7 [00:05<00:00,  1.19it/s]
+100%|██████████| 7/7 [00:05<00:00,  1.27it/s]
+Epoch 0: 100%|██████████| 7/7 [00:06<00:00,  1.11it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.08it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.50it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.56it/s]
+Epoch 1: 100%|██████████| 7/7 [00:06<00:00,  1.12it/s, pixel_AUROC=0.205, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.05it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.48it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.54it/s]
+Epoch 2: 100%|██████████| 7/7 [00:06<00:00,  1.10it/s, pixel_AUROC=0.218, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  3.99it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.48it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.55it/s]
+Epoch 3: 100%|██████████| 7/7 [00:06<00:00,  1.11it/s, pixel_AUROC=0.216, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  3.99it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.49it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.54it/s]
+Epoch 4: 100%|██████████| 7/7 [00:06<00:00,  1.10it/s, pixel_AUROC=0.206, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  3.97it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.47it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.54it/s]
+Epoch 5: 100%|██████████| 7/7 [00:06<00:00,  1.10it/s, pixel_AUROC=0.222, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.04it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.49it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.56it/s]
+Epoch 6: 100%|██████████| 7/7 [00:06<00:00,  1.09it/s, pixel_AUROC=0.227, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.02it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.48it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.54it/s]
+Epoch 7: 100%|██████████| 7/7 [00:06<00:00,  1.10it/s, pixel_AUROC=0.241, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.00it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.47it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.54it/s]
+Epoch 8: 100%|██████████| 7/7 [00:06<00:00,  1.12it/s, pixel_AUROC=0.250, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.01it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.45it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.53it/s]
+Epoch 9: 100%|██████████| 7/7 [00:06<00:00,  1.10it/s, pixel_AUROC=0.252, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.03it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.47it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.54it/s]
+Epoch 10: 100%|██████████| 7/7 [00:06<00:00,  1.11it/s, pixel_AUROC=0.254, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.05it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.48it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.54it/s]
+Epoch 11: 100%|██████████| 7/7 [00:06<00:00,  1.12it/s, pixel_AUROC=0.254, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.04it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.49it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.54it/s]
+Epoch 12: 100%|██████████| 7/7 [00:06<00:00,  1.11it/s, pixel_AUROC=0.252, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.02it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.50it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.57it/s]
+Epoch 13: 100%|██████████| 7/7 [00:06<00:00,  1.09it/s, pixel_AUROC=0.250, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.06it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.46it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.52it/s]
+Epoch 14: 100%|██████████| 7/7 [00:06<00:00,  1.11it/s, pixel_AUROC=0.248, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  4.05it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.49it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.55it/s]
+Epoch 14: 100%|██████████| 7/7 [00:10<00:00,  0.65it/s, pixel_AUROC=0.245, pixel_PRO=1.000]
+2024-05-21 13:24:32,023 - INFO - Training took 169.20 seconds
+2024-05-21 13:24:32,023 - INFO - ================== Start testing for dataset: bottle ==================
+2024-05-21 13:24:32,024 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 3/3 [00:16<00:00,  0.19it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │            0.5            │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.24519801139831543    │
+│         pixel_PRO         │    0.9999704957008362     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 13:24:49,170 - INFO - Testing took 16.962361574172974 seconds
+Throughput (batch_size=32) : 4.89318657882971 FPS
+2024-05-21 13:24:49,253 - INFO - ================== Processing dataset: hazelnut ==================
+2024-05-21 13:24:49,253 - INFO - Initializing Cfa model.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-05-21 13:24:50,271 - INFO - ================== Start training for dataset: hazelnut ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 13:24:50,281 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 13:24:50,281 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CfaModel                 | 31.3 M
+1 | loss                  | CfaLoss                  | 0
+2 | _transform            | Compose                  | 0
+3 | normalization_metrics | MinMax                   | 0
+4 | image_threshold       | F1AdaptiveThreshold      | 0
+5 | pixel_threshold       | F1AdaptiveThreshold      | 0
+6 | image_metrics         | AnomalibMetricCollection | 0
+7 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+31.3 M    Trainable params
+0         Non-trainable params
+31.3 M    Total params
+125.169   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Training: |          | 0/? [00:00<?, ?it/s]
+  8%|▊         | 1/13 [00:01<00:15,  1.31s/it]
+ 15%|█▌        | 2/13 [00:02<00:14,  1.32s/it]
+ 23%|██▎       | 3/13 [00:03<00:13,  1.31s/it]
+ 31%|███       | 4/13 [00:05<00:11,  1.31s/it]
+ 38%|███▊      | 5/13 [00:06<00:10,  1.31s/it]
+ 46%|████▌     | 6/13 [00:07<00:09,  1.31s/it]
+ 54%|█████▍    | 7/13 [00:09<00:07,  1.31s/it]
+ 62%|██████▏   | 8/13 [00:10<00:06,  1.31s/it]
+ 69%|██████▉   | 9/13 [00:11<00:05,  1.30s/it]
+ 77%|███████▋  | 10/13 [00:13<00:03,  1.30s/it]
+ 85%|████████▍ | 11/13 [00:14<00:02,  1.31s/it]
+ 92%|█████████▏| 12/13 [00:15<00:01,  1.30s/it]
+100%|██████████| 13/13 [00:15<00:00,  1.23s/it]
+Epoch 0: 100%|██████████| 13/13 [00:17<00:00,  0.75it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.00it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.16it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.92it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.01it/s]
+Epoch 1: 100%|██████████| 13/13 [00:17<00:00,  0.76it/s, pixel_AUROC=0.132, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.07it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.19it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.95it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.04it/s]
+Epoch 2: 100%|██████████| 13/13 [00:16<00:00,  0.77it/s, pixel_AUROC=0.137, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  3.98it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.19it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.94it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.04it/s]
+Epoch 3: 100%|██████████| 13/13 [00:17<00:00,  0.76it/s, pixel_AUROC=0.146, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.09it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.20it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.95it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.04it/s]
+Epoch 4: 100%|██████████| 13/13 [00:16<00:00,  0.77it/s, pixel_AUROC=0.158, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.00it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.20it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.95it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.04it/s]
+Epoch 5: 100%|██████████| 13/13 [00:16<00:00,  0.76it/s, pixel_AUROC=0.173, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  3.99it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.19it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.94it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.04it/s]
+Epoch 6: 100%|██████████| 13/13 [00:17<00:00,  0.76it/s, pixel_AUROC=0.181, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.05it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.19it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.93it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.03it/s]
+Epoch 7: 100%|██████████| 13/13 [00:17<00:00,  0.76it/s, pixel_AUROC=0.183, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.03it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.20it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.95it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.04it/s]
+Epoch 8: 100%|██████████| 13/13 [00:17<00:00,  0.76it/s, pixel_AUROC=0.182, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.04it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.20it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.95it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.04it/s]
+Epoch 9: 100%|██████████| 13/13 [00:17<00:00,  0.76it/s, pixel_AUROC=0.181, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.07it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.20it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.95it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.05it/s]
+Epoch 10: 100%|██████████| 13/13 [00:17<00:00,  0.75it/s, pixel_AUROC=0.179, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.06it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.18it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.93it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.03it/s]
+Epoch 11: 100%|██████████| 13/13 [00:17<00:00,  0.76it/s, pixel_AUROC=0.177, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.04it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.19it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.94it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.04it/s]
+Epoch 11: 100%|██████████| 13/13 [00:24<00:00,  0.53it/s, pixel_AUROC=0.174, pixel_PRO=1.000]
+2024-05-21 13:30:01,034 - INFO - Training took 310.69 seconds
+2024-05-21 13:30:01,034 - INFO - ================== Start testing for dataset: hazelnut ==================
+2024-05-21 13:30:01,035 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 4/4 [00:24<00:00,  0.17it/s]
+2024-05-21 13:30:26,648 - INFO - Testing took 25.41695475578308 seconds
+Throughput (batch_size=32) : 4.327819798120067 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.6000000238418579     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.17442457377910614    │
+│         pixel_PRO         │    0.9999768137931824     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 13:30:26,735 - INFO - ================== Processing dataset: leather ==================
+2024-05-21 13:30:26,735 - INFO - Initializing Cfa model.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-05-21 13:30:27,503 - INFO - ================== Start training for dataset: leather ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 13:30:27,514 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 13:30:27,514 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CfaModel                 | 31.3 M
+1 | loss                  | CfaLoss                  | 0
+2 | _transform            | Compose                  | 0
+3 | normalization_metrics | MinMax                   | 0
+4 | image_threshold       | F1AdaptiveThreshold      | 0
+5 | pixel_threshold       | F1AdaptiveThreshold      | 0
+6 | image_metrics         | AnomalibMetricCollection | 0
+7 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+31.3 M    Trainable params
+0         Non-trainable params
+31.3 M    Total params
+125.169   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Training: |          | 0/? [00:00<?, ?it/s]
+ 12%|█▎        | 1/8 [00:01<00:07,  1.07s/it]
+ 25%|██▌       | 2/8 [00:02<00:06,  1.08s/it]
+ 38%|███▊      | 3/8 [00:03<00:05,  1.12s/it]
+ 50%|█████     | 4/8 [00:04<00:04,  1.11s/it]
+ 62%|██████▎   | 5/8 [00:05<00:03,  1.10s/it]
+ 75%|███████▌  | 6/8 [00:06<00:02,  1.11s/it]
+ 88%|████████▊ | 7/8 [00:07<00:01,  1.10s/it]
+100%|██████████| 8/8 [00:08<00:00,  1.05s/it]
+Epoch 0: 100%|██████████| 8/8 [00:09<00:00,  0.86it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  3.97it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.14it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.94it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:04<00:00,  0.90it/s]
+Epoch 1: 100%|██████████| 8/8 [00:09<00:00,  0.86it/s, pixel_AUROC=0.301, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.01it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.19it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.98it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:04<00:00,  0.93it/s]
+Epoch 2: 100%|██████████| 8/8 [00:09<00:00,  0.86it/s, pixel_AUROC=0.280, pixel_PRO=0.998]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.01it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.17it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.97it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:04<00:00,  0.92it/s]
+Epoch 3: 100%|██████████| 8/8 [00:09<00:00,  0.86it/s, pixel_AUROC=0.257, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  3.99it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.19it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.98it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:04<00:00,  0.92it/s]
+Epoch 4: 100%|██████████| 8/8 [00:09<00:00,  0.86it/s, pixel_AUROC=0.270, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  3.97it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.17it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.97it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:04<00:00,  0.92it/s]
+Epoch 5: 100%|██████████| 8/8 [00:09<00:00,  0.85it/s, pixel_AUROC=0.287, pixel_PRO=1.000]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  4.05it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.18it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:03<00:01,  0.97it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:04<00:00,  0.92it/s]
+Epoch 5: 100%|██████████| 8/8 [00:17<00:00,  0.46it/s, pixel_AUROC=0.298, pixel_PRO=1.000]
+2024-05-21 13:32:19,093 - INFO - Training took 111.52 seconds
+2024-05-21 13:32:19,093 - INFO - ================== Start testing for dataset: leather ==================
+2024-05-21 13:32:19,094 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 4/4 [00:27<00:00,  0.15it/s]
+2024-05-21 13:32:47,597 - INFO - Testing took 28.3015398979187 seconds
+Throughput (batch_size=32) : 4.381387035732249 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │            0.5            │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.2979118824005127     │
+│         pixel_PRO         │    0.9999249577522278     │
+└───────────────────────────┴───────────────────────────┘
