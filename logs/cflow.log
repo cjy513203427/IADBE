@@ -1,0 +1,1382 @@
+/home/jinyao/anaconda3/envs/IADBE/bin/python /home/jinyao/PycharmProjects/IADBE/train_test_cflow.py
+2024-05-21 15:35:10,435 - INFO - ================== Processing dataset: screw ==================
+2024-05-21 15:35:10,435 - INFO - Initializing Cflow model.
+2024-05-21 15:35:11,625 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+2024-05-21 15:35:11,796 - INFO - CNF coder: 512
+2024-05-21 15:35:11,820 - INFO - CNF coder: 1024
+2024-05-21 15:35:11,901 - INFO - CNF coder: 2048
+2024-05-21 15:35:12,186 - INFO - ================== Start training for dataset: screw ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 15:35:12,277 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 15:35:12,278 - INFO - Found the dataset.
+You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CflowModel               | 236 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+81.6 M    Trainable params
+154 M     Non-trainable params
+236 M     Total params
+946.249   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/2 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 0: 100%|██████████| 2/2 [01:42<00:00,  0.02it/s, train_loss_step=7.56e+4]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.10it/s]
+Epoch 1: 100%|██████████| 2/2 [01:54<00:00,  0.02it/s, train_loss_step=6.4e+4, pixel_AUROC=0.936, pixel_PRO=0.173, train_loss_epoch=3.22e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.11it/s]
+Epoch 2: 100%|██████████| 2/2 [01:48<00:00,  0.02it/s, train_loss_step=5.79e+4, pixel_AUROC=0.957, pixel_PRO=0.264, train_loss_epoch=2.31e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.10it/s]
+Epoch 3: 100%|██████████| 2/2 [01:51<00:00,  0.02it/s, train_loss_step=5.31e+4, pixel_AUROC=0.963, pixel_PRO=0.260, train_loss_epoch=2.02e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.11it/s]
+Epoch 4: 100%|██████████| 2/2 [01:50<00:00,  0.02it/s, train_loss_step=4.99e+4, pixel_AUROC=0.966, pixel_PRO=0.257, train_loss_epoch=1.85e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.11it/s]
+Epoch 5: 100%|██████████| 2/2 [01:53<00:00,  0.02it/s, train_loss_step=4.72e+4, pixel_AUROC=0.970, pixel_PRO=0.263, train_loss_epoch=1.72e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.10it/s]
+Epoch 6: 100%|██████████| 2/2 [01:52<00:00,  0.02it/s, train_loss_step=4.5e+4, pixel_AUROC=0.975, pixel_PRO=0.308, train_loss_epoch=1.62e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.11it/s]
+Epoch 7: 100%|██████████| 2/2 [01:46<00:00,  0.02it/s, train_loss_step=4.36e+4, pixel_AUROC=0.970, pixel_PRO=0.257, train_loss_epoch=1.54e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.10it/s]
+Epoch 8: 100%|██████████| 2/2 [01:54<00:00,  0.02it/s, train_loss_step=6.32e+4, pixel_AUROC=0.976, pixel_PRO=0.300, train_loss_epoch=1.48e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.10it/s]
+Epoch 9: 100%|██████████| 2/2 [01:51<00:00,  0.02it/s, train_loss_step=4.02e+4, pixel_AUROC=0.963, pixel_PRO=0.198, train_loss_epoch=1.48e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.11it/s]
+Epoch 10: 100%|██████████| 2/2 [01:51<00:00,  0.02it/s, train_loss_step=4e+4, pixel_AUROC=0.977, pixel_PRO=0.331, train_loss_epoch=1.37e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.11it/s]
+Epoch 11: 100%|██████████| 2/2 [01:51<00:00,  0.02it/s, train_loss_step=3.91e+4, pixel_AUROC=0.977, pixel_PRO=0.330, train_loss_epoch=1.36e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.11it/s]
+Epoch 12: 100%|██████████| 2/2 [01:52<00:00,  0.02it/s, train_loss_step=3.86e+4, pixel_AUROC=0.977, pixel_PRO=0.308, train_loss_epoch=1.31e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.11it/s]
+Epoch 13: 100%|██████████| 2/2 [01:47<00:00,  0.02it/s, train_loss_step=3.7e+4, pixel_AUROC=0.979, pixel_PRO=0.313, train_loss_epoch=1.3e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.10it/s]
+Epoch 14: 100%|██████████| 2/2 [01:51<00:00,  0.02it/s, train_loss_step=3.76e+4, pixel_AUROC=0.978, pixel_PRO=0.332, train_loss_epoch=1.26e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.11it/s]
+Epoch 14: 100%|██████████| 2/2 [02:10<00:00,  0.02it/s, train_loss_step=3.76e+4, pixel_AUROC=0.974, pixel_PRO=0.264, train_loss_epoch=1.24e+5]
+2024-05-21 16:08:06,681 - INFO - Training took 1974.06 seconds
+2024-05-21 16:08:06,681 - INFO - ================== Start testing for dataset: screw ==================
+2024-05-21 16:08:06,682 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Testing: |          | 0/? [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 1/1 [00:32<00:00,  0.03it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.8157409429550171     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9739660620689392     │
+│         pixel_PRO         │    0.2635064721107483     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 16:08:43,216 - INFO - Testing took 36.15101623535156 seconds
+Throughput (batch_size=256) : 4.425878347606126 FPS
+2024-05-21 16:08:43,620 - INFO - ================== Processing dataset: pill ==================
+2024-05-21 16:08:43,620 - INFO - Initializing Cflow model.
+2024-05-21 16:08:44,775 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+2024-05-21 16:08:44,933 - INFO - CNF coder: 512
+2024-05-21 16:08:44,957 - INFO - CNF coder: 1024
+2024-05-21 16:08:45,025 - INFO - CNF coder: 2048
+2024-05-21 16:08:45,328 - INFO - ================== Start training for dataset: pill ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 16:08:45,338 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 16:08:45,338 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CflowModel               | 236 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+81.6 M    Trainable params
+154 M     Non-trainable params
+236 M     Total params
+946.249   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/2 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 0: 100%|██████████| 2/2 [01:34<00:00,  0.02it/s, train_loss_step=1.26e+4]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.10it/s]
+Epoch 1: 100%|██████████| 2/2 [01:33<00:00,  0.02it/s, train_loss_step=1.08e+4, pixel_AUROC=0.975, pixel_PRO=0.606, train_loss_epoch=3.69e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:10<00:00,  0.10it/s]
+Epoch 2: 100%|██████████| 2/2 [01:33<00:00,  0.02it/s, train_loss_step=9.82e+3, pixel_AUROC=0.975, pixel_PRO=0.664, train_loss_epoch=2.61e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.10it/s]
+Epoch 3: 100%|██████████| 2/2 [01:34<00:00,  0.02it/s, train_loss_step=9.12e+3, pixel_AUROC=0.975, pixel_PRO=0.685, train_loss_epoch=2.3e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.10it/s]
+Epoch 4: 100%|██████████| 2/2 [01:33<00:00,  0.02it/s, train_loss_step=8.44e+3, pixel_AUROC=0.975, pixel_PRO=0.674, train_loss_epoch=2.09e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:10<00:00,  0.10it/s]
+Epoch 5: 100%|██████████| 2/2 [01:34<00:00,  0.02it/s, train_loss_step=8.15e+3, pixel_AUROC=0.976, pixel_PRO=0.698, train_loss_epoch=1.95e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.10it/s]
+Epoch 6: 100%|██████████| 2/2 [01:33<00:00,  0.02it/s, train_loss_step=7.85e+3, pixel_AUROC=0.976, pixel_PRO=0.712, train_loss_epoch=1.84e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:10<00:00,  0.10it/s]
+Epoch 7: 100%|██████████| 2/2 [01:32<00:00,  0.02it/s, train_loss_step=7.42e+3, pixel_AUROC=0.976, pixel_PRO=0.709, train_loss_epoch=1.75e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.10it/s]
+Epoch 7: 100%|██████████| 2/2 [01:52<00:00,  0.02it/s, train_loss_step=7.42e+3, pixel_AUROC=0.975, pixel_PRO=0.719, train_loss_epoch=1.68e+5]
+2024-05-21 16:24:11,143 - INFO - Training took 925.55 seconds
+2024-05-21 16:24:11,143 - INFO - ================== Start testing for dataset: pill ==================
+2024-05-21 16:24:11,145 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 1/1 [00:35<00:00,  0.03it/s]
+2024-05-21 16:24:50,691 - INFO - Testing took 39.14956068992615 seconds
+Throughput (batch_size=256) : 4.265692821502642 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9290779829025269     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9748420119285583     │
+│         pixel_PRO         │    0.7189056277275085     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 16:24:51,071 - INFO - ================== Processing dataset: capsule ==================
+2024-05-21 16:24:51,072 - INFO - Initializing Cflow model.
+2024-05-21 16:24:52,147 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+2024-05-21 16:24:52,304 - INFO - CNF coder: 512
+2024-05-21 16:24:52,327 - INFO - CNF coder: 1024
+2024-05-21 16:24:52,394 - INFO - CNF coder: 2048
+2024-05-21 16:24:52,627 - INFO - ================== Start training for dataset: capsule ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 16:24:52,638 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 16:24:52,638 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CflowModel               | 236 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+81.6 M    Trainable params
+154 M     Non-trainable params
+236 M     Total params
+946.249   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 0: 100%|██████████| 1/1 [01:22<00:00,  0.01it/s, train_loss_step=3.12e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:07<00:00,  0.13it/s]
+Epoch 1: 100%|██████████| 1/1 [01:20<00:00,  0.01it/s, train_loss_step=2.21e+5, pixel_AUROC=0.986, pixel_PRO=0.260, train_loss_epoch=3.12e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:07<00:00,  0.13it/s]
+Epoch 2: 100%|██████████| 1/1 [01:21<00:00,  0.01it/s, train_loss_step=1.93e+5, pixel_AUROC=0.986, pixel_PRO=0.276, train_loss_epoch=2.21e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:07<00:00,  0.13it/s]
+Epoch 3: 100%|██████████| 1/1 [01:20<00:00,  0.01it/s, train_loss_step=1.75e+5, pixel_AUROC=0.987, pixel_PRO=0.316, train_loss_epoch=1.93e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:08<00:00,  0.12it/s]
+Epoch 4: 100%|██████████| 1/1 [01:19<00:00,  0.01it/s, train_loss_step=1.63e+5, pixel_AUROC=0.988, pixel_PRO=0.335, train_loss_epoch=1.75e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:08<00:00,  0.12it/s]
+Epoch 5: 100%|██████████| 1/1 [01:20<00:00,  0.01it/s, train_loss_step=1.54e+5, pixel_AUROC=0.988, pixel_PRO=0.362, train_loss_epoch=1.63e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:07<00:00,  0.13it/s]
+Epoch 6: 100%|██████████| 1/1 [01:20<00:00,  0.01it/s, train_loss_step=1.47e+5, pixel_AUROC=0.989, pixel_PRO=0.387, train_loss_epoch=1.54e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:07<00:00,  0.13it/s]
+Epoch 7: 100%|██████████| 1/1 [01:20<00:00,  0.01it/s, train_loss_step=1.41e+5, pixel_AUROC=0.988, pixel_PRO=0.353, train_loss_epoch=1.47e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:07<00:00,  0.13it/s]
+Epoch 7: 100%|██████████| 1/1 [01:38<00:00,  0.01it/s, train_loss_step=1.41e+5, pixel_AUROC=0.988, pixel_PRO=0.368, train_loss_epoch=1.41e+5]
+2024-05-21 16:38:20,231 - INFO - Training took 807.37 seconds
+2024-05-21 16:38:20,231 - INFO - ================== Start testing for dataset: capsule ==================
+2024-05-21 16:38:20,233 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 1/1 [00:29<00:00,  0.03it/s]
+2024-05-21 16:38:55,389 - INFO - Testing took 34.77970266342163 seconds
+Throughput (batch_size=256) : 3.795317092771656 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9545273780822754     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9884094595909119     │
+│         pixel_PRO         │    0.3684076964855194     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 16:38:55,747 - INFO - ================== Processing dataset: carpet ==================
+2024-05-21 16:38:55,747 - INFO - Initializing Cflow model.
+2024-05-21 16:38:56,818 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+2024-05-21 16:38:56,913 - INFO - CNF coder: 512
+2024-05-21 16:38:56,937 - INFO - CNF coder: 1024
+2024-05-21 16:38:57,004 - INFO - CNF coder: 2048
+2024-05-21 16:38:57,241 - INFO - ================== Start training for dataset: carpet ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 16:38:57,251 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 16:38:57,251 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CflowModel               | 236 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+81.6 M    Trainable params
+154 M     Non-trainable params
+236 M     Total params
+946.249   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/2 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 0: 100%|██████████| 2/2 [01:43<00:00,  0.02it/s, train_loss_step=2.41e+4]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:07<00:00,  0.14it/s]
+Epoch 1: 100%|██████████| 2/2 [01:41<00:00,  0.02it/s, train_loss_step=2.03e+4, pixel_AUROC=0.990, pixel_PRO=0.796, train_loss_epoch=7.62e+6]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:06<00:00,  0.15it/s]
+Epoch 2: 100%|██████████| 2/2 [01:42<00:00,  0.02it/s, train_loss_step=1.82e+4, pixel_AUROC=0.990, pixel_PRO=0.797, train_loss_epoch=2.13e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:06<00:00,  0.15it/s]
+Epoch 3: 100%|██████████| 2/2 [01:43<00:00,  0.02it/s, train_loss_step=1.68e+4, pixel_AUROC=0.990, pixel_PRO=0.819, train_loss_epoch=1.85e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:06<00:00,  0.15it/s]
+Epoch 4: 100%|██████████| 2/2 [01:42<00:00,  0.02it/s, train_loss_step=1.58e+4, pixel_AUROC=0.991, pixel_PRO=0.811, train_loss_epoch=1.69e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:07<00:00,  0.14it/s]
+Epoch 5: 100%|██████████| 2/2 [01:40<00:00,  0.02it/s, train_loss_step=1.51e+4, pixel_AUROC=0.991, pixel_PRO=0.812, train_loss_epoch=1.58e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:07<00:00,  0.14it/s]
+Epoch 6: 100%|██████████| 2/2 [01:42<00:00,  0.02it/s, train_loss_step=1.43e+4, pixel_AUROC=0.990, pixel_PRO=0.808, train_loss_epoch=1.5e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:06<00:00,  0.15it/s]
+Epoch 6: 100%|██████████| 2/2 [01:58<00:00,  0.02it/s, train_loss_step=1.43e+4, pixel_AUROC=0.990, pixel_PRO=0.823, train_loss_epoch=1.45e+5]
+2024-05-21 16:52:57,576 - INFO - Training took 840.11 seconds
+2024-05-21 16:52:57,576 - INFO - ================== Start testing for dataset: carpet ==================
+2024-05-21 16:52:57,578 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 1/1 [00:27<00:00,  0.04it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9727126955986023     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │     0.990361213684082     │
+│         pixel_PRO         │     0.82315993309021      │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 16:53:29,434 - INFO - Testing took 31.483315467834473 seconds
+Throughput (batch_size=256) : 3.7162540939989395 FPS
+2024-05-21 16:53:29,803 - INFO - ================== Processing dataset: grid ==================
+2024-05-21 16:53:29,803 - INFO - Initializing Cflow model.
+2024-05-21 16:53:30,882 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+2024-05-21 16:53:30,979 - INFO - CNF coder: 512
+2024-05-21 16:53:31,011 - INFO - CNF coder: 1024
+2024-05-21 16:53:31,090 - INFO - CNF coder: 2048
+2024-05-21 16:53:31,345 - INFO - ================== Start training for dataset: grid ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 16:53:31,363 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 16:53:31,364 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CflowModel               | 236 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+81.6 M    Trainable params
+154 M     Non-trainable params
+236 M     Total params
+946.249   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/2 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 0: 100%|██████████| 2/2 [01:34<00:00,  0.02it/s, train_loss_step=8.85e+3]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.22it/s]
+Epoch 1: 100%|██████████| 2/2 [01:34<00:00,  0.02it/s, train_loss_step=7.06e+3, pixel_AUROC=0.962, pixel_PRO=0.415, train_loss_epoch=3.66e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.22it/s]
+Epoch 2: 100%|██████████| 2/2 [01:27<00:00,  0.02it/s, train_loss_step=6.34e+3, pixel_AUROC=0.970, pixel_PRO=0.467, train_loss_epoch=2.38e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.21it/s]
+Epoch 3: 100%|██████████| 2/2 [01:33<00:00,  0.02it/s, train_loss_step=5.53e+3, pixel_AUROC=0.967, pixel_PRO=0.479, train_loss_epoch=2.03e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.22it/s]
+Epoch 4: 100%|██████████| 2/2 [01:32<00:00,  0.02it/s, train_loss_step=5.23e+3, pixel_AUROC=0.970, pixel_PRO=0.474, train_loss_epoch=1.82e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.21it/s]
+Epoch 5: 100%|██████████| 2/2 [01:31<00:00,  0.02it/s, train_loss_step=4.89e+3, pixel_AUROC=0.967, pixel_PRO=0.374, train_loss_epoch=1.67e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.21it/s]
+Epoch 6: 100%|██████████| 2/2 [01:33<00:00,  0.02it/s, train_loss_step=4.65e+3, pixel_AUROC=0.971, pixel_PRO=0.453, train_loss_epoch=1.61e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.21it/s]
+Epoch 7: 100%|██████████| 2/2 [01:32<00:00,  0.02it/s, train_loss_step=4.59e+3, pixel_AUROC=0.973, pixel_PRO=0.473, train_loss_epoch=1.5e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.22it/s]
+Epoch 8: 100%|██████████| 2/2 [01:32<00:00,  0.02it/s, train_loss_step=4.21e+3, pixel_AUROC=0.972, pixel_PRO=0.454, train_loss_epoch=1.43e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.22it/s]
+Epoch 9: 100%|██████████| 2/2 [01:32<00:00,  0.02it/s, train_loss_step=4.05e+3, pixel_AUROC=0.974, pixel_PRO=0.447, train_loss_epoch=1.36e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.22it/s]
+Epoch 10: 100%|██████████| 2/2 [01:33<00:00,  0.02it/s, train_loss_step=4.07e+3, pixel_AUROC=0.974, pixel_PRO=0.459, train_loss_epoch=1.34e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.22it/s]
+Epoch 11: 100%|██████████| 2/2 [01:27<00:00,  0.02it/s, train_loss_step=4.18e+3, pixel_AUROC=0.976, pixel_PRO=0.456, train_loss_epoch=1.28e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.22it/s]
+Epoch 12: 100%|██████████| 2/2 [01:33<00:00,  0.02it/s, train_loss_step=4.52e+3, pixel_AUROC=0.974, pixel_PRO=0.425, train_loss_epoch=1.28e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.22it/s]
+Epoch 12: 100%|██████████| 2/2 [01:44<00:00,  0.02it/s, train_loss_step=4.52e+3, pixel_AUROC=0.974, pixel_PRO=0.471, train_loss_epoch=1.62e+5]
+2024-05-21 17:16:04,698 - INFO - Training took 1353.12 seconds
+2024-05-21 17:16:04,698 - INFO - ================== Start testing for dataset: grid ==================
+2024-05-21 17:16:04,699 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 1/1 [00:16<00:00,  0.06it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.8847118616104126     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9738005995750427     │
+│         pixel_PRO         │    0.47105172276496887    │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 17:16:23,086 - INFO - Testing took 18.01401996612549 seconds
+Throughput (batch_size=256) : 4.329960783138651 FPS
+2024-05-21 17:16:23,445 - INFO - ================== Processing dataset: tile ==================
+2024-05-21 17:16:23,445 - INFO - Initializing Cflow model.
+2024-05-21 17:16:24,531 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+2024-05-21 17:16:24,628 - INFO - CNF coder: 512
+2024-05-21 17:16:24,652 - INFO - CNF coder: 1024
+2024-05-21 17:16:24,719 - INFO - CNF coder: 2048
+2024-05-21 17:16:24,956 - INFO - ================== Start training for dataset: tile ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 17:16:24,966 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 17:16:24,966 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CflowModel               | 236 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+81.6 M    Trainable params
+154 M     Non-trainable params
+236 M     Total params
+946.249   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 0: 100%|██████████| 1/1 [01:23<00:00,  0.01it/s, train_loss_step=1.38e+7]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:06<00:00,  0.14it/s]
+Epoch 1: 100%|██████████| 1/1 [01:22<00:00,  0.01it/s, train_loss_step=3.03e+5, pixel_AUROC=0.962, pixel_PRO=0.861, train_loss_epoch=1.38e+7]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:07<00:00,  0.14it/s]
+Epoch 2: 100%|██████████| 1/1 [01:22<00:00,  0.01it/s, train_loss_step=2.48e+5, pixel_AUROC=0.961, pixel_PRO=0.856, train_loss_epoch=3.03e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:06<00:00,  0.14it/s]
+Epoch 2: 100%|██████████| 1/1 [01:37<00:00,  0.01it/s, train_loss_step=2.48e+5, pixel_AUROC=0.961, pixel_PRO=0.863, train_loss_epoch=2.48e+5]
+2024-05-21 17:21:21,945 - INFO - Training took 296.77 seconds
+2024-05-21 17:21:21,945 - INFO - ================== Start testing for dataset: tile ==================
+2024-05-21 17:21:21,947 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 1/1 [00:25<00:00,  0.04it/s]
+2024-05-21 17:21:51,067 - INFO - Testing took 28.743104457855225 seconds
+Throughput (batch_size=256) : 4.070541516193981 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │            1.0            │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9609457850456238     │
+│         pixel_PRO         │    0.8630573153495789     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 17:21:51,439 - INFO - ================== Processing dataset: wood ==================
+2024-05-21 17:21:51,439 - INFO - Initializing Cflow model.
+2024-05-21 17:21:52,524 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+2024-05-21 17:21:52,882 - INFO - CNF coder: 512
+2024-05-21 17:21:52,914 - INFO - CNF coder: 1024
+2024-05-21 17:21:52,992 - INFO - CNF coder: 2048
+2024-05-21 17:21:53,233 - INFO - ================== Start training for dataset: wood ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 17:21:53,243 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 17:21:53,243 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CflowModel               | 236 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+81.6 M    Trainable params
+154 M     Non-trainable params
+236 M     Total params
+946.249   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 0: 100%|██████████| 1/1 [01:28<00:00,  0.01it/s, train_loss_step=3.47e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.22it/s]
+Epoch 1: 100%|██████████| 1/1 [01:31<00:00,  0.01it/s, train_loss_step=2.45e+5, pixel_AUROC=0.948, pixel_PRO=0.759, train_loss_epoch=3.47e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.21it/s]
+Epoch 2: 100%|██████████| 1/1 [01:31<00:00,  0.01it/s, train_loss_step=2.13e+5, pixel_AUROC=0.947, pixel_PRO=0.764, train_loss_epoch=2.45e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.21it/s]
+Epoch 3: 100%|██████████| 1/1 [01:30<00:00,  0.01it/s, train_loss_step=1.92e+5, pixel_AUROC=0.949, pixel_PRO=0.779, train_loss_epoch=2.13e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:05<00:00,  0.19it/s]
+Epoch 4: 100%|██████████| 1/1 [01:28<00:00,  0.01it/s, train_loss_step=1.79e+5, pixel_AUROC=0.950, pixel_PRO=0.790, train_loss_epoch=1.92e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.21it/s]
+Epoch 5: 100%|██████████| 1/1 [01:31<00:00,  0.01it/s, train_loss_step=1.69e+5, pixel_AUROC=0.950, pixel_PRO=0.795, train_loss_epoch=1.79e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.21it/s]
+Epoch 6: 100%|██████████| 1/1 [01:30<00:00,  0.01it/s, train_loss_step=1.61e+5, pixel_AUROC=0.950, pixel_PRO=0.806, train_loss_epoch=1.69e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.21it/s]
+Epoch 7: 100%|██████████| 1/1 [01:29<00:00,  0.01it/s, train_loss_step=1.55e+5, pixel_AUROC=0.951, pixel_PRO=0.825, train_loss_epoch=1.61e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.21it/s]
+Epoch 8: 100%|██████████| 1/1 [01:31<00:00,  0.01it/s, train_loss_step=1.48e+5, pixel_AUROC=0.951, pixel_PRO=0.813, train_loss_epoch=1.55e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.21it/s]
+Epoch 9: 100%|██████████| 1/1 [01:31<00:00,  0.01it/s, train_loss_step=1.44e+5, pixel_AUROC=0.950, pixel_PRO=0.811, train_loss_epoch=1.48e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.22it/s]
+Epoch 9: 100%|██████████| 1/1 [01:43<00:00,  0.01it/s, train_loss_step=1.44e+5, pixel_AUROC=0.950, pixel_PRO=0.818, train_loss_epoch=1.44e+5]
+2024-05-21 17:39:17,176 - INFO - Training took 1043.72 seconds
+2024-05-21 17:39:17,176 - INFO - ================== Start testing for dataset: wood ==================
+2024-05-21 17:39:17,177 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 1/1 [00:18<00:00,  0.05it/s]
+2024-05-21 17:39:38,880 - INFO - Testing took 21.334043741226196 seconds
+Throughput (batch_size=256) : 3.703001688673738 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9938596487045288     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │     0.950242817401886     │
+│         pixel_PRO         │    0.8181723356246948     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 17:39:39,507 - INFO - ================== Processing dataset: zipper ==================
+2024-05-21 17:39:39,507 - INFO - Initializing Cflow model.
+2024-05-21 17:39:40,585 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+2024-05-21 17:39:40,684 - INFO - CNF coder: 512
+2024-05-21 17:39:40,707 - INFO - CNF coder: 1024
+2024-05-21 17:39:40,774 - INFO - CNF coder: 2048
+2024-05-21 17:39:41,019 - INFO - ================== Start training for dataset: zipper ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 17:39:41,029 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 17:39:41,029 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CflowModel               | 236 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+81.6 M    Trainable params
+154 M     Non-trainable params
+236 M     Total params
+946.249   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 0: 100%|██████████| 1/1 [01:23<00:00,  0.01it/s, train_loss_step=2.63e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:08<00:00,  0.11it/s]
+Epoch 1: 100%|██████████| 1/1 [01:24<00:00,  0.01it/s, train_loss_step=1.79e+5, pixel_AUROC=0.952, pixel_PRO=0.457, train_loss_epoch=2.63e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:08<00:00,  0.11it/s]
+Epoch 2: 100%|██████████| 1/1 [01:24<00:00,  0.01it/s, train_loss_step=1.51e+5, pixel_AUROC=0.956, pixel_PRO=0.467, train_loss_epoch=1.79e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:08<00:00,  0.11it/s]
+Epoch 3: 100%|██████████| 1/1 [01:23<00:00,  0.01it/s, train_loss_step=1.34e+5, pixel_AUROC=0.965, pixel_PRO=0.554, train_loss_epoch=1.51e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:08<00:00,  0.11it/s]
+Epoch 4: 100%|██████████| 1/1 [01:25<00:00,  0.01it/s, train_loss_step=1.22e+5, pixel_AUROC=0.966, pixel_PRO=0.544, train_loss_epoch=1.34e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:08<00:00,  0.11it/s]
+Epoch 5: 100%|██████████| 1/1 [01:22<00:00,  0.01it/s, train_loss_step=1.14e+5, pixel_AUROC=0.965, pixel_PRO=0.568, train_loss_epoch=1.22e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:08<00:00,  0.11it/s]
+Epoch 6: 100%|██████████| 1/1 [01:23<00:00,  0.01it/s, train_loss_step=1.07e+5, pixel_AUROC=0.967, pixel_PRO=0.556, train_loss_epoch=1.14e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.11it/s]
+Epoch 7: 100%|██████████| 1/1 [01:24<00:00,  0.01it/s, train_loss_step=1.02e+5, pixel_AUROC=0.970, pixel_PRO=0.608, train_loss_epoch=1.07e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.11it/s]
+Epoch 8: 100%|██████████| 1/1 [01:24<00:00,  0.01it/s, train_loss_step=9.8e+4, pixel_AUROC=0.971, pixel_PRO=0.606, train_loss_epoch=1.02e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.11it/s]
+Epoch 9: 100%|██████████| 1/1 [01:24<00:00,  0.01it/s, train_loss_step=9.33e+4, pixel_AUROC=0.971, pixel_PRO=0.624, train_loss_epoch=9.8e+4]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.11it/s]
+Epoch 10: 100%|██████████| 1/1 [01:24<00:00,  0.01it/s, train_loss_step=9e+4, pixel_AUROC=0.970, pixel_PRO=0.611, train_loss_epoch=9.33e+4]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.11it/s]
+Epoch 11: 100%|██████████| 1/1 [01:26<00:00,  0.01it/s, train_loss_step=8.73e+4, pixel_AUROC=0.973, pixel_PRO=0.630, train_loss_epoch=9e+4]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.11it/s]
+Epoch 12: 100%|██████████| 1/1 [01:25<00:00,  0.01it/s, train_loss_step=8.4e+4, pixel_AUROC=0.973, pixel_PRO=0.636, train_loss_epoch=8.73e+4]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:08<00:00,  0.11it/s]
+Epoch 13: 100%|██████████| 1/1 [01:22<00:00,  0.01it/s, train_loss_step=8.92e+4, pixel_AUROC=0.973, pixel_PRO=0.641, train_loss_epoch=8.4e+4]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.11it/s]
+Epoch 14: 100%|██████████| 1/1 [01:23<00:00,  0.01it/s, train_loss_step=7.99e+4, pixel_AUROC=0.974, pixel_PRO=0.651, train_loss_epoch=8.92e+4]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:08<00:00,  0.11it/s]
+Epoch 15: 100%|██████████| 1/1 [01:23<00:00,  0.01it/s, train_loss_step=7.89e+4, pixel_AUROC=0.974, pixel_PRO=0.669, train_loss_epoch=7.99e+4]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:08<00:00,  0.11it/s]
+Epoch 16: 100%|██████████| 1/1 [01:25<00:00,  0.01it/s, train_loss_step=7.86e+4, pixel_AUROC=0.974, pixel_PRO=0.661, train_loss_epoch=7.89e+4]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.11it/s]
+Epoch 16: 100%|██████████| 1/1 [01:44<00:00,  0.01it/s, train_loss_step=7.86e+4, pixel_AUROC=0.974, pixel_PRO=0.679, train_loss_epoch=7.86e+4]
+2024-05-21 18:09:12,961 - INFO - Training took 1771.72 seconds
+2024-05-21 18:09:12,961 - INFO - ================== Start testing for dataset: zipper ==================
+2024-05-21 18:09:12,962 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 1/1 [00:31<00:00,  0.03it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9763655662536621     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9744809865951538     │
+│         pixel_PRO         │     0.679382860660553     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 18:09:48,118 - INFO - Testing took 34.78553652763367 seconds
+Throughput (batch_size=256) : 4.340884605302708 FPS
+2024-05-21 18:09:48,485 - INFO - ================== Processing dataset: cable ==================
+2024-05-21 18:09:48,485 - INFO - Initializing Cflow model.
+2024-05-21 18:09:49,583 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+2024-05-21 18:09:49,682 - INFO - CNF coder: 512
+2024-05-21 18:09:49,706 - INFO - CNF coder: 1024
+2024-05-21 18:09:49,773 - INFO - CNF coder: 2048
+2024-05-21 18:09:50,007 - INFO - ================== Start training for dataset: cable ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 18:09:50,017 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 18:09:50,017 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CflowModel               | 236 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+81.6 M    Trainable params
+154 M     Non-trainable params
+236 M     Total params
+946.249   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 0: 100%|██████████| 1/1 [01:24<00:00,  0.01it/s, train_loss_step=4.13e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:08<00:00,  0.11it/s]
+Epoch 1: 100%|██████████| 1/1 [01:23<00:00,  0.01it/s, train_loss_step=3.14e+5, pixel_AUROC=0.951, pixel_PRO=0.452, train_loss_epoch=4.13e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:08<00:00,  0.12it/s]
+Epoch 2: 100%|██████████| 1/1 [01:22<00:00,  0.01it/s, train_loss_step=2.81e+5, pixel_AUROC=0.955, pixel_PRO=0.478, train_loss_epoch=3.14e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:08<00:00,  0.11it/s]
+Epoch 3: 100%|██████████| 1/1 [01:22<00:00,  0.01it/s, train_loss_step=2.59e+5, pixel_AUROC=0.958, pixel_PRO=0.487, train_loss_epoch=2.81e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.11it/s]
+Epoch 4: 100%|██████████| 1/1 [01:22<00:00,  0.01it/s, train_loss_step=2.44e+5, pixel_AUROC=0.958, pixel_PRO=0.491, train_loss_epoch=2.59e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:08<00:00,  0.12it/s]
+Epoch 5: 100%|██████████| 1/1 [01:23<00:00,  0.01it/s, train_loss_step=2.33e+5, pixel_AUROC=0.959, pixel_PRO=0.500, train_loss_epoch=2.44e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:08<00:00,  0.11it/s]
+Epoch 6: 100%|██████████| 1/1 [01:22<00:00,  0.01it/s, train_loss_step=2.24e+5, pixel_AUROC=0.960, pixel_PRO=0.504, train_loss_epoch=2.33e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:08<00:00,  0.11it/s]
+Epoch 7: 100%|██████████| 1/1 [01:22<00:00,  0.01it/s, train_loss_step=2.15e+5, pixel_AUROC=0.961, pixel_PRO=0.510, train_loss_epoch=2.24e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:08<00:00,  0.12it/s]
+Epoch 8: 100%|██████████| 1/1 [01:23<00:00,  0.01it/s, train_loss_step=2.08e+5, pixel_AUROC=0.961, pixel_PRO=0.528, train_loss_epoch=2.15e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:08<00:00,  0.11it/s]
+Epoch 9: 100%|██████████| 1/1 [01:22<00:00,  0.01it/s, train_loss_step=2.01e+5, pixel_AUROC=0.961, pixel_PRO=0.526, train_loss_epoch=2.08e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:08<00:00,  0.12it/s]
+Epoch 10: 100%|██████████| 1/1 [01:22<00:00,  0.01it/s, train_loss_step=1.95e+5, pixel_AUROC=0.962, pixel_PRO=0.533, train_loss_epoch=2.01e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:08<00:00,  0.11it/s]
+Epoch 11: 100%|██████████| 1/1 [01:21<00:00,  0.01it/s, train_loss_step=1.9e+5, pixel_AUROC=0.961, pixel_PRO=0.506, train_loss_epoch=1.95e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:08<00:00,  0.11it/s]
+Epoch 11: 100%|██████████| 1/1 [01:41<00:00,  0.01it/s, train_loss_step=1.9e+5, pixel_AUROC=0.961, pixel_PRO=0.539, train_loss_epoch=1.9e+5]
+2024-05-21 18:30:47,914 - INFO - Training took 1257.70 seconds
+2024-05-21 18:30:47,914 - INFO - ================== Start testing for dataset: cable ==================
+2024-05-21 18:30:47,916 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Testing: |          | 0/? [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 1/1 [00:34<00:00,  0.03it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9415292143821716     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │     0.960582435131073     │
+│         pixel_PRO         │    0.5385518670082092     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 18:31:28,680 - INFO - Testing took 40.39831781387329 seconds
+Throughput (batch_size=256) : 3.713025891105003 FPS
+2024-05-21 18:31:29,049 - INFO - ================== Processing dataset: toothbrush ==================
+2024-05-21 18:31:29,049 - INFO - Initializing Cflow model.
+2024-05-21 18:31:30,164 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+2024-05-21 18:31:30,264 - INFO - CNF coder: 512
+2024-05-21 18:31:30,289 - INFO - CNF coder: 1024
+2024-05-21 18:31:30,356 - INFO - CNF coder: 2048
+2024-05-21 18:31:30,616 - INFO - ================== Start training for dataset: toothbrush ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 18:31:30,626 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 18:31:30,626 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CflowModel               | 236 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+81.6 M    Trainable params
+154 M     Non-trainable params
+236 M     Total params
+946.249   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 0: 100%|██████████| 1/1 [00:21<00:00,  0.05it/s, train_loss_step=1.17e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:02<00:00,  0.40it/s]
+Epoch 1: 100%|██████████| 1/1 [00:21<00:00,  0.05it/s, train_loss_step=8.17e+4, pixel_AUROC=0.984, pixel_PRO=0.256, train_loss_epoch=1.17e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:02<00:00,  0.41it/s]
+Epoch 2: 100%|██████████| 1/1 [00:21<00:00,  0.05it/s, train_loss_step=7.21e+4, pixel_AUROC=0.984, pixel_PRO=0.262, train_loss_epoch=8.17e+4]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:02<00:00,  0.41it/s]
+Epoch 2: 100%|██████████| 1/1 [00:29<00:00,  0.03it/s, train_loss_step=7.21e+4, pixel_AUROC=0.983, pixel_PRO=0.323, train_loss_epoch=7.21e+4]
+2024-05-21 18:33:01,411 - INFO - Training took 90.60 seconds
+2024-05-21 18:33:01,411 - INFO - ================== Start testing for dataset: toothbrush ==================
+2024-05-21 18:33:01,412 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 1/1 [00:09<00:00,  0.11it/s]
+2024-05-21 18:33:12,822 - INFO - Testing took 11.112351894378662 seconds
+Throughput (batch_size=256) : 3.779577932664847 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9416666626930237     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9829889535903931     │
+│         pixel_PRO         │    0.3234977722167969     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 18:33:13,170 - INFO - ================== Processing dataset: transistor ==================
+2024-05-21 18:33:13,170 - INFO - Initializing Cflow model.
+2024-05-21 18:33:14,262 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+2024-05-21 18:33:14,363 - INFO - CNF coder: 512
+2024-05-21 18:33:14,387 - INFO - CNF coder: 1024
+2024-05-21 18:33:14,456 - INFO - CNF coder: 2048
+2024-05-21 18:33:14,698 - INFO - ================== Start training for dataset: transistor ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 18:33:14,707 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 18:33:14,708 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CflowModel               | 236 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+81.6 M    Trainable params
+154 M     Non-trainable params
+236 M     Total params
+946.249   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 0: 100%|██████████| 1/1 [01:18<00:00,  0.01it/s, train_loss_step=3.72e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:05<00:00,  0.17it/s]
+Epoch 1: 100%|██████████| 1/1 [01:18<00:00,  0.01it/s, train_loss_step=2.75e+5, pixel_AUROC=0.847, pixel_PRO=0.493, train_loss_epoch=3.72e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:06<00:00,  0.17it/s]
+Epoch 2: 100%|██████████| 1/1 [01:18<00:00,  0.01it/s, train_loss_step=2.43e+5, pixel_AUROC=0.855, pixel_PRO=0.552, train_loss_epoch=2.75e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:05<00:00,  0.17it/s]
+Epoch 3: 100%|██████████| 1/1 [01:18<00:00,  0.01it/s, train_loss_step=2.23e+5, pixel_AUROC=0.859, pixel_PRO=0.572, train_loss_epoch=2.43e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:05<00:00,  0.17it/s]
+Epoch 4: 100%|██████████| 1/1 [01:16<00:00,  0.01it/s, train_loss_step=2.09e+5, pixel_AUROC=0.868, pixel_PRO=0.577, train_loss_epoch=2.23e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:05<00:00,  0.17it/s]
+Epoch 5: 100%|██████████| 1/1 [01:17<00:00,  0.01it/s, train_loss_step=1.98e+5, pixel_AUROC=0.869, pixel_PRO=0.580, train_loss_epoch=2.09e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:05<00:00,  0.17it/s]
+Epoch 6: 100%|██████████| 1/1 [01:18<00:00,  0.01it/s, train_loss_step=1.9e+5, pixel_AUROC=0.871, pixel_PRO=0.580, train_loss_epoch=1.98e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:05<00:00,  0.17it/s]
+Epoch 7: 100%|██████████| 1/1 [01:18<00:00,  0.01it/s, train_loss_step=1.82e+5, pixel_AUROC=0.872, pixel_PRO=0.579, train_loss_epoch=1.9e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:05<00:00,  0.17it/s]
+Epoch 8: 100%|██████████| 1/1 [01:17<00:00,  0.01it/s, train_loss_step=1.75e+5, pixel_AUROC=0.875, pixel_PRO=0.581, train_loss_epoch=1.82e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:05<00:00,  0.17it/s]
+Epoch 9: 100%|██████████| 1/1 [01:18<00:00,  0.01it/s, train_loss_step=1.7e+5, pixel_AUROC=0.880, pixel_PRO=0.581, train_loss_epoch=1.75e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:05<00:00,  0.17it/s]
+Epoch 10: 100%|██████████| 1/1 [01:16<00:00,  0.01it/s, train_loss_step=1.65e+5, pixel_AUROC=0.875, pixel_PRO=0.578, train_loss_epoch=1.7e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:06<00:00,  0.17it/s]
+Epoch 10: 100%|██████████| 1/1 [01:31<00:00,  0.01it/s, train_loss_step=1.65e+5, pixel_AUROC=0.879, pixel_PRO=0.578, train_loss_epoch=1.65e+5]
+2024-05-21 18:50:32,219 - INFO - Training took 1037.32 seconds
+2024-05-21 18:50:32,219 - INFO - ================== Start testing for dataset: transistor ==================
+2024-05-21 18:50:32,220 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 1/1 [00:23<00:00,  0.04it/s]
+2024-05-21 18:50:59,631 - INFO - Testing took 27.04021191596985 seconds
+Throughput (batch_size=256) : 3.6981958688326837 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9487500190734863     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.8789793252944946     │
+│         pixel_PRO         │    0.5783540606498718     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 18:50:59,997 - INFO - ================== Processing dataset: metal_nut ==================
+2024-05-21 18:50:59,997 - INFO - Initializing Cflow model.
+2024-05-21 18:51:01,071 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+2024-05-21 18:51:01,173 - INFO - CNF coder: 512
+2024-05-21 18:51:01,197 - INFO - CNF coder: 1024
+2024-05-21 18:51:01,265 - INFO - CNF coder: 2048
+2024-05-21 18:51:01,498 - INFO - ================== Start training for dataset: metal_nut ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 18:51:01,508 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 18:51:01,509 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CflowModel               | 236 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+81.6 M    Trainable params
+154 M     Non-trainable params
+236 M     Total params
+946.249   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 0: 100%|██████████| 1/1 [01:16<00:00,  0.01it/s, train_loss_step=3.82e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:06<00:00,  0.15it/s]
+Epoch 1: 100%|██████████| 1/1 [01:14<00:00,  0.01it/s, train_loss_step=2.68e+5, pixel_AUROC=0.960, pixel_PRO=0.840, train_loss_epoch=3.82e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:06<00:00,  0.15it/s]
+Epoch 2: 100%|██████████| 1/1 [01:14<00:00,  0.01it/s, train_loss_step=2.36e+5, pixel_AUROC=0.965, pixel_PRO=0.860, train_loss_epoch=2.68e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:06<00:00,  0.14it/s]
+Epoch 3: 100%|██████████| 1/1 [01:16<00:00,  0.01it/s, train_loss_step=2.17e+5, pixel_AUROC=0.966, pixel_PRO=0.878, train_loss_epoch=2.36e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:06<00:00,  0.15it/s]
+Epoch 4: 100%|██████████| 1/1 [01:15<00:00,  0.01it/s, train_loss_step=2.03e+5, pixel_AUROC=0.967, pixel_PRO=0.879, train_loss_epoch=2.17e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:06<00:00,  0.15it/s]
+Epoch 5: 100%|██████████| 1/1 [01:16<00:00,  0.01it/s, train_loss_step=1.92e+5, pixel_AUROC=0.967, pixel_PRO=0.898, train_loss_epoch=2.03e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:06<00:00,  0.15it/s]
+Epoch 6: 100%|██████████| 1/1 [01:16<00:00,  0.01it/s, train_loss_step=1.83e+5, pixel_AUROC=0.967, pixel_PRO=0.898, train_loss_epoch=1.92e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:06<00:00,  0.15it/s]
+Epoch 6: 100%|██████████| 1/1 [01:30<00:00,  0.01it/s, train_loss_step=1.83e+5, pixel_AUROC=0.966, pixel_PRO=0.908, train_loss_epoch=1.83e+5]
+2024-05-21 19:01:41,391 - INFO - Training took 639.69 seconds
+2024-05-21 19:01:41,391 - INFO - ================== Start testing for dataset: metal_nut ==================
+2024-05-21 19:01:41,392 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 1/1 [00:23<00:00,  0.04it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │            1.0            │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9664571285247803     │
+│         pixel_PRO         │    0.9076084494590759     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 19:02:07,489 - INFO - Testing took 25.722748041152954 seconds
+Throughput (batch_size=256) : 4.470750940607721 FPS
+2024-05-21 19:02:07,852 - INFO - ================== Processing dataset: bottle ==================
+2024-05-21 19:02:07,853 - INFO - Initializing Cflow model.
+2024-05-21 19:02:08,932 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+2024-05-21 19:02:09,034 - INFO - CNF coder: 512
+2024-05-21 19:02:09,058 - INFO - CNF coder: 1024
+2024-05-21 19:02:09,125 - INFO - CNF coder: 2048
+2024-05-21 19:02:09,359 - INFO - ================== Start training for dataset: bottle ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 19:02:09,369 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 19:02:09,369 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CflowModel               | 236 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+81.6 M    Trainable params
+154 M     Non-trainable params
+236 M     Total params
+946.249   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 0: 100%|██████████| 1/1 [01:14<00:00,  0.01it/s, train_loss_step=2.52e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.21it/s]
+Epoch 1: 100%|██████████| 1/1 [01:13<00:00,  0.01it/s, train_loss_step=1.63e+5, pixel_AUROC=0.985, pixel_PRO=0.798, train_loss_epoch=2.52e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.20it/s]
+Epoch 2: 100%|██████████| 1/1 [01:12<00:00,  0.01it/s, train_loss_step=1.35e+5, pixel_AUROC=0.985, pixel_PRO=0.803, train_loss_epoch=1.63e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.21it/s]
+Epoch 3: 100%|██████████| 1/1 [01:12<00:00,  0.01it/s, train_loss_step=1.18e+5, pixel_AUROC=0.986, pixel_PRO=0.811, train_loss_epoch=1.35e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.21it/s]
+Epoch 4: 100%|██████████| 1/1 [01:14<00:00,  0.01it/s, train_loss_step=1.1e+5, pixel_AUROC=0.986, pixel_PRO=0.842, train_loss_epoch=1.18e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.20it/s]
+Epoch 5: 100%|██████████| 1/1 [01:13<00:00,  0.01it/s, train_loss_step=9.98e+4, pixel_AUROC=0.986, pixel_PRO=0.839, train_loss_epoch=1.1e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:04<00:00,  0.20it/s]
+Epoch 6: 100%|██████████| 1/1 [01:09<00:00,  0.01it/s, train_loss_step=9.34e+4, pixel_AUROC=0.986, pixel_PRO=0.848, train_loss_epoch=9.98e+4]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:05<00:00,  0.20it/s]
+Epoch 6: 100%|██████████| 1/1 [01:21<00:00,  0.01it/s, train_loss_step=9.34e+4, pixel_AUROC=0.986, pixel_PRO=0.843, train_loss_epoch=9.34e+4]
+2024-05-21 19:12:09,255 - INFO - Training took 599.69 seconds
+2024-05-21 19:12:09,255 - INFO - ================== Start testing for dataset: bottle ==================
+2024-05-21 19:12:09,256 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Testing: |          | 0/? [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 1/1 [00:17<00:00,  0.06it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │            1.0            │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9857576489448547     │
+│         pixel_PRO         │    0.8425770998001099     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 19:12:29,507 - INFO - Testing took 19.878221035003662 seconds
+Throughput (batch_size=256) : 4.175423940293494 FPS
+2024-05-21 19:12:29,865 - INFO - ================== Processing dataset: hazelnut ==================
+2024-05-21 19:12:29,865 - INFO - Initializing Cflow model.
+2024-05-21 19:12:30,947 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+2024-05-21 19:12:31,045 - INFO - CNF coder: 512
+2024-05-21 19:12:31,069 - INFO - CNF coder: 1024
+2024-05-21 19:12:31,137 - INFO - CNF coder: 2048
+2024-05-21 19:12:31,367 - INFO - ================== Start training for dataset: hazelnut ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 19:12:31,378 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 19:12:31,378 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CflowModel               | 236 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+81.6 M    Trainable params
+154 M     Non-trainable params
+236 M     Total params
+946.249   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/2 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 0: 100%|██████████| 2/2 [02:22<00:00,  0.01it/s, train_loss_step=1.62e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:06<00:00,  0.16it/s]
+Epoch 1: 100%|██████████| 2/2 [02:23<00:00,  0.01it/s, train_loss_step=1.38e+5, pixel_AUROC=0.987, pixel_PRO=0.750, train_loss_epoch=5.45e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:06<00:00,  0.16it/s]
+Epoch 2: 100%|██████████| 2/2 [02:22<00:00,  0.01it/s, train_loss_step=1.24e+5, pixel_AUROC=0.988, pixel_PRO=0.786, train_loss_epoch=2.28e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:06<00:00,  0.15it/s]
+Epoch 3: 100%|██████████| 2/2 [02:23<00:00,  0.01it/s, train_loss_step=1.16e+5, pixel_AUROC=0.988, pixel_PRO=0.815, train_loss_epoch=2.03e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:06<00:00,  0.16it/s]
+Epoch 3: 100%|██████████| 2/2 [02:38<00:00,  0.01it/s, train_loss_step=1.16e+5, pixel_AUROC=0.987, pixel_PRO=0.826, train_loss_epoch=1.87e+5]
+2024-05-21 19:23:09,751 - INFO - Training took 638.18 seconds
+2024-05-21 19:23:09,751 - INFO - ================== Start testing for dataset: hazelnut ==================
+2024-05-21 19:23:09,753 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 1/1 [00:24<00:00,  0.04it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9967857599258423     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9872007966041565     │
+│         pixel_PRO         │     0.825572669506073     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-21 19:23:39,135 - INFO - Testing took 28.99601435661316 seconds
+Throughput (batch_size=256) : 3.793624828817625 FPS
+2024-05-21 19:23:39,504 - INFO - ================== Processing dataset: leather ==================
+2024-05-21 19:23:39,504 - INFO - Initializing Cflow model.
+2024-05-21 19:23:40,588 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+2024-05-21 19:23:40,690 - INFO - CNF coder: 512
+2024-05-21 19:23:40,714 - INFO - CNF coder: 1024
+2024-05-21 19:23:40,782 - INFO - CNF coder: 2048
+2024-05-21 19:23:41,022 - INFO - ================== Start training for dataset: leather ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-21 19:23:41,032 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-21 19:23:41,033 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | CflowModel               | 236 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+81.6 M    Trainable params
+154 M     Non-trainable params
+236 M     Total params
+946.249   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/1 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 0: 100%|██████████| 1/1 [01:26<00:00,  0.01it/s, train_loss_step=3.39e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:07<00:00,  0.13it/s]
+Epoch 1: 100%|██████████| 1/1 [01:28<00:00,  0.01it/s, train_loss_step=2.34e+5, pixel_AUROC=0.995, pixel_PRO=0.686, train_loss_epoch=3.39e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:07<00:00,  0.14it/s]
+Epoch 2: 100%|██████████| 1/1 [01:28<00:00,  0.01it/s, train_loss_step=2.05e+5, pixel_AUROC=0.996, pixel_PRO=0.751, train_loss_epoch=2.34e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:07<00:00,  0.14it/s]
+Epoch 3: 100%|██████████| 1/1 [01:26<00:00,  0.01it/s, train_loss_step=1.87e+5, pixel_AUROC=0.995, pixel_PRO=0.773, train_loss_epoch=2.05e+5]
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/1 [00:00<?, ?it/s]
+Validation DataLoader 0: 100%|██████████| 1/1 [00:07<00:00,  0.14it/s]
+Epoch 3: 100%|██████████| 1/1 [01:43<00:00,  0.01it/s, train_loss_step=1.87e+5, pixel_AUROC=0.995, pixel_PRO=0.770, train_loss_epoch=1.87e+5]
+2024-05-21 19:30:43,405 - INFO - Training took 422.15 seconds
+2024-05-21 19:30:43,405 - INFO - ================== Start testing for dataset: leather ==================
+2024-05-21 19:30:43,406 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 1/1 [00:27<00:00,  0.04it/s]
+2024-05-21 19:31:15,804 - INFO - Testing took 32.014527797698975 seconds
+Throughput (batch_size=256) : 3.8732415728122165 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │            1.0            │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9954367876052856     │
+│         pixel_PRO         │    0.7701610326766968     │
+└───────────────────────────┴───────────────────────────┘

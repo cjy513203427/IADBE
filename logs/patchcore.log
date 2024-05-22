@@ -1,0 +1,1358 @@
+/bin/bash /home/jinyao/PycharmProjects/IADBE/train_test_patchcore.sh
+(IADBE) jinyao@jinyao-System-Product-Name:~/PycharmProjects/IADBE$ /bin/bash /home/jinyao/PycharmProjects/IADBE/train_test_patchcore.sh
+Running command: anomalib train --data anomalib.data.MVTec --data.category screw --config ./configs/models/patchcore.yaml
+2024-05-22 11:02:02,536 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[05/22/24 11:02:02] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:129
+2024-05-22 11:02:02,550 - anomalib.models.components.base.anomaly_module - INFO - Initializing Patchcore model.
+                    INFO     Initializing Patchcore model.                                                                                                                                             anomaly_module.py:39
+2024-05-22 11:02:03,726 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+[05/22/24 11:02:03] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)                          helpers.py:247
+2024-05-22 11:02:03,962 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-05-22 11:02:03,964 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Patchcore
+                    INFO     Overriding gradient_clip_val from None with 0 for Patchcore                                                                                                                       engine.py:84
+2024-05-22 11:02:03,965 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Patchcore
+                    INFO     Overriding max_epochs from None with 1 for Patchcore                                                                                                                              engine.py:84
+2024-05-22 11:02:03,965 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Patchcore
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Patchcore                                                                                                                    engine.py:84
+2024-05-22 11:02:04,056 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+[05/22/24 11:02:04] INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-05-22 11:02:04,057 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-05-22 11:02:04,058 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-05-22 11:02:04,058 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-05-22 11:02:04,060 - anomalib.data.image.mvtec - INFO - Found the dataset.
+[05/22/24 11:02:04] INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-05-22 11:02:04,097 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-05-22 11:02:04,273 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+2024-05-22 11:02:04,277 - lightning.pytorch.callbacks.model_summary - INFO -
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PatchcoreModel           | 24.9 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+24.9 M    Trainable params
+0         Non-trainable params
+24.9 M    Total params
+99.450    Total estimated model params size (MB)
+                    INFO                                                                                                                                                                                model_summary.py:90
+                               | Name                  | Type                     | Params
+                             -------------------------------------------------------------------
+                             0 | model                 | PatchcoreModel           | 24.9 M
+                             1 | _transform            | Compose                  | 0
+                             2 | normalization_metrics | MinMax                   | 0
+                             3 | image_threshold       | F1AdaptiveThreshold      | 0
+                             4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+                             5 | image_metrics         | AnomalibMetricCollection | 0
+                             6 | pixel_metrics         | AnomalibMetricCollection | 0
+                             -------------------------------------------------------------------
+                             24.9 M    Trainable params
+                             0         Non-trainable params
+                             24.9 M    Total params
+                             99.450    Total estimated model params size (MB)
+Epoch 0:   0%|                                                                                                                                                                                      | 0/10 [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:02<00:00,  3.42it/s]
+2024-05-22 11:02:07,452 - anomalib.models.image.patchcore.lightning_model - INFO - Aggregating the embedding extracted from the training set.                                                        | 0/? [00:00<?, ?it/s]
+[05/22/24 11:02:07] INFO     Aggregating the embedding extracted from the training set.                                                                                                               lightning_model.py:88
+2024-05-22 11:02:07,458 - anomalib.models.image.patchcore.lightning_model - INFO - Applying core-set subsampling to get the embedding.
+                    INFO     Applying core-set subsampling to get the embedding.                                                                                                                      lightning_model.py:91
+Selecting Coreset Indices. ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:49
+Epoch 0: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:55<00:00,  0.18it/s, pixel_AUROC=0.505, pixel_PRO=0.390]2024-05-22 11:02:59,853 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[05/22/24 11:02:59] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                 rank_zero.py:63
+Epoch 0: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10/10 [00:55<00:00,  0.18it/s, pixel_AUROC=0.505, pixel_PRO=0.390]
+2024-05-22 11:03:00,048 - anomalib.callbacks.timer - INFO - Training took 55.77 seconds
+[05/22/24 11:03:00] INFO     Training took 55.77 seconds                                                                                                                                                        timer.py:59
+2024-05-22 11:03:00,051 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-05-22 11:03:00,180 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[05/22/24 11:03:00] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing DataLoader 0: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:23<00:00,  0.21it/s]2024-05-22 11:03:27,106 - anomalib.callbacks.timer - INFO - Testing took 26.75828194618225 seconds
+Throughput (batch_size=32) : 5.979457138608559 FPS
+[05/22/24 11:03:27] INFO     Testing took 26.75828194618225 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=32) : 5.979457138608559 FPS
+Testing DataLoader 0: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:25<00:00,  0.20it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9811436533927917     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9890618920326233     │
+│         pixel_PRO         │    0.39048439264297485    │
+└───────────────────────────┴───────────────────────────┘
+Running command: anomalib train --data anomalib.data.MVTec --data.category pill --config ./configs/models/patchcore.yaml
+2024-05-22 11:03:32,398 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[05/22/24 11:03:32] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:129
+2024-05-22 11:03:32,411 - anomalib.models.components.base.anomaly_module - INFO - Initializing Patchcore model.
+                    INFO     Initializing Patchcore model.                                                                                                                                             anomaly_module.py:39
+2024-05-22 11:03:33,600 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+[05/22/24 11:03:33] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)                          helpers.py:247
+2024-05-22 11:03:33,782 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-05-22 11:03:33,784 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Patchcore
+                    INFO     Overriding gradient_clip_val from None with 0 for Patchcore                                                                                                                       engine.py:84
+2024-05-22 11:03:33,784 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Patchcore
+                    INFO     Overriding max_epochs from None with 1 for Patchcore                                                                                                                              engine.py:84
+2024-05-22 11:03:33,785 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Patchcore
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Patchcore                                                                                                                    engine.py:84
+2024-05-22 11:03:33,876 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+[05/22/24 11:03:33] INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-05-22 11:03:33,876 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-05-22 11:03:33,877 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-05-22 11:03:33,878 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-05-22 11:03:33,879 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-05-22 11:03:33,917 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-05-22 11:03:34,079 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[05/22/24 11:03:34] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+2024-05-22 11:03:34,084 - lightning.pytorch.callbacks.model_summary - INFO -
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PatchcoreModel           | 24.9 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+24.9 M    Trainable params
+0         Non-trainable params
+24.9 M    Total params
+99.450    Total estimated model params size (MB)
+                    INFO                                                                                                                                                                                model_summary.py:90
+                               | Name                  | Type                     | Params
+                             -------------------------------------------------------------------
+                             0 | model                 | PatchcoreModel           | 24.9 M
+                             1 | _transform            | Compose                  | 0
+                             2 | normalization_metrics | MinMax                   | 0
+                             3 | image_threshold       | F1AdaptiveThreshold      | 0
+                             4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+                             5 | image_metrics         | AnomalibMetricCollection | 0
+                             6 | pixel_metrics         | AnomalibMetricCollection | 0
+                             -------------------------------------------------------------------
+                             24.9 M    Trainable params
+                             0         Non-trainable params
+                             24.9 M    Total params
+                             99.450    Total estimated model params size (MB)
+Epoch 0:   0%|                                                                                                                                                                                       | 0/9 [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 9/9 [00:01<00:00,  4.98it/s]
+2024-05-22 11:03:36,183 - anomalib.models.image.patchcore.lightning_model - INFO - Aggregating the embedding extracted from the training set.                                                        | 0/? [00:00<?, ?it/s]
+[05/22/24 11:03:36] INFO     Aggregating the embedding extracted from the training set.                                                                                                               lightning_model.py:88
+2024-05-22 11:03:36,187 - anomalib.models.image.patchcore.lightning_model - INFO - Applying core-set subsampling to get the embedding.
+                    INFO     Applying core-set subsampling to get the embedding.                                                                                                                      lightning_model.py:91
+Selecting Coreset Indices. ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:34
+Epoch 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 9/9 [00:38<00:00,  0.23it/s, pixel_AUROC=0.508, pixel_PRO=0.740]2024-05-22 11:04:13,486 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[05/22/24 11:04:13] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                 rank_zero.py:63
+Epoch 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 9/9 [00:39<00:00,  0.23it/s, pixel_AUROC=0.508, pixel_PRO=0.740]
+2024-05-22 11:04:13,683 - anomalib.callbacks.timer - INFO - Training took 39.60 seconds
+[05/22/24 11:04:13] INFO     Training took 39.60 seconds                                                                                                                                                        timer.py:59
+2024-05-22 11:04:13,684 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-05-22 11:04:13,782 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing DataLoader 0: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:25<00:00,  0.23it/s]2024-05-22 11:04:42,373 - anomalib.callbacks.timer - INFO - Testing took 28.408028841018677 seconds
+Throughput (batch_size=32) : 5.8786197710017385 FPS
+[05/22/24 11:04:42] INFO     Testing took 28.408028841018677 seconds                                                                                                                                           timer.py:109
+                             Throughput (batch_size=32) : 5.8786197710017385 FPS
+Testing DataLoader 0: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 6/6 [00:27<00:00,  0.22it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9476267695426941     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9767040610313416     │
+│         pixel_PRO         │    0.7399044036865234     │
+└───────────────────────────┴───────────────────────────┘
+Running command: anomalib train --data anomalib.data.MVTec --data.category capsule --config ./configs/models/patchcore.yaml
+2024-05-22 11:04:47,611 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[05/22/24 11:04:47] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:129
+2024-05-22 11:04:47,625 - anomalib.models.components.base.anomaly_module - INFO - Initializing Patchcore model.
+                    INFO     Initializing Patchcore model.                                                                                                                                             anomaly_module.py:39
+2024-05-22 11:04:48,812 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+[05/22/24 11:04:48] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)                          helpers.py:247
+2024-05-22 11:04:48,989 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-05-22 11:04:48,990 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Patchcore
+                    INFO     Overriding gradient_clip_val from None with 0 for Patchcore                                                                                                                       engine.py:84
+2024-05-22 11:04:48,991 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Patchcore
+                    INFO     Overriding max_epochs from None with 1 for Patchcore                                                                                                                              engine.py:84
+2024-05-22 11:04:48,991 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Patchcore
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Patchcore                                                                                                                    engine.py:84
+2024-05-22 11:04:49,083 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+[05/22/24 11:04:49] INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-05-22 11:04:49,084 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-05-22 11:04:49,085 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-05-22 11:04:49,085 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-05-22 11:04:49,087 - anomalib.data.image.mvtec - INFO - Found the dataset.
+[05/22/24 11:04:49] INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-05-22 11:04:49,125 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-05-22 11:04:49,286 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+2024-05-22 11:04:49,290 - lightning.pytorch.callbacks.model_summary - INFO -
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PatchcoreModel           | 24.9 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+24.9 M    Trainable params
+0         Non-trainable params
+24.9 M    Total params
+99.450    Total estimated model params size (MB)
+                    INFO                                                                                                                                                                                model_summary.py:90
+                               | Name                  | Type                     | Params
+                             -------------------------------------------------------------------
+                             0 | model                 | PatchcoreModel           | 24.9 M
+                             1 | _transform            | Compose                  | 0
+                             2 | normalization_metrics | MinMax                   | 0
+                             3 | image_threshold       | F1AdaptiveThreshold      | 0
+                             4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+                             5 | image_metrics         | AnomalibMetricCollection | 0
+                             6 | pixel_metrics         | AnomalibMetricCollection | 0
+                             -------------------------------------------------------------------
+                             24.9 M    Trainable params
+                             0         Non-trainable params
+                             24.9 M    Total params
+                             99.450    Total estimated model params size (MB)
+Epoch 0:   0%|                                                                                                                                                                                       | 0/7 [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:02<00:00,  3.05it/s]
+2024-05-22 11:04:51,854 - anomalib.models.image.patchcore.lightning_model - INFO - Aggregating the embedding extracted from the training set.                                                        | 0/? [00:00<?, ?it/s]
+[05/22/24 11:04:51] INFO     Aggregating the embedding extracted from the training set.                                                                                                               lightning_model.py:88
+2024-05-22 11:04:51,857 - anomalib.models.image.patchcore.lightning_model - INFO - Applying core-set subsampling to get the embedding.
+                    INFO     Applying core-set subsampling to get the embedding.                                                                                                                      lightning_model.py:91
+Selecting Coreset Indices. ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:22
+Epoch 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:27<00:00,  0.26it/s, pixel_AUROC=0.814, pixel_PRO=0.422]2024-05-22 11:05:16,969 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[05/22/24 11:05:16] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                 rank_zero.py:63
+Epoch 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:27<00:00,  0.25it/s, pixel_AUROC=0.814, pixel_PRO=0.422]
+2024-05-22 11:05:17,155 - anomalib.callbacks.timer - INFO - Training took 27.87 seconds
+[05/22/24 11:05:17] INFO     Training took 27.87 seconds                                                                                                                                                        timer.py:59
+2024-05-22 11:05:17,157 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-05-22 11:05:17,222 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[05/22/24 11:05:17] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing DataLoader 0: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:22<00:00,  0.22it/s]2024-05-22 11:05:42,585 - anomalib.callbacks.timer - INFO - Testing took 25.176315546035767 seconds
+Throughput (batch_size=32) : 5.243022941884941 FPS
+[05/22/24 11:05:42] INFO     Testing took 25.176315546035767 seconds                                                                                                                                           timer.py:109
+                             Throughput (batch_size=32) : 5.243022941884941 FPS
+Testing DataLoader 0: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:23<00:00,  0.21it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9784603118896484     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9875538945198059     │
+│         pixel_PRO         │    0.4224931597709656     │
+└───────────────────────────┴───────────────────────────┘
+Running command: anomalib train --data anomalib.data.MVTec --data.category carpet --config ./configs/models/patchcore.yaml
+2024-05-22 11:05:47,836 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[05/22/24 11:05:47] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:129
+2024-05-22 11:05:47,850 - anomalib.models.components.base.anomaly_module - INFO - Initializing Patchcore model.
+                    INFO     Initializing Patchcore model.                                                                                                                                             anomaly_module.py:39
+2024-05-22 11:05:49,040 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+[05/22/24 11:05:49] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)                          helpers.py:247
+2024-05-22 11:05:49,211 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-05-22 11:05:49,213 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Patchcore
+                    INFO     Overriding gradient_clip_val from None with 0 for Patchcore                                                                                                                       engine.py:84
+2024-05-22 11:05:49,214 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Patchcore
+                    INFO     Overriding max_epochs from None with 1 for Patchcore                                                                                                                              engine.py:84
+2024-05-22 11:05:49,214 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Patchcore
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Patchcore                                                                                                                    engine.py:84
+2024-05-22 11:05:49,306 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+[05/22/24 11:05:49] INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-05-22 11:05:49,306 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-05-22 11:05:49,307 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-05-22 11:05:49,308 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-05-22 11:05:49,309 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-05-22 11:05:49,346 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-05-22 11:05:49,506 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+2024-05-22 11:05:49,511 - lightning.pytorch.callbacks.model_summary - INFO -
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PatchcoreModel           | 24.9 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+24.9 M    Trainable params
+0         Non-trainable params
+24.9 M    Total params
+99.450    Total estimated model params size (MB)
+                    INFO                                                                                                                                                                                model_summary.py:90
+                               | Name                  | Type                     | Params
+                             -------------------------------------------------------------------
+                             0 | model                 | PatchcoreModel           | 24.9 M
+                             1 | _transform            | Compose                  | 0
+                             2 | normalization_metrics | MinMax                   | 0
+                             3 | image_threshold       | F1AdaptiveThreshold      | 0
+                             4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+                             5 | image_metrics         | AnomalibMetricCollection | 0
+                             6 | pixel_metrics         | AnomalibMetricCollection | 0
+                             -------------------------------------------------------------------
+                             24.9 M    Trainable params
+                             0         Non-trainable params
+                             24.9 M    Total params
+                             99.450    Total estimated model params size (MB)
+Epoch 0:   0%|                                                                                                                                                                                       | 0/9 [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 9/9 [00:03<00:00,  2.88it/s]
+2024-05-22 11:05:52,925 - anomalib.models.image.patchcore.lightning_model - INFO - Aggregating the embedding extracted from the training set.                                                        | 0/? [00:00<?, ?it/s]
+[05/22/24 11:05:52] INFO     Aggregating the embedding extracted from the training set.                                                                                                               lightning_model.py:88
+2024-05-22 11:05:52,928 - anomalib.models.image.patchcore.lightning_model - INFO - Applying core-set subsampling to get the embedding.
+                    INFO     Applying core-set subsampling to get the embedding.                                                                                                                      lightning_model.py:91
+Selecting Coreset Indices. ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:36
+Epoch 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 9/9 [00:41<00:00,  0.21it/s, pixel_AUROC=0.501, pixel_PRO=0.664]2024-05-22 11:06:31,981 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[05/22/24 11:06:31] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                 rank_zero.py:63
+Epoch 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 9/9 [00:42<00:00,  0.21it/s, pixel_AUROC=0.501, pixel_PRO=0.664]
+2024-05-22 11:06:32,185 - anomalib.callbacks.timer - INFO - Training took 42.68 seconds
+[05/22/24 11:06:32] INFO     Training took 42.68 seconds                                                                                                                                                        timer.py:59
+2024-05-22 11:06:32,188 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-05-22 11:06:32,280 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[05/22/24 11:06:32] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing DataLoader 0: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:20<00:00,  0.20it/s]2024-05-22 11:06:55,827 - anomalib.callbacks.timer - INFO - Testing took 23.35267996788025 seconds
+Throughput (batch_size=32) : 5.010131606347716 FPS
+[05/22/24 11:06:55] INFO     Testing took 23.35267996788025 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=32) : 5.010131606347716 FPS
+Testing DataLoader 0: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:21<00:00,  0.18it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9911717772483826     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9886923432350159     │
+│         pixel_PRO         │    0.6638959050178528     │
+└───────────────────────────┴───────────────────────────┘
+Running command: anomalib train --data anomalib.data.MVTec --data.category grid --config ./configs/models/patchcore.yaml
+2024-05-22 11:07:01,431 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[05/22/24 11:07:01] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:129
+2024-05-22 11:07:01,445 - anomalib.models.components.base.anomaly_module - INFO - Initializing Patchcore model.
+                    INFO     Initializing Patchcore model.                                                                                                                                             anomaly_module.py:39
+2024-05-22 11:07:02,650 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+[05/22/24 11:07:02] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)                          helpers.py:247
+2024-05-22 11:07:02,823 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-05-22 11:07:02,824 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Patchcore
+                    INFO     Overriding gradient_clip_val from None with 0 for Patchcore                                                                                                                       engine.py:84
+2024-05-22 11:07:02,825 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Patchcore
+                    INFO     Overriding max_epochs from None with 1 for Patchcore                                                                                                                              engine.py:84
+2024-05-22 11:07:02,825 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Patchcore
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Patchcore                                                                                                                    engine.py:84
+2024-05-22 11:07:02,919 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+[05/22/24 11:07:02] INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-05-22 11:07:02,920 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-05-22 11:07:02,920 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-05-22 11:07:02,921 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-05-22 11:07:02,922 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-05-22 11:07:02,962 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-05-22 11:07:03,122 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[05/22/24 11:07:03] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+2024-05-22 11:07:03,127 - lightning.pytorch.callbacks.model_summary - INFO -
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PatchcoreModel           | 24.9 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+24.9 M    Trainable params
+0         Non-trainable params
+24.9 M    Total params
+99.450    Total estimated model params size (MB)
+                    INFO                                                                                                                                                                                model_summary.py:90
+                               | Name                  | Type                     | Params
+                             -------------------------------------------------------------------
+                             0 | model                 | PatchcoreModel           | 24.9 M
+                             1 | _transform            | Compose                  | 0
+                             2 | normalization_metrics | MinMax                   | 0
+                             3 | image_threshold       | F1AdaptiveThreshold      | 0
+                             4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+                             5 | image_metrics         | AnomalibMetricCollection | 0
+                             6 | pixel_metrics         | AnomalibMetricCollection | 0
+                             -------------------------------------------------------------------
+                             24.9 M    Trainable params
+                             0         Non-trainable params
+                             24.9 M    Total params
+                             99.450    Total estimated model params size (MB)
+Epoch 0:   0%|                                                                                                                                                                                       | 0/9 [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 9/9 [00:02<00:00,  3.53it/s]
+2024-05-22 11:07:05,962 - anomalib.models.image.patchcore.lightning_model - INFO - Aggregating the embedding extracted from the training set.                                                        | 0/? [00:00<?, ?it/s]
+[05/22/24 11:07:05] INFO     Aggregating the embedding extracted from the training set.                                                                                                               lightning_model.py:88
+2024-05-22 11:07:05,965 - anomalib.models.image.patchcore.lightning_model - INFO - Applying core-set subsampling to get the embedding.
+                    INFO     Applying core-set subsampling to get the embedding.                                                                                                                      lightning_model.py:91
+Selecting Coreset Indices. ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:36
+Epoch 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 9/9 [00:40<00:00,  0.22it/s, pixel_AUROC=0.522, pixel_PRO=0.529]2024-05-22 11:07:44,320 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[05/22/24 11:07:44] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                 rank_zero.py:63
+Epoch 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 9/9 [00:41<00:00,  0.22it/s, pixel_AUROC=0.522, pixel_PRO=0.529]
+2024-05-22 11:07:44,526 - anomalib.callbacks.timer - INFO - Training took 41.40 seconds
+[05/22/24 11:07:44] INFO     Training took 41.40 seconds                                                                                                                                                        timer.py:59
+2024-05-22 11:07:44,528 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-05-22 11:07:44,606 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing DataLoader 0: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:12<00:00,  0.23it/s]2024-05-22 11:07:59,582 - anomalib.callbacks.timer - INFO - Testing took 14.780258178710938 seconds
+Throughput (batch_size=32) : 5.27730970980933 FPS
+[05/22/24 11:07:59] INFO     Testing took 14.780258178710938 seconds                                                                                                                                           timer.py:109
+                             Throughput (batch_size=32) : 5.27730970980933 FPS
+Testing DataLoader 0: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:13<00:00,  0.22it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9807853102684021     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9796218872070312     │
+│         pixel_PRO         │    0.5291730761528015     │
+└───────────────────────────┴───────────────────────────┘
+Running command: anomalib train --data anomalib.data.MVTec --data.category tile --config ./configs/models/patchcore.yaml
+2024-05-22 11:08:05,076 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[05/22/24 11:08:05] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:129
+2024-05-22 11:08:05,089 - anomalib.models.components.base.anomaly_module - INFO - Initializing Patchcore model.
+                    INFO     Initializing Patchcore model.                                                                                                                                             anomaly_module.py:39
+2024-05-22 11:08:06,284 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+[05/22/24 11:08:06] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)                          helpers.py:247
+2024-05-22 11:08:06,457 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-05-22 11:08:06,458 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Patchcore
+                    INFO     Overriding gradient_clip_val from None with 0 for Patchcore                                                                                                                       engine.py:84
+2024-05-22 11:08:06,459 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Patchcore
+                    INFO     Overriding max_epochs from None with 1 for Patchcore                                                                                                                              engine.py:84
+2024-05-22 11:08:06,460 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Patchcore
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Patchcore                                                                                                                    engine.py:84
+2024-05-22 11:08:06,553 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+[05/22/24 11:08:06] INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-05-22 11:08:06,554 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-05-22 11:08:06,555 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-05-22 11:08:06,555 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-05-22 11:08:06,557 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-05-22 11:08:06,594 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-05-22 11:08:06,754 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+2024-05-22 11:08:06,758 - lightning.pytorch.callbacks.model_summary - INFO -
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PatchcoreModel           | 24.9 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+24.9 M    Trainable params
+0         Non-trainable params
+24.9 M    Total params
+99.450    Total estimated model params size (MB)
+                    INFO                                                                                                                                                                                model_summary.py:90
+                               | Name                  | Type                     | Params
+                             -------------------------------------------------------------------
+                             0 | model                 | PatchcoreModel           | 24.9 M
+                             1 | _transform            | Compose                  | 0
+                             2 | normalization_metrics | MinMax                   | 0
+                             3 | image_threshold       | F1AdaptiveThreshold      | 0
+                             4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+                             5 | image_metrics         | AnomalibMetricCollection | 0
+                             6 | pixel_metrics         | AnomalibMetricCollection | 0
+                             -------------------------------------------------------------------
+                             24.9 M    Trainable params
+                             0         Non-trainable params
+                             24.9 M    Total params
+                             99.450    Total estimated model params size (MB)
+Epoch 0:   0%|                                                                                                                                                                                       | 0/8 [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:01<00:00,  4.46it/s]
+2024-05-22 11:08:08,865 - anomalib.models.image.patchcore.lightning_model - INFO - Aggregating the embedding extracted from the training set.                                                        | 0/? [00:00<?, ?it/s]
+[05/22/24 11:08:08] INFO     Aggregating the embedding extracted from the training set.                                                                                                               lightning_model.py:88
+2024-05-22 11:08:08,869 - anomalib.models.image.patchcore.lightning_model - INFO - Applying core-set subsampling to get the embedding.
+                    INFO     Applying core-set subsampling to get the embedding.                                                                                                                      lightning_model.py:91
+Selecting Coreset Indices. ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:25
+Epoch 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:29<00:00,  0.27it/s, pixel_AUROC=0.502, pixel_PRO=0.757]2024-05-22 11:08:37,169 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[05/22/24 11:08:37] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                 rank_zero.py:63
+Epoch 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:30<00:00,  0.26it/s, pixel_AUROC=0.502, pixel_PRO=0.757]
+2024-05-22 11:08:37,358 - anomalib.callbacks.timer - INFO - Training took 30.60 seconds
+[05/22/24 11:08:37] INFO     Training took 30.60 seconds                                                                                                                                                        timer.py:59
+2024-05-22 11:08:37,361 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-05-22 11:08:37,437 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:18<00:00,  0.22it/s]2024-05-22 11:08:58,390 - anomalib.callbacks.timer - INFO - Testing took 20.712311029434204 seconds
+Throughput (batch_size=32) : 5.648814361358887 FPS
+[05/22/24 11:08:58] INFO     Testing took 20.712311029434204 seconds                                                                                                                                                    timer.py:109
+                             Throughput (batch_size=32) : 5.648814361358887 FPS
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:19<00:00,  0.21it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9880951642990112     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9474747776985168     │
+│         pixel_PRO         │    0.7570412158966064     │
+└───────────────────────────┴───────────────────────────┘
+Running command: anomalib train --data anomalib.data.MVTec --data.category wood --config ./configs/models/patchcore.yaml
+2024-05-22 11:09:04,020 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[05/22/24 11:09:04] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                             config.py:129
+2024-05-22 11:09:04,034 - anomalib.models.components.base.anomaly_module - INFO - Initializing Patchcore model.
+                    INFO     Initializing Patchcore model.                                                                                                                                                      anomaly_module.py:39
+2024-05-22 11:09:05,236 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+[05/22/24 11:09:05] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)                                   helpers.py:247
+2024-05-22 11:09:05,407 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                                    __init__.py:43
+2024-05-22 11:09:05,408 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Patchcore
+                    INFO     Overriding gradient_clip_val from None with 0 for Patchcore                                                                                                                                engine.py:84
+2024-05-22 11:09:05,409 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Patchcore
+                    INFO     Overriding max_epochs from None with 1 for Patchcore                                                                                                                                       engine.py:84
+2024-05-22 11:09:05,410 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Patchcore
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Patchcore                                                                                                                             engine.py:84
+2024-05-22 11:09:05,503 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+[05/22/24 11:09:05] INFO     GPU available: True (cuda), used: True                                                                                                                                                  rank_zero.py:63
+2024-05-22 11:09:05,504 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                                rank_zero.py:63
+2024-05-22 11:09:05,505 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                                     rank_zero.py:63
+2024-05-22 11:09:05,506 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                                     rank_zero.py:63
+2024-05-22 11:09:05,507 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                         mvtec.py:412
+2024-05-22 11:09:05,546 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which   rank_zero.py:63
+                             will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-05-22 11:09:05,705 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+2024-05-22 11:09:05,710 - lightning.pytorch.callbacks.model_summary - INFO -
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PatchcoreModel           | 24.9 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+24.9 M    Trainable params
+0         Non-trainable params
+24.9 M    Total params
+99.450    Total estimated model params size (MB)
+                    INFO                                                                                                                                                                                         model_summary.py:90
+                               | Name                  | Type                     | Params
+                             -------------------------------------------------------------------
+                             0 | model                 | PatchcoreModel           | 24.9 M
+                             1 | _transform            | Compose                  | 0
+                             2 | normalization_metrics | MinMax                   | 0
+                             3 | image_threshold       | F1AdaptiveThreshold      | 0
+                             4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+                             5 | image_metrics         | AnomalibMetricCollection | 0
+                             6 | pixel_metrics         | AnomalibMetricCollection | 0
+                             -------------------------------------------------------------------
+                             24.9 M    Trainable params
+                             0         Non-trainable params
+                             24.9 M    Total params
+                             99.450    Total estimated model params size (MB)
+Epoch 0:   0%|                                                                                                                                                                                                | 0/8 [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:02<00:00,  3.01it/s]
+2024-05-22 11:09:08,675 - anomalib.models.image.patchcore.lightning_model - INFO - Aggregating the embedding extracted from the training set.                                                                 | 0/? [00:00<?, ?it/s]
+[05/22/24 11:09:08] INFO     Aggregating the embedding extracted from the training set.                                                                                                                        lightning_model.py:88
+2024-05-22 11:09:08,678 - anomalib.models.image.patchcore.lightning_model - INFO - Applying core-set subsampling to get the embedding.
+                    INFO     Applying core-set subsampling to get the embedding.                                                                                                                               lightning_model.py:91
+Selecting Coreset Indices. ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:29
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:33<00:00,  0.24it/s, pixel_AUROC=0.500, pixel_PRO=0.616]2024-05-22 11:09:39,898 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[05/22/24 11:09:39] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                          rank_zero.py:63
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:34<00:00,  0.24it/s, pixel_AUROC=0.500, pixel_PRO=0.616]
+2024-05-22 11:09:40,102 - anomalib.callbacks.timer - INFO - Training took 34.40 seconds
+[05/22/24 11:09:40] INFO     Training took 34.40 seconds                                                                                                                                                                 timer.py:59
+2024-05-22 11:09:40,104 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                         mvtec.py:412
+2024-05-22 11:09:40,169 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[05/22/24 11:09:40] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:13<00:00,  0.22it/s]2024-05-22 11:09:56,341 - anomalib.callbacks.timer - INFO - Testing took 15.968345403671265 seconds
+Throughput (batch_size=32) : 4.947287774839665 FPS
+[05/22/24 11:09:56] INFO     Testing took 15.968345403671265 seconds                                                                                                                                                    timer.py:109
+                             Throughput (batch_size=32) : 4.947287774839665 FPS
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:14<00:00,  0.21it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9877192974090576     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9293900728225708     │
+│         pixel_PRO         │    0.6164839267730713     │
+└───────────────────────────┴───────────────────────────┘
+Running command: anomalib train --data anomalib.data.MVTec --data.category zipper --config ./configs/models/patchcore.yaml
+2024-05-22 11:10:01,803 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[05/22/24 11:10:01] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                             config.py:129
+2024-05-22 11:10:01,817 - anomalib.models.components.base.anomaly_module - INFO - Initializing Patchcore model.
+                    INFO     Initializing Patchcore model.                                                                                                                                                      anomaly_module.py:39
+2024-05-22 11:10:03,019 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+[05/22/24 11:10:03] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)                                   helpers.py:247
+2024-05-22 11:10:03,189 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                                    __init__.py:43
+2024-05-22 11:10:03,191 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Patchcore
+                    INFO     Overriding gradient_clip_val from None with 0 for Patchcore                                                                                                                                engine.py:84
+2024-05-22 11:10:03,191 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Patchcore
+                    INFO     Overriding max_epochs from None with 1 for Patchcore                                                                                                                                       engine.py:84
+2024-05-22 11:10:03,192 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Patchcore
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Patchcore                                                                                                                             engine.py:84
+2024-05-22 11:10:03,286 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+[05/22/24 11:10:03] INFO     GPU available: True (cuda), used: True                                                                                                                                                  rank_zero.py:63
+2024-05-22 11:10:03,287 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                                rank_zero.py:63
+2024-05-22 11:10:03,287 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                                     rank_zero.py:63
+2024-05-22 11:10:03,288 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                                     rank_zero.py:63
+2024-05-22 11:10:03,289 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                         mvtec.py:412
+2024-05-22 11:10:03,329 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which   rank_zero.py:63
+                             will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-05-22 11:10:03,489 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+2024-05-22 11:10:03,494 - lightning.pytorch.callbacks.model_summary - INFO -
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PatchcoreModel           | 24.9 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+24.9 M    Trainable params
+0         Non-trainable params
+24.9 M    Total params
+99.450    Total estimated model params size (MB)
+                    INFO                                                                                                                                                                                         model_summary.py:90
+                               | Name                  | Type                     | Params
+                             -------------------------------------------------------------------
+                             0 | model                 | PatchcoreModel           | 24.9 M
+                             1 | _transform            | Compose                  | 0
+                             2 | normalization_metrics | MinMax                   | 0
+                             3 | image_threshold       | F1AdaptiveThreshold      | 0
+                             4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+                             5 | image_metrics         | AnomalibMetricCollection | 0
+                             6 | pixel_metrics         | AnomalibMetricCollection | 0
+                             -------------------------------------------------------------------
+                             24.9 M    Trainable params
+                             0         Non-trainable params
+                             24.9 M    Total params
+                             99.450    Total estimated model params size (MB)
+Epoch 0:   0%|                                                                                                                                                                                                | 0/8 [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:02<00:00,  3.59it/s]
+2024-05-22 11:10:06,037 - anomalib.models.image.patchcore.lightning_model - INFO - Aggregating the embedding extracted from the training set.                                                                 | 0/? [00:00<?, ?it/s]
+[05/22/24 11:10:06] INFO     Aggregating the embedding extracted from the training set.                                                                                                                        lightning_model.py:88
+2024-05-22 11:10:06,041 - anomalib.models.image.patchcore.lightning_model - INFO - Applying core-set subsampling to get the embedding.
+                    INFO     Applying core-set subsampling to get the embedding.                                                                                                                               lightning_model.py:91
+Selecting Coreset Indices. ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:27
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:32<00:00,  0.24it/s, pixel_AUROC=0.614, pixel_PRO=0.708]2024-05-22 11:10:36,782 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[05/22/24 11:10:36] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                          rank_zero.py:63
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:33<00:00,  0.24it/s, pixel_AUROC=0.614, pixel_PRO=0.708]
+2024-05-22 11:10:36,968 - anomalib.callbacks.timer - INFO - Training took 33.48 seconds
+[05/22/24 11:10:36] INFO     Training took 33.48 seconds                                                                                                                                                                 timer.py:59
+2024-05-22 11:10:36,970 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                         mvtec.py:412
+2024-05-22 11:10:37,059 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[05/22/24 11:10:37] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:22<00:00,  0.22it/s]2024-05-22 11:11:02,944 - anomalib.callbacks.timer - INFO - Testing took 25.68125581741333 seconds
+Throughput (batch_size=32) : 5.879774769332485 FPS
+[05/22/24 11:11:02] INFO     Testing took 25.68125581741333 seconds                                                                                                                                                     timer.py:109
+                             Throughput (batch_size=32) : 5.879774769332485 FPS
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:24<00:00,  0.20it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9921219348907471     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9793941974639893     │
+│         pixel_PRO         │    0.7078593373298645     │
+└───────────────────────────┴───────────────────────────┘
+Running command: anomalib train --data anomalib.data.MVTec --data.category cable --config ./configs/models/patchcore.yaml
+2024-05-22 11:11:08,187 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[05/22/24 11:11:08] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                             config.py:129
+2024-05-22 11:11:08,201 - anomalib.models.components.base.anomaly_module - INFO - Initializing Patchcore model.
+                    INFO     Initializing Patchcore model.                                                                                                                                                      anomaly_module.py:39
+2024-05-22 11:11:09,408 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+[05/22/24 11:11:09] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)                                   helpers.py:247
+2024-05-22 11:11:09,571 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                                    __init__.py:43
+2024-05-22 11:11:09,572 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Patchcore
+                    INFO     Overriding gradient_clip_val from None with 0 for Patchcore                                                                                                                                engine.py:84
+2024-05-22 11:11:09,573 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Patchcore
+                    INFO     Overriding max_epochs from None with 1 for Patchcore                                                                                                                                       engine.py:84
+2024-05-22 11:11:09,574 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Patchcore
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Patchcore                                                                                                                             engine.py:84
+2024-05-22 11:11:09,666 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+[05/22/24 11:11:09] INFO     GPU available: True (cuda), used: True                                                                                                                                                  rank_zero.py:63
+2024-05-22 11:11:09,667 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                                rank_zero.py:63
+2024-05-22 11:11:09,668 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                                     rank_zero.py:63
+2024-05-22 11:11:09,669 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                                     rank_zero.py:63
+2024-05-22 11:11:09,670 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                         mvtec.py:412
+2024-05-22 11:11:09,706 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which   rank_zero.py:63
+                             will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-05-22 11:11:09,867 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+2024-05-22 11:11:09,871 - lightning.pytorch.callbacks.model_summary - INFO -
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PatchcoreModel           | 24.9 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+24.9 M    Trainable params
+0         Non-trainable params
+24.9 M    Total params
+99.450    Total estimated model params size (MB)
+                    INFO                                                                                                                                                                                         model_summary.py:90
+                               | Name                  | Type                     | Params
+                             -------------------------------------------------------------------
+                             0 | model                 | PatchcoreModel           | 24.9 M
+                             1 | _transform            | Compose                  | 0
+                             2 | normalization_metrics | MinMax                   | 0
+                             3 | image_threshold       | F1AdaptiveThreshold      | 0
+                             4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+                             5 | image_metrics         | AnomalibMetricCollection | 0
+                             6 | pixel_metrics         | AnomalibMetricCollection | 0
+                             -------------------------------------------------------------------
+                             24.9 M    Trainable params
+                             0         Non-trainable params
+                             24.9 M    Total params
+                             99.450    Total estimated model params size (MB)
+Epoch 0:   0%|                                                                                                                                                                                                | 0/7 [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:02<00:00,  2.83it/s]
+2024-05-22 11:11:12,693 - anomalib.models.image.patchcore.lightning_model - INFO - Aggregating the embedding extracted from the training set.                                                                 | 0/? [00:00<?, ?it/s]
+[05/22/24 11:11:12] INFO     Aggregating the embedding extracted from the training set.                                                                                                                        lightning_model.py:88
+2024-05-22 11:11:12,696 - anomalib.models.image.patchcore.lightning_model - INFO - Applying core-set subsampling to get the embedding.
+                    INFO     Applying core-set subsampling to get the embedding.                                                                                                                               lightning_model.py:91
+Selecting Coreset Indices. ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:24
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:29<00:00,  0.24it/s, pixel_AUROC=0.500, pixel_PRO=0.662]2024-05-22 11:11:40,133 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[05/22/24 11:11:40] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                          rank_zero.py:63
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:30<00:00,  0.23it/s, pixel_AUROC=0.500, pixel_PRO=0.662]
+2024-05-22 11:11:40,317 - anomalib.callbacks.timer - INFO - Training took 30.45 seconds
+[05/22/24 11:11:40] INFO     Training took 30.45 seconds                                                                                                                                                                 timer.py:59
+2024-05-22 11:11:40,319 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                         mvtec.py:412
+2024-05-22 11:11:40,394 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:26<00:00,  0.19it/s]2024-05-22 11:12:10,233 - anomalib.callbacks.timer - INFO - Testing took 29.62747812271118 seconds
+Throughput (batch_size=32) : 5.0628676318223755 FPS
+[05/22/24 11:12:10] INFO     Testing took 29.62747812271118 seconds                                                                                                                                                     timer.py:109
+                             Throughput (batch_size=32) : 5.0628676318223755 FPS
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:27<00:00,  0.18it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9910045266151428     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9800976514816284     │
+│         pixel_PRO         │    0.6616796851158142     │
+└───────────────────────────┴───────────────────────────┘
+Running command: anomalib train --data anomalib.data.MVTec --data.category toothbrush --config ./configs/models/patchcore.yaml
+2024-05-22 11:12:16,023 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[05/22/24 11:12:16] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                             config.py:129
+2024-05-22 11:12:16,037 - anomalib.models.components.base.anomaly_module - INFO - Initializing Patchcore model.
+                    INFO     Initializing Patchcore model.                                                                                                                                                      anomaly_module.py:39
+2024-05-22 11:12:17,249 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+[05/22/24 11:12:17] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)                                   helpers.py:247
+2024-05-22 11:12:17,406 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                                    __init__.py:43
+2024-05-22 11:12:17,408 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Patchcore
+                    INFO     Overriding gradient_clip_val from None with 0 for Patchcore                                                                                                                                engine.py:84
+2024-05-22 11:12:17,409 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Patchcore
+                    INFO     Overriding max_epochs from None with 1 for Patchcore                                                                                                                                       engine.py:84
+2024-05-22 11:12:17,409 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Patchcore
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Patchcore                                                                                                                             engine.py:84
+2024-05-22 11:12:17,502 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+[05/22/24 11:12:17] INFO     GPU available: True (cuda), used: True                                                                                                                                                  rank_zero.py:63
+2024-05-22 11:12:17,503 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                                rank_zero.py:63
+2024-05-22 11:12:17,504 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                                     rank_zero.py:63
+2024-05-22 11:12:17,504 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                                     rank_zero.py:63
+2024-05-22 11:12:17,506 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                         mvtec.py:412
+2024-05-22 11:12:17,546 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which   rank_zero.py:63
+                             will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-05-22 11:12:17,692 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+2024-05-22 11:12:17,697 - lightning.pytorch.callbacks.model_summary - INFO -
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PatchcoreModel           | 24.9 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+24.9 M    Trainable params
+0         Non-trainable params
+24.9 M    Total params
+99.450    Total estimated model params size (MB)
+                    INFO                                                                                                                                                                                         model_summary.py:90
+                               | Name                  | Type                     | Params
+                             -------------------------------------------------------------------
+                             0 | model                 | PatchcoreModel           | 24.9 M
+                             1 | _transform            | Compose                  | 0
+                             2 | normalization_metrics | MinMax                   | 0
+                             3 | image_threshold       | F1AdaptiveThreshold      | 0
+                             4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+                             5 | image_metrics         | AnomalibMetricCollection | 0
+                             6 | pixel_metrics         | AnomalibMetricCollection | 0
+                             -------------------------------------------------------------------
+                             24.9 M    Trainable params
+                             0         Non-trainable params
+                             24.9 M    Total params
+                             99.450    Total estimated model params size (MB)
+Epoch 0:   0%|                                                                                                                                                                                                | 0/2 [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:01<00:00,  1.23it/s]
+2024-05-22 11:12:19,659 - anomalib.models.image.patchcore.lightning_model - INFO - Aggregating the embedding extracted from the training set.                                                                 | 0/? [00:00<?, ?it/s]
+[05/22/24 11:12:19] INFO     Aggregating the embedding extracted from the training set.                                                                                                                        lightning_model.py:88
+2024-05-22 11:12:19,663 - anomalib.models.image.patchcore.lightning_model - INFO - Applying core-set subsampling to get the embedding.
+                    INFO     Applying core-set subsampling to get the embedding.                                                                                                                               lightning_model.py:91
+Selecting Coreset Indices. ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:01
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  0.44it/s, pixel_AUROC=0.529, pixel_PRO=0.213]2024-05-22 11:12:22,582 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[05/22/24 11:12:22] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                          rank_zero.py:63
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  0.42it/s, pixel_AUROC=0.529, pixel_PRO=0.213]
+2024-05-22 11:12:22,725 - anomalib.callbacks.timer - INFO - Training took  5.03 seconds
+[05/22/24 11:12:22] INFO     Training took  5.03 seconds                                                                                                                                                                 timer.py:59
+2024-05-22 11:12:22,727 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                         mvtec.py:412
+2024-05-22 11:12:22,770 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:07<00:00,  0.28it/s]2024-05-22 11:12:32,090 - anomalib.callbacks.timer - INFO - Testing took 9.113060235977173 seconds
+Throughput (batch_size=32) : 4.6087701510179295 FPS
+[05/22/24 11:12:32] INFO     Testing took 9.113060235977173 seconds                                                                                                                                                     timer.py:109
+                             Throughput (batch_size=32) : 4.6087701510179295 FPS
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:07<00:00,  0.26it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9999999403953552     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9864364862442017     │
+│         pixel_PRO         │    0.21347099542617798    │
+└───────────────────────────┴───────────────────────────┘
+Running command: anomalib train --data anomalib.data.MVTec --data.category transistor --config ./configs/models/patchcore.yaml
+2024-05-22 11:12:37,462 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[05/22/24 11:12:37] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                             config.py:129
+2024-05-22 11:12:37,476 - anomalib.models.components.base.anomaly_module - INFO - Initializing Patchcore model.
+                    INFO     Initializing Patchcore model.                                                                                                                                                      anomaly_module.py:39
+2024-05-22 11:12:38,677 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+[05/22/24 11:12:38] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)                                   helpers.py:247
+2024-05-22 11:12:38,836 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                                    __init__.py:43
+2024-05-22 11:12:38,837 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Patchcore
+                    INFO     Overriding gradient_clip_val from None with 0 for Patchcore                                                                                                                                engine.py:84
+2024-05-22 11:12:38,838 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Patchcore
+                    INFO     Overriding max_epochs from None with 1 for Patchcore                                                                                                                                       engine.py:84
+2024-05-22 11:12:38,838 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Patchcore
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Patchcore                                                                                                                             engine.py:84
+2024-05-22 11:12:38,930 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+[05/22/24 11:12:38] INFO     GPU available: True (cuda), used: True                                                                                                                                                  rank_zero.py:63
+2024-05-22 11:12:38,931 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                                rank_zero.py:63
+2024-05-22 11:12:38,932 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                                     rank_zero.py:63
+2024-05-22 11:12:38,932 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                                     rank_zero.py:63
+2024-05-22 11:12:38,934 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                         mvtec.py:412
+2024-05-22 11:12:38,970 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which   rank_zero.py:63
+                             will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-05-22 11:12:39,120 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[05/22/24 11:12:39] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+2024-05-22 11:12:39,125 - lightning.pytorch.callbacks.model_summary - INFO -
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PatchcoreModel           | 24.9 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+24.9 M    Trainable params
+0         Non-trainable params
+24.9 M    Total params
+99.450    Total estimated model params size (MB)
+                    INFO                                                                                                                                                                                         model_summary.py:90
+                               | Name                  | Type                     | Params
+                             -------------------------------------------------------------------
+                             0 | model                 | PatchcoreModel           | 24.9 M
+                             1 | _transform            | Compose                  | 0
+                             2 | normalization_metrics | MinMax                   | 0
+                             3 | image_threshold       | F1AdaptiveThreshold      | 0
+                             4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+                             5 | image_metrics         | AnomalibMetricCollection | 0
+                             6 | pixel_metrics         | AnomalibMetricCollection | 0
+                             -------------------------------------------------------------------
+                             24.9 M    Trainable params
+                             0         Non-trainable params
+                             24.9 M    Total params
+                             99.450    Total estimated model params size (MB)
+Epoch 0:   0%|                                                                                                                                                                                                | 0/7 [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:02<00:00,  3.15it/s]
+2024-05-22 11:12:41,693 - anomalib.models.image.patchcore.lightning_model - INFO - Aggregating the embedding extracted from the training set.                                                                 | 0/? [00:00<?, ?it/s]
+[05/22/24 11:12:41] INFO     Aggregating the embedding extracted from the training set.                                                                                                                        lightning_model.py:88
+2024-05-22 11:12:41,697 - anomalib.models.image.patchcore.lightning_model - INFO - Applying core-set subsampling to get the embedding.
+                    INFO     Applying core-set subsampling to get the embedding.                                                                                                                               lightning_model.py:91
+Selecting Coreset Indices. ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:21
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:25<00:00,  0.27it/s, pixel_AUROC=0.500, pixel_PRO=0.907]2024-05-22 11:13:05,638 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[05/22/24 11:13:05] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                          rank_zero.py:63
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:26<00:00,  0.27it/s, pixel_AUROC=0.500, pixel_PRO=0.907]
+2024-05-22 11:13:05,822 - anomalib.callbacks.timer - INFO - Training took 26.70 seconds
+[05/22/24 11:13:05] INFO     Training took 26.70 seconds                                                                                                                                                                 timer.py:59
+2024-05-22 11:13:05,825 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                         mvtec.py:412
+2024-05-22 11:13:05,897 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:17<00:00,  0.23it/s]2024-05-22 11:13:26,211 - anomalib.callbacks.timer - INFO - Testing took 20.094719409942627 seconds
+Throughput (batch_size=32) : 4.976431765975353 FPS
+[05/22/24 11:13:26] INFO     Testing took 20.094719409942627 seconds                                                                                                                                                    timer.py:109
+                             Throughput (batch_size=32) : 4.976431765975353 FPS
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:18<00:00,  0.22it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9999999403953552     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9716169238090515     │
+│         pixel_PRO         │    0.9073156118392944     │
+└───────────────────────────┴───────────────────────────┘
+Running command: anomalib train --data anomalib.data.MVTec --data.category metal_nut --config ./configs/models/patchcore.yaml
+2024-05-22 11:13:31,934 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[05/22/24 11:13:31] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                             config.py:129
+2024-05-22 11:13:31,948 - anomalib.models.components.base.anomaly_module - INFO - Initializing Patchcore model.
+                    INFO     Initializing Patchcore model.                                                                                                                                                      anomaly_module.py:39
+2024-05-22 11:13:33,149 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+[05/22/24 11:13:33] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)                                   helpers.py:247
+2024-05-22 11:13:33,325 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                                    __init__.py:43
+2024-05-22 11:13:33,326 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Patchcore
+                    INFO     Overriding gradient_clip_val from None with 0 for Patchcore                                                                                                                                engine.py:84
+2024-05-22 11:13:33,327 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Patchcore
+                    INFO     Overriding max_epochs from None with 1 for Patchcore                                                                                                                                       engine.py:84
+2024-05-22 11:13:33,328 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Patchcore
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Patchcore                                                                                                                             engine.py:84
+2024-05-22 11:13:33,421 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+[05/22/24 11:13:33] INFO     GPU available: True (cuda), used: True                                                                                                                                                  rank_zero.py:63
+2024-05-22 11:13:33,422 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                                rank_zero.py:63
+2024-05-22 11:13:33,423 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                                     rank_zero.py:63
+2024-05-22 11:13:33,424 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                                     rank_zero.py:63
+2024-05-22 11:13:33,425 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                         mvtec.py:412
+2024-05-22 11:13:33,462 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which   rank_zero.py:63
+                             will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-05-22 11:13:33,629 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+2024-05-22 11:13:33,634 - lightning.pytorch.callbacks.model_summary - INFO -
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PatchcoreModel           | 24.9 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+24.9 M    Trainable params
+0         Non-trainable params
+24.9 M    Total params
+99.450    Total estimated model params size (MB)
+                    INFO                                                                                                                                                                                         model_summary.py:90
+                               | Name                  | Type                     | Params
+                             -------------------------------------------------------------------
+                             0 | model                 | PatchcoreModel           | 24.9 M
+                             1 | _transform            | Compose                  | 0
+                             2 | normalization_metrics | MinMax                   | 0
+                             3 | image_threshold       | F1AdaptiveThreshold      | 0
+                             4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+                             5 | image_metrics         | AnomalibMetricCollection | 0
+                             6 | pixel_metrics         | AnomalibMetricCollection | 0
+                             -------------------------------------------------------------------
+                             24.9 M    Trainable params
+                             0         Non-trainable params
+                             24.9 M    Total params
+                             99.450    Total estimated model params size (MB)
+Epoch 0:   0%|                                                                                                                                                                                                | 0/7 [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:01<00:00,  5.42it/s]
+2024-05-22 11:13:35,197 - anomalib.models.image.patchcore.lightning_model - INFO - Aggregating the embedding extracted from the training set.                                                                 | 0/? [00:00<?, ?it/s]
+[05/22/24 11:13:35] INFO     Aggregating the embedding extracted from the training set.                                                                                                                        lightning_model.py:88
+2024-05-22 11:13:35,200 - anomalib.models.image.patchcore.lightning_model - INFO - Applying core-set subsampling to get the embedding.
+                    INFO     Applying core-set subsampling to get the embedding.                                                                                                                               lightning_model.py:91
+Selecting Coreset Indices. ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:23
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:26<00:00,  0.26it/s, pixel_AUROC=0.501, pixel_PRO=0.794]2024-05-22 11:14:00,925 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[05/22/24 11:14:00] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                          rank_zero.py:63
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:27<00:00,  0.26it/s, pixel_AUROC=0.501, pixel_PRO=0.794]
+2024-05-22 11:14:01,114 - anomalib.callbacks.timer - INFO - Training took 27.48 seconds
+[05/22/24 11:14:01] INFO     Training took 27.48 seconds                                                                                                                                                                 timer.py:59
+2024-05-22 11:14:01,117 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                         mvtec.py:412
+2024-05-22 11:14:01,191 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[05/22/24 11:14:01] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:16<00:00,  0.24it/s]2024-05-22 11:14:20,243 - anomalib.callbacks.timer - INFO - Testing took 18.86028528213501 seconds
+Throughput (batch_size=32) : 6.097468743430473 FPS
+[05/22/24 11:14:20] INFO     Testing took 18.86028528213501 seconds                                                                                                                                                     timer.py:109
+                             Throughput (batch_size=32) : 6.097468743430473 FPS
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:18<00:00,  0.22it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9980449676513672     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9821504354476929     │
+│         pixel_PRO         │    0.7942895293235779     │
+└───────────────────────────┴───────────────────────────┘
+Running command: anomalib train --data anomalib.data.MVTec --data.category bottle --config ./configs/models/patchcore.yaml
+2024-05-22 11:14:25,620 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[05/22/24 11:14:25] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                             config.py:129
+2024-05-22 11:14:25,634 - anomalib.models.components.base.anomaly_module - INFO - Initializing Patchcore model.
+                    INFO     Initializing Patchcore model.                                                                                                                                                      anomaly_module.py:39
+2024-05-22 11:14:26,834 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+[05/22/24 11:14:26] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)                                   helpers.py:247
+2024-05-22 11:14:27,009 - anomalib.callbacks - INFO - Loading the callbacks
+[05/22/24 11:14:27] INFO     Loading the callbacks                                                                                                                                                                    __init__.py:43
+2024-05-22 11:14:27,010 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Patchcore
+                    INFO     Overriding gradient_clip_val from None with 0 for Patchcore                                                                                                                                engine.py:84
+2024-05-22 11:14:27,011 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Patchcore
+                    INFO     Overriding max_epochs from None with 1 for Patchcore                                                                                                                                       engine.py:84
+2024-05-22 11:14:27,012 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Patchcore
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Patchcore                                                                                                                             engine.py:84
+2024-05-22 11:14:27,104 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+[05/22/24 11:14:27] INFO     GPU available: True (cuda), used: True                                                                                                                                                  rank_zero.py:63
+2024-05-22 11:14:27,105 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                                rank_zero.py:63
+2024-05-22 11:14:27,106 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                                     rank_zero.py:63
+2024-05-22 11:14:27,106 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                                     rank_zero.py:63
+2024-05-22 11:14:27,107 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                         mvtec.py:412
+2024-05-22 11:14:27,150 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which   rank_zero.py:63
+                             will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-05-22 11:14:27,307 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+2024-05-22 11:14:27,312 - lightning.pytorch.callbacks.model_summary - INFO -
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PatchcoreModel           | 24.9 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+24.9 M    Trainable params
+0         Non-trainable params
+24.9 M    Total params
+99.450    Total estimated model params size (MB)
+                    INFO                                                                                                                                                                                         model_summary.py:90
+                               | Name                  | Type                     | Params
+                             -------------------------------------------------------------------
+                             0 | model                 | PatchcoreModel           | 24.9 M
+                             1 | _transform            | Compose                  | 0
+                             2 | normalization_metrics | MinMax                   | 0
+                             3 | image_threshold       | F1AdaptiveThreshold      | 0
+                             4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+                             5 | image_metrics         | AnomalibMetricCollection | 0
+                             6 | pixel_metrics         | AnomalibMetricCollection | 0
+                             -------------------------------------------------------------------
+                             24.9 M    Trainable params
+                             0         Non-trainable params
+                             24.9 M    Total params
+                             99.450    Total estimated model params size (MB)
+Epoch 0:   0%|                                                                                                                                                                                                | 0/7 [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:01<00:00,  3.92it/s]
+2024-05-22 11:14:29,393 - anomalib.models.image.patchcore.lightning_model - INFO - Aggregating the embedding extracted from the training set.                                                                 | 0/? [00:00<?, ?it/s]
+[05/22/24 11:14:29] INFO     Aggregating the embedding extracted from the training set.                                                                                                                        lightning_model.py:88
+2024-05-22 11:14:29,396 - anomalib.models.image.patchcore.lightning_model - INFO - Applying core-set subsampling to get the embedding.
+                    INFO     Applying core-set subsampling to get the embedding.                                                                                                                               lightning_model.py:91
+Selecting Coreset Indices. ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:21
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:24<00:00,  0.29it/s, pixel_AUROC=0.688, pixel_PRO=0.816]2024-05-22 11:14:52,305 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[05/22/24 11:14:52] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                          rank_zero.py:63
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 7/7 [00:24<00:00,  0.28it/s, pixel_AUROC=0.688, pixel_PRO=0.816]
+2024-05-22 11:14:52,486 - anomalib.callbacks.timer - INFO - Training took 25.18 seconds
+[05/22/24 11:14:52] INFO     Training took 25.18 seconds                                                                                                                                                                 timer.py:59
+2024-05-22 11:14:52,488 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                         mvtec.py:412
+2024-05-22 11:14:52,550 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:12<00:00,  0.24it/s]2024-05-22 11:15:07,518 - anomalib.callbacks.timer - INFO - Testing took 14.723710298538208 seconds
+Throughput (batch_size=32) : 5.63716606188865 FPS
+[05/22/24 11:15:07] INFO     Testing took 14.723710298538208 seconds                                                                                                                                                    timer.py:109
+                             Throughput (batch_size=32) : 5.63716606188865 FPS
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:13<00:00,  0.22it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │            1.0            │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9815601110458374     │
+│         pixel_PRO         │    0.8161978721618652     │
+└───────────────────────────┴───────────────────────────┘
+Running command: anomalib train --data anomalib.data.MVTec --data.category hazelnut --config ./configs/models/patchcore.yaml
+2024-05-22 11:15:12,730 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[05/22/24 11:15:12] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                             config.py:129
+2024-05-22 11:15:12,744 - anomalib.models.components.base.anomaly_module - INFO - Initializing Patchcore model.
+                    INFO     Initializing Patchcore model.                                                                                                                                                      anomaly_module.py:39
+2024-05-22 11:15:13,936 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+[05/22/24 11:15:13] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)                                   helpers.py:247
+2024-05-22 11:15:14,112 - anomalib.callbacks - INFO - Loading the callbacks
+[05/22/24 11:15:14] INFO     Loading the callbacks                                                                                                                                                                    __init__.py:43
+2024-05-22 11:15:14,114 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Patchcore
+                    INFO     Overriding gradient_clip_val from None with 0 for Patchcore                                                                                                                                engine.py:84
+2024-05-22 11:15:14,114 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Patchcore
+                    INFO     Overriding max_epochs from None with 1 for Patchcore                                                                                                                                       engine.py:84
+2024-05-22 11:15:14,115 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Patchcore
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Patchcore                                                                                                                             engine.py:84
+2024-05-22 11:15:14,207 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+[05/22/24 11:15:14] INFO     GPU available: True (cuda), used: True                                                                                                                                                  rank_zero.py:63
+2024-05-22 11:15:14,208 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                                rank_zero.py:63
+2024-05-22 11:15:14,209 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                                     rank_zero.py:63
+2024-05-22 11:15:14,209 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                                     rank_zero.py:63
+2024-05-22 11:15:14,211 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                         mvtec.py:412
+2024-05-22 11:15:14,250 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which   rank_zero.py:63
+                             will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-05-22 11:15:14,416 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+2024-05-22 11:15:14,421 - lightning.pytorch.callbacks.model_summary - INFO -
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PatchcoreModel           | 24.9 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+24.9 M    Trainable params
+0         Non-trainable params
+24.9 M    Total params
+99.450    Total estimated model params size (MB)
+                    INFO                                                                                                                                                                                         model_summary.py:90
+                               | Name                  | Type                     | Params
+                             -------------------------------------------------------------------
+                             0 | model                 | PatchcoreModel           | 24.9 M
+                             1 | _transform            | Compose                  | 0
+                             2 | normalization_metrics | MinMax                   | 0
+                             3 | image_threshold       | F1AdaptiveThreshold      | 0
+                             4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+                             5 | image_metrics         | AnomalibMetricCollection | 0
+                             6 | pixel_metrics         | AnomalibMetricCollection | 0
+                             -------------------------------------------------------------------
+                             24.9 M    Trainable params
+                             0         Non-trainable params
+                             24.9 M    Total params
+                             99.450    Total estimated model params size (MB)
+Epoch 0:   0%|                                                                                                                                                                                               | 0/13 [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 13/13 [00:03<00:00,  3.38it/s]
+2024-05-22 11:15:18,556 - anomalib.models.image.patchcore.lightning_model - INFO - Aggregating the embedding extracted from the training set.                                                                 | 0/? [00:00<?, ?it/s]
+[05/22/24 11:15:18] INFO     Aggregating the embedding extracted from the training set.                                                                                                                        lightning_model.py:88
+2024-05-22 11:15:18,559 - anomalib.models.image.patchcore.lightning_model - INFO - Applying core-set subsampling to get the embedding.
+                    INFO     Applying core-set subsampling to get the embedding.                                                                                                                               lightning_model.py:91
+Selecting Coreset Indices. ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:01:14
+Epoch 0: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 13/13 [01:20<00:00,  0.16it/s, pixel_AUROC=0.501, pixel_PRO=0.808]2024-05-22 11:16:36,033 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[05/22/24 11:16:36] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                          rank_zero.py:63
+Epoch 0: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 13/13 [01:21<00:00,  0.16it/s, pixel_AUROC=0.501, pixel_PRO=0.808]
+2024-05-22 11:16:36,255 - anomalib.callbacks.timer - INFO - Training took 81.84 seconds
+[05/22/24 11:16:36] INFO     Training took 81.84 seconds                                                                                                                                                                 timer.py:59
+2024-05-22 11:16:36,259 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                         mvtec.py:412
+2024-05-22 11:16:36,403 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:18<00:00,  0.21it/s]2024-05-22 11:16:58,459 - anomalib.callbacks.timer - INFO - Testing took 21.780075788497925 seconds
+Throughput (batch_size=32) : 5.050487476177245 FPS
+[05/22/24 11:16:58] INFO     Testing took 21.780075788497925 seconds                                                                                                                                                    timer.py:109
+                             Throughput (batch_size=32) : 5.050487476177245 FPS
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:20<00:00,  0.20it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │            1.0            │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9845484495162964     │
+│         pixel_PRO         │    0.8081632256507874     │
+└───────────────────────────┴───────────────────────────┘
+Running command: anomalib train --data anomalib.data.MVTec --data.category leather --config ./configs/models/patchcore.yaml
+2024-05-22 11:17:04,074 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[05/22/24 11:17:04] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                             config.py:129
+2024-05-22 11:17:04,088 - anomalib.models.components.base.anomaly_module - INFO - Initializing Patchcore model.
+                    INFO     Initializing Patchcore model.                                                                                                                                                      anomaly_module.py:39
+2024-05-22 11:17:05,295 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+[05/22/24 11:17:05] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)                                   helpers.py:247
+2024-05-22 11:17:05,457 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                                    __init__.py:43
+2024-05-22 11:17:05,458 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Patchcore
+                    INFO     Overriding gradient_clip_val from None with 0 for Patchcore                                                                                                                                engine.py:84
+2024-05-22 11:17:05,459 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Patchcore
+                    INFO     Overriding max_epochs from None with 1 for Patchcore                                                                                                                                       engine.py:84
+2024-05-22 11:17:05,460 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Patchcore
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Patchcore                                                                                                                             engine.py:84
+2024-05-22 11:17:05,554 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+[05/22/24 11:17:05] INFO     GPU available: True (cuda), used: True                                                                                                                                                  rank_zero.py:63
+2024-05-22 11:17:05,555 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                                rank_zero.py:63
+2024-05-22 11:17:05,556 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                                     rank_zero.py:63
+2024-05-22 11:17:05,557 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                                     rank_zero.py:63
+2024-05-22 11:17:05,558 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                         mvtec.py:412
+2024-05-22 11:17:05,595 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which   rank_zero.py:63
+                             will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-05-22 11:17:05,757 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+2024-05-22 11:17:05,762 - lightning.pytorch.callbacks.model_summary - INFO -
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PatchcoreModel           | 24.9 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+24.9 M    Trainable params
+0         Non-trainable params
+24.9 M    Total params
+99.450    Total estimated model params size (MB)
+                    INFO                                                                                                                                                                                         model_summary.py:90
+                               | Name                  | Type                     | Params
+                             -------------------------------------------------------------------
+                             0 | model                 | PatchcoreModel           | 24.9 M
+                             1 | _transform            | Compose                  | 0
+                             2 | normalization_metrics | MinMax                   | 0
+                             3 | image_threshold       | F1AdaptiveThreshold      | 0
+                             4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+                             5 | image_metrics         | AnomalibMetricCollection | 0
+                             6 | pixel_metrics         | AnomalibMetricCollection | 0
+                             -------------------------------------------------------------------
+                             24.9 M    Trainable params
+                             0         Non-trainable params
+                             24.9 M    Total params
+                             99.450    Total estimated model params size (MB)
+Epoch 0:   0%|                                                                                                                                                                                                | 0/8 [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:02<00:00,  3.46it/s]
+2024-05-22 11:17:08,409 - anomalib.models.image.patchcore.lightning_model - INFO - Aggregating the embedding extracted from the training set.                                                                 | 0/? [00:00<?, ?it/s]
+[05/22/24 11:17:08] INFO     Aggregating the embedding extracted from the training set.                                                                                                                        lightning_model.py:88
+2024-05-22 11:17:08,413 - anomalib.models.image.patchcore.lightning_model - INFO - Applying core-set subsampling to get the embedding.
+                    INFO     Applying core-set subsampling to get the embedding.                                                                                                                               lightning_model.py:91
+Selecting Coreset Indices. ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:29
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:33<00:00,  0.24it/s, pixel_AUROC=0.500, pixel_PRO=0.593]2024-05-22 11:17:39,869 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[05/22/24 11:17:39] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                          rank_zero.py:63
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:33<00:00,  0.24it/s, pixel_AUROC=0.500, pixel_PRO=0.593]
+2024-05-22 11:17:40,030 - anomalib.callbacks.timer - INFO - Training took 34.27 seconds
+[05/22/24 11:17:40] INFO     Training took 34.27 seconds                                                                                                                                                                 timer.py:59
+2024-05-22 11:17:40,033 - anomalib.data.image.mvtec - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                         mvtec.py:412
+2024-05-22 11:17:40,106 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[05/22/24 11:17:40] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:20<00:00,  0.19it/s]2024-05-22 11:18:03,983 - anomalib.callbacks.timer - INFO - Testing took 23.636067628860474 seconds
+Throughput (batch_size=32) : 5.246219546630152 FPS
+[05/22/24 11:18:03] INFO     Testing took 23.636067628860474 seconds                                                                                                                                                    timer.py:109
+                             Throughput (batch_size=32) : 5.246219546630152 FPS
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [00:21<00:00,  0.18it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │            1.0            │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9899356365203857     │
+│         pixel_PRO         │    0.5928137302398682     │
+└───────────────────────────┴───────────────────────────┘
