@@ -1,0 +1,846 @@
+/home/jinyao/anaconda3/envs/IADBE/bin/python /home/jinyao/PycharmProjects/IADBE/train_test_reverse_distillation.py
+2024-05-22 11:23:50,347 - INFO - ================== Processing dataset: screw ==================
+2024-05-22 11:23:50,347 - INFO - Initializing ReverseDistillation model.
+2024-05-22 11:23:50,348 - INFO - ================== Start training for dataset: screw ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-22 11:23:50,438 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-22 11:23:50,439 - INFO - Found the dataset.
+You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-05-22 11:23:51,672 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | loss                  | ReverseDistillationLoss  | 0
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+7 | model                 | ReverseDistillationModel | 89.0 M
+-------------------------------------------------------------------
+89.0 M    Trainable params
+0         Non-trainable params
+89.0 M    Total params
+356.009   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/10 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 199: 100%|██████████| 10/10 [00:09<00:00,  1.06it/s, train_loss_step=0.0739, train_loss_epoch=0.0746]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  6.12it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.84it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:01<00:01,  1.53it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:02<00:00,  1.42it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:03<00:00,  1.36it/s]
+Epoch 199: 100%|██████████| 10/10 [00:20<00:00,  0.50it/s, train_loss_step=0.0739, train_loss_epoch=0.0747, pixel_AUROC=0.995, pixel_PRO=0.483]
+`Trainer.fit` stopped: `max_epochs=200` reached.
+2024-05-22 11:55:26,363 - INFO - Training took 1893.90 seconds
+2024-05-22 11:55:26,363 - INFO - ================== Start testing for dataset: screw ==================
+2024-05-22 11:55:26,365 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 5/5 [00:28<00:00,  0.17it/s]
+2024-05-22 11:55:56,000 - INFO - Testing took 29.395050764083862 seconds
+Throughput (batch_size=32) : 5.443093168442318 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9803237915039062     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9952093362808228     │
+│         pixel_PRO         │    0.4834701716899872     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-22 11:55:56,268 - INFO - ================== Processing dataset: pill ==================
+2024-05-22 11:55:56,268 - INFO - Initializing ReverseDistillation model.
+2024-05-22 11:55:56,268 - INFO - ================== Start training for dataset: pill ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-22 11:55:56,279 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-22 11:55:56,279 - INFO - Found the dataset.
+2024-05-22 11:55:57,483 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | loss                  | ReverseDistillationLoss  | 0
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+7 | model                 | ReverseDistillationModel | 89.0 M
+-------------------------------------------------------------------
+89.0 M    Trainable params
+0         Non-trainable params
+89.0 M    Total params
+356.009   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/9 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 199: 100%|██████████| 9/9 [00:08<00:00,  1.07it/s, train_loss_step=0.069, train_loss_epoch=0.0672]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/6 [00:00<?, ?it/s]
+Validation DataLoader 0:  17%|█▋        | 1/6 [00:00<00:00,  7.93it/s]
+Validation DataLoader 0:  33%|███▎      | 2/6 [00:01<00:02,  1.80it/s]
+Validation DataLoader 0:  50%|█████     | 3/6 [00:02<00:02,  1.43it/s]
+Validation DataLoader 0:  67%|██████▋   | 4/6 [00:03<00:01,  1.33it/s]
+Validation DataLoader 0:  83%|████████▎ | 5/6 [00:03<00:00,  1.26it/s]
+Validation DataLoader 0: 100%|██████████| 6/6 [00:04<00:00,  1.41it/s]
+Epoch 199: 100%|██████████| 9/9 [00:19<00:00,  0.45it/s, train_loss_step=0.069, train_loss_epoch=0.068, pixel_AUROC=0.972, pixel_PRO=0.823]
+`Trainer.fit` stopped: `max_epochs=200` reached.
+2024-05-22 12:23:37,164 - INFO - Training took 1658.89 seconds
+2024-05-22 12:23:37,165 - INFO - ================== Start testing for dataset: pill ==================
+2024-05-22 12:23:37,166 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 6/6 [00:31<00:00,  0.19it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9762683510780334     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9721210598945618     │
+│         pixel_PRO         │     0.823087215423584     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-22 12:24:09,757 - INFO - Testing took 32.36352205276489 seconds
+Throughput (batch_size=32) : 5.160130585531645 FPS
+2024-05-22 12:24:09,953 - INFO - ================== Processing dataset: capsule ==================
+2024-05-22 12:24:09,953 - INFO - Initializing ReverseDistillation model.
+2024-05-22 12:24:09,953 - INFO - ================== Start training for dataset: capsule ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-22 12:24:09,963 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-22 12:24:09,963 - INFO - Found the dataset.
+2024-05-22 12:24:11,107 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | loss                  | ReverseDistillationLoss  | 0
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+7 | model                 | ReverseDistillationModel | 89.0 M
+-------------------------------------------------------------------
+89.0 M    Trainable params
+0         Non-trainable params
+89.0 M    Total params
+356.009   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/7 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 91:  29%|██▊       | 2/7 [00:02<00:07,  0.71it/s, train_loss_step=0.0847, train_loss_epoch=0.0855]
+Epoch 91:  29%|██▊       | 2/7 [00:02<00:07,  0.69it/s, train_loss_step=0.084, train_loss_epoch=0.0855]
+
+Epoch 199: 100%|██████████| 7/7 [00:09<00:00,  0.72it/s, train_loss_step=0.0555, train_loss_epoch=0.0548]
+Validation: |          | 0/? [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  7.31it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.34it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.02it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.91it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.07it/s]
+Epoch 199: 100%|██████████| 7/7 [00:20<00:00,  0.33it/s, train_loss_step=0.0555, train_loss_epoch=0.0549, pixel_AUROC=0.757, pixel_PRO=0.497]
+`Trainer.fit` stopped: `max_epochs=200` reached.
+2024-05-22 12:56:40,789 - INFO - Training took 1948.98 seconds
+2024-05-22 12:56:40,789 - INFO - ================== Start testing for dataset: capsule ==================
+2024-05-22 12:56:40,790 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 5/5 [00:28<00:00,  0.18it/s]
+2024-05-22 12:57:10,565 - INFO - Testing took 29.549108028411865 seconds
+Throughput (batch_size=32) : 4.4671399174919335 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9792580604553223     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9887235164642334     │
+│         pixel_PRO         │    0.4968690872192383     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-22 12:57:10,756 - INFO - ================== Processing dataset: carpet ==================
+2024-05-22 12:57:10,756 - INFO - Initializing ReverseDistillation model.
+2024-05-22 12:57:10,756 - INFO - ================== Start training for dataset: carpet ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-22 12:57:10,766 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-22 12:57:10,766 - INFO - Found the dataset.
+2024-05-22 12:57:11,883 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | loss                  | ReverseDistillationLoss  | 0
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+7 | model                 | ReverseDistillationModel | 89.0 M
+-------------------------------------------------------------------
+89.0 M    Trainable params
+0         Non-trainable params
+89.0 M    Total params
+356.009   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/9 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 199: 100%|██████████| 9/9 [00:12<00:00,  0.75it/s, train_loss_step=0.112, train_loss_epoch=0.116]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  8.22it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.37it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:02<00:00,  1.02it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.02it/s]
+Epoch 199: 100%|██████████| 9/9 [00:21<00:00,  0.41it/s, train_loss_step=0.112, train_loss_epoch=0.113, pixel_AUROC=0.919, pixel_PRO=0.705]
+`Trainer.fit` stopped: `max_epochs=200` reached.
+2024-05-22 13:37:55,936 - INFO - Training took 2443.35 seconds
+2024-05-22 13:37:55,936 - INFO - ================== Start testing for dataset: carpet ==================
+2024-05-22 13:37:55,937 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 4/4 [00:24<00:00,  0.16it/s]
+2024-05-22 13:38:22,095 - INFO - Testing took 25.937031745910645 seconds
+Throughput (batch_size=32) : 4.51092480998512 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9935793876647949     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9904939532279968     │
+│         pixel_PRO         │    0.7049423456192017     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-22 13:38:22,287 - INFO - ================== Processing dataset: grid ==================
+2024-05-22 13:38:22,287 - INFO - Initializing ReverseDistillation model.
+2024-05-22 13:38:22,287 - INFO - ================== Start training for dataset: grid ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-22 13:38:22,297 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-22 13:38:22,298 - INFO - Found the dataset.
+2024-05-22 13:38:23,395 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | loss                  | ReverseDistillationLoss  | 0
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+7 | model                 | ReverseDistillationModel | 89.0 M
+-------------------------------------------------------------------
+89.0 M    Trainable params
+0         Non-trainable params
+89.0 M    Total params
+356.009   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/9 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 199: 100%|██████████| 9/9 [00:07<00:00,  1.24it/s, train_loss_step=0.0982, train_loss_epoch=0.0822]
+Validation: |          | 0/? [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  8.06it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:00<00:00,  2.14it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  2.18it/s]
+Epoch 199: 100%|██████████| 9/9 [00:13<00:00,  0.69it/s, train_loss_step=0.0982, train_loss_epoch=0.101, pixel_AUROC=0.991, pixel_PRO=0.569]
+`Trainer.fit` stopped: `max_epochs=200` reached.
+2024-05-22 14:02:11,136 - INFO - Training took 1427.07 seconds
+2024-05-22 14:02:11,136 - INFO - ================== Start testing for dataset: grid ==================
+2024-05-22 14:02:11,138 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 3/3 [00:13<00:00,  0.22it/s]
+2024-05-22 14:02:25,840 - INFO - Testing took 14.488211631774902 seconds
+Throughput (batch_size=32) : 5.383687233621979 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9548872709274292     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9905852675437927     │
+│         pixel_PRO         │    0.5688325762748718     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-22 14:02:26,032 - INFO - ================== Processing dataset: tile ==================
+2024-05-22 14:02:26,032 - INFO - Initializing ReverseDistillation model.
+2024-05-22 14:02:26,032 - INFO - ================== Start training for dataset: tile ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-22 14:02:26,307 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-22 14:02:26,308 - INFO - Found the dataset.
+2024-05-22 14:02:27,418 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | loss                  | ReverseDistillationLoss  | 0
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+7 | model                 | ReverseDistillationModel | 89.0 M
+-------------------------------------------------------------------
+89.0 M    Trainable params
+0         Non-trainable params
+89.0 M    Total params
+356.009   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/8 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 199: 100%|██████████| 8/8 [00:07<00:00,  1.06it/s, train_loss_step=0.158, train_loss_epoch=0.156]
+Validation: |          | 0/? [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  8.36it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.80it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:02<00:00,  1.39it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:02<00:00,  1.39it/s]
+Epoch 199: 100%|██████████| 8/8 [00:15<00:00,  0.50it/s, train_loss_step=0.158, train_loss_epoch=0.155, pixel_AUROC=0.713, pixel_PRO=0.877]
+`Trainer.fit` stopped: `max_epochs=200` reached.
+2024-05-22 14:27:37,593 - INFO - Training took 1509.52 seconds
+2024-05-22 14:27:37,593 - INFO - ================== Start testing for dataset: tile ==================
+2024-05-22 14:27:37,594 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 4/4 [00:22<00:00,  0.18it/s]
+2024-05-22 14:28:01,006 - INFO - Testing took 23.189979076385498 seconds
+Throughput (batch_size=32) : 5.045282689329454 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │            1.0            │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9507544636726379     │
+│         pixel_PRO         │      0.877197265625       │
+└───────────────────────────┴───────────────────────────┘
+2024-05-22 14:28:01,198 - INFO - ================== Processing dataset: wood ==================
+2024-05-22 14:28:01,198 - INFO - Initializing ReverseDistillation model.
+2024-05-22 14:28:01,198 - INFO - ================== Start training for dataset: wood ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-22 14:28:01,208 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-22 14:28:01,208 - INFO - Found the dataset.
+2024-05-22 14:28:02,310 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | loss                  | ReverseDistillationLoss  | 0
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+7 | model                 | ReverseDistillationModel | 89.0 M
+-------------------------------------------------------------------
+89.0 M    Trainable params
+0         Non-trainable params
+89.0 M    Total params
+356.009   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/8 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 199: 100%|██████████| 8/8 [00:10<00:00,  0.75it/s, train_loss_step=0.113, train_loss_epoch=0.112]
+Validation: |          | 0/? [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  8.33it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.28it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:02<00:00,  1.32it/s]
+Epoch 199: 100%|██████████| 8/8 [00:18<00:00,  0.44it/s, train_loss_step=0.113, train_loss_epoch=0.110, pixel_AUROC=0.732, pixel_PRO=0.702]
+`Trainer.fit` stopped: `max_epochs=200` reached.
+2024-05-22 15:04:02,341 - INFO - Training took 2159.38 seconds
+2024-05-22 15:04:02,341 - INFO - ================== Start testing for dataset: wood ==================
+2024-05-22 15:04:02,342 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Testing: |          | 0/? [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 3/3 [00:16<00:00,  0.18it/s]
+2024-05-22 15:04:20,172 - INFO - Testing took 17.612399578094482 seconds
+Throughput (batch_size=32) : 4.485476249258885 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9938596487045288     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9482071995735168     │
+│         pixel_PRO         │    0.7024769186973572     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-22 15:04:20,363 - INFO - ================== Processing dataset: zipper ==================
+2024-05-22 15:04:20,363 - INFO - Initializing ReverseDistillation model.
+2024-05-22 15:04:20,364 - INFO - ================== Start training for dataset: zipper ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-22 15:04:20,373 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-22 15:04:20,374 - INFO - Found the dataset.
+2024-05-22 15:04:21,534 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | loss                  | ReverseDistillationLoss  | 0
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+7 | model                 | ReverseDistillationModel | 89.0 M
+-------------------------------------------------------------------
+89.0 M    Trainable params
+0         Non-trainable params
+89.0 M    Total params
+356.009   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/8 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 199: 100%|██████████| 8/8 [00:06<00:00,  1.29it/s, train_loss_step=0.0559, train_loss_epoch=0.0559]
+Validation: |          | 0/? [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  8.32it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:00<00:01,  2.03it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:01<00:01,  1.73it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:02<00:00,  1.55it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:03<00:00,  1.56it/s]
+Epoch 199: 100%|██████████| 8/8 [00:15<00:00,  0.51it/s, train_loss_step=0.0559, train_loss_epoch=0.055, pixel_AUROC=0.782, pixel_PRO=0.737]
+`Trainer.fit` stopped: `max_epochs=200` reached.
+2024-05-22 15:25:22,224 - INFO - Training took 1260.01 seconds
+2024-05-22 15:25:22,224 - INFO - ================== Start testing for dataset: zipper ==================
+2024-05-22 15:25:22,225 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Testing: |          | 0/? [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 5/5 [00:27<00:00,  0.18it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9716386795043945     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9843578338623047     │
+│         pixel_PRO         │    0.7366195321083069     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-22 15:25:50,594 - INFO - Testing took 28.144410610198975 seconds
+Throughput (batch_size=32) : 5.3651860787335375 FPS
+2024-05-22 15:25:50,798 - INFO - ================== Processing dataset: cable ==================
+2024-05-22 15:25:50,798 - INFO - Initializing ReverseDistillation model.
+2024-05-22 15:25:50,798 - INFO - ================== Start training for dataset: cable ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-22 15:25:50,808 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-22 15:25:50,809 - INFO - Found the dataset.
+2024-05-22 15:25:51,946 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | loss                  | ReverseDistillationLoss  | 0
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+7 | model                 | ReverseDistillationModel | 89.0 M
+-------------------------------------------------------------------
+89.0 M    Trainable params
+0         Non-trainable params
+89.0 M    Total params
+356.009   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/7 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 199: 100%|██████████| 7/7 [00:09<00:00,  0.70it/s, train_loss_step=0.129, train_loss_epoch=0.130]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Validation: |          | 0/? [00:00<?, ?it/s]
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  8.39it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:02,  1.27it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.04it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:04<00:01,  0.94it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:05<00:00,  0.94it/s]
+Epoch 199: 100%|██████████| 7/7 [00:22<00:00,  0.32it/s, train_loss_step=0.129, train_loss_epoch=0.129, pixel_AUROC=0.895, pixel_PRO=0.603]
+`Trainer.fit` stopped: `max_epochs=200` reached.
+2024-05-22 15:59:24,971 - INFO - Training took 2012.35 seconds
+2024-05-22 15:59:24,971 - INFO - ================== Start testing for dataset: cable ==================
+2024-05-22 15:59:24,972 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Testing: |          | 0/? [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 5/5 [00:31<00:00,  0.16it/s]
+2024-05-22 15:59:58,397 - INFO - Testing took 33.198484897613525 seconds
+Throughput (batch_size=32) : 4.518278483569675 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9544602632522583     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9671720862388611     │
+│         pixel_PRO         │    0.6029992699623108     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-22 15:59:58,589 - INFO - ================== Processing dataset: toothbrush ==================
+2024-05-22 15:59:58,589 - INFO - Initializing ReverseDistillation model.
+2024-05-22 15:59:58,590 - INFO - ================== Start training for dataset: toothbrush ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-22 15:59:58,599 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-22 15:59:58,600 - INFO - Found the dataset.
+2024-05-22 15:59:59,748 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | loss                  | ReverseDistillationLoss  | 0
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+7 | model                 | ReverseDistillationModel | 89.0 M
+-------------------------------------------------------------------
+89.0 M    Trainable params
+0         Non-trainable params
+89.0 M    Total params
+356.009   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/2 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 199: 100%|██████████| 2/2 [00:02<00:00,  0.76it/s, train_loss_step=0.168, train_loss_epoch=0.172]
+Validation: |          | 0/? [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Validation:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/2 [00:00<?, ?it/s]
+Validation DataLoader 0:  50%|█████     | 1/2 [00:00<00:00,  8.24it/s]
+Validation DataLoader 0: 100%|██████████| 2/2 [00:00<00:00,  3.47it/s]
+Epoch 199: 100%|██████████| 2/2 [00:07<00:00,  0.27it/s, train_loss_step=0.168, train_loss_epoch=0.168, pixel_AUROC=0.989, pixel_PRO=0.274]
+`Trainer.fit` stopped: `max_epochs=200` reached.
+2024-05-22 16:08:48,746 - INFO - Training took 528.32 seconds
+2024-05-22 16:08:48,746 - INFO - ================== Start testing for dataset: toothbrush ==================
+2024-05-22 16:08:48,747 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Testing: |          | 0/? [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 2/2 [00:08<00:00,  0.24it/s]
+2024-05-22 16:08:58,473 - INFO - Testing took 9.506849527359009 seconds
+Throughput (batch_size=32) : 4.41786733650633 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9138889312744141     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9885436296463013     │
+│         pixel_PRO         │    0.27363646030426025    │
+└───────────────────────────┴───────────────────────────┘
+2024-05-22 16:08:58,658 - INFO - ================== Processing dataset: transistor ==================
+2024-05-22 16:08:58,658 - INFO - Initializing ReverseDistillation model.
+2024-05-22 16:08:58,658 - INFO - ================== Start training for dataset: transistor ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-22 16:08:58,668 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-22 16:08:58,668 - INFO - Found the dataset.
+2024-05-22 16:08:59,810 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | loss                  | ReverseDistillationLoss  | 0
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+7 | model                 | ReverseDistillationModel | 89.0 M
+-------------------------------------------------------------------
+89.0 M    Trainable params
+0         Non-trainable params
+89.0 M    Total params
+356.009   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/7 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 199: 100%|██████████| 7/7 [00:09<00:00,  0.72it/s, train_loss_step=0.0908, train_loss_epoch=0.0888]
+Validation: |          | 0/? [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  8.31it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.34it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:02<00:00,  1.04it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.30it/s]
+Epoch 199: 100%|██████████| 7/7 [00:18<00:00,  0.37it/s, train_loss_step=0.0908, train_loss_epoch=0.0884, pixel_AUROC=0.790, pixel_PRO=0.667]
+`Trainer.fit` stopped: `max_epochs=200` reached.
+2024-05-22 16:41:58,524 - INFO - Training took 1978.04 seconds
+2024-05-22 16:41:58,525 - INFO - ================== Start testing for dataset: transistor ==================
+2024-05-22 16:41:58,526 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 4/4 [00:20<00:00,  0.19it/s]
+2024-05-22 16:42:21,104 - INFO - Testing took 22.336811304092407 seconds
+Throughput (batch_size=32) : 4.476914750212294 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9787499904632568     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9043550491333008     │
+│         pixel_PRO         │    0.6667147874832153     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-22 16:42:21,296 - INFO - ================== Processing dataset: metal_nut ==================
+2024-05-22 16:42:21,296 - INFO - Initializing ReverseDistillation model.
+2024-05-22 16:42:21,297 - INFO - ================== Start training for dataset: metal_nut ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-22 16:42:21,306 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-22 16:42:21,307 - INFO - Found the dataset.
+2024-05-22 16:42:22,444 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | loss                  | ReverseDistillationLoss  | 0
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+7 | model                 | ReverseDistillationModel | 89.0 M
+-------------------------------------------------------------------
+89.0 M    Trainable params
+0         Non-trainable params
+89.0 M    Total params
+356.009   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/7 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 199: 100%|██████████| 7/7 [00:05<00:00,  1.31it/s, train_loss_step=0.090, train_loss_epoch=0.0907]
+Validation: |          | 0/? [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  8.38it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:00<00:00,  2.40it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:01<00:00,  2.00it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:01<00:00,  2.04it/s]
+Epoch 199: 100%|██████████| 7/7 [00:12<00:00,  0.55it/s, train_loss_step=0.090, train_loss_epoch=0.0891, pixel_AUROC=0.969, pixel_PRO=0.913]
+`Trainer.fit` stopped: `max_epochs=200` reached.
+2024-05-22 17:00:24,833 - INFO - Training took 1081.72 seconds
+2024-05-22 17:00:24,834 - INFO - ================== Start testing for dataset: metal_nut ==================
+2024-05-22 17:00:24,835 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 4/4 [00:20<00:00,  0.20it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │            1.0            │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9685215353965759     │
+│         pixel_PRO         │    0.9134587645530701     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-22 17:00:45,973 - INFO - Testing took 20.919605255126953 seconds
+Throughput (batch_size=32) : 5.497235659923168 FPS
+2024-05-22 17:00:46,165 - INFO - ================== Processing dataset: bottle ==================
+2024-05-22 17:00:46,165 - INFO - Initializing ReverseDistillation model.
+2024-05-22 17:00:46,166 - INFO - ================== Start training for dataset: bottle ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-22 17:00:46,176 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-22 17:00:46,176 - INFO - Found the dataset.
+2024-05-22 17:00:47,275 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | loss                  | ReverseDistillationLoss  | 0
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+7 | model                 | ReverseDistillationModel | 89.0 M
+-------------------------------------------------------------------
+89.0 M    Trainable params
+0         Non-trainable params
+89.0 M    Total params
+356.009   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/7 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 199: 100%|██████████| 7/7 [00:06<00:00,  1.09it/s, train_loss_step=0.0427, train_loss_epoch=0.0437]
+Validation: |          | 0/? [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Validation:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/3 [00:00<?, ?it/s]
+Validation DataLoader 0:  33%|███▎      | 1/3 [00:00<00:00,  8.31it/s]
+Validation DataLoader 0:  67%|██████▋   | 2/3 [00:01<00:00,  1.79it/s]
+Validation DataLoader 0: 100%|██████████| 3/3 [00:01<00:00,  1.81it/s]
+Epoch 199: 100%|██████████| 7/7 [00:12<00:00,  0.55it/s, train_loss_step=0.0427, train_loss_epoch=0.0433, pixel_AUROC=0.986, pixel_PRO=0.827]
+`Trainer.fit` stopped: `max_epochs=200` reached.
+2024-05-22 17:22:22,991 - INFO - Training took 1295.06 seconds
+2024-05-22 17:22:22,991 - INFO - ================== Start testing for dataset: bottle ==================
+2024-05-22 17:22:22,992 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Testing: |          | 0/? [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 3/3 [00:15<00:00,  0.20it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │            1.0            │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9859147071838379     │
+│         pixel_PRO         │    0.8273097276687622     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-22 17:22:39,060 - INFO - Testing took 15.853084087371826 seconds
+Throughput (batch_size=32) : 5.2355743237440935 FPS
+2024-05-22 17:22:39,253 - INFO - ================== Processing dataset: hazelnut ==================
+2024-05-22 17:22:39,253 - INFO - Initializing ReverseDistillation model.
+2024-05-22 17:22:39,253 - INFO - ================== Start training for dataset: hazelnut ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-22 17:22:39,263 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-22 17:22:39,264 - INFO - Found the dataset.
+2024-05-22 17:22:40,359 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | loss                  | ReverseDistillationLoss  | 0
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+7 | model                 | ReverseDistillationModel | 89.0 M
+-------------------------------------------------------------------
+89.0 M    Trainable params
+0         Non-trainable params
+89.0 M    Total params
+356.009   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/13 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 199: 100%|██████████| 13/13 [00:16<00:00,  0.78it/s, train_loss_step=0.0849, train_loss_epoch=0.0824]
+Validation: |          | 0/? [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  8.37it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.43it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:02<00:00,  1.10it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.20it/s]
+Epoch 199: 100%|██████████| 13/13 [00:25<00:00,  0.50it/s, train_loss_step=0.0849, train_loss_epoch=0.0823, pixel_AUROC=0.866, pixel_PRO=0.829]
+`Trainer.fit` stopped: `max_epochs=200` reached.
+2024-05-22 18:18:24,455 - INFO - Training took 3343.44 seconds
+2024-05-22 18:18:24,455 - INFO - ================== Start testing for dataset: hazelnut ==================
+2024-05-22 18:18:24,456 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 4/4 [00:22<00:00,  0.18it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │            1.0            │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9878247976303101     │
+│         pixel_PRO         │    0.8292763829231262     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-22 18:18:48,382 - INFO - Testing took 23.71579670906067 seconds
+Throughput (batch_size=32) : 4.638258682575664 FPS
+2024-05-22 18:18:48,576 - INFO - ================== Processing dataset: leather ==================
+2024-05-22 18:18:48,576 - INFO - Initializing ReverseDistillation model.
+2024-05-22 18:18:48,577 - INFO - ================== Start training for dataset: leather ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+2024-05-22 18:18:48,587 - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+2024-05-22 18:18:48,588 - INFO - Found the dataset.
+2024-05-22 18:18:49,724 - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | loss                  | ReverseDistillationLoss  | 0
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+7 | model                 | ReverseDistillationModel | 89.0 M
+-------------------------------------------------------------------
+89.0 M    Trainable params
+0         Non-trainable params
+89.0 M    Total params
+356.009   Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:   0%|          | 0/8 [00:00<?, ?it/s] /home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 199: 100%|██████████| 8/8 [00:09<00:00,  0.85it/s, train_loss_step=0.0956, train_loss_epoch=0.0976]
+Validation: |          | 0/? [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  8.37it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.38it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:02<00:00,  1.10it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.03it/s]
+Epoch 199: 100%|██████████| 8/8 [00:18<00:00,  0.42it/s, train_loss_step=0.0956, train_loss_epoch=0.097, pixel_AUROC=0.993, pixel_PRO=0.682]
+`Trainer.fit` stopped: `max_epochs=200` reached.
+2024-05-22 18:50:04,049 - INFO - Training took 1873.68 seconds
+2024-05-22 18:50:04,049 - INFO - ================== Start testing for dataset: leather ==================
+2024-05-22 18:50:04,050 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 4/4 [00:25<00:00,  0.16it/s]
+2024-05-22 18:50:30,645 - INFO - Testing took 26.381731748580933 seconds
+Throughput (batch_size=32) : 4.700222153030948 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │            1.0            │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9928211569786072     │
+│         pixel_PRO         │    0.6824522018432617     │
+└───────────────────────────┴───────────────────────────┘
