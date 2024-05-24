@@ -8,7 +8,7 @@ reproduce and identify previous research, be bug free and easy to deploy.
 # 📦 Environment Setting
 
 IADBE offers two ways to install the library: Conda and Docker. Use Conda if you want to make changes to dependencies and work in dev mode. 
-Use Docker if you want to copy our environment(cuda, nvcc, python...) exactly.
+Use Docker if you want to copy our environment(cuda, python, torch...) exactly.
 
 <details>
 <summary>Install from Conda</summary>
@@ -24,24 +24,15 @@ conda activate IADBE
 git clone https://github.com/cjy513203427/IADBE.git
 cd IADBE
 
-# Install requirements.txt
-pip install -r requirements.txt
+# Install anomalib
+pip install anomalib
+
+# Install the full package, this will install Anomalib CLI. Anomalib CLI is a command line interface for training, testing.
+anomalib install
 
 # Or using your favorite virtual environment
 # ...
 
-```
-
-This will install Anomalib CLI. Anomalib CLI is a command line interface for training, testing.
-```bash
-# Get help for the installation arguments
-anomalib install -h
-
-# Install the full package
-anomalib install
-
-# Install with verbose output
-anomalib install -v
 ```
 </details>
     
@@ -57,9 +48,10 @@ cd IADBE
 # Build docker image
 docker build -t iadbe .
 # Run docker container
-docker run -it --rm iadbe bash
+docker run --gpus all -it --rm iadbe bash
 ```
 </details>
+You can either use it as a virtual machine with the same command to train, test and inference or set docker env as your external environment.
 
 # 🧠 Training and Testing
 
@@ -67,34 +59,61 @@ IADBE supports both API and CLI-based training. The API is more flexible and all
 
 <details>
 <summary>Training and Testing via API</summary>
-A train_test_xxx.py file looks like this. Run it with your IDE or <code>python train_test_xxx.py</code> to start training.
+A train_test_xxx.py file looks like this. Run it with your IDE or <code>python train_test_xxx.py</code> to start training default with whole MVTec dataset.
 
 ```python
-# Import the required modules
+import logging
+from anomalib import TaskType
 from anomalib.data import MVTec
-from anomalib.models import Padim
 from anomalib.engine import Engine
+from anomalib.models import Padim
 
-# Initialize the datamodule, model and engine
-datamodule = MVTec()
-model = Padim()
-engine = Engine()
+# configure logger
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
-# Train the model
-engine.fit(datamodule=datamodule, model=model)
+datasets = ['screw', 'pill', 'capsule', 'carpet', 'grid', 'tile', 'wood', 'zipper', 'cable', 'toothbrush', 'transistor',
+            'metal_nut', 'bottle', 'hazelnut', 'leather']
 
-# Test the model
-engine.test(datamodule=datamodule, model=model)
+for dataset in datasets:
+    logger.info(f"================== Processing dataset: {dataset} ==================")
+    model = Padim()
+    datamodule = MVTec(category=dataset, num_workers=0, train_batch_size=256,
+                       eval_batch_size=256)
+    # metrics is under "anomalib/metrics/"
+    engine = Engine(pixel_metrics=["AUROC", "PRO"], image_metrics=["AUROC", "PRO"], task=TaskType.SEGMENTATION)
+
+    logger.info(f"================== Start training for dataset: {dataset} ==================")
+    engine.fit(model=model, datamodule=datamodule)
+
+    logger.info(f"================== Start testing for dataset: {dataset} ==================")
+    test_results = engine.test(
+        model=model,
+        datamodule=datamodule,
+        ckpt_path=engine.trainer.checkpoint_callback.best_model_path,
+    )
 ```
 
 </details>
 
 <details>
 <summary>Training and Testing via CLI</summary>
-A train_test_xxx.sh file looks like this. Run it with <code>bash train_test_xxx.sh</code> to start training.
+A train_test_xxx.sh file looks like this. Run it with <code>bash train_test_xxx.sh</code> to start training default with whole MVTec dataset.
 
 ```bash
-anomalib train --data anomalib.data.MVTec --data.category transistor --config <path/to/config>
+#!/bin/bash
+
+datasets=('screw' 'pill' 'capsule' 'carpet' 'grid' 'tile' 'wood' 'zipper' 'cable' 'toothbrush' 'transistor' 'metal_nut' 'bottle' 'hazelnut' 'leather')
+config_file="./configs/models/padim.yaml"
+
+for dataset in "${datasets[@]}"
+do
+    command="anomalib train --data anomalib.data.MVTec --data.category $dataset --config $config_file"
+    echo "Running command: $command"
+    # Excute command
+    $command
+done
+
 ```
 For the futher use of anomalib cli, you can retrieve [Training via CLI from Training](https://github.com/openvinotoolkit/anomalib?tab=readme-ov-file#-training)  
 
