@@ -5,10 +5,10 @@ problems. However, in this project the solution will be deployed using Docker or
 researchers with a ready-to-use industrial anomaly detection platform. The platform should be able to
 reproduce and identify previous research, be bug free and easy to deploy.
 
-# 📦 Installation on Linux (Ubuntu22.04)
+# 📦 Installation [Linux(Ubuntu22/20), Windows(Win11/10)]
 
 IADBE offers two ways to install the library: Conda and Docker. Use Conda if you want to make changes to dependencies and work in dev mode. 
-Use Docker if you want to copy our environment(python, torch...) exactly. We assume you have installed the nvidia driver and CUDA.
+Use Docker if you want to copy our environment(python, torch...) exactly. We assume that you have installed the nvidia driver and CUDA. Otherwise, you can train on CPU.
 
 <details>
 <summary>Install from Conda</summary>
@@ -17,7 +17,7 @@ Installing the library with Conda
 ```bash
 # Use of virtual environment is highly recommended
 # Using conda
-yes | conda create -n IADBE python=3.10
+conda create -n IADBE python=3.10
 conda activate IADBE
 
 # Clone the repository and install in editable mode
@@ -38,17 +38,6 @@ anomalib install
     
 <details>
 <summary>Install from Docker</summary>
-Install NVIDIA Container Toolkit
-
-```bash
-distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
-curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
-curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
-sudo apt update
-sudo apt install -y nvidia-docker2
-sudo systemctl restart docker
-
-```
 Installing the library with Docker
 
 ```bash
@@ -91,7 +80,6 @@ for dataset in datasets:
     model = Padim()
     datamodule = MVTec(category=dataset, num_workers=0, train_batch_size=256,
                        eval_batch_size=256)
-    # metrics is under "anomalib/metrics/"
     engine = Engine(pixel_metrics=["AUROC", "PRO"], image_metrics=["AUROC", "PRO"], task=TaskType.SEGMENTATION)
 
     logger.info(f"================== Start training for dataset: {dataset} ==================")
