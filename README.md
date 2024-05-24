@@ -5,10 +5,11 @@ problems. However, in this project the solution will be deployed using Docker or
 researchers with a ready-to-use industrial anomaly detection platform. The platform should be able to
 reproduce and identify previous research, be bug free and easy to deploy.
 
-# 📦 Installation [Linux(Ubuntu22/20), Windows(Win11/10)]
+# 📦 Installation 
+Tested on Linux (Ubuntu22/20), Windows (Win11/10)✅
 
 IADBE offers two ways to install the library: Conda and Docker. Use Conda if you want to make changes to dependencies and work in dev mode. 
-Use Docker if you want to copy our environment(python, torch...) exactly. We assume that you have installed the nvidia driver and CUDA. Otherwise, you can train on CPU.
+Use Docker if you want to copy our environment(python, torch...) exactly. ⚠️We assume that you have installed the nvidia driver and CUDA. Otherwise, you can train on CPU.
 
 <details>
 <summary>Install from Conda</summary>
