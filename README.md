@@ -5,10 +5,10 @@ problems. However, in this project the solution will be deployed using Docker or
 researchers with a ready-to-use industrial anomaly detection platform. The platform should be able to
 reproduce and identify previous research, be bug free and easy to deploy.
 
-# 📦 Environment Setting
+# 📦 Installation on Linux (Ubuntu22.04)
 
 IADBE offers two ways to install the library: Conda and Docker. Use Conda if you want to make changes to dependencies and work in dev mode. 
-Use Docker if you want to copy our environment(cuda, python, torch...) exactly.
+Use Docker if you want to copy our environment(python, torch...) exactly. We assume you have installed the nvidia driver and CUDA.
 
 <details>
 <summary>Install from Conda</summary>
@@ -38,6 +38,17 @@ anomalib install
     
 <details>
 <summary>Install from Docker</summary>
+Install NVIDIA Container Toolkit
+
+```bash
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+sudo apt update
+sudo apt install -y nvidia-docker2
+sudo systemctl restart docker
+
+```
 Installing the library with Docker
 
 ```bash
