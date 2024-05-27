@@ -59,7 +59,7 @@ IADBE supports both API and CLI-based training. The API is more flexible and all
 
 <details>
 <summary>Training and Testing via API</summary>
-A train_test_xxx.py file looks like this. Run it with your IDE or <code>python train_test_xxx.py</code> to start training default with whole MVTec dataset.
+A train_test_mvtec_xxx.py file looks like this. Run it with your IDE or <code>python train_test_mvtec_xxx.py</code> to start training default with whole MVTec dataset.
 
 ```python
 import logging
@@ -97,7 +97,7 @@ for dataset in datasets:
 
 <details>
 <summary>Training and Testing via CLI</summary>
-A train_test_xxx.sh file looks like this. Run it with <code>bash train_test_xxx.sh</code> to start training default with whole MVTec dataset.
+A train_test_mvtec_xxx.sh file looks like this. Run it with <code>bash train_test_mvtec_xxx.sh</code> to start training default with whole MVTec dataset.
 
 ```bash
 #!/bin/bash

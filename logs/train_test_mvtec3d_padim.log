@@ -1,0 +1,597 @@
+/home/jinyao/anaconda3/envs/IADBE/bin/python /home/jinyao/PycharmProjects/IADBE/train_test_mvtec3d_padim.py
+2024-05-27 11:15:07,680 - INFO - ================== Processing dataset: bagel ==================
+2024-05-27 11:15:07,680 - INFO - Initializing Padim model.
+2024-05-27 11:15:07,879 - INFO - Loading pretrained weights from url (https://download.pytorch.org/models/resnet18-5c106cde.pth)
+2024-05-27 11:15:07,950 - INFO - ================== Start training for dataset: bagel ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+`Trainer(val_check_interval=1.0)` was configured so validation will run at the end of the training epoch..
+2024-05-27 11:15:08,035 - INFO - Found the dataset.
+You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PadimModel               | 2.8 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+2.8 M     Trainable params
+0         Non-trainable params
+2.8 M     Total params
+11.131    Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0:  12%|█▎        | 1/8 [00:01<00:07,  0.95it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0: 100%|██████████| 8/8 [00:07<00:00,  1.11it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]2024-05-27 11:15:15,414 - INFO - Aggregating the embedding extracted from the training set.
+2024-05-27 11:15:15,507 - INFO - Fitting a Gaussian to the embedding collected from the training set.
+
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  5.28it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.48it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:02<00:00,  1.23it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:02<00:00,  1.34it/s]
+Epoch 0: 100%|██████████| 8/8 [00:16<00:00,  0.48it/s, pixel_AUROC=0.983, pixel_PRO=0.174]
+`Trainer.fit` stopped: `max_epochs=1` reached.
+2024-05-27 11:15:24,849 - INFO - Training took 16.66 seconds
+2024-05-27 11:15:24,849 - INFO - ================== Start testing for dataset: bagel ==================
+2024-05-27 11:15:24,919 - INFO - Found the dataset.
+Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Padim/MVTec3D/bagel/v1/weights/lightning/model.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Padim/MVTec3D/bagel/v1/weights/lightning/model.ckpt
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 4/4 [00:18<00:00,  0.22it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │     0.95712810754776      │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │     0.983456552028656     │
+│         pixel_PRO         │    0.17408616840839386    │
+└───────────────────────────┴───────────────────────────┘
+2024-05-27 11:15:44,109 - INFO - Testing took 19.044608116149902 seconds
+Throughput (batch_size=32) : 5.775913021109611 FPS
+2024-05-27 11:15:44,201 - INFO - ================== Processing dataset: cable_gland ==================
+2024-05-27 11:15:44,201 - INFO - Initializing Padim model.
+2024-05-27 11:15:44,410 - INFO - Loading pretrained weights from url (https://download.pytorch.org/models/resnet18-5c106cde.pth)
+2024-05-27 11:15:44,477 - INFO - ================== Start training for dataset: cable_gland ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+`Trainer(val_check_interval=1.0)` was configured so validation will run at the end of the training epoch..
+2024-05-27 11:15:44,488 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PadimModel               | 2.8 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+2.8 M     Trainable params
+0         Non-trainable params
+2.8 M     Total params
+11.131    Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0: 100%|██████████| 7/7 [00:02<00:00,  3.27it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]2024-05-27 11:15:46,691 - INFO - Aggregating the embedding extracted from the training set.
+2024-05-27 11:15:46,734 - INFO - Fitting a Gaussian to the embedding collected from the training set.
+
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00, 11.98it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:00<00:00,  4.46it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:00<00:00,  3.62it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:00<00:00,  4.01it/s]
+Epoch 0: 100%|██████████| 7/7 [00:09<00:00,  0.76it/s, pixel_AUROC=0.963, pixel_PRO=0.423]
+`Trainer.fit` stopped: `max_epochs=1` reached.
+2024-05-27 11:15:53,838 - INFO - Training took  9.29 seconds
+2024-05-27 11:15:53,838 - INFO - ================== Start testing for dataset: cable_gland ==================
+2024-05-27 11:15:53,878 - INFO - Found the dataset.
+Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Padim/MVTec3D/cable_gland/v0/weights/lightning/model.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Padim/MVTec3D/cable_gland/v0/weights/lightning/model.ckpt
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 4/4 [00:14<00:00,  0.27it/s]
+2024-05-27 11:16:09,040 - INFO - Testing took 15.05689001083374 seconds
+Throughput (batch_size=32) : 7.172795970634825 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.7356322407722473     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9626170992851257     │
+│         pixel_PRO         │    0.42259708046913147    │
+└───────────────────────────┴───────────────────────────┘
+2024-05-27 11:16:09,143 - INFO - ================== Processing dataset: carrot ==================
+2024-05-27 11:16:09,143 - INFO - Initializing Padim model.
+2024-05-27 11:16:09,327 - INFO - Loading pretrained weights from url (https://download.pytorch.org/models/resnet18-5c106cde.pth)
+2024-05-27 11:16:09,393 - INFO - ================== Start training for dataset: carrot ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+`Trainer(val_check_interval=1.0)` was configured so validation will run at the end of the training epoch..
+2024-05-27 11:16:09,403 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PadimModel               | 2.8 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+2.8 M     Trainable params
+0         Non-trainable params
+2.8 M     Total params
+11.131    Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0: 100%|██████████| 9/9 [00:07<00:00,  1.19it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]2024-05-27 11:16:17,025 - INFO - Aggregating the embedding extracted from the training set.
+2024-05-27 11:16:17,083 - INFO - Fitting a Gaussian to the embedding collected from the training set.
+
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  6.18it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:01<00:01,  1.62it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:02<00:01,  1.31it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:03<00:00,  1.21it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:04<00:00,  1.16it/s]
+Epoch 0: 100%|██████████| 9/9 [00:19<00:00,  0.47it/s, pixel_AUROC=0.972, pixel_PRO=0.114]
+`Trainer.fit` stopped: `max_epochs=1` reached.
+2024-05-27 11:16:28,807 - INFO - Training took 19.34 seconds
+2024-05-27 11:16:28,807 - INFO - ================== Start testing for dataset: carrot ==================
+2024-05-27 11:16:28,874 - INFO - Found the dataset.
+Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Padim/MVTec3D/carrot/v0/weights/lightning/model.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Padim/MVTec3D/carrot/v0/weights/lightning/model.ckpt
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 5/5 [00:25<00:00,  0.20it/s]
+2024-05-27 11:16:55,434 - INFO - Testing took 26.421437740325928 seconds
+Throughput (batch_size=32) : 6.01784057183705 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.6482884883880615     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9723132252693176     │
+│         pixel_PRO         │    0.11422651261091232    │
+└───────────────────────────┴───────────────────────────┘
+2024-05-27 11:16:55,533 - INFO - ================== Processing dataset: cookie ==================
+2024-05-27 11:16:55,533 - INFO - Initializing Padim model.
+2024-05-27 11:16:55,719 - INFO - Loading pretrained weights from url (https://download.pytorch.org/models/resnet18-5c106cde.pth)
+2024-05-27 11:16:55,782 - INFO - ================== Start training for dataset: cookie ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+`Trainer(val_check_interval=1.0)` was configured so validation will run at the end of the training epoch..
+2024-05-27 11:16:55,792 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PadimModel               | 2.8 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+2.8 M     Trainable params
+0         Non-trainable params
+2.8 M     Total params
+11.131    Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0: 100%|██████████| 7/7 [00:02<00:00,  2.61it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]2024-05-27 11:16:58,533 - INFO - Aggregating the embedding extracted from the training set.
+2024-05-27 11:16:58,597 - INFO - Fitting a Gaussian to the embedding collected from the training set.
+
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00, 10.01it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:00<00:00,  3.16it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:01<00:00,  2.59it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:01<00:00,  2.38it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:01<00:00,  2.79it/s]
+Epoch 0: 100%|██████████| 7/7 [00:10<00:00,  0.68it/s, pixel_AUROC=0.953, pixel_PRO=0.286]
+`Trainer.fit` stopped: `max_epochs=1` reached.
+2024-05-27 11:17:06,204 - INFO - Training took 10.36 seconds
+2024-05-27 11:17:06,204 - INFO - ================== Start testing for dataset: cookie ==================
+2024-05-27 11:17:06,284 - INFO - Found the dataset.
+Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Padim/MVTec3D/cookie/v0/weights/lightning/model.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Padim/MVTec3D/cookie/v0/weights/lightning/model.ckpt
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 5/5 [00:19<00:00,  0.26it/s]
+2024-05-27 11:17:26,193 - INFO - Testing took 19.744174480438232 seconds
+Throughput (batch_size=32) : 6.634868433207464 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.6248266696929932     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9525426626205444     │
+│         pixel_PRO         │    0.2861221730709076     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-27 11:17:26,280 - INFO - ================== Processing dataset: dowel ==================
+2024-05-27 11:17:26,280 - INFO - Initializing Padim model.
+2024-05-27 11:17:26,465 - INFO - Loading pretrained weights from url (https://download.pytorch.org/models/resnet18-5c106cde.pth)
+2024-05-27 11:17:26,525 - INFO - ================== Start training for dataset: dowel ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+`Trainer(val_check_interval=1.0)` was configured so validation will run at the end of the training epoch..
+2024-05-27 11:17:26,535 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PadimModel               | 2.8 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+2.8 M     Trainable params
+0         Non-trainable params
+2.8 M     Total params
+11.131    Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0: 100%|██████████| 9/9 [00:02<00:00,  3.53it/s]
+2024-05-27 11:17:29,144 - INFO - Aggregating the embedding extracted from the training set.
+Validation: |          | 0/? [00:00<?, ?it/s]2024-05-27 11:17:29,251 - INFO - Fitting a Gaussian to the embedding collected from the training set.
+
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00, 11.82it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:00<00:00,  4.31it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:00<00:00,  3.57it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:01<00:00,  3.34it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:01<00:00,  3.92it/s]
+Epoch 0: 100%|██████████| 9/9 [00:10<00:00,  0.87it/s, pixel_AUROC=0.989, pixel_PRO=0.322]
+`Trainer.fit` stopped: `max_epochs=1` reached.
+2024-05-27 11:17:36,954 - INFO - Training took 10.37 seconds
+2024-05-27 11:17:36,954 - INFO - ================== Start testing for dataset: dowel ==================
+2024-05-27 11:17:37,026 - INFO - Found the dataset.
+Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Padim/MVTec3D/dowel/v0/weights/lightning/model.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Padim/MVTec3D/dowel/v0/weights/lightning/model.ckpt
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 5/5 [00:17<00:00,  0.28it/s]
+2024-05-27 11:17:55,332 - INFO - Testing took 18.15842080116272 seconds
+Throughput (batch_size=32) : 7.159212875586397 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.8968194723129272     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9893619418144226     │
+│         pixel_PRO         │    0.3216373026371002     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-27 11:17:55,425 - INFO - ================== Processing dataset: foam ==================
+2024-05-27 11:17:55,425 - INFO - Initializing Padim model.
+2024-05-27 11:17:55,612 - INFO - Loading pretrained weights from url (https://download.pytorch.org/models/resnet18-5c106cde.pth)
+2024-05-27 11:17:55,681 - INFO - ================== Start training for dataset: foam ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+`Trainer(val_check_interval=1.0)` was configured so validation will run at the end of the training epoch..
+2024-05-27 11:17:55,691 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PadimModel               | 2.8 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+2.8 M     Trainable params
+0         Non-trainable params
+2.8 M     Total params
+11.131    Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0: 100%|██████████| 8/8 [00:08<00:00,  0.96it/s]
+2024-05-27 11:18:04,118 - INFO - Aggregating the embedding extracted from the training set.
+Validation: |          | 0/? [00:00<?, ?it/s]2024-05-27 11:18:04,187 - INFO - Fitting a Gaussian to the embedding collected from the training set.
+
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  5.38it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.29it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:02<00:00,  1.05it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.30it/s]
+Epoch 0: 100%|██████████| 8/8 [00:17<00:00,  0.45it/s, pixel_AUROC=0.998, pixel_PRO=0.461]
+`Trainer.fit` stopped: `max_epochs=1` reached.
+2024-05-27 11:18:13,463 - INFO - Training took 17.72 seconds
+2024-05-27 11:18:13,463 - INFO - ================== Start testing for dataset: foam ==================
+2024-05-27 11:18:13,535 - INFO - Found the dataset.
+Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Padim/MVTec3D/foam/v0/weights/lightning/model.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Padim/MVTec3D/foam/v0/weights/lightning/model.ckpt
+Testing: |          | 0/? [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 4/4 [00:17<00:00,  0.22it/s]
+2024-05-27 11:18:32,515 - INFO - Testing took 18.842840671539307 seconds
+Throughput (batch_size=32) : 5.307055435173449 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.6450000405311584     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │     0.997739851474762     │
+│         pixel_PRO         │     0.461068719625473     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-27 11:18:32,603 - INFO - ================== Processing dataset: peach ==================
+2024-05-27 11:18:32,603 - INFO - Initializing Padim model.
+2024-05-27 11:18:32,792 - INFO - Loading pretrained weights from url (https://download.pytorch.org/models/resnet18-5c106cde.pth)
+2024-05-27 11:18:32,854 - INFO - ================== Start training for dataset: peach ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+`Trainer(val_check_interval=1.0)` was configured so validation will run at the end of the training epoch..
+2024-05-27 11:18:32,864 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PadimModel               | 2.8 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+2.8 M     Trainable params
+0         Non-trainable params
+2.8 M     Total params
+11.131    Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0: 100%|██████████| 12/12 [00:06<00:00,  1.94it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]2024-05-27 11:18:39,107 - INFO - Aggregating the embedding extracted from the training set.
+2024-05-27 11:18:39,227 - INFO - Fitting a Gaussian to the embedding collected from the training set.
+
+Validation:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/5 [00:00<?, ?it/s]
+Validation DataLoader 0:  20%|██        | 1/5 [00:00<00:00,  8.43it/s]
+Validation DataLoader 0:  40%|████      | 2/5 [00:00<00:01,  2.51it/s]
+Validation DataLoader 0:  60%|██████    | 3/5 [00:01<00:00,  2.08it/s]
+Validation DataLoader 0:  80%|████████  | 4/5 [00:02<00:00,  1.90it/s]
+Validation DataLoader 0: 100%|██████████| 5/5 [00:02<00:00,  2.24it/s]
+Epoch 0: 100%|██████████| 12/12 [00:14<00:00,  0.84it/s, pixel_AUROC=0.990, pixel_PRO=0.332]
+`Trainer.fit` stopped: `max_epochs=1` reached.
+2024-05-27 11:18:47,287 - INFO - Training took 14.37 seconds
+2024-05-27 11:18:47,288 - INFO - ================== Start testing for dataset: peach ==================
+2024-05-27 11:18:47,359 - INFO - Found the dataset.
+Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Padim/MVTec3D/peach/v0/weights/lightning/model.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Padim/MVTec3D/peach/v0/weights/lightning/model.ckpt
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 5/5 [00:19<00:00,  0.25it/s]
+2024-05-27 11:19:07,906 - INFO - Testing took 20.406938552856445 seconds
+Throughput (batch_size=32) : 6.468388173860768 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.7249637246131897     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9895627498626709     │
+│         pixel_PRO         │    0.33226656913757324    │
+└───────────────────────────┴───────────────────────────┘
+2024-05-27 11:19:07,995 - INFO - ================== Processing dataset: potato ==================
+2024-05-27 11:19:07,995 - INFO - Initializing Padim model.
+2024-05-27 11:19:08,194 - INFO - Loading pretrained weights from url (https://download.pytorch.org/models/resnet18-5c106cde.pth)
+2024-05-27 11:19:08,269 - INFO - ================== Start training for dataset: potato ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+`Trainer(val_check_interval=1.0)` was configured so validation will run at the end of the training epoch..
+2024-05-27 11:19:08,279 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PadimModel               | 2.8 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+2.8 M     Trainable params
+0         Non-trainable params
+2.8 M     Total params
+11.131    Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0: 100%|██████████| 10/10 [00:08<00:00,  1.22it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]2024-05-27 11:19:16,656 - INFO - Aggregating the embedding extracted from the training set.
+2024-05-27 11:19:16,750 - INFO - Fitting a Gaussian to the embedding collected from the training set.
+
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  6.42it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:01<00:01,  1.56it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:02<00:00,  1.25it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:03<00:00,  1.28it/s]
+Epoch 0: 100%|██████████| 10/10 [00:18<00:00,  0.54it/s, pixel_AUROC=0.980, pixel_PRO=0.542]
+`Trainer.fit` stopped: `max_epochs=1` reached.
+2024-05-27 11:19:26,882 - INFO - Training took 18.44 seconds
+2024-05-27 11:19:26,882 - INFO - ================== Start testing for dataset: potato ==================
+2024-05-27 11:19:26,956 - INFO - Found the dataset.
+Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Padim/MVTec3D/potato/v0/weights/lightning/model.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Padim/MVTec3D/potato/v0/weights/lightning/model.ckpt
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 4/4 [00:18<00:00,  0.22it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.5350790619850159     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │     0.980373740196228     │
+│         pixel_PRO         │    0.5418493151664734     │
+└───────────────────────────┴───────────────────────────┘
+2024-05-27 11:19:46,409 - INFO - Testing took 19.306490182876587 seconds
+Throughput (batch_size=32) : 5.904750108391502 FPS
+2024-05-27 11:19:46,502 - INFO - ================== Processing dataset: rope ==================
+2024-05-27 11:19:46,502 - INFO - Initializing Padim model.
+2024-05-27 11:19:46,687 - INFO - Loading pretrained weights from url (https://download.pytorch.org/models/resnet18-5c106cde.pth)
+2024-05-27 11:19:46,753 - INFO - ================== Start training for dataset: rope ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+`Trainer(val_check_interval=1.0)` was configured so validation will run at the end of the training epoch..
+2024-05-27 11:19:46,762 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PadimModel               | 2.8 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+2.8 M     Trainable params
+0         Non-trainable params
+2.8 M     Total params
+11.131    Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0: 100%|██████████| 10/10 [00:05<00:00,  1.96it/s]
+2024-05-27 11:19:51,927 - INFO - Aggregating the embedding extracted from the training set.
+Validation: |          | 0/? [00:00<?, ?it/s]2024-05-27 11:19:52,022 - INFO - Fitting a Gaussian to the embedding collected from the training set.
+
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  8.52it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:00<00:00,  2.52it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:01<00:00,  2.04it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:01<00:00,  2.46it/s]
+Epoch 0: 100%|██████████| 10/10 [00:13<00:00,  0.75it/s, pixel_AUROC=0.947, pixel_PRO=0.127]
+`Trainer.fit` stopped: `max_epochs=1` reached.
+2024-05-27 11:20:00,233 - INFO - Training took 13.42 seconds
+2024-05-27 11:20:00,234 - INFO - ================== Start testing for dataset: rope ==================
+2024-05-27 11:20:00,312 - INFO - Found the dataset.
+Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Padim/MVTec3D/rope/v0/weights/lightning/model.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Padim/MVTec3D/rope/v0/weights/lightning/model.ckpt
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 4/4 [00:15<00:00,  0.26it/s]
+2024-05-27 11:20:16,572 - INFO - Testing took 16.119521617889404 seconds
+Throughput (batch_size=32) : 6.265694627557089 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.7635869979858398     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9475032091140747     │
+│         pixel_PRO         │    0.12654544413089752    │
+└───────────────────────────┴───────────────────────────┘
+2024-05-27 11:20:16,660 - INFO - ================== Processing dataset: tire ==================
+2024-05-27 11:20:16,660 - INFO - Initializing Padim model.
+2024-05-27 11:20:16,852 - INFO - Loading pretrained weights from url (https://download.pytorch.org/models/resnet18-5c106cde.pth)
+2024-05-27 11:20:16,915 - INFO - ================== Start training for dataset: tire ==================
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+`Trainer(val_check_interval=1.0)` was configured so validation will run at the end of the training epoch..
+2024-05-27 11:20:16,924 - INFO - Found the dataset.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PadimModel               | 2.8 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+2.8 M     Trainable params
+0         Non-trainable params
+2.8 M     Total params
+11.131    Total estimated model params size (MB)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'train_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'val_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Epoch 0: 100%|██████████| 7/7 [00:03<00:00,  1.76it/s]
+2024-05-27 11:20:20,965 - INFO - Aggregating the embedding extracted from the training set.
+Validation: |          | 0/? [00:00<?, ?it/s]2024-05-27 11:20:21,007 - INFO - Fitting a Gaussian to the embedding collected from the training set.
+
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  6.84it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:00<00:00,  2.10it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:01<00:00,  1.76it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:02<00:00,  1.87it/s]
+Epoch 0: 100%|██████████| 7/7 [00:11<00:00,  0.59it/s, pixel_AUROC=0.952, pixel_PRO=0.123]
+`Trainer.fit` stopped: `max_epochs=1` reached.
+2024-05-27 11:20:28,886 - INFO - Training took 11.91 seconds
+2024-05-27 11:20:28,886 - INFO - ================== Start testing for dataset: tire ==================
+2024-05-27 11:20:28,964 - INFO - Found the dataset.
+Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Padim/MVTec3D/tire/v0/weights/lightning/model.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Padim/MVTec3D/tire/v0/weights/lightning/model.ckpt
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=63` in the `DataLoader` to improve performance.
+Testing DataLoader 0: 100%|██████████| 4/4 [00:17<00:00,  0.23it/s]
+2024-05-27 11:20:47,209 - INFO - Testing took 18.088964700698853 seconds
+Throughput (batch_size=32) : 6.1916202421287805 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.8096551299095154     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9522130489349365     │
+│         pixel_PRO         │    0.1230761706829071     │
+└───────────────────────────┴───────────────────────────┘
