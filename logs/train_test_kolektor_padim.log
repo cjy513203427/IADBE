@@ -1,0 +1,56 @@
+/home/jinyao/anaconda3/envs/IADBE/bin/python /home/jinyao/PycharmProjects/IADBE/train_test_kolektor_padim.py
+2024-05-27 12:12:20,865 - INFO - Initializing Padim model.
+2024-05-27 12:12:21,066 - INFO - Loading pretrained weights from url (https://download.pytorch.org/models/resnet18-5c106cde.pth)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+`Trainer(val_check_interval=1.0)` was configured so validation will run at the end of the training epoch..
+2024-05-27 12:12:21,220 - INFO - Found the dataset.
+You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+
+  | Name                  | Type                     | Params
+-------------------------------------------------------------------
+0 | model                 | PadimModel               | 2.8 M
+1 | _transform            | Compose                  | 0
+2 | normalization_metrics | MinMax                   | 0
+3 | image_threshold       | F1AdaptiveThreshold      | 0
+4 | pixel_threshold       | F1AdaptiveThreshold      | 0
+5 | image_metrics         | AnomalibMetricCollection | 0
+6 | pixel_metrics         | AnomalibMetricCollection | 0
+-------------------------------------------------------------------
+2.8 M     Trainable params
+0         Non-trainable params
+2.8 M     Total params
+11.131    Total estimated model params size (MB)
+Epoch 0:  11%|█         | 1/9 [00:00<00:06,  1.19it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0: 100%|██████████| 9/9 [00:01<00:00,  7.87it/s]
+Validation: |          | 0/? [00:00<?, ?it/s]2024-05-27 12:12:23,354 - INFO - Aggregating the embedding extracted from the training set.
+2024-05-27 12:12:23,454 - INFO - Fitting a Gaussian to the embedding collected from the training set.
+
+Validation:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:   0%|          | 0/4 [00:00<?, ?it/s]
+Validation DataLoader 0:  25%|██▌       | 1/4 [00:00<00:00,  8.64it/s]
+Validation DataLoader 0:  50%|█████     | 2/4 [00:00<00:00, 10.30it/s]
+Validation DataLoader 0:  75%|███████▌  | 3/4 [00:00<00:00, 11.27it/s]
+Validation DataLoader 0: 100%|██████████| 4/4 [00:00<00:00, 11.88it/s]
+Epoch 0: 100%|██████████| 9/9 [00:07<00:00,  1.21it/s, pixel_AUROC=0.849, pixel_PRO=0.0928]
+`Trainer.fit` stopped: `max_epochs=1` reached.
+2024-05-27 12:12:29,599 - INFO - Training took  7.68 seconds
+2024-05-27 12:12:29,700 - INFO - Found the dataset.
+Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Padim/Kolektor/v0/weights/lightning/model.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Padim/Kolektor/v0/weights/lightning/model.ckpt
+Testing DataLoader 0: 100%|██████████| 4/4 [00:16<00:00,  0.25it/s]
+2024-05-27 12:12:46,842 - INFO - Testing took 16.806803941726685 seconds
+Throughput (batch_size=32) : 7.2589649062965185 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.8024725317955017     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.8486763834953308     │
+│         pixel_PRO         │    0.09276969730854034    │
+└───────────────────────────┴───────────────────────────┘
