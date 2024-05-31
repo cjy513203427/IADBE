@@ -2,13 +2,14 @@
 It is worth noting that previous research accompanying open-source projects often takes
 a lot of time due to problems with environment deployment, and some projects do not work due to versioning
 problems. However, in this project the solution will be deployed using Docker or Conda. The primary goal is to provide
-researchers with a ready-to-use industrial anomaly detection platform. The platform should be able to
+researchers with a ready-to-use industrial anomaly detection platform. This platform based on [anomalib](https://github.com/openvinotoolkit/anomalib) should be able to
 reproduce and identify previous research, be bug free and easy to deploy.
 
-# 📦 Installation [Linux(Ubuntu22/20), Windows(Win11/10)]
+# 📦 Installation 
+Tested on Linux (Ubuntu22/20), Windows (Win11/10) ✅
 
 IADBE offers two ways to install the library: Conda and Docker. Use Conda if you want to make changes to dependencies and work in dev mode. 
-Use Docker if you want to copy our environment(python, torch...) exactly. We assume that you have installed the nvidia driver and CUDA. Otherwise, you can train on CPU.
+Use Docker if you want to copy our environment(python, torch...) exactly. ⚠️We assume that you have installed the nvidia driver and CUDA. Otherwise, you can train on CPU.
 
 <details>
 <summary>Install from Conda</summary>
@@ -117,3 +118,50 @@ done
 For the futher use of anomalib cli, you can retrieve [Training via CLI from Training](https://github.com/openvinotoolkit/anomalib?tab=readme-ov-file#-training)  
 
 </details>
+
+# 🤖 Inference
+
+Anomalib includes multiple inferencing scripts, including Torch, Lightning, Gradio, and OpenVINO inferencers to perform inference using the trained/exported model. Here we show an inference example using the Lightning inferencer.
+
+<details>
+<summary>Inference via API</summary>
+
+The following example demonstrates how to perform Lightning inference by loading a model from a checkpoint file.
+
+```python
+# Assuming the datamodule, model and engine is initialized from the previous step,
+# a prediction via a checkpoint file can be performed as follows:
+predictions = engine.predict(
+    datamodule=datamodule,
+    model=model,
+    ckpt_path="path/to/checkpoint.ckpt",
+)
+```
+
+</details>
+
+<details>
+<summary>Inference via CLI</summary>
+
+```bash
+# To get help about the arguments, run:
+anomalib predict -h
+
+# Predict by using the default values.
+anomalib predict --model anomalib.models.Patchcore \
+                 --data anomalib.data.MVTec \
+                 --ckpt_path <path/to/model.ckpt>
+
+# Predict by overriding arguments.
+anomalib predict --model anomalib.models.Patchcore \
+                 --data anomalib.data.MVTec \
+                 --ckpt_path <path/to/model.ckpt>
+                 --return_predictions
+
+# Predict by using a config file.
+anomalib predict --config <path/to/config> --return_predictions
+```
+
+</details>
+
+
