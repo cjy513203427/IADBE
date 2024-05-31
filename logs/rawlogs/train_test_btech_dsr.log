@@ -1,0 +1,269 @@
+/bin/bash /home/jinyao/PycharmProjects/IADBE/train_test_btech_dsr.sh
+(IADBE) jinyao@jinyao-System-Product-Name:~/PycharmProjects/IADBE$ /bin/bash /home/jinyao/PycharmProjects/IADBE/train_test_btech_dsr.sh
+Running command: anomalib train --data anomalib.data.BTech --data.category 01 --config ./configs/models/dsr.yaml
+2024-05-29 14:55:36,597 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[05/29/24 14:55:36] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:129
+2024-05-29 14:55:36,611 - anomalib.models.components.base.anomaly_module - INFO - Initializing Dsr model.
+                    INFO     Initializing Dsr model.                                                                                                                                                   anomaly_module.py:39
+2024-05-29 14:55:36,825 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-05-29 14:55:36,827 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Dsr
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Dsr                                                                                                                          engine.py:84
+2024-05-29 14:55:36,911 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+[05/29/24 14:55:36] INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-05-29 14:55:36,912 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-05-29 14:55:36,913 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-05-29 14:55:36,914 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-05-29 14:55:36,914 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:230
+                             case. Please override `configure_transforms` in your model.
+2024-05-29 14:55:36,916 - anomalib.data.image.btech - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                btech.py:351
+2024-05-29 14:55:36,934 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-05-29 14:55:37,103 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[05/29/24 14:55:37] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+2024-05-29 14:55:37,111 - lightning.pytorch.callbacks.model_summary - INFO -
+  | Name                        | Type                     | Params
+-------------------------------------------------------------------------
+0 | quantized_anomaly_generator | DsrAnomalyGenerator      | 0
+1 | model                       | DsrModel                 | 40.3 M
+2 | second_stage_loss           | DsrSecondStageLoss       | 0
+3 | third_stage_loss            | DsrThirdStageLoss        | 0
+4 | _transform                  | Compose                  | 0
+5 | normalization_metrics       | MinMax                   | 0
+6 | image_threshold             | F1AdaptiveThreshold      | 0
+7 | pixel_threshold             | F1AdaptiveThreshold      | 0
+8 | image_metrics               | AnomalibMetricCollection | 0
+9 | pixel_metrics               | AnomalibMetricCollection | 0
+-------------------------------------------------------------------------
+36.3 M    Trainable params
+4.0 M     Non-trainable params
+40.3 M    Total params
+161.195   Total estimated model params size (MB)
+                    INFO                                                                                                                                                                                model_summary.py:90
+                               | Name                        | Type                     | Params
+                             -------------------------------------------------------------------------
+                             0 | quantized_anomaly_generator | DsrAnomalyGenerator      | 0
+                             1 | model                       | DsrModel                 | 40.3 M
+                             2 | second_stage_loss           | DsrSecondStageLoss       | 0
+                             3 | third_stage_loss            | DsrThirdStageLoss        | 0
+                             4 | _transform                  | Compose                  | 0
+                             5 | normalization_metrics       | MinMax                   | 0
+                             6 | image_threshold             | F1AdaptiveThreshold      | 0
+                             7 | pixel_threshold             | F1AdaptiveThreshold      | 0
+                             8 | image_metrics               | AnomalibMetricCollection | 0
+                             9 | pixel_metrics               | AnomalibMetricCollection | 0
+                             -------------------------------------------------------------------------
+                             36.3 M    Trainable params
+                             4.0 M     Non-trainable params
+                             40.3 M    Total params
+                             161.195   Total estimated model params size (MB)
+Epoch 0:   0%|                                                                                                                                                                                      | 0/13 [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 250:  54%|███████████████████████████████████████████████▉                                         | 7/13 [00:15<00:12,  0.46it/s, train_loss_step=2.180, pixel_AUROC=0.421, pixel_PRO=1.000, train_loss_epoch=2.120]
+Epoch 250:  62%|██████████████████████████████████████████████████████▊                                  | 8/13 [00:16<00:10,  0.49it/s, train_loss_step=1.910, pixel_AUROC=0.421, pixel_PRO=1.000, train_loss_epoch=2.120]
+Epoch 489:   0%|                                                                                                          | 0/13 [00:00<?, ?it/s, train_loss_step=1.830, pixel_AUROC=0.414, pixel_PRO=1.000, train_loss_epoch=1.760]2024-05-29 18:48:02,710 - anomalib.models.image.dsr.lightning_model - INFO - Now training upsampling module.
+[05/29/24 18:48:02] INFO     Now training upsampling module.                                                                                                                                                  lightning_model.py:102
+Epoch 699: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 13/13 [00:24<00:00,  0.52it/s, train_loss_step=0.0282, pixel_AUROC=0.757, pixel_PRO=0.360, train_loss_epoch=0.029]2024-05-29 20:19:32,904 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=700` reached.
+[05/29/24 20:19:32] INFO     `Trainer.fit` stopped: `max_epochs=700` reached.                                                                                                                                        rank_zero.py:63
+Epoch 699: 100%|████████████████████████████████████████████████████████████████████████████████████████████████| 13/13 [00:25<00:00,  0.50it/s, train_loss_step=0.0282, pixel_AUROC=0.757, pixel_PRO=0.360, train_loss_epoch=0.029]
+2024-05-29 20:19:33,370 - anomalib.callbacks.timer - INFO - Training took 19436.26 seconds
+[05/29/24 20:19:33] INFO     Training took 19436.26 seconds                                                                                                                                                              timer.py:59
+2024-05-29 20:19:33,373 - anomalib.data.image.btech - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                         btech.py:351
+2024-05-29 20:19:33,528 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[05/29/24 20:19:33] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:14<00:00,  0.21it/s]2024-05-29 20:19:51,715 - anomalib.callbacks.timer - INFO - Testing took 17.794456005096436 seconds
+Throughput (batch_size=32) : 3.933809495494079 FPS
+[05/29/24 20:19:51] INFO     Testing took 17.794456005096436 seconds                                                                                                                                                    timer.py:109
+                             Throughput (batch_size=32) : 3.933809495494079 FPS
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:14<00:00,  0.20it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9562682509422302     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.7569140791893005     │
+│         pixel_PRO         │    0.36014237999916077    │
+└───────────────────────────┴───────────────────────────┘
+Running command: anomalib train --data anomalib.data.BTech --data.category 02 --config ./configs/models/dsr.yaml
+2024-05-29 20:19:57,900 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[05/29/24 20:19:57] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                             config.py:129
+2024-05-29 20:19:57,913 - anomalib.models.components.base.anomaly_module - INFO - Initializing Dsr model.
+                    INFO     Initializing Dsr model.                                                                                                                                                            anomaly_module.py:39
+2024-05-29 20:19:58,131 - anomalib.callbacks - INFO - Loading the callbacks
+[05/29/24 20:19:58] INFO     Loading the callbacks                                                                                                                                                                    __init__.py:43
+2024-05-29 20:19:58,132 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Dsr
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Dsr                                                                                                                                   engine.py:84
+2024-05-29 20:19:58,218 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+[05/29/24 20:19:58] INFO     GPU available: True (cuda), used: True                                                                                                                                                  rank_zero.py:63
+2024-05-29 20:19:58,219 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                                rank_zero.py:63
+2024-05-29 20:19:58,220 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                                     rank_zero.py:63
+2024-05-29 20:19:58,221 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                                     rank_zero.py:63
+2024-05-29 20:19:58,221 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please anomaly_module.py:230
+                             override `configure_transforms` in your model.
+2024-05-29 20:19:58,223 - anomalib.data.image.btech - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                         btech.py:351
+2024-05-29 20:19:58,269 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which   rank_zero.py:63
+                             will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-05-29 20:19:58,448 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+2024-05-29 20:19:58,454 - lightning.pytorch.callbacks.model_summary - INFO -
+  | Name                        | Type                     | Params
+-------------------------------------------------------------------------
+0 | quantized_anomaly_generator | DsrAnomalyGenerator      | 0
+1 | model                       | DsrModel                 | 40.3 M
+2 | second_stage_loss           | DsrSecondStageLoss       | 0
+3 | third_stage_loss            | DsrThirdStageLoss        | 0
+4 | _transform                  | Compose                  | 0
+5 | normalization_metrics       | MinMax                   | 0
+6 | image_threshold             | F1AdaptiveThreshold      | 0
+7 | pixel_threshold             | F1AdaptiveThreshold      | 0
+8 | image_metrics               | AnomalibMetricCollection | 0
+9 | pixel_metrics               | AnomalibMetricCollection | 0
+-------------------------------------------------------------------------
+36.3 M    Trainable params
+4.0 M     Non-trainable params
+40.3 M    Total params
+161.195   Total estimated model params size (MB)
+                    INFO                                                                                                                                                                                         model_summary.py:90
+                               | Name                        | Type                     | Params
+                             -------------------------------------------------------------------------
+                             0 | quantized_anomaly_generator | DsrAnomalyGenerator      | 0
+                             1 | model                       | DsrModel                 | 40.3 M
+                             2 | second_stage_loss           | DsrSecondStageLoss       | 0
+                             3 | third_stage_loss            | DsrThirdStageLoss        | 0
+                             4 | _transform                  | Compose                  | 0
+                             5 | normalization_metrics       | MinMax                   | 0
+                             6 | image_threshold             | F1AdaptiveThreshold      | 0
+                             7 | pixel_threshold             | F1AdaptiveThreshold      | 0
+                             8 | image_metrics               | AnomalibMetricCollection | 0
+                             9 | pixel_metrics               | AnomalibMetricCollection | 0
+                             -------------------------------------------------------------------------
+                             36.3 M    Trainable params
+                             4.0 M     Non-trainable params
+                             40.3 M    Total params
+                             161.195   Total estimated model params size (MB)
+Epoch 0:   0%|                                                                                                                                                                                               | 0/13 [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 489:   0%|                                                                                                        | 0/13 [00:00<?, ?it/s, train_loss_step=0.0642, pixel_AUROC=0.481, pixel_PRO=0.179, train_loss_epoch=0.0629]2024-05-30 00:08:14,297 - anomalib.models.image.dsr.lightning_model - INFO - Now training upsampling module.
+[05/30/24 00:08:14] INFO     Now training upsampling module.                                                                                                                                                  lightning_model.py:102
+Epoch 699: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 13/13 [00:24<00:00,  0.52it/s, train_loss_step=0.0238, pixel_AUROC=0.672, pixel_PRO=0.289, train_loss_epoch=0.0237]2024-05-30 01:38:36,104 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=700` reached.
+[05/30/24 01:38:36] INFO     `Trainer.fit` stopped: `max_epochs=700` reached.                                                                                                                                        rank_zero.py:63
+Epoch 699: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 13/13 [00:25<00:00,  0.51it/s, train_loss_step=0.0238, pixel_AUROC=0.672, pixel_PRO=0.289, train_loss_epoch=0.0237]
+2024-05-30 01:38:36,517 - anomalib.callbacks.timer - INFO - Training took 19118.07 seconds
+[05/30/24 01:38:36] INFO     Training took 19118.07 seconds                                                                                                                                                              timer.py:59
+2024-05-30 01:38:36,519 - anomalib.data.image.btech - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                         btech.py:351
+2024-05-30 01:38:36,718 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:38<00:00,  0.21it/s]2024-05-30 01:39:18,528 - anomalib.callbacks.timer - INFO - Testing took 41.35451102256775 seconds
+Throughput (batch_size=32) : 5.561666534383291 FPS
+[05/30/24 01:39:18] INFO     Testing took 41.35451102256775 seconds                                                                                                                                                     timer.py:109
+                             Throughput (batch_size=32) : 5.561666534383291 FPS
+Testing DataLoader 0: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:40<00:00,  0.20it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.7374999523162842     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.6719852089881897     │
+│         pixel_PRO         │    0.2892359793186188     │
+└───────────────────────────┴───────────────────────────┘
+Running command: anomalib train --data anomalib.data.BTech --data.category 03 --config ./configs/models/dsr.yaml
+2024-05-30 01:39:24,172 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[05/30/24 01:39:24] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                             config.py:129
+2024-05-30 01:39:24,186 - anomalib.models.components.base.anomaly_module - INFO - Initializing Dsr model.
+                    INFO     Initializing Dsr model.                                                                                                                                                            anomaly_module.py:39
+2024-05-30 01:39:24,400 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                                    __init__.py:43
+2024-05-30 01:39:24,401 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Dsr
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Dsr                                                                                                                                   engine.py:84
+2024-05-30 01:39:24,486 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+[05/30/24 01:39:24] INFO     GPU available: True (cuda), used: True                                                                                                                                                  rank_zero.py:63
+2024-05-30 01:39:24,487 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                                rank_zero.py:63
+2024-05-30 01:39:24,487 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                                     rank_zero.py:63
+2024-05-30 01:39:24,488 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                                     rank_zero.py:63
+2024-05-30 01:39:24,489 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please anomaly_module.py:230
+                             override `configure_transforms` in your model.
+2024-05-30 01:39:24,490 - anomalib.data.image.btech - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                         btech.py:351
+2024-05-30 01:39:24,529 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which   rank_zero.py:63
+                             will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-05-30 01:39:24,720 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+2024-05-30 01:39:24,727 - lightning.pytorch.callbacks.model_summary - INFO -
+  | Name                        | Type                     | Params
+-------------------------------------------------------------------------
+0 | quantized_anomaly_generator | DsrAnomalyGenerator      | 0
+1 | model                       | DsrModel                 | 40.3 M
+2 | second_stage_loss           | DsrSecondStageLoss       | 0
+3 | third_stage_loss            | DsrThirdStageLoss        | 0
+4 | _transform                  | Compose                  | 0
+5 | normalization_metrics       | MinMax                   | 0
+6 | image_threshold             | F1AdaptiveThreshold      | 0
+7 | pixel_threshold             | F1AdaptiveThreshold      | 0
+8 | image_metrics               | AnomalibMetricCollection | 0
+9 | pixel_metrics               | AnomalibMetricCollection | 0
+-------------------------------------------------------------------------
+36.3 M    Trainable params
+4.0 M     Non-trainable params
+40.3 M    Total params
+161.195   Total estimated model params size (MB)
+                    INFO                                                                                                                                                                                         model_summary.py:90
+                               | Name                        | Type                     | Params
+                             -------------------------------------------------------------------------
+                             0 | quantized_anomaly_generator | DsrAnomalyGenerator      | 0
+                             1 | model                       | DsrModel                 | 40.3 M
+                             2 | second_stage_loss           | DsrSecondStageLoss       | 0
+                             3 | third_stage_loss            | DsrThirdStageLoss        | 0
+                             4 | _transform                  | Compose                  | 0
+                             5 | normalization_metrics       | MinMax                   | 0
+                             6 | image_threshold             | F1AdaptiveThreshold      | 0
+                             7 | pixel_threshold             | F1AdaptiveThreshold      | 0
+                             8 | image_metrics               | AnomalibMetricCollection | 0
+                             9 | pixel_metrics               | AnomalibMetricCollection | 0
+                             -------------------------------------------------------------------------
+                             36.3 M    Trainable params
+                             4.0 M     Non-trainable params
+                             40.3 M    Total params
+                             161.195   Total estimated model params size (MB)
+Epoch 0:   0%|                                                                                                                                                                                               | 0/32 [00:00<?, ?it/s]/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing `Trainer(logger=ALogger(...))`
+Epoch 489:   0%|                                                                                                          | 0/32 [00:00<?, ?it/s, train_loss_step=0.346, pixel_AUROC=0.488, pixel_PRO=0.912, train_loss_epoch=0.378]2024-05-30 09:52:01,518 - anomalib.models.image.dsr.lightning_model - INFO - Now training upsampling module.
+[05/30/24 09:52:01] INFO     Now training upsampling module.                                                                                                                                                  lightning_model.py:102
+Epoch 699: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:53<00:00,  0.60it/s, train_loss_step=0.0294, pixel_AUROC=0.553, pixel_PRO=0.107, train_loss_epoch=0.0268]2024-05-30 13:03:28,065 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=700` reached.
+[05/30/24 13:03:28] INFO     `Trainer.fit` stopped: `max_epochs=700` reached.                                                                                                                                        rank_zero.py:63
+Epoch 699: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 32/32 [00:54<00:00,  0.59it/s, train_loss_step=0.0294, pixel_AUROC=0.553, pixel_PRO=0.107, train_loss_epoch=0.0268]
+2024-05-30 13:03:28,596 - anomalib.callbacks.timer - INFO - Training took 41043.87 seconds
+[05/30/24 13:03:28] INFO     Training took 41043.87 seconds                                                                                                                                                              timer.py:59
+2024-05-30 13:03:28,597 - anomalib.data.image.btech - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                                         btech.py:351
+2024-05-30 13:03:28,783 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+Testing DataLoader 0: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [01:02<00:00,  0.22it/s]2024-05-30 13:04:36,444 - anomalib.callbacks.timer - INFO - Testing took 67.17605519294739 seconds
+Throughput (batch_size=32) : 6.564839193568771 FPS
+[05/30/24 13:04:36] INFO     Testing took 67.17605519294739 seconds                                                                                                                                                     timer.py:109
+                             Throughput (batch_size=32) : 6.564839193568771 FPS
+Testing DataLoader 0: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14/14 [01:06<00:00,  0.21it/s]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │     0.953292727470398     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.5529012680053711     │
+│         pixel_PRO         │    0.10725356638431549    │
+└───────────────────────────┴───────────────────────────┘
