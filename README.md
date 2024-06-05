@@ -47,7 +47,7 @@ git clone https://github.com/cjy513203427/IADBE.git
 cd IADBE
 
 # Build docker image
-docker build -t iadbe .
+docker build --no-cache -t iadbe .
 # Run docker container
 docker run --gpus all -it --rm iadbe bash
 ```
