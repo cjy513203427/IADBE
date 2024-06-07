@@ -1,0 +1,97 @@
+/bin/bash /home/jinyao/PycharmProjects/IADBE/train_test_kolektor_cfa.sh
+(IADBE) jinyao@jinyao-System-Product-Name:~/PycharmProjects/IADBE$ /bin/bash /home/jinyao/PycharmProjects/IADBE/train_test_kolektor_cfa.sh
+Running command: anomalib train --data anomalib.data.Kolektor --config ./configs/models/cfa.yaml
+2024-06-07 11:53:51,674 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/07/24 11:53:51] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-07 11:53:51,690 - anomalib.models.components.base.anomaly_module - INFO - Initializing Cfa model.
+                    INFO     Initializing Cfa model.                                                                                                                                                   anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:110: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  torch.has_cuda,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:111: UserWarning: 'has_cudnn' is deprecated, please use 'torch.backends.cudnn.is_available()'
+  torch.has_cudnn,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:117: UserWarning: 'has_mps' is deprecated, please use 'torch.backends.mps.is_built()'
+  torch.has_mps,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:118: UserWarning: 'has_mkldnn' is deprecated, please use 'torch.backends.mkldnn.is_available()'
+  torch.has_mkldnn,
+2024-06-07 11:53:52,516 - anomalib.callbacks - INFO - Loading the callbacks
+[06/07/24 11:53:52] INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-07 11:53:52,517 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Cfa
+                    INFO     Overriding gradient_clip_val from None with 0 for Cfa                                                                                                                             engine.py:84
+2024-06-07 11:53:52,518 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Cfa
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Cfa                                                                                                                          engine.py:84
+2024-06-07 11:53:52,596 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/07/24 11:53:52] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-07 11:53:52,604 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-07 11:53:52,605 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-07 11:53:52,606 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-07 11:53:52,607 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-07 11:53:52,607 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-07 11:53:52,609 - anomalib.data.image.kolektor - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                             kolektor.py:340
+2024-06-07 11:53:52,646 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-07 11:53:53,570 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/07/24 11:53:53] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ CfaModel                 │ 31.3 M │
+│ 1 │ loss                  │ CfaLoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 31.3 M
+Non-trainable params: 0
+Total params: 31.3 M
+Total estimated model params size (MB): 125
+  0%|                                                                                                                                                                                                | 0/9 [00:00<?, ?it/s]
+ 11%|####################4                                                                                                                                                                   | 1/9 [00:03<00:25,  3.16s/it]
+ 33%|#############################################################3                                                                                                                          | 3/9 [00:03<00:05,  1.13it/s]
+ 44%|#################################################################################7                                                                                                      | 4/9 [00:03<00:03,  1.62it/s]
+ 56%|######################################################################################################2                                                                                 | 5/9 [00:03<00:01,  2.24it/s]
+ 67%|##########################################################################################################################6                                                             | 6/9 [00:03<00:01,  2.97it/s]
+ 78%|###############################################################################################################################################1                                        | 7/9 [00:03<00:00,  3.80it/s]
+ 89%|###################################################################################################################################################################5                    | 8/9 [00:03<00:00,  4.68it/s]
+100%|########################################################################################################################################################################################| 9/9 [00:03<00:00,  5.51it/s]
+100%|########################################################################################################################################################################################| 9/9 [00:04<00:00,  2.24it/s]
+
+Epoch 5/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9/9 0:00:04 • 0:00:00 2.79it/s pixel_AUROC: 0.562 pixel_PRO: 0.0002024-06-07 11:54:48,259 - anomalib.callbacks.timer - INFO - Training took 54.68 seconds
+[06/07/24 11:54:48] INFO     Training took 54.68 seconds                                                                                                                                                        timer.py:59
+Epoch 5/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9/9 0:00:04 • 0:00:00 2.79it/s pixel_AUROC: 0.562 pixel_PRO: 0.000
+2024-06-07 11:54:48,268 - anomalib.data.image.kolektor - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                             kolektor.py:340
+2024-06-07 11:54:48,358 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/07/24 11:54:48] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/anomalib/utils/post_processing.py:89: RuntimeWarning: invalid value encountered in cast
+  anomaly_map = anomaly_map.astype(np.uint8)
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:12 • 0:00:00 0.25it/s  2024-06-07 11:55:06,293 - anomalib.callbacks.timer - INFO - Testing took 17.482391834259033 seconds
+Throughput (batch_size=32) : 6.978450154682212 FPS
+[06/07/24 11:55:06] INFO     Testing took 17.482391834259033 seconds                                                                                                                                           timer.py:109
+                             Throughput (batch_size=32) : 6.978450154682212 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.5277472734451294     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.5617314577102661     │
+│         pixel_PRO         │            0.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:12 • 0:00:00 0.25it/s
+
