@@ -1,0 +1,999 @@
+/bin/bash /home/jinyao/PycharmProjects/IADBE/train_test_visa_rkde.sh
+(IADBE) jinyao@jinyao-System-Product-Name:~/PycharmProjects/IADBE$ /bin/bash /home/jinyao/PycharmProjects/IADBE/train_test_visa_rkde.sh
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category candle --config ./configs/models/rkde.yaml
+2024-06-13 16:07:06,509 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/13/24 16:07:06] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-13 16:07:06,524 - anomalib.models.components.base.anomaly_module - INFO - Initializing Rkde model.
+                    INFO     Initializing Rkde model.                                                                                                                                                  anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=FasterRCNN_ResNet50_FPN_Weights.COCO_V1`. You can also use `weights=FasterRCNN_ResNet50_FPN_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-06-13 16:07:07,511 - anomalib.callbacks - INFO - Loading the callbacks
+[06/13/24 16:07:07] INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-13 16:07:07,513 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Rkde
+                    INFO     Overriding gradient_clip_val from None with 0 for Rkde                                                                                                                            engine.py:84
+2024-06-13 16:07:07,513 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Rkde
+                    INFO     Overriding max_epochs from None with 1 for Rkde                                                                                                                                   engine.py:84
+2024-06-13 16:07:07,514 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Rkde
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Rkde                                                                                                                         engine.py:84
+2024-06-13 16:07:07,593 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/13/24 16:07:07] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-13 16:07:07,601 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-13 16:07:07,602 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-13 16:07:07,603 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-13 16:07:07,604 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-13 16:07:07,604 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-13 16:07:07,606 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-13 16:07:07,633 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-13 16:07:07,882 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ RkdeModel                │ 98.8 M │
+│ 1 │ _transform            │ Compose                  │      0 │
+│ 2 │ normalization_metrics │ MinMax                   │      0 │
+│ 3 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 4 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 6 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 98.5 M
+Non-trainable params: 222 K
+Total params: 98.8 M
+Total estimated model params size (MB): 395
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/transforms/functional.py:1603: UserWarning: The default value of the antialias parameter of all the resizing transforms (Resize(),
+RandomResizedCrop(), etc.) will change from None to True in v0.17, in order to be consistent across the PIL and Tensor backends. To suppress this warning, directly pass antialias=True (recommended, future default),
+antialias=None (current default, which means False for Tensors and True for PIL), or antialias=False (only works on Tensors - PIL will still use antialiasing). This also applies if you are using the inference transforms
+from the models weights: update the call to weights.transforms(antialias=True).
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:21 • 0:00:00 1.60it/s  2024-06-13 16:07:29,570 - anomalib.models.image.rkde.lightning_model - INFO - Fitting a KDE model to the embedding collected from the training set.
+[06/13/24 16:07:29] INFO     Fitting a KDE model to the embedding collected from the training set.                                                                                                   lightning_model.py:100
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:21 • 0:00:00 1.60it/s  2024-06-13 16:08:14,974 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[06/13/24 16:08:14] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                 rank_zero.py:63
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:21 • 0:00:00 1.60it/s  2024-06-13 16:08:15,302 - anomalib.callbacks.timer - INFO - Training took 67.41 seconds
+[06/13/24 16:08:15] INFO     Training took 67.41 seconds                                                                                                                                                        timer.py:59
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:21 • 0:00:00 1.60it/s
+2024-06-13 16:08:15,307 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-13 16:08:15,532 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/13/24 16:08:15] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:22 • 0:00:00 0.28it/s  2024-06-13 16:08:41,552 - anomalib.callbacks.timer - INFO - Testing took 25.637495756149292 seconds
+Throughput (batch_size=32) : 7.801073938823722 FPS
+[06/13/24 16:08:41] INFO     Testing took 25.637495756149292 seconds                                                                                                                                           timer.py:109
+                             Throughput (batch_size=32) : 7.801073938823722 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.7396999597549438     │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:22 • 0:00:00 0.28it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category capsules --config ./configs/models/rkde.yaml
+2024-06-13 16:08:47,396 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/13/24 16:08:47] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-13 16:08:47,410 - anomalib.models.components.base.anomaly_module - INFO - Initializing Rkde model.
+                    INFO     Initializing Rkde model.                                                                                                                                                  anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=FasterRCNN_ResNet50_FPN_Weights.COCO_V1`. You can also use `weights=FasterRCNN_ResNet50_FPN_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-06-13 16:08:48,248 - anomalib.callbacks - INFO - Loading the callbacks
+[06/13/24 16:08:48] INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-13 16:08:48,250 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Rkde
+                    INFO     Overriding gradient_clip_val from None with 0 for Rkde                                                                                                                            engine.py:84
+2024-06-13 16:08:48,251 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Rkde
+                    INFO     Overriding max_epochs from None with 1 for Rkde                                                                                                                                   engine.py:84
+2024-06-13 16:08:48,252 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Rkde
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Rkde                                                                                                                         engine.py:84
+2024-06-13 16:08:48,331 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/13/24 16:08:48] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-13 16:08:48,339 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-13 16:08:48,340 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-13 16:08:48,340 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-13 16:08:48,341 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-13 16:08:48,342 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-13 16:08:48,343 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-13 16:08:48,382 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-13 16:08:48,624 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ RkdeModel                │ 98.8 M │
+│ 1 │ _transform            │ Compose                  │      0 │
+│ 2 │ normalization_metrics │ MinMax                   │      0 │
+│ 3 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 4 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 6 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 98.5 M
+Non-trainable params: 222 K
+Total params: 98.8 M
+Total estimated model params size (MB): 395
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/transforms/functional.py:1603: UserWarning: The default value of the antialias parameter of all the resizing transforms (Resize(),
+RandomResizedCrop(), etc.) will change from None to True in v0.17, in order to be consistent across the PIL and Tensor backends. To suppress this warning, directly pass antialias=True (recommended, future default),
+antialias=None (current default, which means False for Tensors and True for PIL), or antialias=False (only works on Tensors - PIL will still use antialiasing). This also applies if you are using the inference transforms
+from the models weights: update the call to weights.transforms(antialias=True).
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17/17 0:00:13 • 0:00:00 1.55it/s  2024-06-13 16:09:02,906 - anomalib.models.image.rkde.lightning_model - INFO - Fitting a KDE model to the embedding collected from the training set.
+[06/13/24 16:09:02] INFO     Fitting a KDE model to the embedding collected from the training set.                                                                                                   lightning_model.py:100
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17/17 0:00:13 • 0:00:00 1.55it/s  2024-06-13 16:09:13,345 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[06/13/24 16:09:13] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                 rank_zero.py:63
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17/17 0:00:13 • 0:00:00 1.55it/s  2024-06-13 16:09:13,657 - anomalib.callbacks.timer - INFO - Training took 25.03 seconds
+[06/13/24 16:09:13] INFO     Training took 25.03 seconds                                                                                                                                                        timer.py:59
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17/17 0:00:13 • 0:00:00 1.55it/s
+2024-06-13 16:09:13,661 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-13 16:09:13,890 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:17 • 0:00:00 0.24it/s  2024-06-13 16:09:36,613 - anomalib.callbacks.timer - INFO - Testing took 22.439427852630615 seconds
+Throughput (batch_size=32) : 7.130306576922945 FPS
+[06/13/24 16:09:36] INFO     Testing took 22.439427852630615 seconds                                                                                                                                           timer.py:109
+                             Throughput (batch_size=32) : 7.130306576922945 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │     0.609000027179718     │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:17 • 0:00:00 0.24it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category cashew --config ./configs/models/rkde.yaml
+2024-06-13 16:09:42,191 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/13/24 16:09:42] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-13 16:09:42,206 - anomalib.models.components.base.anomaly_module - INFO - Initializing Rkde model.
+                    INFO     Initializing Rkde model.                                                                                                                                                  anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=FasterRCNN_ResNet50_FPN_Weights.COCO_V1`. You can also use `weights=FasterRCNN_ResNet50_FPN_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-06-13 16:09:43,045 - anomalib.callbacks - INFO - Loading the callbacks
+[06/13/24 16:09:43] INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-13 16:09:43,055 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Rkde
+                    INFO     Overriding gradient_clip_val from None with 0 for Rkde                                                                                                                            engine.py:84
+2024-06-13 16:09:43,056 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Rkde
+                    INFO     Overriding max_epochs from None with 1 for Rkde                                                                                                                                   engine.py:84
+2024-06-13 16:09:43,057 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Rkde
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Rkde                                                                                                                         engine.py:84
+2024-06-13 16:09:43,137 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/13/24 16:09:43] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-13 16:09:43,145 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-13 16:09:43,146 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-13 16:09:43,146 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-13 16:09:43,147 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-13 16:09:43,148 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-13 16:09:43,149 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-13 16:09:43,186 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-13 16:09:43,432 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ RkdeModel                │ 98.8 M │
+│ 1 │ _transform            │ Compose                  │      0 │
+│ 2 │ normalization_metrics │ MinMax                   │      0 │
+│ 3 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 4 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 6 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 98.5 M
+Non-trainable params: 222 K
+Total params: 98.8 M
+Total estimated model params size (MB): 395
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/transforms/functional.py:1603: UserWarning: The default value of the antialias parameter of all the resizing transforms (Resize(),
+RandomResizedCrop(), etc.) will change from None to True in v0.17, in order to be consistent across the PIL and Tensor backends. To suppress this warning, directly pass antialias=True (recommended, future default),
+antialias=None (current default, which means False for Tensors and True for PIL), or antialias=False (only works on Tensors - PIL will still use antialiasing). This also applies if you are using the inference transforms
+from the models weights: update the call to weights.transforms(antialias=True).
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15/15 0:00:11 • 0:00:00 1.71it/s  2024-06-13 16:09:55,495 - anomalib.models.image.rkde.lightning_model - INFO - Fitting a KDE model to the embedding collected from the training set.
+[06/13/24 16:09:55] INFO     Fitting a KDE model to the embedding collected from the training set.                                                                                                   lightning_model.py:100
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15/15 0:00:11 • 0:00:00 1.71it/s  2024-06-13 16:10:02,202 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[06/13/24 16:10:02] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                 rank_zero.py:63
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15/15 0:00:11 • 0:00:00 1.71it/s  2024-06-13 16:10:02,520 - anomalib.callbacks.timer - INFO - Training took 19.08 seconds
+[06/13/24 16:10:02] INFO     Training took 19.08 seconds                                                                                                                                                        timer.py:59
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15/15 0:00:11 • 0:00:00 1.71it/s
+2024-06-13 16:10:02,524 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-13 16:10:02,783 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:15 • 0:00:00 0.27it/s  2024-06-13 16:10:22,803 - anomalib.callbacks.timer - INFO - Testing took 19.773218631744385 seconds
+Throughput (batch_size=32) : 7.586018381407391 FPS
+[06/13/24 16:10:22] INFO     Testing took 19.773218631744385 seconds                                                                                                                                           timer.py:109
+                             Throughput (batch_size=32) : 7.586018381407391 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.8516000509262085     │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:15 • 0:00:00 0.27it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category chewinggum --config ./configs/models/rkde.yaml
+2024-06-13 16:10:28,363 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/13/24 16:10:28] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-13 16:10:28,378 - anomalib.models.components.base.anomaly_module - INFO - Initializing Rkde model.
+                    INFO     Initializing Rkde model.                                                                                                                                                  anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=FasterRCNN_ResNet50_FPN_Weights.COCO_V1`. You can also use `weights=FasterRCNN_ResNet50_FPN_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-06-13 16:10:29,226 - anomalib.callbacks - INFO - Loading the callbacks
+[06/13/24 16:10:29] INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-13 16:10:29,235 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Rkde
+                    INFO     Overriding gradient_clip_val from None with 0 for Rkde                                                                                                                            engine.py:84
+2024-06-13 16:10:29,236 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Rkde
+                    INFO     Overriding max_epochs from None with 1 for Rkde                                                                                                                                   engine.py:84
+2024-06-13 16:10:29,237 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Rkde
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Rkde                                                                                                                         engine.py:84
+2024-06-13 16:10:29,317 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/13/24 16:10:29] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-13 16:10:29,326 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-13 16:10:29,326 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-13 16:10:29,327 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-13 16:10:29,328 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-13 16:10:29,328 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-13 16:10:29,330 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-13 16:10:29,366 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-13 16:10:29,614 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ RkdeModel                │ 98.8 M │
+│ 1 │ _transform            │ Compose                  │      0 │
+│ 2 │ normalization_metrics │ MinMax                   │      0 │
+│ 3 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 4 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 6 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 98.5 M
+Non-trainable params: 222 K
+Total params: 98.8 M
+Total estimated model params size (MB): 395
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/transforms/functional.py:1603: UserWarning: The default value of the antialias parameter of all the resizing transforms (Resize(),
+RandomResizedCrop(), etc.) will change from None to True in v0.17, in order to be consistent across the PIL and Tensor backends. To suppress this warning, directly pass antialias=True (recommended, future default),
+antialias=None (current default, which means False for Tensors and True for PIL), or antialias=False (only works on Tensors - PIL will still use antialiasing). This also applies if you are using the inference transforms
+from the models weights: update the call to weights.transforms(antialias=True).
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15/15 0:00:11 • 0:00:00 1.71it/s  2024-06-13 16:10:41,886 - anomalib.models.image.rkde.lightning_model - INFO - Fitting a KDE model to the embedding collected from the training set.
+[06/13/24 16:10:41] INFO     Fitting a KDE model to the embedding collected from the training set.                                                                                                   lightning_model.py:100
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15/15 0:00:11 • 0:00:00 1.71it/s  2024-06-13 16:10:48,645 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[06/13/24 16:10:48] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                 rank_zero.py:63
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15/15 0:00:11 • 0:00:00 1.71it/s  2024-06-13 16:10:48,956 - anomalib.callbacks.timer - INFO - Training took 19.33 seconds
+[06/13/24 16:10:48] INFO     Training took 19.33 seconds                                                                                                                                                        timer.py:59
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15/15 0:00:11 • 0:00:00 1.71it/s
+2024-06-13 16:10:48,959 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-13 16:10:49,281 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/13/24 16:10:49] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:15 • 0:00:00 0.28it/s  2024-06-13 16:11:08,981 - anomalib.callbacks.timer - INFO - Testing took 19.336774826049805 seconds
+Throughput (batch_size=32) : 7.757239837013844 FPS
+[06/13/24 16:11:08] INFO     Testing took 19.336774826049805 seconds                                                                                                                                           timer.py:109
+                             Throughput (batch_size=32) : 7.757239837013844 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.6446000337600708     │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:15 • 0:00:00 0.28it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category fryum --config ./configs/models/rkde.yaml
+2024-06-13 16:11:14,569 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/13/24 16:11:14] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-13 16:11:14,584 - anomalib.models.components.base.anomaly_module - INFO - Initializing Rkde model.
+                    INFO     Initializing Rkde model.                                                                                                                                                  anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=FasterRCNN_ResNet50_FPN_Weights.COCO_V1`. You can also use `weights=FasterRCNN_ResNet50_FPN_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-06-13 16:11:15,425 - anomalib.callbacks - INFO - Loading the callbacks
+[06/13/24 16:11:15] INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-13 16:11:15,427 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Rkde
+                    INFO     Overriding gradient_clip_val from None with 0 for Rkde                                                                                                                            engine.py:84
+2024-06-13 16:11:15,427 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Rkde
+                    INFO     Overriding max_epochs from None with 1 for Rkde                                                                                                                                   engine.py:84
+2024-06-13 16:11:15,428 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Rkde
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Rkde                                                                                                                         engine.py:84
+2024-06-13 16:11:15,507 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/13/24 16:11:15] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-13 16:11:15,516 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-13 16:11:15,516 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-13 16:11:15,517 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-13 16:11:15,518 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-13 16:11:15,519 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-13 16:11:15,520 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-13 16:11:15,557 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-13 16:11:15,805 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ RkdeModel                │ 98.8 M │
+│ 1 │ _transform            │ Compose                  │      0 │
+│ 2 │ normalization_metrics │ MinMax                   │      0 │
+│ 3 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 4 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 6 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 98.5 M
+Non-trainable params: 222 K
+Total params: 98.8 M
+Total estimated model params size (MB): 395
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/transforms/functional.py:1603: UserWarning: The default value of the antialias parameter of all the resizing transforms (Resize(),
+RandomResizedCrop(), etc.) will change from None to True in v0.17, in order to be consistent across the PIL and Tensor backends. To suppress this warning, directly pass antialias=True (recommended, future default),
+antialias=None (current default, which means False for Tensors and True for PIL), or antialias=False (only works on Tensors - PIL will still use antialiasing). This also applies if you are using the inference transforms
+from the models weights: update the call to weights.transforms(antialias=True).
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15/15 0:00:11 • 0:00:00 1.69it/s  2024-06-13 16:11:28,099 - anomalib.models.image.rkde.lightning_model - INFO - Fitting a KDE model to the embedding collected from the training set.
+[06/13/24 16:11:28] INFO     Fitting a KDE model to the embedding collected from the training set.                                                                                                   lightning_model.py:100
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15/15 0:00:11 • 0:00:00 1.69it/s  2024-06-13 16:11:35,053 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[06/13/24 16:11:35] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                 rank_zero.py:63
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15/15 0:00:11 • 0:00:00 1.69it/s  2024-06-13 16:11:35,365 - anomalib.callbacks.timer - INFO - Training took 19.55 seconds
+[06/13/24 16:11:35] INFO     Training took 19.55 seconds                                                                                                                                                        timer.py:59
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15/15 0:00:11 • 0:00:00 1.69it/s
+2024-06-13 16:11:35,369 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-13 16:11:35,628 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:15 • 0:00:00 0.27it/s  2024-06-13 16:11:55,422 - anomalib.callbacks.timer - INFO - Testing took 19.52243208885193 seconds
+Throughput (batch_size=32) : 7.683468909883204 FPS
+[06/13/24 16:11:55] INFO     Testing took 19.52243208885193 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=32) : 7.683468909883204 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.7797999978065491     │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:15 • 0:00:00 0.27it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category macaroni1 --config ./configs/models/rkde.yaml
+2024-06-13 16:12:00,993 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/13/24 16:12:00] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-13 16:12:01,008 - anomalib.models.components.base.anomaly_module - INFO - Initializing Rkde model.
+[06/13/24 16:12:01] INFO     Initializing Rkde model.                                                                                                                                                  anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=FasterRCNN_ResNet50_FPN_Weights.COCO_V1`. You can also use `weights=FasterRCNN_ResNet50_FPN_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-06-13 16:12:01,851 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-13 16:12:01,852 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Rkde
+                    INFO     Overriding gradient_clip_val from None with 0 for Rkde                                                                                                                            engine.py:84
+2024-06-13 16:12:01,853 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Rkde
+                    INFO     Overriding max_epochs from None with 1 for Rkde                                                                                                                                   engine.py:84
+2024-06-13 16:12:01,854 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Rkde
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Rkde                                                                                                                         engine.py:84
+2024-06-13 16:12:01,934 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/13/24 16:12:01] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-13 16:12:01,943 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-13 16:12:01,943 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-13 16:12:01,944 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-13 16:12:01,945 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-13 16:12:01,946 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-13 16:12:01,947 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-13 16:12:01,986 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-13 16:12:02,252 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/13/24 16:12:02] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ RkdeModel                │ 98.8 M │
+│ 1 │ _transform            │ Compose                  │      0 │
+│ 2 │ normalization_metrics │ MinMax                   │      0 │
+│ 3 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 4 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 6 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 98.5 M
+Non-trainable params: 222 K
+Total params: 98.8 M
+Total estimated model params size (MB): 395
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/transforms/functional.py:1603: UserWarning: The default value of the antialias parameter of all the resizing transforms (Resize(),
+RandomResizedCrop(), etc.) will change from None to True in v0.17, in order to be consistent across the PIL and Tensor backends. To suppress this warning, directly pass antialias=True (recommended, future default),
+antialias=None (current default, which means False for Tensors and True for PIL), or antialias=False (only works on Tensors - PIL will still use antialiasing). This also applies if you are using the inference transforms
+from the models weights: update the call to weights.transforms(antialias=True).
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:22 • 0:00:00 1.56it/s  2024-06-13 16:12:25,376 - anomalib.models.image.rkde.lightning_model - INFO - Fitting a KDE model to the embedding collected from the training set.
+[06/13/24 16:12:25] INFO     Fitting a KDE model to the embedding collected from the training set.                                                                                                   lightning_model.py:100
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:22 • 0:00:00 1.56it/s  2024-06-13 16:12:34,906 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[06/13/24 16:12:34] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                 rank_zero.py:63
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:22 • 0:00:00 1.56it/s  2024-06-13 16:12:35,249 - anomalib.callbacks.timer - INFO - Training took 32.99 seconds
+[06/13/24 16:12:35] INFO     Training took 32.99 seconds                                                                                                                                                        timer.py:59
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:22 • 0:00:00 1.56it/s
+2024-06-13 16:12:35,256 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-13 16:12:35,456 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/13/24 16:12:35] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:22 • 0:00:00 0.28it/s  2024-06-13 16:13:02,060 - anomalib.callbacks.timer - INFO - Testing took 26.30673623085022 seconds
+Throughput (batch_size=32) : 7.60261547631506 FPS
+[06/13/24 16:13:02] INFO     Testing took 26.30673623085022 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=32) : 7.60261547631506 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.6250999569892883     │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:22 • 0:00:00 0.28it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category macaroni2 --config ./configs/models/rkde.yaml
+2024-06-13 16:13:08,101 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/13/24 16:13:08] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-13 16:13:08,116 - anomalib.models.components.base.anomaly_module - INFO - Initializing Rkde model.
+                    INFO     Initializing Rkde model.                                                                                                                                                  anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=FasterRCNN_ResNet50_FPN_Weights.COCO_V1`. You can also use `weights=FasterRCNN_ResNet50_FPN_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-06-13 16:13:09,073 - anomalib.callbacks - INFO - Loading the callbacks
+[06/13/24 16:13:09] INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-13 16:13:09,075 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Rkde
+                    INFO     Overriding gradient_clip_val from None with 0 for Rkde                                                                                                                            engine.py:84
+2024-06-13 16:13:09,076 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Rkde
+                    INFO     Overriding max_epochs from None with 1 for Rkde                                                                                                                                   engine.py:84
+2024-06-13 16:13:09,076 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Rkde
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Rkde                                                                                                                         engine.py:84
+2024-06-13 16:13:09,159 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/13/24 16:13:09] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-13 16:13:09,167 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-13 16:13:09,168 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-13 16:13:09,169 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-13 16:13:09,169 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-13 16:13:09,170 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-13 16:13:09,172 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-13 16:13:09,210 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-13 16:13:09,459 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ RkdeModel                │ 98.8 M │
+│ 1 │ _transform            │ Compose                  │      0 │
+│ 2 │ normalization_metrics │ MinMax                   │      0 │
+│ 3 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 4 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 6 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 98.5 M
+Non-trainable params: 222 K
+Total params: 98.8 M
+Total estimated model params size (MB): 395
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/transforms/functional.py:1603: UserWarning: The default value of the antialias parameter of all the resizing transforms (Resize(),
+RandomResizedCrop(), etc.) will change from None to True in v0.17, in order to be consistent across the PIL and Tensor backends. To suppress this warning, directly pass antialias=True (recommended, future default),
+antialias=None (current default, which means False for Tensors and True for PIL), or antialias=False (only works on Tensors - PIL will still use antialiasing). This also applies if you are using the inference transforms
+from the models weights: update the call to weights.transforms(antialias=True).
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:21 • 0:00:00 1.58it/s  2024-06-13 16:13:30,913 - anomalib.models.image.rkde.lightning_model - INFO - Fitting a KDE model to the embedding collected from the training set.
+[06/13/24 16:13:30] INFO     Fitting a KDE model to the embedding collected from the training set.                                                                                                   lightning_model.py:100
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:21 • 0:00:00 1.58it/s  2024-06-13 16:13:41,361 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[06/13/24 16:13:41] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                 rank_zero.py:63
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:21 • 0:00:00 1.58it/s  2024-06-13 16:13:41,663 - anomalib.callbacks.timer - INFO - Training took 32.20 seconds
+[06/13/24 16:13:41] INFO     Training took 32.20 seconds                                                                                                                                                        timer.py:59
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:21 • 0:00:00 1.58it/s
+2024-06-13 16:13:41,666 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-13 16:13:41,905 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:23 • 0:00:00 0.26it/s  2024-06-13 16:14:09,995 - anomalib.callbacks.timer - INFO - Testing took 27.76523780822754 seconds
+Throughput (batch_size=32) : 7.203251828109138 FPS
+[06/13/24 16:14:09] INFO     Testing took 27.76523780822754 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=32) : 7.203251828109138 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.4658999443054199     │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:23 • 0:00:00 0.26it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category pcb1 --config ./configs/models/rkde.yaml
+2024-06-13 16:14:15,583 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/13/24 16:14:15] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-13 16:14:15,598 - anomalib.models.components.base.anomaly_module - INFO - Initializing Rkde model.
+                    INFO     Initializing Rkde model.                                                                                                                                                  anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=FasterRCNN_ResNet50_FPN_Weights.COCO_V1`. You can also use `weights=FasterRCNN_ResNet50_FPN_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-06-13 16:14:16,459 - anomalib.callbacks - INFO - Loading the callbacks
+[06/13/24 16:14:16] INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-13 16:14:16,461 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Rkde
+                    INFO     Overriding gradient_clip_val from None with 0 for Rkde                                                                                                                            engine.py:84
+2024-06-13 16:14:16,462 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Rkde
+                    INFO     Overriding max_epochs from None with 1 for Rkde                                                                                                                                   engine.py:84
+2024-06-13 16:14:16,462 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Rkde
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Rkde                                                                                                                         engine.py:84
+2024-06-13 16:14:16,542 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/13/24 16:14:16] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-13 16:14:16,551 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-13 16:14:16,552 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-13 16:14:16,552 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-13 16:14:16,553 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-13 16:14:16,554 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-13 16:14:16,555 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-13 16:14:16,594 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-13 16:14:16,849 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ RkdeModel                │ 98.8 M │
+│ 1 │ _transform            │ Compose                  │      0 │
+│ 2 │ normalization_metrics │ MinMax                   │      0 │
+│ 3 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 4 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 6 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 98.5 M
+Non-trainable params: 222 K
+Total params: 98.8 M
+Total estimated model params size (MB): 395
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/transforms/functional.py:1603: UserWarning: The default value of the antialias parameter of all the resizing transforms (Resize(),
+RandomResizedCrop(), etc.) will change from None to True in v0.17, in order to be consistent across the PIL and Tensor backends. To suppress this warning, directly pass antialias=True (recommended, future default),
+antialias=None (current default, which means False for Tensors and True for PIL), or antialias=False (only works on Tensors - PIL will still use antialiasing). This also applies if you are using the inference transforms
+from the models weights: update the call to weights.transforms(antialias=True).
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:21 • 0:00:00 1.57it/s  2024-06-13 16:14:39,019 - anomalib.models.image.rkde.lightning_model - INFO - Fitting a KDE model to the embedding collected from the training set.
+[06/13/24 16:14:39] INFO     Fitting a KDE model to the embedding collected from the training set.                                                                                                   lightning_model.py:100
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:21 • 0:00:00 1.57it/s  2024-06-13 16:14:48,268 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[06/13/24 16:14:48] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                 rank_zero.py:63
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:21 • 0:00:00 1.57it/s  2024-06-13 16:14:48,597 - anomalib.callbacks.timer - INFO - Training took 31.74 seconds
+[06/13/24 16:14:48] INFO     Training took 31.74 seconds                                                                                                                                                        timer.py:59
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:21 • 0:00:00 1.57it/s
+2024-06-13 16:14:48,600 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-13 16:14:48,961 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:22 • 0:00:00 0.27it/s  2024-06-13 16:15:15,811 - anomalib.callbacks.timer - INFO - Testing took 26.544690132141113 seconds
+Throughput (batch_size=32) : 7.534463540707675 FPS
+[06/13/24 16:15:15] INFO     Testing took 26.544690132141113 seconds                                                                                                                                           timer.py:109
+                             Throughput (batch_size=32) : 7.534463540707675 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.6851000189781189     │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:22 • 0:00:00 0.27it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category pcb2 --config ./configs/models/rkde.yaml
+2024-06-13 16:15:21,760 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/13/24 16:15:21] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-13 16:15:21,775 - anomalib.models.components.base.anomaly_module - INFO - Initializing Rkde model.
+                    INFO     Initializing Rkde model.                                                                                                                                                  anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=FasterRCNN_ResNet50_FPN_Weights.COCO_V1`. You can also use `weights=FasterRCNN_ResNet50_FPN_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-06-13 16:15:22,617 - anomalib.callbacks - INFO - Loading the callbacks
+[06/13/24 16:15:22] INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-13 16:15:22,619 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Rkde
+                    INFO     Overriding gradient_clip_val from None with 0 for Rkde                                                                                                                            engine.py:84
+2024-06-13 16:15:22,619 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Rkde
+                    INFO     Overriding max_epochs from None with 1 for Rkde                                                                                                                                   engine.py:84
+2024-06-13 16:15:22,620 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Rkde
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Rkde                                                                                                                         engine.py:84
+2024-06-13 16:15:22,700 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/13/24 16:15:22] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-13 16:15:22,709 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-13 16:15:22,710 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-13 16:15:22,710 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-13 16:15:22,711 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-13 16:15:22,712 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-13 16:15:22,713 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-13 16:15:22,750 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-13 16:15:22,997 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ RkdeModel                │ 98.8 M │
+│ 1 │ _transform            │ Compose                  │      0 │
+│ 2 │ normalization_metrics │ MinMax                   │      0 │
+│ 3 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 4 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 6 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 98.5 M
+Non-trainable params: 222 K
+Total params: 98.8 M
+Total estimated model params size (MB): 395
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/transforms/functional.py:1603: UserWarning: The default value of the antialias parameter of all the resizing transforms (Resize(),
+RandomResizedCrop(), etc.) will change from None to True in v0.17, in order to be consistent across the PIL and Tensor backends. To suppress this warning, directly pass antialias=True (recommended, future default),
+antialias=None (current default, which means False for Tensors and True for PIL), or antialias=False (only works on Tensors - PIL will still use antialiasing). This also applies if you are using the inference transforms
+from the models weights: update the call to weights.transforms(antialias=True).
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:22 • 0:00:00 1.56it/s  2024-06-13 16:15:45,428 - anomalib.models.image.rkde.lightning_model - INFO - Fitting a KDE model to the embedding collected from the training set.
+[06/13/24 16:15:45] INFO     Fitting a KDE model to the embedding collected from the training set.                                                                                                   lightning_model.py:100
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:22 • 0:00:00 1.56it/s  2024-06-13 16:15:55,056 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[06/13/24 16:15:55] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                 rank_zero.py:63
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:22 • 0:00:00 1.56it/s  2024-06-13 16:15:55,379 - anomalib.callbacks.timer - INFO - Training took 32.37 seconds
+[06/13/24 16:15:55] INFO     Training took 32.37 seconds                                                                                                                                                        timer.py:59
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:22 • 0:00:00 1.56it/s
+2024-06-13 16:15:55,382 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-13 16:15:55,712 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:23 • 0:00:00 0.27it/s  2024-06-13 16:16:22,948 - anomalib.callbacks.timer - INFO - Testing took 26.90549898147583 seconds
+Throughput (batch_size=32) : 7.433424674178986 FPS
+[06/13/24 16:16:22] INFO     Testing took 26.90549898147583 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=32) : 7.433424674178986 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.7807999849319458     │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:23 • 0:00:00 0.27it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category pcb3 --config ./configs/models/rkde.yaml
+2024-06-13 16:16:28,935 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/13/24 16:16:28] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-13 16:16:28,950 - anomalib.models.components.base.anomaly_module - INFO - Initializing Rkde model.
+                    INFO     Initializing Rkde model.                                                                                                                                                  anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=FasterRCNN_ResNet50_FPN_Weights.COCO_V1`. You can also use `weights=FasterRCNN_ResNet50_FPN_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-06-13 16:16:29,805 - anomalib.callbacks - INFO - Loading the callbacks
+[06/13/24 16:16:29] INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-13 16:16:29,807 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Rkde
+                    INFO     Overriding gradient_clip_val from None with 0 for Rkde                                                                                                                            engine.py:84
+2024-06-13 16:16:29,808 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Rkde
+                    INFO     Overriding max_epochs from None with 1 for Rkde                                                                                                                                   engine.py:84
+2024-06-13 16:16:29,808 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Rkde
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Rkde                                                                                                                         engine.py:84
+2024-06-13 16:16:29,889 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/13/24 16:16:29] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-13 16:16:29,897 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-13 16:16:29,898 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-13 16:16:29,899 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-13 16:16:29,900 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-13 16:16:29,900 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-13 16:16:29,902 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-13 16:16:29,938 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-13 16:16:30,183 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/13/24 16:16:30] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ RkdeModel                │ 98.8 M │
+│ 1 │ _transform            │ Compose                  │      0 │
+│ 2 │ normalization_metrics │ MinMax                   │      0 │
+│ 3 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 4 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 6 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 98.5 M
+Non-trainable params: 222 K
+Total params: 98.8 M
+Total estimated model params size (MB): 395
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/transforms/functional.py:1603: UserWarning: The default value of the antialias parameter of all the resizing transforms (Resize(),
+RandomResizedCrop(), etc.) will change from None to True in v0.17, in order to be consistent across the PIL and Tensor backends. To suppress this warning, directly pass antialias=True (recommended, future default),
+antialias=None (current default, which means False for Tensors and True for PIL), or antialias=False (only works on Tensors - PIL will still use antialiasing). This also applies if you are using the inference transforms
+from the models weights: update the call to weights.transforms(antialias=True).
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:22 • 0:00:00 1.58it/s  2024-06-13 16:16:52,717 - anomalib.models.image.rkde.lightning_model - INFO - Fitting a KDE model to the embedding collected from the training set.
+[06/13/24 16:16:52] INFO     Fitting a KDE model to the embedding collected from the training set.                                                                                                   lightning_model.py:100
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:22 • 0:00:00 1.58it/s  2024-06-13 16:17:02,872 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[06/13/24 16:17:02] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                 rank_zero.py:63
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:22 • 0:00:00 1.58it/s  2024-06-13 16:17:03,200 - anomalib.callbacks.timer - INFO - Training took 33.01 seconds
+[06/13/24 16:17:03] INFO     Training took 33.01 seconds                                                                                                                                                        timer.py:59
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:22 • 0:00:00 1.58it/s
+2024-06-13 16:17:03,203 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-13 16:17:03,419 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/13/24 16:17:03] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:22 • 0:00:00 0.28it/s  2024-06-13 16:17:29,931 - anomalib.callbacks.timer - INFO - Testing took 26.163084506988525 seconds
+Throughput (batch_size=32) : 7.6825803909439685 FPS
+[06/13/24 16:17:29] INFO     Testing took 26.163084506988525 seconds                                                                                                                                           timer.py:109
+                             Throughput (batch_size=32) : 7.6825803909439685 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.7419801950454712     │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:22 • 0:00:00 0.28it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category pcb4 --config ./configs/models/rkde.yaml
+2024-06-13 16:17:35,818 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/13/24 16:17:35] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-13 16:17:35,833 - anomalib.models.components.base.anomaly_module - INFO - Initializing Rkde model.
+                    INFO     Initializing Rkde model.                                                                                                                                                  anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=FasterRCNN_ResNet50_FPN_Weights.COCO_V1`. You can also use `weights=FasterRCNN_ResNet50_FPN_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-06-13 16:17:36,701 - anomalib.callbacks - INFO - Loading the callbacks
+[06/13/24 16:17:36] INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-13 16:17:36,703 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Rkde
+                    INFO     Overriding gradient_clip_val from None with 0 for Rkde                                                                                                                            engine.py:84
+2024-06-13 16:17:36,704 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Rkde
+                    INFO     Overriding max_epochs from None with 1 for Rkde                                                                                                                                   engine.py:84
+2024-06-13 16:17:36,704 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Rkde
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Rkde                                                                                                                         engine.py:84
+2024-06-13 16:17:36,784 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/13/24 16:17:36] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-13 16:17:36,792 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-13 16:17:36,793 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-13 16:17:36,794 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-13 16:17:36,794 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-13 16:17:36,795 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-13 16:17:36,797 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-13 16:17:36,834 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-13 16:17:37,082 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/13/24 16:17:37] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ RkdeModel                │ 98.8 M │
+│ 1 │ _transform            │ Compose                  │      0 │
+│ 2 │ normalization_metrics │ MinMax                   │      0 │
+│ 3 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 4 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 6 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 98.5 M
+Non-trainable params: 222 K
+Total params: 98.8 M
+Total estimated model params size (MB): 395
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/transforms/functional.py:1603: UserWarning: The default value of the antialias parameter of all the resizing transforms (Resize(),
+RandomResizedCrop(), etc.) will change from None to True in v0.17, in order to be consistent across the PIL and Tensor backends. To suppress this warning, directly pass antialias=True (recommended, future default),
+antialias=None (current default, which means False for Tensors and True for PIL), or antialias=False (only works on Tensors - PIL will still use antialiasing). This also applies if you are using the inference transforms
+from the models weights: update the call to weights.transforms(antialias=True).
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:21 • 0:00:00 1.61it/s  2024-06-13 16:17:58,965 - anomalib.models.image.rkde.lightning_model - INFO - Fitting a KDE model to the embedding collected from the training set.
+[06/13/24 16:17:58] INFO     Fitting a KDE model to the embedding collected from the training set.                                                                                                   lightning_model.py:100
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:21 • 0:00:00 1.61it/s  2024-06-13 16:18:07,890 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[06/13/24 16:18:07] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                 rank_zero.py:63
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:21 • 0:00:00 1.61it/s  2024-06-13 16:18:08,198 - anomalib.callbacks.timer - INFO - Training took 31.11 seconds
+[06/13/24 16:18:08] INFO     Training took 31.11 seconds                                                                                                                                                        timer.py:59
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:21 • 0:00:00 1.61it/s
+2024-06-13 16:18:08,201 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-13 16:18:08,414 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/13/24 16:18:08] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:22 • 0:00:00 0.27it/s  2024-06-13 16:18:34,875 - anomalib.callbacks.timer - INFO - Testing took 26.23000741004944 seconds
+Throughput (batch_size=32) : 7.662979154286909 FPS
+[06/13/24 16:18:34] INFO     Testing took 26.23000741004944 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=32) : 7.662979154286909 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.49554455280303955    │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:22 • 0:00:00 0.27it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category pipe_fryum --config ./configs/models/rkde.yaml
+2024-06-13 16:18:40,399 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/13/24 16:18:40] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-13 16:18:40,414 - anomalib.models.components.base.anomaly_module - INFO - Initializing Rkde model.
+                    INFO     Initializing Rkde model.                                                                                                                                                  anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=FasterRCNN_ResNet50_FPN_Weights.COCO_V1`. You can also use `weights=FasterRCNN_ResNet50_FPN_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2024-06-13 16:18:41,270 - anomalib.callbacks - INFO - Loading the callbacks
+[06/13/24 16:18:41] INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-13 16:18:41,272 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Rkde
+                    INFO     Overriding gradient_clip_val from None with 0 for Rkde                                                                                                                            engine.py:84
+2024-06-13 16:18:41,273 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Rkde
+                    INFO     Overriding max_epochs from None with 1 for Rkde                                                                                                                                   engine.py:84
+2024-06-13 16:18:41,273 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Rkde
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Rkde                                                                                                                         engine.py:84
+2024-06-13 16:18:41,354 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/13/24 16:18:41] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-13 16:18:41,362 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-13 16:18:41,363 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-13 16:18:41,364 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-13 16:18:41,364 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-13 16:18:41,365 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-13 16:18:41,366 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-13 16:18:41,405 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-13 16:18:41,642 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ RkdeModel                │ 98.8 M │
+│ 1 │ _transform            │ Compose                  │      0 │
+│ 2 │ normalization_metrics │ MinMax                   │      0 │
+│ 3 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 4 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 6 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 98.5 M
+Non-trainable params: 222 K
+Total params: 98.8 M
+Total estimated model params size (MB): 395
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/transforms/functional.py:1603: UserWarning: The default value of the antialias parameter of all the resizing transforms (Resize(),
+RandomResizedCrop(), etc.) will change from None to True in v0.17, in order to be consistent across the PIL and Tensor backends. To suppress this warning, directly pass antialias=True (recommended, future default),
+antialias=None (current default, which means False for Tensors and True for PIL), or antialias=False (only works on Tensors - PIL will still use antialiasing). This also applies if you are using the inference transforms
+from the models weights: update the call to weights.transforms(antialias=True).
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15/15 0:00:11 • 0:00:00 1.69it/s  2024-06-13 16:18:53,718 - anomalib.models.image.rkde.lightning_model - INFO - Fitting a KDE model to the embedding collected from the training set.
+[06/13/24 16:18:53] INFO     Fitting a KDE model to the embedding collected from the training set.                                                                                                   lightning_model.py:100
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15/15 0:00:11 • 0:00:00 1.69it/s  2024-06-13 16:19:00,579 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[06/13/24 16:19:00] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                 rank_zero.py:63
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15/15 0:00:11 • 0:00:00 1.69it/s  2024-06-13 16:19:00,875 - anomalib.callbacks.timer - INFO - Training took 19.22 seconds
+[06/13/24 16:19:00] INFO     Training took 19.22 seconds                                                                                                                                                        timer.py:59
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15/15 0:00:11 • 0:00:00 1.69it/s
+2024-06-13 16:19:00,880 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-13 16:19:01,101 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/13/24 16:19:01] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:15 • 0:00:00 0.28it/s  2024-06-13 16:19:20,479 - anomalib.callbacks.timer - INFO - Testing took 19.15239381790161 seconds
+Throughput (batch_size=32) : 7.831919154659196 FPS
+[06/13/24 16:19:20] INFO     Testing took 19.15239381790161 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=32) : 7.831919154659196 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.7343000173568726     │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:15 • 0:00:00 0.28it/s
+

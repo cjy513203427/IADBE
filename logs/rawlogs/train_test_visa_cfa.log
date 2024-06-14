@@ -1,0 +1,1288 @@
+/bin/bash /home/jinyao/PycharmProjects/IADBE/train_test_visa_cfa.sh
+(IADBE) jinyao@jinyao-System-Product-Name:~/PycharmProjects/IADBE$ /bin/bash /home/jinyao/PycharmProjects/IADBE/train_test_visa_cfa.sh
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category candle --config ./configs/models/cfa.yaml
+2024-06-10 10:50:07,189 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/10/24 10:50:07] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-10 10:50:07,205 - anomalib.models.components.base.anomaly_module - INFO - Initializing Cfa model.
+                    INFO     Initializing Cfa model.                                                                                                                                                   anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:110: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  torch.has_cuda,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:111: UserWarning: 'has_cudnn' is deprecated, please use 'torch.backends.cudnn.is_available()'
+  torch.has_cudnn,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:117: UserWarning: 'has_mps' is deprecated, please use 'torch.backends.mps.is_built()'
+  torch.has_mps,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:118: UserWarning: 'has_mkldnn' is deprecated, please use 'torch.backends.mkldnn.is_available()'
+  torch.has_mkldnn,
+2024-06-10 10:50:08,070 - anomalib.callbacks - INFO - Loading the callbacks
+[06/10/24 10:50:08] INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-10 10:50:08,072 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Cfa
+                    INFO     Overriding gradient_clip_val from None with 0 for Cfa                                                                                                                             engine.py:84
+2024-06-10 10:50:08,073 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Cfa
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Cfa                                                                                                                          engine.py:84
+2024-06-10 10:50:08,151 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/10/24 10:50:08] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-10 10:50:08,159 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-10 10:50:08,160 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-10 10:50:08,160 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-10 10:50:08,161 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-10 10:50:08,162 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-10 10:50:08,163 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-10 10:50:08,201 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-10 10:50:08,408 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ CfaModel                 │ 31.3 M │
+│ 1 │ loss                  │ CfaLoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 31.3 M
+Non-trainable params: 0
+Total params: 31.3 M
+Total estimated model params size (MB): 125
+  0%|                                                                                                                                                                                               | 0/29 [00:00<?, ?it/s]
+  3%|######3                                                                                                                                                                                | 1/29 [00:06<03:14,  6.93s/it]
+  7%|############6                                                                                                                                                                          | 2/29 [00:07<01:18,  2.92s/it]
+ 10%|##################9                                                                                                                                                                    | 3/29 [00:07<00:42,  1.65s/it]
+ 14%|#########################2                                                                                                                                                             | 4/29 [00:07<00:26,  1.05s/it]
+ 17%|###############################5                                                                                                                                                       | 5/29 [00:07<00:17,  1.39it/s]
+ 21%|#####################################8                                                                                                                                                 | 6/29 [00:07<00:11,  1.93it/s]
+ 24%|############################################1                                                                                                                                          | 7/29 [00:07<00:08,  2.54it/s]
+ 28%|##################################################4                                                                                                                                    | 8/29 [00:07<00:06,  3.19it/s]
+ 31%|########################################################7                                                                                                                              | 9/29 [00:13<00:38,  1.93s/it]
+ 34%|##############################################################7                                                                                                                       | 10/29 [00:13<00:26,  1.38s/it]
+ 38%|#####################################################################                                                                                                                 | 11/29 [00:13<00:18,  1.01s/it]
+ 41%|###########################################################################3                                                                                                          | 12/29 [00:13<00:12,  1.35it/s]
+ 45%|#################################################################################5                                                                                                    | 13/29 [00:13<00:08,  1.81it/s]
+ 48%|#######################################################################################8                                                                                              | 14/29 [00:14<00:06,  2.37it/s]
+ 52%|##############################################################################################1                                                                                       | 15/29 [00:14<00:04,  3.03it/s]
+ 55%|####################################################################################################4                                                                                 | 16/29 [00:14<00:03,  3.77it/s]
+ 59%|##########################################################################################################6                                                                           | 17/29 [00:15<00:06,  1.81it/s]
+ 62%|################################################################################################################9                                                                     | 18/29 [00:15<00:04,  2.39it/s]
+ 66%|#######################################################################################################################2                                                              | 19/29 [00:15<00:03,  3.06it/s]
+ 69%|#############################################################################################################################5                                                        | 20/29 [00:15<00:02,  3.81it/s]
+ 72%|###################################################################################################################################7                                                  | 21/29 [00:15<00:01,  4.63it/s]
+ 76%|##########################################################################################################################################                                            | 22/29 [00:16<00:01,  5.44it/s]
+ 79%|################################################################################################################################################3                                     | 23/29 [00:16<00:00,  6.19it/s]
+ 83%|######################################################################################################################################################6                               | 24/29 [00:16<00:00,  6.85it/s]
+ 86%|############################################################################################################################################################8                         | 25/29 [00:16<00:00,  7.43it/s]
+ 90%|###################################################################################################################################################################1                  | 26/29 [00:16<00:00,  7.90it/s]
+ 93%|#########################################################################################################################################################################4            | 27/29 [00:16<00:00,  8.25it/s]
+ 97%|###############################################################################################################################################################################7      | 28/29 [00:16<00:00,  8.37it/s]
+100%|######################################################################################################################################################################################| 29/29 [00:16<00:00,  8.78it/s]
+100%|######################################################################################################################################################################################| 29/29 [00:16<00:00,  1.72it/s]
+
+Epoch 6/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:13 • 0:00:00 2.67it/s pixel_AUROC: 0.936 pixel_PRO: 0.4552024-06-10 10:52:59,680 - anomalib.callbacks.timer - INFO - Training took 171.26 seconds
+[06/10/24 10:52:59] INFO     Training took 171.26 seconds                                                                                                                                                       timer.py:59
+Epoch 6/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:13 • 0:00:00 2.67it/s pixel_AUROC: 0.932 pixel_PRO: 0.438
+2024-06-10 10:52:59,689 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-10 10:52:59,751 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/10/24 10:52:59] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:26 • 0:00:00 0.23it/s  2024-06-10 10:53:32,375 - anomalib.callbacks.timer - INFO - Testing took 32.27627992630005 seconds
+Throughput (batch_size=32) : 6.1965009739871455 FPS
+[06/10/24 10:53:32] INFO     Testing took 32.27627992630005 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=32) : 6.1965009739871455 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.8549000024795532     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9891745448112488     │
+│         pixel_PRO         │    0.4380835294723511     │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:26 • 0:00:00 0.23it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category capsules --config ./configs/models/cfa.yaml
+2024-06-10 10:53:38,774 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/10/24 10:53:38] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-10 10:53:38,791 - anomalib.models.components.base.anomaly_module - INFO - Initializing Cfa model.
+                    INFO     Initializing Cfa model.                                                                                                                                                   anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:110: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  torch.has_cuda,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:111: UserWarning: 'has_cudnn' is deprecated, please use 'torch.backends.cudnn.is_available()'
+  torch.has_cudnn,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:117: UserWarning: 'has_mps' is deprecated, please use 'torch.backends.mps.is_built()'
+  torch.has_mps,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:118: UserWarning: 'has_mkldnn' is deprecated, please use 'torch.backends.mkldnn.is_available()'
+  torch.has_mkldnn,
+2024-06-10 10:53:39,637 - anomalib.callbacks - INFO - Loading the callbacks
+[06/10/24 10:53:39] INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-10 10:53:39,639 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Cfa
+                    INFO     Overriding gradient_clip_val from None with 0 for Cfa                                                                                                                             engine.py:84
+2024-06-10 10:53:39,640 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Cfa
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Cfa                                                                                                                          engine.py:84
+2024-06-10 10:53:39,719 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/10/24 10:53:39] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-10 10:53:39,727 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-10 10:53:39,728 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-10 10:53:39,729 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-10 10:53:39,730 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-10 10:53:39,730 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-10 10:53:39,732 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-10 10:53:39,771 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-10 10:53:39,967 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ CfaModel                 │ 31.3 M │
+│ 1 │ loss                  │ CfaLoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 31.3 M
+Non-trainable params: 0
+Total params: 31.3 M
+Total estimated model params size (MB): 125
+  0%|                                                                                                                                                                                               | 0/17 [00:00<?, ?it/s]
+  6%|##########7                                                                                                                                                                            | 1/17 [00:07<02:04,  7.77s/it]
+ 12%|#####################5                                                                                                                                                                 | 2/17 [00:07<00:48,  3.27s/it]
+ 18%|################################2                                                                                                                                                      | 3/17 [00:08<00:25,  1.83s/it]
+ 24%|###########################################                                                                                                                                            | 4/17 [00:08<00:15,  1.16s/it]
+ 29%|#####################################################8                                                                                                                                 | 5/17 [00:08<00:09,  1.27it/s]
+ 35%|################################################################5                                                                                                                      | 6/17 [00:08<00:06,  1.79it/s]
+ 41%|###########################################################################3                                                                                                           | 7/17 [00:08<00:04,  2.42it/s]
+ 47%|######################################################################################1                                                                                                | 8/17 [00:08<00:02,  3.13it/s]
+ 53%|################################################################################################8                                                                                      | 9/17 [00:10<00:06,  1.22it/s]
+ 59%|###########################################################################################################                                                                           | 10/17 [00:10<00:04,  1.66it/s]
+ 65%|#####################################################################################################################7                                                                | 11/17 [00:10<00:02,  2.23it/s]
+ 71%|################################################################################################################################4                                                     | 12/17 [00:10<00:01,  2.92it/s]
+ 76%|###########################################################################################################################################1                                          | 13/17 [00:10<00:01,  3.72it/s]
+ 82%|#####################################################################################################################################################8                                | 14/17 [00:11<00:00,  4.58it/s]
+ 88%|################################################################################################################################################################5                     | 15/17 [00:11<00:00,  5.47it/s]
+ 94%|###########################################################################################################################################################################2          | 16/17 [00:11<00:00,  6.33it/s]
+100%|######################################################################################################################################################################################| 17/17 [00:11<00:00,  6.94it/s]
+100%|######################################################################################################################################################################################| 17/17 [00:11<00:00,  1.49it/s]
+
+Epoch 5/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17/17 0:00:08 • 0:00:00 2.68it/s pixel_AUROC: 0.276 pixel_PRO: 0.0002024-06-10 10:55:19,983 - anomalib.callbacks.timer - INFO - Training took 100.01 seconds
+[06/10/24 10:55:19] INFO     Training took 100.01 seconds                                                                                                                                                       timer.py:59
+Epoch 5/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17/17 0:00:08 • 0:00:00 2.68it/s pixel_AUROC: 0.276 pixel_PRO: 0.000
+2024-06-10 10:55:19,986 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-10 10:55:20,050 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/10/24 10:55:20] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/anomalib/utils/post_processing.py:89: RuntimeWarning: invalid value encountered in cast
+  anomaly_map = anomaly_map.astype(np.uint8)
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:18 • 0:00:00 0.22it/s  2024-06-10 10:55:46,802 - anomalib.callbacks.timer - INFO - Testing took 26.40026545524597 seconds
+Throughput (batch_size=32) : 6.060545121079703 FPS
+[06/10/24 10:55:46] INFO     Testing took 26.40026545524597 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=32) : 6.060545121079703 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.12666666507720947    │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.27589643001556396    │
+│         pixel_PRO         │            0.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:18 • 0:00:00 0.22it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category cashew --config ./configs/models/cfa.yaml
+2024-06-10 10:55:52,180 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/10/24 10:55:52] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-10 10:55:52,197 - anomalib.models.components.base.anomaly_module - INFO - Initializing Cfa model.
+                    INFO     Initializing Cfa model.                                                                                                                                                   anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:110: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  torch.has_cuda,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:111: UserWarning: 'has_cudnn' is deprecated, please use 'torch.backends.cudnn.is_available()'
+  torch.has_cudnn,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:117: UserWarning: 'has_mps' is deprecated, please use 'torch.backends.mps.is_built()'
+  torch.has_mps,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:118: UserWarning: 'has_mkldnn' is deprecated, please use 'torch.backends.mkldnn.is_available()'
+  torch.has_mkldnn,
+2024-06-10 10:55:53,008 - anomalib.callbacks - INFO - Loading the callbacks
+[06/10/24 10:55:53] INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-10 10:55:53,009 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Cfa
+                    INFO     Overriding gradient_clip_val from None with 0 for Cfa                                                                                                                             engine.py:84
+2024-06-10 10:55:53,010 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Cfa
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Cfa                                                                                                                          engine.py:84
+2024-06-10 10:55:53,090 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/10/24 10:55:53] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-10 10:55:53,098 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-10 10:55:53,099 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-10 10:55:53,099 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-10 10:55:53,100 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-10 10:55:53,101 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-10 10:55:53,102 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-10 10:55:53,142 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-10 10:55:53,328 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ CfaModel                 │ 31.3 M │
+│ 1 │ loss                  │ CfaLoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 31.3 M
+Non-trainable params: 0
+Total params: 31.3 M
+Total estimated model params size (MB): 125
+  0%|                                                                                                                                                                                               | 0/15 [00:00<?, ?it/s]
+  7%|############2                                                                                                                                                                          | 1/15 [00:07<01:45,  7.57s/it]
+ 20%|####################################6                                                                                                                                                  | 3/15 [00:07<00:24,  2.03s/it]
+ 27%|################################################8                                                                                                                                      | 4/15 [00:07<00:15,  1.37s/it]
+ 33%|#############################################################                                                                                                                          | 5/15 [00:08<00:09,  1.04it/s]
+ 40%|#########################################################################2                                                                                                             | 6/15 [00:08<00:06,  1.45it/s]
+ 47%|#####################################################################################4                                                                                                 | 7/15 [00:08<00:04,  1.95it/s]
+ 53%|#################################################################################################6                                                                                     | 8/15 [00:08<00:02,  2.54it/s]
+ 60%|#############################################################################################################8                                                                         | 9/15 [00:10<00:04,  1.29it/s]
+ 67%|#########################################################################################################################3                                                            | 10/15 [00:10<00:02,  1.75it/s]
+ 73%|#####################################################################################################################################4                                                | 11/15 [00:10<00:01,  2.33it/s]
+ 80%|#################################################################################################################################################6                                    | 12/15 [00:10<00:00,  3.01it/s]
+ 87%|#############################################################################################################################################################7                        | 13/15 [00:10<00:00,  3.79it/s]
+ 93%|#########################################################################################################################################################################8            | 14/15 [00:10<00:00,  4.62it/s]
+100%|######################################################################################################################################################################################| 15/15 [00:10<00:00,  1.40it/s]
+
+Epoch 5/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15/15 0:00:07 • 0:00:00 2.84it/s pixel_AUROC: 0.910 pixel_PRO: 0.0002024-06-10 10:57:25,246 - anomalib.callbacks.timer - INFO - Training took 91.91 seconds
+[06/10/24 10:57:25] INFO     Training took 91.91 seconds                                                                                                                                                        timer.py:59
+Epoch 5/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15/15 0:00:07 • 0:00:00 2.84it/s pixel_AUROC: 0.910 pixel_PRO: 0.000
+2024-06-10 10:57:25,252 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-10 10:57:25,319 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/10/24 10:57:25] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/anomalib/utils/post_processing.py:89: RuntimeWarning: invalid value encountered in cast
+  anomaly_map = anomaly_map.astype(np.uint8)
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:18 • 0:00:00 0.22it/s  2024-06-10 10:57:50,399 - anomalib.callbacks.timer - INFO - Testing took 24.717685222625732 seconds
+Throughput (batch_size=32) : 6.068529421302569 FPS
+[06/10/24 10:57:50] INFO     Testing took 24.717685222625732 seconds                                                                                                                                           timer.py:109
+                             Throughput (batch_size=32) : 6.068529421302569 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.19120001792907715    │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │     0.909599781036377     │
+│         pixel_PRO         │            0.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:18 • 0:00:00 0.22it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category chewinggum --config ./configs/models/cfa.yaml
+2024-06-10 10:57:56,072 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/10/24 10:57:56] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-10 10:57:56,089 - anomalib.models.components.base.anomaly_module - INFO - Initializing Cfa model.
+                    INFO     Initializing Cfa model.                                                                                                                                                   anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:110: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  torch.has_cuda,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:111: UserWarning: 'has_cudnn' is deprecated, please use 'torch.backends.cudnn.is_available()'
+  torch.has_cudnn,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:117: UserWarning: 'has_mps' is deprecated, please use 'torch.backends.mps.is_built()'
+  torch.has_mps,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:118: UserWarning: 'has_mkldnn' is deprecated, please use 'torch.backends.mkldnn.is_available()'
+  torch.has_mkldnn,
+2024-06-10 10:57:56,934 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-10 10:57:56,936 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Cfa
+                    INFO     Overriding gradient_clip_val from None with 0 for Cfa                                                                                                                             engine.py:84
+2024-06-10 10:57:56,936 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Cfa
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Cfa                                                                                                                          engine.py:84
+2024-06-10 10:57:57,019 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/10/24 10:57:57] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-10 10:57:57,028 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-10 10:57:57,028 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-10 10:57:57,029 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-10 10:57:57,030 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-10 10:57:57,030 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+[06/10/24 10:57:57] WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-10 10:57:57,032 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-10 10:57:57,073 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-10 10:57:57,262 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ CfaModel                 │ 31.3 M │
+│ 1 │ loss                  │ CfaLoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 31.3 M
+Non-trainable params: 0
+Total params: 31.3 M
+Total estimated model params size (MB): 125
+  0%|                                                                                                                                                                                               | 0/15 [00:00<?, ?it/s]
+  7%|############2                                                                                                                                                                          | 1/15 [00:10<02:24, 10.32s/it]
+ 13%|########################4                                                                                                                                                              | 2/15 [00:10<00:56,  4.34s/it]
+ 20%|####################################6                                                                                                                                                  | 3/15 [00:10<00:29,  2.43s/it]
+ 27%|################################################8                                                                                                                                      | 4/15 [00:10<00:16,  1.53s/it]
+ 33%|#############################################################                                                                                                                          | 5/15 [00:10<00:10,  1.03s/it]
+ 40%|#########################################################################2                                                                                                             | 6/15 [00:11<00:06,  1.37it/s]
+ 47%|#####################################################################################4                                                                                                 | 7/15 [00:11<00:04,  1.86it/s]
+ 53%|#################################################################################################6                                                                                     | 8/15 [00:11<00:02,  2.44it/s]
+ 60%|#############################################################################################################8                                                                         | 9/15 [00:15<00:09,  1.60s/it]
+ 67%|#########################################################################################################################3                                                            | 10/15 [00:15<00:05,  1.14s/it]
+ 73%|#####################################################################################################################################4                                                | 11/15 [00:15<00:03,  1.21it/s]
+ 80%|#################################################################################################################################################6                                    | 12/15 [00:15<00:01,  1.65it/s]
+ 87%|#############################################################################################################################################################7                        | 13/15 [00:16<00:00,  2.20it/s]
+ 93%|#########################################################################################################################################################################8            | 14/15 [00:16<00:00,  2.86it/s]
+100%|######################################################################################################################################################################################| 15/15 [00:16<00:00,  1.08s/it]
+
+Epoch 6/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15/15 0:00:09 • 0:00:00 2.23it/s pixel_AUROC: 0.966 pixel_PRO: 0.2702024-06-10 11:00:13,104 - anomalib.callbacks.timer - INFO - Training took 135.83 seconds
+[06/10/24 11:00:13] INFO     Training took 135.83 seconds                                                                                                                                                       timer.py:59
+Epoch 6/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15/15 0:00:09 • 0:00:00 2.23it/s pixel_AUROC: 0.991 pixel_PRO: 0.284
+2024-06-10 11:00:13,111 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-10 11:00:13,193 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/10/24 11:00:13] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:19 • 0:00:00 0.21it/s  2024-06-10 11:00:39,683 - anomalib.callbacks.timer - INFO - Testing took 26.19354009628296 seconds
+Throughput (batch_size=32) : 5.726602797812962 FPS
+[06/10/24 11:00:39] INFO     Testing took 26.19354009628296 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=32) : 5.726602797812962 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9611999988555908     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9907140731811523     │
+│         pixel_PRO         │    0.2843225598335266     │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:19 • 0:00:00 0.21it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category fryum --config ./configs/models/cfa.yaml
+2024-06-10 11:00:45,269 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/10/24 11:00:45] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-10 11:00:45,286 - anomalib.models.components.base.anomaly_module - INFO - Initializing Cfa model.
+                    INFO     Initializing Cfa model.                                                                                                                                                   anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:110: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  torch.has_cuda,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:111: UserWarning: 'has_cudnn' is deprecated, please use 'torch.backends.cudnn.is_available()'
+  torch.has_cudnn,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:117: UserWarning: 'has_mps' is deprecated, please use 'torch.backends.mps.is_built()'
+  torch.has_mps,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:118: UserWarning: 'has_mkldnn' is deprecated, please use 'torch.backends.mkldnn.is_available()'
+  torch.has_mkldnn,
+2024-06-10 11:00:46,104 - anomalib.callbacks - INFO - Loading the callbacks
+[06/10/24 11:00:46] INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-10 11:00:46,106 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Cfa
+                    INFO     Overriding gradient_clip_val from None with 0 for Cfa                                                                                                                             engine.py:84
+2024-06-10 11:00:46,106 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Cfa
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Cfa                                                                                                                          engine.py:84
+2024-06-10 11:00:46,188 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/10/24 11:00:46] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-10 11:00:46,196 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-10 11:00:46,197 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-10 11:00:46,198 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-10 11:00:46,199 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-10 11:00:46,200 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-10 11:00:46,201 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-10 11:00:46,238 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-10 11:00:46,430 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ CfaModel                 │ 31.3 M │
+│ 1 │ loss                  │ CfaLoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 31.3 M
+Non-trainable params: 0
+Total params: 31.3 M
+Total estimated model params size (MB): 125
+  0%|                                                                                                                                                                                               | 0/15 [00:00<?, ?it/s]
+  7%|############2                                                                                                                                                                          | 1/15 [00:09<02:12,  9.49s/it]
+ 13%|########################4                                                                                                                                                              | 2/15 [00:09<00:51,  3.98s/it]
+ 20%|####################################6                                                                                                                                                  | 3/15 [00:09<00:26,  2.23s/it]
+ 27%|################################################8                                                                                                                                      | 4/15 [00:09<00:15,  1.41s/it]
+ 33%|#############################################################                                                                                                                          | 5/15 [00:10<00:09,  1.05it/s]
+ 40%|#########################################################################2                                                                                                             | 6/15 [00:10<00:06,  1.48it/s]
+ 47%|#####################################################################################4                                                                                                 | 7/15 [00:10<00:03,  2.00it/s]
+ 53%|#################################################################################################6                                                                                     | 8/15 [00:10<00:02,  2.59it/s]
+ 60%|#############################################################################################################8                                                                         | 9/15 [00:14<00:09,  1.55s/it]
+ 67%|#########################################################################################################################3                                                            | 10/15 [00:14<00:05,  1.10s/it]
+ 73%|#####################################################################################################################################4                                                | 11/15 [00:14<00:03,  1.25it/s]
+ 80%|#################################################################################################################################################6                                    | 12/15 [00:14<00:01,  1.70it/s]
+ 87%|#############################################################################################################################################################7                        | 13/15 [00:14<00:00,  2.26it/s]
+ 93%|#########################################################################################################################################################################8            | 14/15 [00:15<00:00,  2.94it/s]
+100%|######################################################################################################################################################################################| 15/15 [00:15<00:00,  1.02s/it]
+
+Epoch 5/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15/15 0:00:09 • 0:00:00 2.38it/s pixel_AUROC: 0.099 pixel_PRO: 0.0002024-06-10 11:02:36,299 - anomalib.callbacks.timer - INFO - Training took 109.86 seconds
+[06/10/24 11:02:36] INFO     Training took 109.86 seconds                                                                                                                                                       timer.py:59
+Epoch 5/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15/15 0:00:09 • 0:00:00 2.38it/s pixel_AUROC: 0.099 pixel_PRO: 0.000
+2024-06-10 11:02:36,302 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-10 11:02:36,396 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/10/24 11:02:36] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/anomalib/utils/post_processing.py:89: RuntimeWarning: invalid value encountered in cast
+  anomaly_map = anomaly_map.astype(np.uint8)
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:19 • 0:00:00 0.21it/s  2024-06-10 11:03:03,476 - anomalib.callbacks.timer - INFO - Testing took 26.7786386013031 seconds
+Throughput (batch_size=32) : 5.601479680625015 FPS
+[06/10/24 11:03:03] INFO     Testing took 26.7786386013031 seconds                                                                                                                                             timer.py:109
+                             Throughput (batch_size=32) : 5.601479680625015 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.19120001792907715    │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.09930316358804703    │
+│         pixel_PRO         │            0.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:19 • 0:00:00 0.21it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category macaroni1 --config ./configs/models/cfa.yaml
+2024-06-10 11:03:09,145 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/10/24 11:03:09] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-10 11:03:09,162 - anomalib.models.components.base.anomaly_module - INFO - Initializing Cfa model.
+                    INFO     Initializing Cfa model.                                                                                                                                                   anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:110: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  torch.has_cuda,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:111: UserWarning: 'has_cudnn' is deprecated, please use 'torch.backends.cudnn.is_available()'
+  torch.has_cudnn,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:117: UserWarning: 'has_mps' is deprecated, please use 'torch.backends.mps.is_built()'
+  torch.has_mps,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:118: UserWarning: 'has_mkldnn' is deprecated, please use 'torch.backends.mkldnn.is_available()'
+  torch.has_mkldnn,
+2024-06-10 11:03:09,998 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-10 11:03:09,999 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Cfa
+                    INFO     Overriding gradient_clip_val from None with 0 for Cfa                                                                                                                             engine.py:84
+2024-06-10 11:03:10,000 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Cfa
+[06/10/24 11:03:10] INFO     Overriding num_sanity_val_steps from None with 0 for Cfa                                                                                                                          engine.py:84
+2024-06-10 11:03:10,083 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/10/24 11:03:10] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-10 11:03:10,092 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-10 11:03:10,093 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-10 11:03:10,093 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-10 11:03:10,094 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-10 11:03:10,095 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-10 11:03:10,096 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-10 11:03:10,133 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-10 11:03:10,340 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ CfaModel                 │ 31.3 M │
+│ 1 │ loss                  │ CfaLoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 31.3 M
+Non-trainable params: 0
+Total params: 31.3 M
+Total estimated model params size (MB): 125
+  0%|                                                                                                                                                                                               | 0/29 [00:00<?, ?it/s]
+  3%|######3                                                                                                                                                                                | 1/29 [00:10<04:53, 10.47s/it]
+  7%|############6                                                                                                                                                                          | 2/29 [00:10<01:58,  4.39s/it]
+ 10%|##################9                                                                                                                                                                    | 3/29 [00:10<01:03,  2.45s/it]
+ 14%|#########################2                                                                                                                                                             | 4/29 [00:10<00:38,  1.54s/it]
+ 17%|###############################5                                                                                                                                                       | 5/29 [00:11<00:24,  1.04s/it]
+ 21%|#####################################8                                                                                                                                                 | 6/29 [00:11<00:16,  1.36it/s]
+ 24%|############################################1                                                                                                                                          | 7/29 [00:11<00:11,  1.84it/s]
+ 28%|##################################################4                                                                                                                                    | 8/29 [00:11<00:08,  2.39it/s]
+ 31%|########################################################7                                                                                                                              | 9/29 [00:16<00:39,  2.00s/it]
+ 34%|##############################################################7                                                                                                                       | 10/29 [00:17<00:29,  1.58s/it]
+ 38%|#####################################################################                                                                                                                 | 11/29 [00:17<00:20,  1.13s/it]
+ 41%|###########################################################################3                                                                                                          | 12/29 [00:17<00:14,  1.20it/s]
+ 45%|#################################################################################5                                                                                                    | 13/29 [00:17<00:09,  1.62it/s]
+ 48%|#######################################################################################8                                                                                              | 14/29 [00:18<00:07,  2.13it/s]
+ 52%|##############################################################################################1                                                                                       | 15/29 [00:18<00:05,  2.72it/s]
+ 55%|####################################################################################################4                                                                                 | 16/29 [00:18<00:03,  3.39it/s]
+ 59%|##########################################################################################################6                                                                           | 17/29 [00:19<00:07,  1.54it/s]
+ 62%|################################################################################################################9                                                                     | 18/29 [00:21<00:09,  1.17it/s]
+ 66%|#######################################################################################################################2                                                              | 19/29 [00:21<00:06,  1.58it/s]
+ 69%|#############################################################################################################################5                                                        | 20/29 [00:21<00:04,  2.10it/s]
+ 72%|###################################################################################################################################7                                                  | 21/29 [00:21<00:02,  2.72it/s]
+ 76%|##########################################################################################################################################                                            | 22/29 [00:21<00:02,  3.43it/s]
+ 79%|################################################################################################################################################3                                     | 23/29 [00:21<00:01,  4.21it/s]
+ 83%|######################################################################################################################################################6                               | 24/29 [00:21<00:00,  5.02it/s]
+ 86%|############################################################################################################################################################8                         | 25/29 [00:21<00:00,  5.80it/s]
+ 90%|###################################################################################################################################################################1                  | 26/29 [00:22<00:00,  4.17it/s]
+ 93%|#########################################################################################################################################################################4            | 27/29 [00:22<00:00,  4.99it/s]
+ 97%|###############################################################################################################################################################################7      | 28/29 [00:22<00:00,  5.76it/s]
+100%|######################################################################################################################################################################################| 29/29 [00:22<00:00,  1.28it/s]
+
+Epoch 18/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:13 • 0:00:00 2.42it/s pixel_AUROC: 0.995 pixel_PRO: 0.2902024-06-10 11:11:20,559 - anomalib.callbacks.timer - INFO - Training took 490.21 seconds
+[06/10/24 11:11:20] INFO     Training took 490.21 seconds                                                                                                                                                       timer.py:59
+Epoch 18/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:13 • 0:00:00 2.42it/s pixel_AUROC: 0.995 pixel_PRO: 0.286
+2024-06-10 11:11:20,562 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-10 11:11:20,632 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/10/24 11:11:20] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:28 • 0:00:00 0.21it/s  2024-06-10 11:11:55,022 - anomalib.callbacks.timer - INFO - Testing took 34.019017457962036 seconds
+Throughput (batch_size=32) : 5.8790645628476454 FPS
+[06/10/24 11:11:55] INFO     Testing took 34.019017457962036 seconds                                                                                                                                           timer.py:109
+                             Throughput (batch_size=32) : 5.8790645628476454 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.8820000290870667     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9954075217247009     │
+│         pixel_PRO         │    0.28595131635665894    │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:28 • 0:00:00 0.21it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category macaroni2 --config ./configs/models/cfa.yaml
+2024-06-10 11:12:00,974 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/10/24 11:12:00] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-10 11:12:00,992 - anomalib.models.components.base.anomaly_module - INFO - Initializing Cfa model.
+                    INFO     Initializing Cfa model.                                                                                                                                                   anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:110: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  torch.has_cuda,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:111: UserWarning: 'has_cudnn' is deprecated, please use 'torch.backends.cudnn.is_available()'
+  torch.has_cudnn,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:117: UserWarning: 'has_mps' is deprecated, please use 'torch.backends.mps.is_built()'
+  torch.has_mps,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:118: UserWarning: 'has_mkldnn' is deprecated, please use 'torch.backends.mkldnn.is_available()'
+  torch.has_mkldnn,
+2024-06-10 11:12:01,824 - anomalib.callbacks - INFO - Loading the callbacks
+[06/10/24 11:12:01] INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-10 11:12:01,826 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Cfa
+                    INFO     Overriding gradient_clip_val from None with 0 for Cfa                                                                                                                             engine.py:84
+2024-06-10 11:12:01,827 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Cfa
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Cfa                                                                                                                          engine.py:84
+2024-06-10 11:12:01,907 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/10/24 11:12:01] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-10 11:12:01,916 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-10 11:12:01,916 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-10 11:12:01,917 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-10 11:12:01,918 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-10 11:12:01,919 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-10 11:12:01,920 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-10 11:12:01,958 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-10 11:12:02,177 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/10/24 11:12:02] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ CfaModel                 │ 31.3 M │
+│ 1 │ loss                  │ CfaLoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 31.3 M
+Non-trainable params: 0
+Total params: 31.3 M
+Total estimated model params size (MB): 125
+  0%|                                                                                                                                                                                               | 0/29 [00:00<?, ?it/s]
+  3%|######3                                                                                                                                                                                | 1/29 [00:10<05:00, 10.72s/it]
+  7%|############6                                                                                                                                                                          | 2/29 [00:10<02:01,  4.49s/it]
+ 10%|##################9                                                                                                                                                                    | 3/29 [00:11<01:05,  2.51s/it]
+ 14%|#########################2                                                                                                                                                             | 4/29 [00:11<00:39,  1.58s/it]
+ 17%|###############################5                                                                                                                                                       | 5/29 [00:11<00:25,  1.07s/it]
+ 21%|#####################################8                                                                                                                                                 | 6/29 [00:11<00:17,  1.32it/s]
+ 24%|############################################1                                                                                                                                          | 7/29 [00:11<00:12,  1.81it/s]
+ 28%|##################################################4                                                                                                                                    | 8/29 [00:11<00:08,  2.33it/s]
+ 31%|########################################################7                                                                                                                              | 9/29 [00:18<00:48,  2.45s/it]
+ 34%|##############################################################7                                                                                                                       | 10/29 [00:18<00:32,  1.73s/it]
+ 38%|#####################################################################                                                                                                                 | 11/29 [00:18<00:22,  1.24s/it]
+ 41%|###########################################################################3                                                                                                          | 12/29 [00:19<00:16,  1.02it/s]
+ 45%|#################################################################################5                                                                                                    | 13/29 [00:19<00:11,  1.38it/s]
+ 48%|#######################################################################################8                                                                                              | 14/29 [00:19<00:08,  1.83it/s]
+ 52%|##############################################################################################1                                                                                       | 15/29 [00:19<00:05,  2.40it/s]
+ 55%|####################################################################################################4                                                                                 | 16/29 [00:19<00:04,  3.05it/s]
+ 59%|##########################################################################################################6                                                                           | 17/29 [00:21<00:08,  1.40it/s]
+ 62%|################################################################################################################9                                                                     | 18/29 [00:22<00:08,  1.32it/s]
+ 66%|#######################################################################################################################2                                                              | 19/29 [00:22<00:05,  1.76it/s]
+ 69%|#############################################################################################################################5                                                        | 20/29 [00:22<00:03,  2.30it/s]
+ 72%|###################################################################################################################################7                                                  | 21/29 [00:22<00:02,  2.95it/s]
+ 76%|##########################################################################################################################################                                            | 22/29 [00:22<00:01,  3.65it/s]
+ 79%|################################################################################################################################################3                                     | 23/29 [00:22<00:01,  4.38it/s]
+ 83%|######################################################################################################################################################6                               | 24/29 [00:22<00:00,  5.13it/s]
+ 86%|############################################################################################################################################################8                         | 25/29 [00:23<00:00,  5.07it/s]
+ 90%|###################################################################################################################################################################1                  | 26/29 [00:23<00:00,  3.32it/s]
+ 93%|#########################################################################################################################################################################4            | 27/29 [00:23<00:00,  4.10it/s]
+ 97%|###############################################################################################################################################################################7      | 28/29 [00:23<00:00,  4.91it/s]
+100%|######################################################################################################################################################################################| 29/29 [00:24<00:00,  1.20it/s]
+
+Epoch 11/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:13 • 0:00:00 2.57it/s pixel_AUROC: 0.980 pixel_PRO: 0.0542024-06-10 11:17:04,116 - anomalib.callbacks.timer - INFO - Training took 301.93 seconds
+[06/10/24 11:17:04] INFO     Training took 301.93 seconds                                                                                                                                                       timer.py:59
+Epoch 11/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:13 • 0:00:00 2.57it/s pixel_AUROC: 0.979 pixel_PRO: 0.053
+2024-06-10 11:17:04,119 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-10 11:17:04,186 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/10/24 11:17:04] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:27 • 0:00:00 0.22it/s  2024-06-10 11:17:37,702 - anomalib.callbacks.timer - INFO - Testing took 33.21415066719055 seconds
+Throughput (batch_size=32) : 6.021529859487362 FPS
+[06/10/24 11:17:37] INFO     Testing took 33.21415066719055 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=32) : 6.021529859487362 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.5900000333786011     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │     0.979343056678772     │
+│         pixel_PRO         │    0.05294548720121384    │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:27 • 0:00:00 0.22it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category pcb1 --config ./configs/models/cfa.yaml
+2024-06-10 11:17:43,334 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/10/24 11:17:43] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-10 11:17:43,351 - anomalib.models.components.base.anomaly_module - INFO - Initializing Cfa model.
+                    INFO     Initializing Cfa model.                                                                                                                                                   anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:110: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  torch.has_cuda,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:111: UserWarning: 'has_cudnn' is deprecated, please use 'torch.backends.cudnn.is_available()'
+  torch.has_cudnn,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:117: UserWarning: 'has_mps' is deprecated, please use 'torch.backends.mps.is_built()'
+  torch.has_mps,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:118: UserWarning: 'has_mkldnn' is deprecated, please use 'torch.backends.mkldnn.is_available()'
+  torch.has_mkldnn,
+2024-06-10 11:17:44,170 - anomalib.callbacks - INFO - Loading the callbacks
+[06/10/24 11:17:44] INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-10 11:17:44,171 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Cfa
+                    INFO     Overriding gradient_clip_val from None with 0 for Cfa                                                                                                                             engine.py:84
+2024-06-10 11:17:44,172 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Cfa
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Cfa                                                                                                                          engine.py:84
+2024-06-10 11:17:44,252 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/10/24 11:17:44] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-10 11:17:44,260 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-10 11:17:44,261 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-10 11:17:44,262 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-10 11:17:44,262 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-10 11:17:44,263 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-10 11:17:44,264 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-10 11:17:44,301 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-10 11:17:44,508 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ CfaModel                 │ 31.3 M │
+│ 1 │ loss                  │ CfaLoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 31.3 M
+Non-trainable params: 0
+Total params: 31.3 M
+Total estimated model params size (MB): 125
+  0%|                                                                                                                                                                                               | 0/29 [00:00<?, ?it/s]
+  3%|######3                                                                                                                                                                                | 1/29 [00:06<02:49,  6.05s/it]
+  7%|############6                                                                                                                                                                          | 2/29 [00:06<01:08,  2.55s/it]
+ 10%|##################9                                                                                                                                                                    | 3/29 [00:06<00:37,  1.44s/it]
+ 14%|#########################2                                                                                                                                                             | 4/29 [00:06<00:23,  1.08it/s]
+ 17%|###############################5                                                                                                                                                       | 5/29 [00:06<00:15,  1.57it/s]
+ 21%|#####################################8                                                                                                                                                 | 6/29 [00:06<00:10,  2.15it/s]
+ 24%|############################################1                                                                                                                                          | 7/29 [00:06<00:07,  2.80it/s]
+ 28%|##################################################4                                                                                                                                    | 8/29 [00:06<00:06,  3.46it/s]
+ 31%|########################################################7                                                                                                                              | 9/29 [00:10<00:24,  1.20s/it]
+ 34%|##############################################################7                                                                                                                       | 10/29 [00:10<00:16,  1.14it/s]
+ 38%|#####################################################################                                                                                                                 | 11/29 [00:10<00:11,  1.55it/s]
+ 41%|###########################################################################3                                                                                                          | 12/29 [00:10<00:08,  2.04it/s]
+ 45%|#################################################################################5                                                                                                    | 13/29 [00:10<00:06,  2.63it/s]
+ 48%|#######################################################################################8                                                                                              | 14/29 [00:10<00:04,  3.29it/s]
+ 52%|##############################################################################################1                                                                                       | 15/29 [00:10<00:03,  3.95it/s]
+ 55%|####################################################################################################4                                                                                 | 16/29 [00:11<00:02,  4.59it/s]
+ 59%|##########################################################################################################6                                                                           | 17/29 [00:11<00:04,  2.76it/s]
+ 62%|################################################################################################################9                                                                     | 18/29 [00:12<00:06,  1.64it/s]
+ 66%|#######################################################################################################################2                                                              | 19/29 [00:13<00:04,  2.16it/s]
+ 69%|#############################################################################################################################5                                                        | 20/29 [00:13<00:03,  2.81it/s]
+ 72%|###################################################################################################################################7                                                  | 21/29 [00:13<00:02,  3.54it/s]
+ 76%|##########################################################################################################################################                                            | 22/29 [00:13<00:01,  4.14it/s]
+ 79%|################################################################################################################################################3                                     | 23/29 [00:13<00:01,  4.85it/s]
+ 83%|######################################################################################################################################################6                               | 24/29 [00:13<00:00,  5.63it/s]
+ 86%|############################################################################################################################################################8                         | 25/29 [00:13<00:00,  6.40it/s]
+ 90%|###################################################################################################################################################################1                  | 26/29 [00:14<00:00,  4.95it/s]
+ 93%|#########################################################################################################################################################################4            | 27/29 [00:14<00:00,  5.75it/s]
+ 97%|###############################################################################################################################################################################7      | 28/29 [00:14<00:00,  6.50it/s]
+100%|######################################################################################################################################################################################| 29/29 [00:14<00:00,  2.00it/s]
+
+Epoch 7/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:13 • 0:00:00 2.54it/s pixel_AUROC: 0.984 pixel_PRO: 0.1042024-06-10 11:20:59,365 - anomalib.callbacks.timer - INFO - Training took 194.85 seconds
+[06/10/24 11:20:59] INFO     Training took 194.85 seconds                                                                                                                                                       timer.py:59
+Epoch 7/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:13 • 0:00:00 2.54it/s pixel_AUROC: 0.981 pixel_PRO: 0.108
+2024-06-10 11:20:59,369 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-10 11:20:59,442 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/10/24 11:20:59] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:28 • 0:00:00 0.21it/s  2024-06-10 11:21:34,536 - anomalib.callbacks.timer - INFO - Testing took 34.72080612182617 seconds
+Throughput (batch_size=32) : 5.760234923643553 FPS
+[06/10/24 11:21:34] INFO     Testing took 34.72080612182617 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=32) : 5.760234923643553 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9491000175476074     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9932786226272583     │
+│         pixel_PRO         │    0.1077987402677536     │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:28 • 0:00:00 0.21it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category pcb2 --config ./configs/models/cfa.yaml
+2024-06-10 11:21:40,122 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/10/24 11:21:40] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-10 11:21:40,138 - anomalib.models.components.base.anomaly_module - INFO - Initializing Cfa model.
+                    INFO     Initializing Cfa model.                                                                                                                                                   anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:110: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  torch.has_cuda,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:111: UserWarning: 'has_cudnn' is deprecated, please use 'torch.backends.cudnn.is_available()'
+  torch.has_cudnn,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:117: UserWarning: 'has_mps' is deprecated, please use 'torch.backends.mps.is_built()'
+  torch.has_mps,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:118: UserWarning: 'has_mkldnn' is deprecated, please use 'torch.backends.mkldnn.is_available()'
+  torch.has_mkldnn,
+2024-06-10 11:21:40,927 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-10 11:21:40,928 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Cfa
+                    INFO     Overriding gradient_clip_val from None with 0 for Cfa                                                                                                                             engine.py:84
+2024-06-10 11:21:40,929 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Cfa
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Cfa                                                                                                                          engine.py:84
+2024-06-10 11:21:41,008 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/10/24 11:21:41] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-10 11:21:41,017 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-10 11:21:41,017 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-10 11:21:41,018 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-10 11:21:41,019 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-10 11:21:41,020 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+[06/10/24 11:21:41] WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-10 11:21:41,021 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-10 11:21:41,057 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-10 11:21:41,267 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ CfaModel                 │ 31.3 M │
+│ 1 │ loss                  │ CfaLoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 31.3 M
+Non-trainable params: 0
+Total params: 31.3 M
+Total estimated model params size (MB): 125
+  0%|                                                                                                                                                                                               | 0/29 [00:00<?, ?it/s]
+  3%|######3                                                                                                                                                                                | 1/29 [00:07<03:26,  7.37s/it]
+  7%|############6                                                                                                                                                                          | 2/29 [00:07<01:23,  3.10s/it]
+ 10%|##################9                                                                                                                                                                    | 3/29 [00:07<00:45,  1.75s/it]
+ 14%|#########################2                                                                                                                                                             | 4/29 [00:07<00:27,  1.11s/it]
+ 17%|###############################5                                                                                                                                                       | 5/29 [00:07<00:18,  1.32it/s]
+ 21%|#####################################8                                                                                                                                                 | 6/29 [00:08<00:12,  1.84it/s]
+ 24%|############################################1                                                                                                                                          | 7/29 [00:08<00:09,  2.43it/s]
+ 28%|##################################################4                                                                                                                                    | 8/29 [00:08<00:06,  3.10it/s]
+ 31%|########################################################7                                                                                                                              | 9/29 [00:11<00:21,  1.07s/it]
+ 34%|##############################################################7                                                                                                                       | 10/29 [00:11<00:14,  1.28it/s]
+ 38%|#####################################################################                                                                                                                 | 11/29 [00:11<00:10,  1.72it/s]
+ 41%|###########################################################################3                                                                                                          | 12/29 [00:11<00:07,  2.25it/s]
+ 45%|#################################################################################5                                                                                                    | 13/29 [00:11<00:05,  2.87it/s]
+ 48%|#######################################################################################8                                                                                              | 14/29 [00:11<00:04,  3.59it/s]
+ 52%|##############################################################################################1                                                                                       | 15/29 [00:11<00:03,  4.32it/s]
+ 55%|####################################################################################################4                                                                                 | 16/29 [00:11<00:02,  5.00it/s]
+ 59%|##########################################################################################################6                                                                           | 17/29 [00:12<00:03,  3.15it/s]
+ 62%|################################################################################################################9                                                                     | 18/29 [00:13<00:04,  2.33it/s]
+ 66%|#######################################################################################################################2                                                              | 19/29 [00:13<00:03,  2.95it/s]
+ 69%|#############################################################################################################################5                                                        | 20/29 [00:13<00:02,  3.68it/s]
+ 72%|###################################################################################################################################7                                                  | 21/29 [00:13<00:01,  4.41it/s]
+ 76%|##########################################################################################################################################                                            | 22/29 [00:13<00:01,  4.98it/s]
+ 79%|################################################################################################################################################3                                     | 23/29 [00:13<00:01,  5.74it/s]
+ 83%|######################################################################################################################################################6                               | 24/29 [00:13<00:00,  6.22it/s]
+ 86%|############################################################################################################################################################8                         | 25/29 [00:14<00:00,  6.79it/s]
+ 90%|###################################################################################################################################################################1                  | 26/29 [00:14<00:00,  5.07it/s]
+ 93%|#########################################################################################################################################################################4            | 27/29 [00:14<00:00,  5.86it/s]
+ 97%|###############################################################################################################################################################################7      | 28/29 [00:14<00:00,  6.50it/s]
+100%|######################################################################################################################################################################################| 29/29 [00:14<00:00,  1.97it/s]
+
+Epoch 5/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:14 • 0:00:00 2.43it/s pixel_AUROC: 0.932 pixel_PRO: 0.1462024-06-10 11:24:11,940 - anomalib.callbacks.timer - INFO - Training took 150.66 seconds
+[06/10/24 11:24:11] INFO     Training took 150.66 seconds                                                                                                                                                       timer.py:59
+Epoch 5/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:14 • 0:00:00 2.43it/s pixel_AUROC: 0.940 pixel_PRO: 0.155
+2024-06-10 11:24:11,944 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-10 11:24:12,021 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/10/24 11:24:12] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:27 • 0:00:00 0.22it/s  2024-06-10 11:24:45,631 - anomalib.callbacks.timer - INFO - Testing took 33.26433038711548 seconds
+Throughput (batch_size=32) : 6.012446295250467 FPS
+[06/10/24 11:24:45] INFO     Testing took 33.26433038711548 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=32) : 6.012446295250467 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9330999851226807     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9759387373924255     │
+│         pixel_PRO         │    0.1549685150384903     │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:27 • 0:00:00 0.22it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category pcb3 --config ./configs/models/cfa.yaml
+2024-06-10 11:24:51,197 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/10/24 11:24:51] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-10 11:24:51,214 - anomalib.models.components.base.anomaly_module - INFO - Initializing Cfa model.
+                    INFO     Initializing Cfa model.                                                                                                                                                   anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:110: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  torch.has_cuda,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:111: UserWarning: 'has_cudnn' is deprecated, please use 'torch.backends.cudnn.is_available()'
+  torch.has_cudnn,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:117: UserWarning: 'has_mps' is deprecated, please use 'torch.backends.mps.is_built()'
+  torch.has_mps,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:118: UserWarning: 'has_mkldnn' is deprecated, please use 'torch.backends.mkldnn.is_available()'
+  torch.has_mkldnn,
+2024-06-10 11:24:52,024 - anomalib.callbacks - INFO - Loading the callbacks
+[06/10/24 11:24:52] INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-10 11:24:52,025 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Cfa
+                    INFO     Overriding gradient_clip_val from None with 0 for Cfa                                                                                                                             engine.py:84
+2024-06-10 11:24:52,026 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Cfa
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Cfa                                                                                                                          engine.py:84
+2024-06-10 11:24:52,107 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/10/24 11:24:52] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-10 11:24:52,115 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-10 11:24:52,116 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-10 11:24:52,117 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-10 11:24:52,118 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-10 11:24:52,118 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-10 11:24:52,120 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-10 11:24:52,158 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-10 11:24:52,361 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ CfaModel                 │ 31.3 M │
+│ 1 │ loss                  │ CfaLoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 31.3 M
+Non-trainable params: 0
+Total params: 31.3 M
+Total estimated model params size (MB): 125
+  0%|                                                                                                                                                                                               | 0/29 [00:00<?, ?it/s]
+  3%|######3                                                                                                                                                                                | 1/29 [00:07<03:18,  7.09s/it]
+  7%|############6                                                                                                                                                                          | 2/29 [00:07<01:20,  2.99s/it]
+ 10%|##################9                                                                                                                                                                    | 3/29 [00:07<00:43,  1.69s/it]
+ 14%|#########################2                                                                                                                                                             | 4/29 [00:07<00:26,  1.08s/it]
+ 17%|###############################5                                                                                                                                                       | 5/29 [00:07<00:17,  1.35it/s]
+ 21%|#####################################8                                                                                                                                                 | 6/29 [00:07<00:12,  1.87it/s]
+ 24%|############################################1                                                                                                                                          | 7/29 [00:07<00:08,  2.49it/s]
+ 28%|##################################################4                                                                                                                                    | 8/29 [00:08<00:06,  3.20it/s]
+ 31%|########################################################7                                                                                                                              | 9/29 [00:10<00:21,  1.08s/it]
+ 34%|##############################################################7                                                                                                                       | 10/29 [00:11<00:18,  1.04it/s]
+ 38%|#####################################################################                                                                                                                 | 11/29 [00:11<00:12,  1.41it/s]
+ 41%|###########################################################################3                                                                                                          | 12/29 [00:11<00:09,  1.87it/s]
+ 45%|#################################################################################5                                                                                                    | 13/29 [00:11<00:06,  2.43it/s]
+ 48%|#######################################################################################8                                                                                              | 14/29 [00:12<00:04,  3.04it/s]
+ 52%|##############################################################################################1                                                                                       | 15/29 [00:12<00:03,  3.73it/s]
+ 55%|####################################################################################################4                                                                                 | 16/29 [00:12<00:02,  4.42it/s]
+ 59%|##########################################################################################################6                                                                           | 17/29 [00:12<00:02,  4.48it/s]
+ 62%|################################################################################################################9                                                                     | 18/29 [00:13<00:04,  2.28it/s]
+ 66%|#######################################################################################################################2                                                              | 19/29 [00:13<00:03,  2.89it/s]
+ 69%|#############################################################################################################################5                                                        | 20/29 [00:13<00:02,  3.60it/s]
+ 72%|###################################################################################################################################7                                                  | 21/29 [00:13<00:01,  4.13it/s]
+ 76%|##########################################################################################################################################                                            | 22/29 [00:13<00:01,  4.90it/s]
+ 79%|################################################################################################################################################3                                     | 23/29 [00:14<00:01,  5.56it/s]
+ 83%|######################################################################################################################################################6                               | 24/29 [00:14<00:00,  6.26it/s]
+ 86%|############################################################################################################################################################8                         | 25/29 [00:14<00:00,  6.95it/s]
+ 90%|###################################################################################################################################################################1                  | 26/29 [00:14<00:00,  5.61it/s]
+ 93%|#########################################################################################################################################################################4            | 27/29 [00:14<00:00,  6.37it/s]
+ 97%|###############################################################################################################################################################################7      | 28/29 [00:14<00:00,  7.00it/s]
+100%|######################################################################################################################################################################################| 29/29 [00:14<00:00,  1.94it/s]
+
+Epoch 9/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:14 • 0:00:00 2.32it/s pixel_AUROC: 0.947 pixel_PRO: 0.1132024-06-10 11:28:57,775 - anomalib.callbacks.timer - INFO - Training took 245.40 seconds
+[06/10/24 11:28:57] INFO     Training took 245.40 seconds                                                                                                                                                       timer.py:59
+Epoch 9/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:14 • 0:00:00 2.32it/s pixel_AUROC: 0.944 pixel_PRO: 0.108
+2024-06-10 11:28:57,780 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-10 11:28:57,862 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/10/24 11:28:57] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:27 • 0:00:00 0.22it/s  2024-06-10 11:29:31,070 - anomalib.callbacks.timer - INFO - Testing took 32.87126970291138 seconds
+Throughput (batch_size=32) : 6.114762277716264 FPS
+[06/10/24 11:29:31] INFO     Testing took 32.87126970291138 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=32) : 6.114762277716264 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9026732444763184     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │     0.983119010925293     │
+│         pixel_PRO         │    0.10824354737997055    │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:27 • 0:00:00 0.22it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category pcb4 --config ./configs/models/cfa.yaml
+2024-06-10 11:29:36,922 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/10/24 11:29:36] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-10 11:29:36,939 - anomalib.models.components.base.anomaly_module - INFO - Initializing Cfa model.
+                    INFO     Initializing Cfa model.                                                                                                                                                   anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:110: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  torch.has_cuda,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:111: UserWarning: 'has_cudnn' is deprecated, please use 'torch.backends.cudnn.is_available()'
+  torch.has_cudnn,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:117: UserWarning: 'has_mps' is deprecated, please use 'torch.backends.mps.is_built()'
+  torch.has_mps,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:118: UserWarning: 'has_mkldnn' is deprecated, please use 'torch.backends.mkldnn.is_available()'
+  torch.has_mkldnn,
+2024-06-10 11:29:37,751 - anomalib.callbacks - INFO - Loading the callbacks
+[06/10/24 11:29:37] INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-10 11:29:37,752 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Cfa
+                    INFO     Overriding gradient_clip_val from None with 0 for Cfa                                                                                                                             engine.py:84
+2024-06-10 11:29:37,753 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Cfa
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Cfa                                                                                                                          engine.py:84
+2024-06-10 11:29:37,835 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/10/24 11:29:37] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-10 11:29:37,843 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-10 11:29:37,844 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-10 11:29:37,845 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-10 11:29:37,845 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-10 11:29:37,846 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-10 11:29:37,848 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-10 11:29:37,885 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-10 11:29:38,088 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/10/24 11:29:38] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ CfaModel                 │ 31.3 M │
+│ 1 │ loss                  │ CfaLoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 31.3 M
+Non-trainable params: 0
+Total params: 31.3 M
+Total estimated model params size (MB): 125
+  0%|                                                                                                                                                                                               | 0/29 [00:00<?, ?it/s]
+  3%|######3                                                                                                                                                                                | 1/29 [00:06<03:02,  6.53s/it]
+  7%|############6                                                                                                                                                                          | 2/29 [00:06<01:14,  2.77s/it]
+ 10%|##################9                                                                                                                                                                    | 3/29 [00:06<00:41,  1.60s/it]
+ 14%|#########################2                                                                                                                                                             | 4/29 [00:07<00:25,  1.03s/it]
+ 17%|###############################5                                                                                                                                                       | 5/29 [00:07<00:20,  1.19it/s]
+ 21%|#####################################8                                                                                                                                                 | 6/29 [00:07<00:13,  1.66it/s]
+ 24%|############################################1                                                                                                                                          | 7/29 [00:07<00:09,  2.21it/s]
+ 28%|##################################################4                                                                                                                                    | 8/29 [00:07<00:07,  2.82it/s]
+ 31%|########################################################7                                                                                                                              | 9/29 [00:10<00:18,  1.06it/s]
+ 34%|##############################################################7                                                                                                                       | 10/29 [00:11<00:18,  1.02it/s]
+ 38%|#####################################################################                                                                                                                 | 11/29 [00:12<00:20,  1.16s/it]
+ 41%|###########################################################################3                                                                                                          | 12/29 [00:12<00:14,  1.18it/s]
+ 45%|#################################################################################5                                                                                                    | 13/29 [00:13<00:10,  1.57it/s]
+ 48%|#######################################################################################8                                                                                              | 14/29 [00:13<00:07,  2.08it/s]
+ 52%|##############################################################################################1                                                                                       | 15/29 [00:13<00:05,  2.69it/s]
+ 55%|####################################################################################################4                                                                                 | 16/29 [00:13<00:03,  3.33it/s]
+ 59%|##########################################################################################################6                                                                           | 17/29 [00:14<00:05,  2.11it/s]
+ 62%|################################################################################################################9                                                                     | 18/29 [00:15<00:08,  1.34it/s]
+ 66%|#######################################################################################################################2                                                              | 19/29 [00:15<00:05,  1.80it/s]
+ 69%|#############################################################################################################################5                                                        | 20/29 [00:15<00:03,  2.36it/s]
+ 72%|###################################################################################################################################7                                                  | 21/29 [00:16<00:02,  3.03it/s]
+ 76%|##########################################################################################################################################                                            | 22/29 [00:16<00:01,  3.80it/s]
+ 79%|################################################################################################################################################3                                     | 23/29 [00:16<00:01,  4.61it/s]
+ 83%|######################################################################################################################################################6                               | 24/29 [00:16<00:00,  5.43it/s]
+ 86%|############################################################################################################################################################8                         | 25/29 [00:16<00:00,  6.15it/s]
+ 90%|###################################################################################################################################################################1                  | 26/29 [00:16<00:00,  5.44it/s]
+ 93%|#########################################################################################################################################################################4            | 27/29 [00:16<00:00,  6.19it/s]
+ 97%|###############################################################################################################################################################################7      | 28/29 [00:16<00:00,  6.88it/s]
+100%|######################################################################################################################################################################################| 29/29 [00:17<00:00,  1.69it/s]
+
+Epoch 7/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:13 • 0:00:00 2.57it/s pixel_AUROC: 0.956 pixel_PRO: 0.3772024-06-10 11:33:04,149 - anomalib.callbacks.timer - INFO - Training took 206.05 seconds
+[06/10/24 11:33:04] INFO     Training took 206.05 seconds                                                                                                                                                       timer.py:59
+Epoch 7/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29/29 0:00:13 • 0:00:00 2.57it/s pixel_AUROC: 0.949 pixel_PRO: 0.363
+2024-06-10 11:33:04,155 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-10 11:33:04,235 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/10/24 11:33:04] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:27 • 0:00:00 0.22it/s  2024-06-10 11:33:38,041 - anomalib.callbacks.timer - INFO - Testing took 33.45773220062256 seconds
+Throughput (batch_size=32) : 6.007579915899378 FPS
+[06/10/24 11:33:38] INFO     Testing took 33.45773220062256 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=32) : 6.007579915899378 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9903960824012756     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9850082993507385     │
+│         pixel_PRO         │    0.3627599775791168     │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7/7 0:00:27 • 0:00:00 0.22it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category pipe_fryum --config ./configs/models/cfa.yaml
+2024-06-10 11:33:43,951 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/10/24 11:33:43] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-10 11:33:43,968 - anomalib.models.components.base.anomaly_module - INFO - Initializing Cfa model.
+                    INFO     Initializing Cfa model.                                                                                                                                                   anomaly_module.py:42
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=Wide_ResNet50_2_Weights.IMAGENET1K_V1`. You can also use `weights=Wide_ResNet50_2_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:110: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  torch.has_cuda,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:111: UserWarning: 'has_cudnn' is deprecated, please use 'torch.backends.cudnn.is_available()'
+  torch.has_cudnn,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:117: UserWarning: 'has_mps' is deprecated, please use 'torch.backends.mps.is_built()'
+  torch.has_mps,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:118: UserWarning: 'has_mkldnn' is deprecated, please use 'torch.backends.mkldnn.is_available()'
+  torch.has_mkldnn,
+2024-06-10 11:33:44,795 - anomalib.callbacks - INFO - Loading the callbacks
+[06/10/24 11:33:44] INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-10 11:33:44,796 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Cfa
+                    INFO     Overriding gradient_clip_val from None with 0 for Cfa                                                                                                                             engine.py:84
+2024-06-10 11:33:44,797 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Cfa
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Cfa                                                                                                                          engine.py:84
+2024-06-10 11:33:44,879 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/10/24 11:33:44] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-10 11:33:44,887 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-10 11:33:44,888 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-10 11:33:44,889 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-10 11:33:44,890 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-10 11:33:44,890 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-10 11:33:44,892 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-10 11:33:44,930 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-10 11:33:45,130 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/10/24 11:33:45] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ CfaModel                 │ 31.3 M │
+│ 1 │ loss                  │ CfaLoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 31.3 M
+Non-trainable params: 0
+Total params: 31.3 M
+Total estimated model params size (MB): 125
+  0%|                                                                                                                                                                                               | 0/15 [00:00<?, ?it/s]
+  7%|############2                                                                                                                                                                          | 1/15 [00:06<01:35,  6.81s/it]
+ 13%|########################4                                                                                                                                                              | 2/15 [00:06<00:37,  2.87s/it]
+ 20%|####################################6                                                                                                                                                  | 3/15 [00:07<00:19,  1.62s/it]
+ 27%|################################################8                                                                                                                                      | 4/15 [00:07<00:11,  1.03s/it]
+ 33%|#############################################################                                                                                                                          | 5/15 [00:07<00:07,  1.42it/s]
+ 40%|#########################################################################2                                                                                                             | 6/15 [00:07<00:04,  1.96it/s]
+ 47%|#####################################################################################4                                                                                                 | 7/15 [00:07<00:03,  2.62it/s]
+ 53%|#################################################################################################6                                                                                     | 8/15 [00:07<00:02,  3.38it/s]
+ 60%|#############################################################################################################8                                                                         | 9/15 [00:08<00:02,  2.30it/s]
+ 67%|#########################################################################################################################3                                                            | 10/15 [00:08<00:01,  2.96it/s]
+ 73%|#####################################################################################################################################4                                                | 11/15 [00:08<00:01,  3.75it/s]
+ 80%|#################################################################################################################################################6                                    | 12/15 [00:08<00:00,  4.59it/s]
+ 87%|#############################################################################################################################################################7                        | 13/15 [00:08<00:00,  5.40it/s]
+ 93%|#########################################################################################################################################################################8            | 14/15 [00:08<00:00,  6.20it/s]
+100%|######################################################################################################################################################################################| 15/15 [00:09<00:00,  1.65it/s]
+
+Epoch 5/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15/15 0:00:08 • 0:00:00 2.66it/s pixel_AUROC: 0.844 pixel_PRO: 0.0002024-06-10 11:35:18,870 - anomalib.callbacks.timer - INFO - Training took 93.73 seconds
+[06/10/24 11:35:18] INFO     Training took 93.73 seconds                                                                                                                                                        timer.py:59
+Epoch 5/29 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15/15 0:00:08 • 0:00:00 2.66it/s pixel_AUROC: 0.844 pixel_PRO: 0.000
+2024-06-10 11:35:18,873 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-06-10 11:35:18,946 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/10/24 11:35:18] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/anomalib/utils/post_processing.py:89: RuntimeWarning: invalid value encountered in cast
+  anomaly_map = anomaly_map.astype(np.uint8)
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:18 • 0:00:00 0.22it/s  2024-06-10 11:35:44,152 - anomalib.callbacks.timer - INFO - Testing took 24.857808351516724 seconds
+Throughput (batch_size=32) : 6.034321203174278 FPS
+[06/10/24 11:35:44] INFO     Testing took 24.857808351516724 seconds                                                                                                                                           timer.py:109
+                             Throughput (batch_size=32) : 6.034321203174278 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.19120001792907715    │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.8444275259971619     │
+│         pixel_PRO         │            0.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:18 • 0:00:00 0.22it/s
+
