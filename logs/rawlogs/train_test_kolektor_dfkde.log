@@ -1,0 +1,79 @@
+/bin/bash /home/jinyao/PycharmProjects/IADBE/train_test_kolektor_dfkde.sh
+(IADBE) jinyao@jinyao-System-Product-Name:~/PycharmProjects/IADBE$ /bin/bash /home/jinyao/PycharmProjects/IADBE/train_test_kolektor_dfkde.sh
+Running command: anomalib train --data anomalib.data.Kolektor --config ./configs/models/dfkde.yaml
+2024-06-20 12:42:48,966 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/20/24 12:42:48] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-20 12:42:48,980 - anomalib.models.components.base.anomaly_module - INFO - Initializing Dfkde model.
+                    INFO     Initializing Dfkde model.                                                                                                                                                 anomaly_module.py:42
+2024-06-20 12:42:49,182 - timm.models.helpers - INFO - Loading pretrained weights from url (https://download.pytorch.org/models/resnet18-5c106cde.pth)
+[06/20/24 12:42:49] INFO     Loading pretrained weights from url (https://download.pytorch.org/models/resnet18-5c106cde.pth)                                                                                 helpers.py:247
+2024-06-20 12:42:49,283 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-20 12:42:49,284 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Dfkde
+                    INFO     Overriding gradient_clip_val from None with 0 for Dfkde                                                                                                                           engine.py:84
+2024-06-20 12:42:49,285 - anomalib.engine.engine - INFO - Overriding max_epochs from None with 1 for Dfkde
+                    INFO     Overriding max_epochs from None with 1 for Dfkde                                                                                                                                  engine.py:84
+2024-06-20 12:42:49,286 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Dfkde
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Dfkde                                                                                                                        engine.py:84
+2024-06-20 12:42:49,372 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/20/24 12:42:49] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-20 12:42:49,380 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-20 12:42:49,381 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-20 12:42:49,381 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-20 12:42:49,382 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-20 12:42:49,383 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-20 12:42:49,384 - anomalib.data.image.kolektor - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                             kolektor.py:340
+2024-06-20 12:42:49,404 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-06-20 12:42:50,177 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/20/24 12:42:50] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:180: `LightningModule.configure_optimizers` returned `None`, this fit will run with no optimizer
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ DfkdeModel               │ 11.2 M │
+│ 1 │ _transform            │ Compose                  │      0 │
+│ 2 │ normalization_metrics │ MinMax                   │      0 │
+│ 3 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 4 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 6 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 11.2 M
+Non-trainable params: 0
+Total params: 11.2 M
+Total estimated model params size (MB): 44
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py:129: `training_step` returned `None`. If this was on purpose, ignore this warning...
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9/9 0:00:00 • 0:00:00 45.13it/s  2024-06-20 12:42:51,372 - anomalib.models.image.dfkde.lightning_model - INFO - Fitting a KDE model to the embedding collected from the training set.
+[06/20/24 12:42:51] INFO     Fitting a KDE model to the embedding collected from the training set.                                                                                                    lightning_model.py:88
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9/9 0:00:00 • 0:00:00 45.13it/s  2024-06-20 12:42:52,127 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1` reached.
+[06/20/24 12:42:52] INFO     `Trainer.fit` stopped: `max_epochs=1` reached.                                                                                                                                 rank_zero.py:63
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9/9 0:00:00 • 0:00:00 45.13it/s  2024-06-20 12:42:52,226 - anomalib.callbacks.timer - INFO - Training took  2.04 seconds
+[06/20/24 12:42:52] INFO     Training took  2.04 seconds                                                                                                                                                        timer.py:59
+Epoch 0/0  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9/9 0:00:00 • 0:00:00 45.13it/s image_AUROC: 0.679 image_PRO: 1.000
+2024-06-20 12:42:52,229 - anomalib.data.image.kolektor - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                             kolektor.py:340
+2024-06-20 12:42:52,243 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:04 • 0:00:00 0.61it/s  2024-06-20 12:42:58,960 - anomalib.callbacks.timer - INFO - Testing took 6.503969192504883 seconds
+Throughput (batch_size=32) : 18.757776426830517 FPS
+[06/20/24 12:42:58] INFO     Testing took 6.503969192504883 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=32) : 18.757776426830517 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.6784340143203735     │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:04 • 0:00:00 0.61it/s
+

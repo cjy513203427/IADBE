@@ -1,0 +1,82 @@
+/bin/bash /home/jinyao/PycharmProjects/IADBE/train_test_kolektor_csflow.sh
+(IADBE) jinyao@jinyao-System-Product-Name:~/PycharmProjects/IADBE$ /bin/bash /home/jinyao/PycharmProjects/IADBE/train_test_kolektor_csflow.sh
+Running command: anomalib train --data anomalib.data.Kolektor --config ./configs/models/csflow.yaml
+2024-06-20 12:35:12,392 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[06/20/24 12:35:12] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-06-20 12:35:12,408 - anomalib.models.components.base.anomaly_module - INFO - Initializing Csflow model.
+                    INFO     Initializing Csflow model.                                                                                                                                                anomaly_module.py:42
+2024-06-20 12:35:12,413 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-06-20 12:35:12,422 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 1 for Csflow
+                    INFO     Overriding gradient_clip_val from None with 1 for Csflow                                                                                                                          engine.py:84
+2024-06-20 12:35:12,423 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Csflow
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Csflow                                                                                                                       engine.py:84
+2024-06-20 12:35:12,501 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[06/20/24 12:35:12] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-06-20 12:35:12,509 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-06-20 12:35:12,509 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-06-20 12:35:12,510 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-06-20 12:35:12,511 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-06-20 12:35:12,512 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-06-20 12:35:12,513 - anomalib.data.image.kolektor - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                             kolektor.py:340
+2024-06-20 12:35:12,557 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:110: UserWarning: 'has_cuda' is deprecated, please use 'torch.backends.cuda.is_built()'
+  torch.has_cuda,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:111: UserWarning: 'has_cudnn' is deprecated, please use 'torch.backends.cudnn.is_available()'
+  torch.has_cudnn,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:117: UserWarning: 'has_mps' is deprecated, please use 'torch.backends.mps.is_built()'
+  torch.has_mps,
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/torch/overrides.py:118: UserWarning: 'has_mkldnn' is deprecated, please use 'torch.backends.mkldnn.is_available()'
+  torch.has_mkldnn,
+2024-06-20 12:35:15,789 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/20/24 12:35:15] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ loss                  │ CsFlowLoss               │      0 │
+│ 1 │ _transform            │ Compose                  │      0 │
+│ 2 │ normalization_metrics │ MinMax                   │      0 │
+│ 3 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 4 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 6 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ model                 │ CsFlowModel              │  292 M │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 275 M
+Non-trainable params: 17.5 M
+Total params: 292 M
+Total estimated model params size (MB): 1.2 K
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing
+`Trainer(logger=ALogger(...))`
+Epoch 3/239 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9/9 0:00:04 • 0:00:00 2.99it/s train_loss_step: 16.890 pixel_AUROC: 0.500 pixel_PRO: 0.746 train_loss_epoch: 17.3182024-06-20 12:36:11,222 - anomalib.callbacks.timer - INFO - Training took 55.41 seconds
+[06/20/24 12:36:11] INFO     Training took 55.41 seconds                                                                                                                                                        timer.py:59
+Epoch 3/239 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9/9 0:00:04 • 0:00:00 2.99it/s train_loss_step: 16.890 pixel_AUROC: 0.500 pixel_PRO: 0.815 train_loss_epoch: 17.087
+2024-06-20 12:36:11,225 - anomalib.data.image.kolektor - INFO - Found the dataset.
+                    INFO     Found the dataset.                                                                                                                                                             kolektor.py:340
+2024-06-20 12:36:11,462 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[06/20/24 12:36:11] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:13 • 0:00:00 0.22it/s  2024-06-20 12:36:31,724 - anomalib.callbacks.timer - INFO - Testing took 19.148918390274048 seconds
+Throughput (batch_size=32) : 6.371117026743671 FPS
+[06/20/24 12:36:31] INFO     Testing took 19.148918390274048 seconds                                                                                                                                           timer.py:109
+                             Throughput (batch_size=32) : 6.371117026743671 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.5869505405426025     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.46094396710395813    │
+│         pixel_PRO         │    0.8146542906761169     │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:13 • 0:00:00 0.22it/s
+

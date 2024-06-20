@@ -119,10 +119,10 @@ class MyPadim(MemoryBankMixin, AnomalyModule):
 
     @property
     def learning_type(self) -> LearningType:
-        """Return the learning type of the model.
+        """Return the learning type of the custom_model.
 
         Returns:
-            LearningType: Learning type of the model.
+            LearningType: Learning type of the custom_model.
         """
         return LearningType.ONE_CLASS
 

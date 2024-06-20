@@ -129,7 +129,7 @@ Anomalib includes multiple inferencing scripts, including Torch, Lightning, Grad
 The following example demonstrates how to perform Lightning inference by loading a model from a checkpoint file.
 
 ```python
-# Assuming the datamodule, model and engine is initialized from the previous step,
+# Assuming the datamodule, custom_model and engine is initialized from the previous step,
 # a prediction via a checkpoint file can be performed as follows:
 predictions = engine.predict(
     datamodule=datamodule,
@@ -148,14 +148,14 @@ predictions = engine.predict(
 anomalib predict -h
 
 # Predict by using the default values.
-anomalib predict --model anomalib.models.Patchcore \
+anomalib predict --custom_model anomalib.models.Patchcore \
                  --data anomalib.data.MVTec \
-                 --ckpt_path <path/to/model.ckpt>
+                 --ckpt_path <path/to/custom_model.ckpt>
 
 # Predict by overriding arguments.
-anomalib predict --model anomalib.models.Patchcore \
+anomalib predict --custom_model anomalib.models.Patchcore \
                  --data anomalib.data.MVTec \
-                 --ckpt_path <path/to/model.ckpt>
+                 --ckpt_path <path/to/custom_model.ckpt>
                  --return_predictions
 
 # Predict by using a config file.
