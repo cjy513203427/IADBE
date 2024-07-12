@@ -161,7 +161,69 @@ anomalib predict --custom_model anomalib.models.Patchcore \
 # Predict by using a config file.
 anomalib predict --config <path/to/config> --return_predictions
 ```
+</details>
+
+# 📜 Custom Dataset
+IADBE supports training, inference for your own custom dataset.
+
+1. The first thing you need to do is import your own dataset to the project and create a custom data configuration file.
+
+<details>
+<summary>Configuration with only Normal Images</summary>
+
+```yaml
+class_path: anomalib.data.Folder
+init_args:
+  name: "custom_dataset"
+  root: "datasets/Custom_Dataset/hazelnut"
+  normal_dir: "train/good"
+  abnormal_dir: "test/crack"
+  mask_dir: null
+  normal_split_ratio: 0.2
+  test_split_mode: synthetic
+```
 
 </details>
+
+<details>
+<summary>Configuration with Normal and Abnormal Images</summary>
+
+```yaml
+class_path: anomalib.data.Folder
+init_args:
+  name: "custom_dataset"
+  root: "datasets/Custom_Dataset/chest_xray"
+  normal_dir: "train/good"
+  abnormal_dir: "test/crack"
+  normal_test_dir: "test/good"
+  normal_split_ratio: 0
+  extensions: [".png"]
+  image_size: [256, 256]
+  train_batch_size: 32
+  eval_batch_size: 32
+  num_workers: 8
+  task: classification
+  train_transform: null
+  eval_transform: null
+  test_split_mode: synthetic
+  test_split_ratio: 0.2
+  val_split_mode: same_as_test
+  val_split_ratio: 0.5
+  seed: null
+```
+</details>
+
+2. Next, you'll want to choose a model and then train it with a custom dataset.
+```bash
+anomalib train --data ./configs/data/custom_datase_normal_abnormal.yaml --model anomalib.models.Padim 
+```
+
+3. Finally, you can run an inference with the trained model to get the results you need.
+```bash
+anomalib predict --model anomalib.models.Padim \
+                 --data ./datasets/Custom_Dataset/hazelnut/test/crack/011.png \
+                 --ckpt_path ./results/Padim/custom_dataset/latest/weights/lightning/model.ckpt
+```
+
 
 
