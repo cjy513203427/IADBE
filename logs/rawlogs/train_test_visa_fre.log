@@ -1,0 +1,895 @@
+/bin/bash /home/jinyao/PycharmProjects/IADBE/train_test_visa_fre.sh
+(IADBE) jinyao@jinyao-System-Product-Name:~/PycharmProjects/IADBE$ /bin/bash /home/jinyao/PycharmProjects/IADBE/train_test_visa_fre.sh
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category candle --config ./configs/models/fre.yaml
+2024-07-12 15:36:10,680 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[07/12/24 15:36:10] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-07-12 15:36:10,694 - anomalib.models.components.base.anomaly_module - INFO - Initializing Fre model.
+                    INFO     Initializing Fre model.                                                                                                                                                   anomaly_module.py:42
+2024-07-12 15:36:11,221 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)
+[07/12/24 15:36:11] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)                           helpers.py:247
+2024-07-12 15:36:11,331 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-07-12 15:36:11,332 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Fre
+                    INFO     Overriding gradient_clip_val from None with 0 for Fre                                                                                                                             engine.py:84
+2024-07-12 15:36:11,333 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Fre
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Fre                                                                                                                          engine.py:84
+2024-07-12 15:36:11,424 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[07/12/24 15:36:11] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-07-12 15:36:11,433 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-07-12 15:36:11,434 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-07-12 15:36:11,434 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-07-12 15:36:11,435 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-07-12 15:36:11,436 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-07-12 15:36:11,437 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-07-12 15:36:11,479 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-07-12 15:36:11,679 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ FREModel                 │ 23.0 M │
+│ 1 │ loss_fn               │ MSELoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 23.0 M
+Non-trainable params: 0
+Total params: 23.0 M
+Total estimated model params size (MB): 92
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing
+`Trainer(logger=ALogger(...))`
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:10 • 0:00:00 4.26it/s train_loss_step: 0.105 pixel_AUROC: 0.500 pixel_PRO: 0.024 train_loss_epoch: 0.1012024-07-12 16:53:00,492 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=220` reached.
+[07/12/24 16:53:00] INFO     `Trainer.fit` stopped: `max_epochs=220` reached.                                                                                                                               rank_zero.py:63
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:10 • 0:00:00 4.26it/s train_loss_step: 0.105 pixel_AUROC: 0.500 pixel_PRO: 0.024 train_loss_epoch: 0.1012024-07-12 16:53:00,903 - anomalib.callbacks.timer - INFO - Training took 4609.22 seconds
+[07/12/24 16:53:00] INFO     Training took 4609.22 seconds                                                                                                                                                      timer.py:59
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:10 • 0:00:00 4.26it/s train_loss_step: 0.105 pixel_AUROC: 0.500 pixel_PRO: 0.023 train_loss_epoch: 0.102
+2024-07-12 16:53:00,909 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-07-12 16:53:00,956 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s  2024-07-12 16:53:37,099 - anomalib.callbacks.timer - INFO - Testing took 35.64218807220459 seconds
+Throughput (batch_size=256) : 5.611327778048766 FPS
+[07/12/24 16:53:37] INFO     Testing took 35.64218807220459 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=256) : 5.611327778048766 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9079999923706055     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9627575278282166     │
+│         pixel_PRO         │    0.0229942724108696     │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category capsules --config ./configs/models/fre.yaml
+2024-07-12 16:53:42,932 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[07/12/24 16:53:42] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-07-12 16:53:42,946 - anomalib.models.components.base.anomaly_module - INFO - Initializing Fre model.
+                    INFO     Initializing Fre model.                                                                                                                                                   anomaly_module.py:42
+2024-07-12 16:53:43,496 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)
+[07/12/24 16:53:43] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)                           helpers.py:247
+2024-07-12 16:53:43,630 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-07-12 16:53:43,632 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Fre
+                    INFO     Overriding gradient_clip_val from None with 0 for Fre                                                                                                                             engine.py:84
+2024-07-12 16:53:43,633 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Fre
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Fre                                                                                                                          engine.py:84
+2024-07-12 16:53:43,728 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[07/12/24 16:53:43] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-07-12 16:53:43,737 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-07-12 16:53:43,737 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-07-12 16:53:43,738 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-07-12 16:53:43,739 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-07-12 16:53:43,740 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-07-12 16:53:43,741 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-07-12 16:53:43,785 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-07-12 16:53:43,977 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ FREModel                 │ 23.0 M │
+│ 1 │ loss_fn               │ MSELoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 23.0 M
+Non-trainable params: 0
+Total params: 23.0 M
+Total estimated model params size (MB): 92
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing
+`Trainer(logger=ALogger(...))`
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3/3 0:00:08 • 0:00:00 6.31it/s train_loss_step: 0.509 pixel_AUROC: 0.500 pixel_PRO: 0.049 train_loss_epoch: 0.5122024-07-12 18:00:08,462 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=220` reached.
+[07/12/24 18:00:08] INFO     `Trainer.fit` stopped: `max_epochs=220` reached.                                                                                                                               rank_zero.py:63
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3/3 0:00:08 • 0:00:00 6.31it/s train_loss_step: 0.509 pixel_AUROC: 0.500 pixel_PRO: 0.049 train_loss_epoch: 0.5122024-07-12 18:00:08,815 - anomalib.callbacks.timer - INFO - Training took 3984.83 seconds
+[07/12/24 18:00:08] INFO     Training took 3984.83 seconds                                                                                                                                                      timer.py:59
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3/3 0:00:08 • 0:00:00 6.31it/s train_loss_step: 0.509 pixel_AUROC: 0.500 pixel_PRO: 0.048 train_loss_epoch: 0.511
+2024-07-12 18:00:08,821 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-07-12 18:00:08,860 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s  2024-07-12 18:00:38,595 - anomalib.callbacks.timer - INFO - Testing took 29.167482137680054 seconds
+Throughput (batch_size=256) : 5.485560914882803 FPS
+[07/12/24 18:00:38] INFO     Testing took 29.167482137680054 seconds                                                                                                                                           timer.py:109
+                             Throughput (batch_size=256) : 5.485560914882803 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.6542500257492065     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.8790150284767151     │
+│         pixel_PRO         │    0.0481007918715477     │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category cashew --config ./configs/models/fre.yaml
+2024-07-12 18:00:44,391 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[07/12/24 18:00:44] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-07-12 18:00:44,405 - anomalib.models.components.base.anomaly_module - INFO - Initializing Fre model.
+                    INFO     Initializing Fre model.                                                                                                                                                   anomaly_module.py:42
+2024-07-12 18:00:44,950 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)
+                    INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)                           helpers.py:247
+2024-07-12 18:00:45,097 - anomalib.callbacks - INFO - Loading the callbacks
+[07/12/24 18:00:45] INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-07-12 18:00:45,099 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Fre
+                    INFO     Overriding gradient_clip_val from None with 0 for Fre                                                                                                                             engine.py:84
+2024-07-12 18:00:45,099 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Fre
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Fre                                                                                                                          engine.py:84
+2024-07-12 18:00:45,192 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[07/12/24 18:00:45] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-07-12 18:00:45,200 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-07-12 18:00:45,201 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-07-12 18:00:45,202 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-07-12 18:00:45,203 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-07-12 18:00:45,203 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-07-12 18:00:45,205 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-07-12 18:00:45,249 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-07-12 18:00:45,444 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ FREModel                 │ 23.0 M │
+│ 1 │ loss_fn               │ MSELoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 23.0 M
+Non-trainable params: 0
+Total params: 23.0 M
+Total estimated model params size (MB): 92
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing
+`Trainer(logger=ALogger(...))`
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2/2 0:00:08 • 0:00:00 4.63it/s train_loss_step: 0.151 pixel_AUROC: 0.500 pixel_PRO: 0.070 train_loss_epoch: 0.1542024-07-12 19:03:24,682 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=220` reached.
+[07/12/24 19:03:24] INFO     `Trainer.fit` stopped: `max_epochs=220` reached.                                                                                                                               rank_zero.py:63
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2/2 0:00:08 • 0:00:00 4.63it/s train_loss_step: 0.151 pixel_AUROC: 0.500 pixel_PRO: 0.070 train_loss_epoch: 0.1542024-07-12 19:03:25,042 - anomalib.callbacks.timer - INFO - Training took 3759.59 seconds
+[07/12/24 19:03:25] INFO     Training took 3759.59 seconds                                                                                                                                                      timer.py:59
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2/2 0:00:08 • 0:00:00 4.63it/s train_loss_step: 0.151 pixel_AUROC: 0.500 pixel_PRO: 0.070 train_loss_epoch: 0.154
+2024-07-12 19:03:25,045 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-07-12 19:03:25,080 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[07/12/24 19:03:25] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s  2024-07-12 19:03:53,102 - anomalib.callbacks.timer - INFO - Testing took 27.45108151435852 seconds
+Throughput (batch_size=256) : 5.464265585366508 FPS
+[07/12/24 19:03:53] INFO     Testing took 27.45108151435852 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=256) : 5.464265585366508 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.8922000527381897     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9885437488555908     │
+│         pixel_PRO         │    0.06987374275922775    │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category chewinggum --config ./configs/models/fre.yaml
+2024-07-12 19:03:58,794 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[07/12/24 19:03:58] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-07-12 19:03:58,808 - anomalib.models.components.base.anomaly_module - INFO - Initializing Fre model.
+                    INFO     Initializing Fre model.                                                                                                                                                   anomaly_module.py:42
+2024-07-12 19:03:59,353 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)
+[07/12/24 19:03:59] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)                           helpers.py:247
+2024-07-12 19:03:59,503 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-07-12 19:03:59,505 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Fre
+                    INFO     Overriding gradient_clip_val from None with 0 for Fre                                                                                                                             engine.py:84
+2024-07-12 19:03:59,506 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Fre
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Fre                                                                                                                          engine.py:84
+2024-07-12 19:03:59,598 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[07/12/24 19:03:59] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-07-12 19:03:59,607 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-07-12 19:03:59,608 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-07-12 19:03:59,609 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-07-12 19:03:59,609 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-07-12 19:03:59,610 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+2024-07-12 19:03:59,611 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                            visa.py:294
+2024-07-12 19:03:59,657 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-07-12 19:03:59,849 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ FREModel                 │ 23.0 M │
+│ 1 │ loss_fn               │ MSELoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 23.0 M
+Non-trainable params: 0
+Total params: 23.0 M
+Total estimated model params size (MB): 92
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing
+`Trainer(logger=ALogger(...))`
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2/2 0:00:07 • 0:00:00 4.67it/s train_loss_step: 0.212 pixel_AUROC: 0.500 pixel_PRO: 0.197 train_loss_epoch: 0.2122024-07-12 20:05:40,018 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=220` reached.
+[07/12/24 20:05:40] INFO     `Trainer.fit` stopped: `max_epochs=220` reached.                                                                                                                                        rank_zero.py:63
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2/2 0:00:07 • 0:00:00 4.67it/s train_loss_step: 0.212 pixel_AUROC: 0.500 pixel_PRO: 0.197 train_loss_epoch: 0.2122024-07-12 20:05:40,419 - anomalib.callbacks.timer - INFO - Training took 3700.56 seconds
+[07/12/24 20:05:40] INFO     Training took 3700.56 seconds                                                                                                                                                               timer.py:59
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2/2 0:00:07 • 0:00:00 4.67it/s train_loss_step: 0.212 pixel_AUROC: 0.500 pixel_PRO: 0.192 train_loss_epoch: 0.212
+2024-07-12 20:05:40,422 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                                     visa.py:294
+2024-07-12 20:05:40,468 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s  2024-07-12 20:06:09,158 - anomalib.callbacks.timer - INFO - Testing took 28.133047342300415 seconds
+Throughput (batch_size=256) : 5.331807755303576 FPS
+[07/12/24 20:06:09] INFO     Testing took 28.133047342300415 seconds                                                                                                                                                    timer.py:109
+                             Throughput (batch_size=256) : 5.331807755303576 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9422000646591187     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9740630388259888     │
+│         pixel_PRO         │    0.19243353605270386    │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category fryum --config ./configs/models/fre.yaml
+2024-07-12 20:06:15,313 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[07/12/24 20:06:15] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                             config.py:262
+2024-07-12 20:06:15,327 - anomalib.models.components.base.anomaly_module - INFO - Initializing Fre model.
+                    INFO     Initializing Fre model.                                                                                                                                                            anomaly_module.py:42
+2024-07-12 20:06:15,873 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)
+                    INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)                                    helpers.py:247
+2024-07-12 20:06:15,979 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                                    __init__.py:43
+2024-07-12 20:06:15,989 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Fre
+                    INFO     Overriding gradient_clip_val from None with 0 for Fre                                                                                                                                      engine.py:84
+2024-07-12 20:06:15,990 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Fre
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Fre                                                                                                                                   engine.py:84
+2024-07-12 20:06:16,083 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[07/12/24 20:06:16] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary`         rank_zero.py:63
+                             callback.
+2024-07-12 20:06:16,095 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                                  rank_zero.py:63
+2024-07-12 20:06:16,096 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                                rank_zero.py:63
+2024-07-12 20:06:16,097 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                                     rank_zero.py:63
+2024-07-12 20:06:16,098 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                                     rank_zero.py:63
+2024-07-12 20:06:16,099 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+[07/12/24 20:06:16] WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please anomaly_module.py:235
+                             override `configure_transforms` in your model.
+2024-07-12 20:06:16,101 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                                     visa.py:294
+2024-07-12 20:06:16,150 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which   rank_zero.py:63
+                             will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-07-12 20:06:16,349 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ FREModel                 │ 23.0 M │
+│ 1 │ loss_fn               │ MSELoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 23.0 M
+Non-trainable params: 0
+Total params: 23.0 M
+Total estimated model params size (MB): 92
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing
+`Trainer(logger=ALogger(...))`
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2/2 0:00:07 • 0:00:00 4.68it/s train_loss_step: 0.128 pixel_AUROC: 0.500 pixel_PRO: 0.136 train_loss_epoch: 0.1282024-07-12 21:06:29,110 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=220` reached.
+[07/12/24 21:06:29] INFO     `Trainer.fit` stopped: `max_epochs=220` reached.                                                                                                                                        rank_zero.py:63
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2/2 0:00:07 • 0:00:00 4.68it/s train_loss_step: 0.128 pixel_AUROC: 0.500 pixel_PRO: 0.136 train_loss_epoch: 0.1282024-07-12 21:06:29,450 - anomalib.callbacks.timer - INFO - Training took 3613.09 seconds
+[07/12/24 21:06:29] INFO     Training took 3613.09 seconds                                                                                                                                                               timer.py:59
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2/2 0:00:07 • 0:00:00 4.68it/s train_loss_step: 0.128 pixel_AUROC: 0.500 pixel_PRO: 0.130 train_loss_epoch: 0.128
+2024-07-12 21:06:29,454 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                                     visa.py:294
+2024-07-12 21:06:29,491 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s  2024-07-12 21:06:57,731 - anomalib.callbacks.timer - INFO - Testing took 27.733694553375244 seconds
+Throughput (batch_size=256) : 5.40858340064702 FPS
+[07/12/24 21:06:57] INFO     Testing took 27.733694553375244 seconds                                                                                                                                                    timer.py:109
+                             Throughput (batch_size=256) : 5.40858340064702 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │     0.86080002784729      │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9630737900733948     │
+│         pixel_PRO         │    0.13019677996635437    │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category macaroni1 --config ./configs/models/fre.yaml
+2024-07-12 21:07:03,779 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[07/12/24 21:07:03] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                             config.py:262
+2024-07-12 21:07:03,793 - anomalib.models.components.base.anomaly_module - INFO - Initializing Fre model.
+                    INFO     Initializing Fre model.                                                                                                                                                            anomaly_module.py:42
+2024-07-12 21:07:04,339 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)
+[07/12/24 21:07:04] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)                                    helpers.py:247
+2024-07-12 21:07:04,443 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                                    __init__.py:43
+2024-07-12 21:07:04,452 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Fre
+                    INFO     Overriding gradient_clip_val from None with 0 for Fre                                                                                                                                      engine.py:84
+2024-07-12 21:07:04,453 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Fre
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Fre                                                                                                                                   engine.py:84
+2024-07-12 21:07:04,546 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[07/12/24 21:07:04] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary`         rank_zero.py:63
+                             callback.
+2024-07-12 21:07:04,555 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                                  rank_zero.py:63
+2024-07-12 21:07:04,556 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                                rank_zero.py:63
+2024-07-12 21:07:04,556 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                                     rank_zero.py:63
+2024-07-12 21:07:04,557 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                                     rank_zero.py:63
+2024-07-12 21:07:04,558 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please anomaly_module.py:235
+                             override `configure_transforms` in your model.
+2024-07-12 21:07:04,559 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                                     visa.py:294
+2024-07-12 21:07:04,601 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which   rank_zero.py:63
+                             will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-07-12 21:07:04,801 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ FREModel                 │ 23.0 M │
+│ 1 │ loss_fn               │ MSELoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 23.0 M
+Non-trainable params: 0
+Total params: 23.0 M
+Total estimated model params size (MB): 92
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing
+`Trainer(logger=ALogger(...))`
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:10 • 0:00:00 4.27it/s train_loss_step: 0.154 pixel_AUROC: 0.500 pixel_PRO: 0.029 train_loss_epoch: 0.1492024-07-12 22:23:41,245 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=220` reached.
+[07/12/24 22:23:41] INFO     `Trainer.fit` stopped: `max_epochs=220` reached.                                                                                                                                        rank_zero.py:63
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:10 • 0:00:00 4.27it/s train_loss_step: 0.154 pixel_AUROC: 0.500 pixel_PRO: 0.029 train_loss_epoch: 0.1492024-07-12 22:23:41,609 - anomalib.callbacks.timer - INFO - Training took 4596.80 seconds
+[07/12/24 22:23:41] INFO     Training took 4596.80 seconds                                                                                                                                                               timer.py:59
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:10 • 0:00:00 4.27it/s train_loss_step: 0.154 pixel_AUROC: 0.500 pixel_PRO: 0.029 train_loss_epoch: 0.151
+2024-07-12 22:23:41,615 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                                     visa.py:294
+2024-07-12 22:23:41,664 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s  2024-07-12 22:24:17,682 - anomalib.callbacks.timer - INFO - Testing took 35.56060791015625 seconds
+Throughput (batch_size=256) : 5.6242008152756915 FPS
+[07/12/24 22:24:17] INFO     Testing took 35.56060791015625 seconds                                                                                                                                                     timer.py:109
+                             Throughput (batch_size=256) : 5.6242008152756915 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.7077000737190247     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9032351970672607     │
+│         pixel_PRO         │    0.0290969405323267     │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category macaroni2 --config ./configs/models/fre.yaml
+2024-07-12 22:24:23,723 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[07/12/24 22:24:23] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                             config.py:262
+2024-07-12 22:24:23,737 - anomalib.models.components.base.anomaly_module - INFO - Initializing Fre model.
+                    INFO     Initializing Fre model.                                                                                                                                                            anomaly_module.py:42
+2024-07-12 22:24:24,275 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)
+[07/12/24 22:24:24] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)                                    helpers.py:247
+2024-07-12 22:24:24,374 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                                    __init__.py:43
+2024-07-12 22:24:24,384 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Fre
+                    INFO     Overriding gradient_clip_val from None with 0 for Fre                                                                                                                                      engine.py:84
+2024-07-12 22:24:24,385 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Fre
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Fre                                                                                                                                   engine.py:84
+2024-07-12 22:24:24,477 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[07/12/24 22:24:24] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary`         rank_zero.py:63
+                             callback.
+2024-07-12 22:24:24,486 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                                  rank_zero.py:63
+2024-07-12 22:24:24,487 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                                rank_zero.py:63
+2024-07-12 22:24:24,487 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                                     rank_zero.py:63
+2024-07-12 22:24:24,488 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                                     rank_zero.py:63
+2024-07-12 22:24:24,489 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please anomaly_module.py:235
+                             override `configure_transforms` in your model.
+2024-07-12 22:24:24,490 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                                     visa.py:294
+2024-07-12 22:24:24,532 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which   rank_zero.py:63
+                             will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-07-12 22:24:24,733 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ FREModel                 │ 23.0 M │
+│ 1 │ loss_fn               │ MSELoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 23.0 M
+Non-trainable params: 0
+Total params: 23.0 M
+Total estimated model params size (MB): 92
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing
+`Trainer(logger=ALogger(...))`
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:10 • 0:00:00 3.13it/s train_loss_step: 0.324 pixel_AUROC: 0.500 pixel_PRO: 0.290 train_loss_epoch: 0.3122024-07-12 23:40:36,946 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=220` reached.
+[07/12/24 23:40:36] INFO     `Trainer.fit` stopped: `max_epochs=220` reached.                                                                                                                                        rank_zero.py:63
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:10 • 0:00:00 3.13it/s train_loss_step: 0.324 pixel_AUROC: 0.500 pixel_PRO: 0.290 train_loss_epoch: 0.3122024-07-12 23:40:37,355 - anomalib.callbacks.timer - INFO - Training took 4572.61 seconds
+[07/12/24 23:40:37] INFO     Training took 4572.61 seconds                                                                                                                                                               timer.py:59
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:10 • 0:00:00 3.13it/s train_loss_step: 0.324 pixel_AUROC: 0.500 pixel_PRO: 0.304 train_loss_epoch: 0.316
+2024-07-12 23:40:37,359 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                                     visa.py:294
+2024-07-12 23:40:37,400 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[07/12/24 23:40:37] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s  2024-07-12 23:41:13,719 - anomalib.callbacks.timer - INFO - Testing took 35.85046029090881 seconds
+Throughput (batch_size=256) : 5.578728930593877 FPS
+[07/12/24 23:41:13] INFO     Testing took 35.85046029090881 seconds                                                                                                                                                     timer.py:109
+                             Throughput (batch_size=256) : 5.578728930593877 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.7021999359130859     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.8790897130966187     │
+│         pixel_PRO         │     0.304198294878006     │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category pcb1 --config ./configs/models/fre.yaml
+2024-07-12 23:41:19,699 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[07/12/24 23:41:19] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                             config.py:262
+2024-07-12 23:41:19,714 - anomalib.models.components.base.anomaly_module - INFO - Initializing Fre model.
+                    INFO     Initializing Fre model.                                                                                                                                                            anomaly_module.py:42
+2024-07-12 23:41:20,265 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)
+[07/12/24 23:41:20] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)                                    helpers.py:247
+2024-07-12 23:41:20,368 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                                    __init__.py:43
+2024-07-12 23:41:20,370 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Fre
+                    INFO     Overriding gradient_clip_val from None with 0 for Fre                                                                                                                                      engine.py:84
+2024-07-12 23:41:20,370 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Fre
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Fre                                                                                                                                   engine.py:84
+2024-07-12 23:41:20,464 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[07/12/24 23:41:20] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary`         rank_zero.py:63
+                             callback.
+2024-07-12 23:41:20,473 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                                  rank_zero.py:63
+2024-07-12 23:41:20,474 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                                rank_zero.py:63
+2024-07-12 23:41:20,474 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                                     rank_zero.py:63
+2024-07-12 23:41:20,475 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                                     rank_zero.py:63
+2024-07-12 23:41:20,476 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please anomaly_module.py:235
+                             override `configure_transforms` in your model.
+2024-07-12 23:41:20,477 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                                     visa.py:294
+2024-07-12 23:41:20,525 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which   rank_zero.py:63
+                             will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-07-12 23:41:20,726 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ FREModel                 │ 23.0 M │
+│ 1 │ loss_fn               │ MSELoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 23.0 M
+Non-trainable params: 0
+Total params: 23.0 M
+Total estimated model params size (MB): 92
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing
+`Trainer(logger=ALogger(...))`
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:10 • 0:00:00 4.21it/s train_loss_step: 0.153 pixel_AUROC: 0.500 pixel_PRO: 0.083 train_loss_epoch: 0.1532024-07-13 00:57:42,630 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=220` reached.
+[07/13/24 00:57:42] INFO     `Trainer.fit` stopped: `max_epochs=220` reached.                                                                                                                                        rank_zero.py:63
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:10 • 0:00:00 4.21it/s train_loss_step: 0.153 pixel_AUROC: 0.500 pixel_PRO: 0.083 train_loss_epoch: 0.1532024-07-13 00:57:42,999 - anomalib.callbacks.timer - INFO - Training took 4582.26 seconds
+[07/13/24 00:57:42] INFO     Training took 4582.26 seconds                                                                                                                                                               timer.py:59
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:10 • 0:00:00 4.21it/s train_loss_step: 0.153 pixel_AUROC: 0.500 pixel_PRO: 0.082 train_loss_epoch: 0.152
+2024-07-13 00:57:43,005 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+[07/13/24 00:57:43] INFO     Found the dataset and train/test split.                                                                                                                                                     visa.py:294
+2024-07-13 00:57:43,061 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[07/13/24 00:57:43] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s  2024-07-13 00:58:19,626 - anomalib.callbacks.timer - INFO - Testing took 36.08728337287903 seconds
+Throughput (batch_size=256) : 5.542118477954138 FPS
+[07/13/24 00:58:19] INFO     Testing took 36.08728337287903 seconds                                                                                                                                                     timer.py:109
+                             Throughput (batch_size=256) : 5.542118477954138 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │     0.810699999332428     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9829996824264526     │
+│         pixel_PRO         │    0.08211485296487808    │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category pcb2 --config ./configs/models/fre.yaml
+2024-07-13 00:58:25,637 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[07/13/24 00:58:25] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                             config.py:262
+2024-07-13 00:58:25,651 - anomalib.models.components.base.anomaly_module - INFO - Initializing Fre model.
+                    INFO     Initializing Fre model.                                                                                                                                                            anomaly_module.py:42
+2024-07-13 00:58:26,203 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)
+[07/13/24 00:58:26] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)                                    helpers.py:247
+2024-07-13 00:58:26,302 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                                    __init__.py:43
+2024-07-13 00:58:26,312 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Fre
+                    INFO     Overriding gradient_clip_val from None with 0 for Fre                                                                                                                                      engine.py:84
+2024-07-13 00:58:26,313 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Fre
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Fre                                                                                                                                   engine.py:84
+2024-07-13 00:58:26,406 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[07/13/24 00:58:26] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary`         rank_zero.py:63
+                             callback.
+2024-07-13 00:58:26,415 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                                  rank_zero.py:63
+2024-07-13 00:58:26,416 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                                rank_zero.py:63
+2024-07-13 00:58:26,417 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                                     rank_zero.py:63
+2024-07-13 00:58:26,417 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                                     rank_zero.py:63
+2024-07-13 00:58:26,418 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please anomaly_module.py:235
+                             override `configure_transforms` in your model.
+2024-07-13 00:58:26,419 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                                     visa.py:294
+2024-07-13 00:58:26,461 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which   rank_zero.py:63
+                             will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-07-13 00:58:26,665 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ FREModel                 │ 23.0 M │
+│ 1 │ loss_fn               │ MSELoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 23.0 M
+Non-trainable params: 0
+Total params: 23.0 M
+Total estimated model params size (MB): 92
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing
+`Trainer(logger=ALogger(...))`
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:10 • 0:00:00 4.14it/s train_loss_step: 0.148 pixel_AUROC: 0.500 pixel_PRO: 0.187 train_loss_epoch: 0.1472024-07-13 02:14:59,972 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=220` reached.
+[07/13/24 02:14:59] INFO     `Trainer.fit` stopped: `max_epochs=220` reached.                                                                                                                                        rank_zero.py:63
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:10 • 0:00:00 4.14it/s train_loss_step: 0.148 pixel_AUROC: 0.500 pixel_PRO: 0.187 train_loss_epoch: 0.1472024-07-13 02:15:00,333 - anomalib.callbacks.timer - INFO - Training took 4593.66 seconds
+[07/13/24 02:15:00] INFO     Training took 4593.66 seconds                                                                                                                                                               timer.py:59
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:10 • 0:00:00 4.14it/s train_loss_step: 0.148 pixel_AUROC: 0.500 pixel_PRO: 0.184 train_loss_epoch: 0.147
+2024-07-13 02:15:00,339 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                                     visa.py:294
+2024-07-13 02:15:00,387 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[07/13/24 02:15:00] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s  2024-07-13 02:15:37,144 - anomalib.callbacks.timer - INFO - Testing took 36.28487730026245 seconds
+Throughput (batch_size=256) : 5.511938164899165 FPS
+[07/13/24 02:15:37] INFO     Testing took 36.28487730026245 seconds                                                                                                                                                     timer.py:109
+                             Throughput (batch_size=256) : 5.511938164899165 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.7935000061988831     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │     0.940013587474823     │
+│         pixel_PRO         │    0.18419164419174194    │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category pcb3 --config ./configs/models/fre.yaml
+2024-07-13 02:15:43,194 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[07/13/24 02:15:43] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                             config.py:262
+2024-07-13 02:15:43,208 - anomalib.models.components.base.anomaly_module - INFO - Initializing Fre model.
+                    INFO     Initializing Fre model.                                                                                                                                                            anomaly_module.py:42
+2024-07-13 02:15:43,756 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)
+                    INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)                                    helpers.py:247
+2024-07-13 02:15:43,855 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                                    __init__.py:43
+2024-07-13 02:15:43,857 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Fre
+                    INFO     Overriding gradient_clip_val from None with 0 for Fre                                                                                                                                      engine.py:84
+2024-07-13 02:15:43,857 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Fre
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Fre                                                                                                                                   engine.py:84
+2024-07-13 02:15:43,950 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[07/13/24 02:15:43] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary`         rank_zero.py:63
+                             callback.
+2024-07-13 02:15:43,958 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                                  rank_zero.py:63
+2024-07-13 02:15:43,959 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                                rank_zero.py:63
+2024-07-13 02:15:43,960 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                                     rank_zero.py:63
+2024-07-13 02:15:43,961 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                                     rank_zero.py:63
+2024-07-13 02:15:43,961 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please anomaly_module.py:235
+                             override `configure_transforms` in your model.
+2024-07-13 02:15:43,963 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                                     visa.py:294
+2024-07-13 02:15:44,005 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+[07/13/24 02:15:44] INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which   rank_zero.py:63
+                             will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-07-13 02:15:44,209 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ FREModel                 │ 23.0 M │
+│ 1 │ loss_fn               │ MSELoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 23.0 M
+Non-trainable params: 0
+Total params: 23.0 M
+Total estimated model params size (MB): 92
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing
+`Trainer(logger=ALogger(...))`
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:09 • 0:00:00 4.17it/s train_loss_step: 0.171 pixel_AUROC: 0.500 pixel_PRO: 0.057 train_loss_epoch: 0.1702024-07-13 03:31:28,198 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=220` reached.
+[07/13/24 03:31:28] INFO     `Trainer.fit` stopped: `max_epochs=220` reached.                                                                                                                                        rank_zero.py:63
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:09 • 0:00:00 4.17it/s train_loss_step: 0.171 pixel_AUROC: 0.500 pixel_PRO: 0.057 train_loss_epoch: 0.1702024-07-13 03:31:28,564 - anomalib.callbacks.timer - INFO - Training took 4544.35 seconds
+[07/13/24 03:31:28] INFO     Training took 4544.35 seconds                                                                                                                                                               timer.py:59
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:09 • 0:00:00 4.17it/s train_loss_step: 0.171 pixel_AUROC: 0.500 pixel_PRO: 0.057 train_loss_epoch: 0.170
+2024-07-13 03:31:28,570 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                                     visa.py:294
+2024-07-13 03:31:28,619 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s  2024-07-13 03:32:04,660 - anomalib.callbacks.timer - INFO - Testing took 35.5258355140686 seconds
+Throughput (batch_size=256) : 5.657854265535906 FPS
+[07/13/24 03:32:04] INFO     Testing took 35.5258355140686 seconds                                                                                                                                                      timer.py:109
+                             Throughput (batch_size=256) : 5.657854265535906 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │     0.80970299243927      │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9289826154708862     │
+│         pixel_PRO         │    0.05745520070195198    │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category pcb4 --config ./configs/models/fre.yaml
+2024-07-13 03:32:10,696 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[07/13/24 03:32:10] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                             config.py:262
+2024-07-13 03:32:10,710 - anomalib.models.components.base.anomaly_module - INFO - Initializing Fre model.
+                    INFO     Initializing Fre model.                                                                                                                                                            anomaly_module.py:42
+2024-07-13 03:32:11,262 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)
+[07/13/24 03:32:11] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)                                    helpers.py:247
+2024-07-13 03:32:11,390 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                                    __init__.py:43
+2024-07-13 03:32:11,391 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Fre
+                    INFO     Overriding gradient_clip_val from None with 0 for Fre                                                                                                                                      engine.py:84
+2024-07-13 03:32:11,392 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Fre
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Fre                                                                                                                                   engine.py:84
+2024-07-13 03:32:11,485 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[07/13/24 03:32:11] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary`         rank_zero.py:63
+                             callback.
+2024-07-13 03:32:11,494 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                                  rank_zero.py:63
+2024-07-13 03:32:11,495 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                                rank_zero.py:63
+2024-07-13 03:32:11,495 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                                     rank_zero.py:63
+2024-07-13 03:32:11,496 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                                     rank_zero.py:63
+2024-07-13 03:32:11,497 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please anomaly_module.py:235
+                             override `configure_transforms` in your model.
+2024-07-13 03:32:11,498 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                                     visa.py:294
+2024-07-13 03:32:11,541 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which   rank_zero.py:63
+                             will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-07-13 03:32:11,742 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ FREModel                 │ 23.0 M │
+│ 1 │ loss_fn               │ MSELoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 23.0 M
+Non-trainable params: 0
+Total params: 23.0 M
+Total estimated model params size (MB): 92
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing
+`Trainer(logger=ALogger(...))`
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:10 • 0:00:00 4.21it/s train_loss_step: 0.125 pixel_AUROC: 0.500 pixel_PRO: 0.180 train_loss_epoch: 0.1252024-07-13 04:49:21,952 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=220` reached.
+[07/13/24 04:49:21] INFO     `Trainer.fit` stopped: `max_epochs=220` reached.                                                                                                                                        rank_zero.py:63
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:10 • 0:00:00 4.21it/s train_loss_step: 0.125 pixel_AUROC: 0.500 pixel_PRO: 0.180 train_loss_epoch: 0.1252024-07-13 04:49:22,317 - anomalib.callbacks.timer - INFO - Training took 4630.57 seconds
+[07/13/24 04:49:22] INFO     Training took 4630.57 seconds                                                                                                                                                               timer.py:59
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:10 • 0:00:00 4.21it/s train_loss_step: 0.125 pixel_AUROC: 0.500 pixel_PRO: 0.180 train_loss_epoch: 0.125
+2024-07-13 04:49:22,323 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                                     visa.py:294
+2024-07-13 04:49:22,375 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[07/13/24 04:49:22] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s  2024-07-13 04:49:58,757 - anomalib.callbacks.timer - INFO - Testing took 35.88474893569946 seconds
+Throughput (batch_size=256) : 5.601265327511817 FPS
+[07/13/24 04:49:58] INFO     Testing took 35.88474893569946 seconds                                                                                                                                                     timer.py:109
+                             Throughput (batch_size=256) : 5.601265327511817 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9758416414260864     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │     0.970596194267273     │
+│         pixel_PRO         │    0.17975644767284393    │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s
+Running command: anomalib train --data ./configs/data/visa.yaml --data.category pipe_fryum --config ./configs/models/fre.yaml
+2024-07-13 04:50:04,664 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[07/13/24 04:50:04] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                             config.py:262
+2024-07-13 04:50:04,678 - anomalib.models.components.base.anomaly_module - INFO - Initializing Fre model.
+                    INFO     Initializing Fre model.                                                                                                                                                            anomaly_module.py:42
+2024-07-13 04:50:05,228 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)
+[07/13/24 04:50:05] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet50_a1_0-14fe96d1.pth)                                    helpers.py:247
+2024-07-13 04:50:05,333 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                                    __init__.py:43
+2024-07-13 04:50:05,335 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Fre
+                    INFO     Overriding gradient_clip_val from None with 0 for Fre                                                                                                                                      engine.py:84
+2024-07-13 04:50:05,336 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Fre
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Fre                                                                                                                                   engine.py:84
+2024-07-13 04:50:05,428 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[07/13/24 04:50:05] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary`         rank_zero.py:63
+                             callback.
+2024-07-13 04:50:05,437 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                                  rank_zero.py:63
+2024-07-13 04:50:05,438 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                                rank_zero.py:63
+2024-07-13 04:50:05,438 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                                     rank_zero.py:63
+2024-07-13 04:50:05,439 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                                     rank_zero.py:63
+2024-07-13 04:50:05,440 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please anomaly_module.py:235
+                             override `configure_transforms` in your model.
+2024-07-13 04:50:05,441 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                                     visa.py:294
+2024-07-13 04:50:05,497 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which   rank_zero.py:63
+                             will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-07-13 04:50:05,692 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ FREModel                 │ 23.0 M │
+│ 1 │ loss_fn               │ MSELoss                  │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 23.0 M
+Non-trainable params: 0
+Total params: 23.0 M
+Total estimated model params size (MB): 92
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing
+`Trainer(logger=ALogger(...))`
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2/2 0:00:07 • 0:00:00 4.70it/s train_loss_step: 0.142 pixel_AUROC: 0.500 pixel_PRO: 0.244 train_loss_epoch: 0.1422024-07-13 05:48:25,457 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=220` reached.
+[07/13/24 05:48:25] INFO     `Trainer.fit` stopped: `max_epochs=220` reached.                                                                                                                                        rank_zero.py:63
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2/2 0:00:07 • 0:00:00 4.70it/s train_loss_step: 0.142 pixel_AUROC: 0.500 pixel_PRO: 0.244 train_loss_epoch: 0.1422024-07-13 05:48:25,845 - anomalib.callbacks.timer - INFO - Training took 3500.14 seconds
+[07/13/24 05:48:25] INFO     Training took 3500.14 seconds                                                                                                                                                               timer.py:59
+Epoch 219/219 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2/2 0:00:07 • 0:00:00 4.70it/s train_loss_step: 0.142 pixel_AUROC: 0.500 pixel_PRO: 0.248 train_loss_epoch: 0.140
+2024-07-13 05:48:25,851 - anomalib.data.image.visa - INFO - Found the dataset and train/test split.
+                    INFO     Found the dataset and train/test split.                                                                                                                                                     visa.py:294
+2024-07-13 05:48:25,905 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s  2024-07-13 05:48:53,145 - anomalib.callbacks.timer - INFO - Testing took 26.74269676208496 seconds
+Throughput (batch_size=256) : 5.609007997004467 FPS
+[07/13/24 05:48:53] INFO     Testing took 26.74269676208496 seconds                                                                                                                                                     timer.py:109
+                             Throughput (batch_size=256) : 5.609007997004467 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.7768000364303589     │
+│         image_PRO         │            1.0            │
+│        pixel_AUROC        │    0.9930280447006226     │
+│         pixel_PRO         │    0.24783526360988617    │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s
+
