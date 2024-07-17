@@ -225,7 +225,7 @@ anomalib predict --model anomalib.models.Padim \
                  --ckpt_path ./results/Padim/custom_dataset/latest/weights/lightning/model.ckpt
 ```
 
-# Benchmark Results
+# 📊 Benchmark Results
 These are partial results of benchmark. You can find more details in my paper, which I'll upload later. The results come from raw logs, which you can find under `logs/rawlogs`.
 ## Image Level AUROC on MVTec
 |           | Screw     | Pill      | Capsule   | Carpet     | Grid      | Tile       | Wood      | Zipper    | Cable     | Toothbrush | Transistor | Metal Nut  | Bottle     | Hazelnut   | Leather    | Average   |
