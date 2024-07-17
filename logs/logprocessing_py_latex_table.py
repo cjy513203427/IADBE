@@ -1,20 +1,20 @@
 import re
 
 # processing raw logs, extract metric values and concatenate string.
-with open('rawlogs/train_test_mvtec_uflow.log', 'r') as file:
+with open('rawlogs/train_test_visa_reverse_distillation.log', 'r') as file:
     log_data = file.read()
 
 
 pattern = re.compile(
-    r"Start testing for dataset: (.*?)\n"  # 匹配数据集名称
-    r"[\s\S]*?"  # 匹配任何字符（包括换行符）零次或多次
+    r"Start testing for dataset: (.*?)\n"  # Match dataset categories
+    r"[\s\S]*?"  # Match any character (including line breaks) zero or more times
     r"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"
     r"┃        Test metric        ┃       DataLoader 0        ┃\n"
     r"┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩\n"
-    r"│        image_AUROC        │\s+([0-9.]+)\s+│\n"  # 匹配 image_AUROC 值
-    r"│         image_PRO         │\s+([0-9.]+)\s+│\n"  # 匹配 image_PRO 值
-    r"│        pixel_AUROC        │\s+([0-9.]+)\s+│\n"  # 匹配 pixel_AUROC 值
-    r"│         pixel_PRO         │\s+([0-9.]+)\s+│\n"  # 匹配 pixel_PRO 值
+    r"│        image_AUROC        │\s+([0-9.]+)\s+│\n"  # Match image_AUROC
+    r"│         image_PRO         │\s+([0-9.]+)\s+│\n"  # Match image_PRO
+    r"│        pixel_AUROC        │\s+([0-9.]+)\s+│\n"  # Match pixel_AUROC
+    r"│         pixel_PRO         │\s+([0-9.]+)\s+│\n"  # Match pixel_PRO
     r"└───────────────────────────┴───────────────────────────┘"
 )
 

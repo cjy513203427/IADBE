@@ -215,7 +215,7 @@ init_args:
 
 2. Next, you'll want to choose a model and then train it with a custom dataset.
 ```bash
-anomalib train --data ./configs/data/custom_datase_normal_abnormal.yaml --model anomalib.models.Padim 
+anomalib train --data ./configs/data/custom_dataset_normal_abnormal.yaml --model anomalib.models.Padim 
 ```
 
 3. Finally, you can run an inference with the trained model to get the predicted results.
