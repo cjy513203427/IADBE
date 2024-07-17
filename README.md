@@ -164,7 +164,7 @@ anomalib predict --config <path/to/config> --return_predictions
 </details>
 
 # 📜 Custom Dataset
-IADBE supports training, inference for your own custom dataset.
+IADBE can help you with training and inference for your own custom dataset.
 
 1. The first thing you need to do is import your own dataset to the project and create a custom data configuration file.
 
@@ -218,7 +218,7 @@ init_args:
 anomalib train --data ./configs/data/custom_datase_normal_abnormal.yaml --model anomalib.models.Padim 
 ```
 
-3. Finally, you can run an inference with the trained model to get the results you need.
+3. Finally, you can run an inference with the trained model to get the predicted results.
 ```bash
 anomalib predict --model anomalib.models.Padim \
                  --data ./datasets/Custom_Dataset/hazelnut/test/crack/011.png \
