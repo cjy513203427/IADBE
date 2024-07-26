@@ -215,17 +215,17 @@ init_args:
 
 2. Next, you'll want to choose a model and then train it with a custom dataset.
 ```bash
-anomalib train --data ./configs/data/custom_datase_normal_abnormal.yaml --model anomalib.models.Padim 
+anomalib train --data <path/to/custom_dataset.yaml> --model anomalib.models.Padim 
 ```
 
 3. Finally, you can run an inference with the trained model to get the predicted results.
 ```bash
 anomalib predict --model anomalib.models.Padim \
-                 --data ./datasets/Custom_Dataset/hazelnut/test/crack/011.png \
-                 --ckpt_path ./results/Padim/custom_dataset/latest/weights/lightning/model.ckpt
+                 --data <path/to/custom_dataset/custom_image.png> \
+                 --ckpt_path <path/to/custom_dataset.ckpt>
 ```
 
-# Benchmark Results
+# 📊 Benchmark Results
 These are partial results of benchmark. You can find more details in my paper, which I'll upload later. The results come from raw logs, which you can find under `logs/rawlogs`.
 ## Image Level AUROC on MVTec
 |           | Screw     | Pill      | Capsule   | Carpet     | Grid      | Tile       | Wood      | Zipper    | Cable     | Toothbrush | Transistor | Metal Nut  | Bottle     | Hazelnut   | Leather    | Average   |
