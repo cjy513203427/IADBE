@@ -3,6 +3,7 @@ import random
 import re
 
 # select_models.py is used for keeping only one version model
+
 # Specify the models directory
 models_dir = "../results/models"
 
@@ -16,12 +17,15 @@ model_versions = {}
 pattern = re.compile(r"(.+)_v\d+_weights_lightning_model\.ckpt")
 
 for file in ckpt_files:
-    match = pattern.match(file)
-    if match:
-        model_name = match.group(1)
+    if pattern.match(file):
+        model_name = pattern.match(file).group(1)
         if model_name not in model_versions:
             model_versions[model_name] = []
         model_versions[model_name].append(file)
+    else:
+        # Delete files not ending with "weights_lightning_model.ckpt"
+        os.remove(os.path.join(models_dir, file))
+        print(f"Deleting file: {file}")
 
 # Keep one random version for each model
 for model_name, versions in model_versions.items():
