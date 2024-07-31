@@ -2,7 +2,7 @@ import os
 import shutil
 
 # Base path for the dataset
-base_path = '../datasets/Custom_Dataset/anomaly-detection.cardboard.yolov8'
+base_path = '../datasets/Custom_Dataset/anomaly-detection.cardboard.anomalib'
 
 
 # Function to classify and move images based on label content
