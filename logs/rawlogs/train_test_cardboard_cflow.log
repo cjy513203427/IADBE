@@ -1,0 +1,90 @@
+/bin/bash /home/jinyao/PycharmProjects/IADBE/train_test_cardboard_cflow.sh
+(IADBE) jinyao@jinyao-System-Product-Name:~/PycharmProjects/IADBE$ /bin/bash /home/jinyao/PycharmProjects/IADBE/train_test_cardboard_cflow.sh
+Running command: anomalib train --data ./configs/data/custom_dataset_normal_abnormal_cardboard.yaml --model anomalib.models.Cflow
+2024-08-02 17:37:34,035 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[08/02/24 17:37:34] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-08-02 17:37:34,050 - anomalib.models.components.base.anomaly_module - INFO - Initializing Cflow model.
+                    INFO     Initializing Cflow model.                                                                                                                                                 anomaly_module.py:42
+2024-08-02 17:37:35,593 - timm.models.helpers - INFO - Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)
+[08/02/24 17:37:35] INFO     Loading pretrained weights from url (https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/wide_resnet50_racm-8234f177.pth)                          helpers.py:247
+2024-08-02 17:37:35,893 - anomalib.models.image.cflow.utils - INFO - CNF coder: 512
+                    INFO     CNF coder: 512                                                                                                                                                                    utils.py:108
+2024-08-02 17:37:35,920 - anomalib.models.image.cflow.utils - INFO - CNF coder: 1024
+                    INFO     CNF coder: 1024                                                                                                                                                                   utils.py:108
+2024-08-02 17:37:36,003 - anomalib.models.image.cflow.utils - INFO - CNF coder: 2048
+[08/02/24 17:37:36] INFO     CNF coder: 2048                                                                                                                                                                   utils.py:108
+2024-08-02 17:37:36,336 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-08-02 17:37:36,346 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Cflow
+                    INFO     Overriding gradient_clip_val from None with 0 for Cflow                                                                                                                           engine.py:84
+2024-08-02 17:37:36,347 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Cflow
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Cflow                                                                                                                        engine.py:84
+2024-08-02 17:37:36,447 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[08/02/24 17:37:36] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-08-02 17:37:36,456 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-08-02 17:37:36,457 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-08-02 17:37:36,457 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-08-02 17:37:36,458 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-08-02 17:37:36,459 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/utilities.py:73: `max_epochs` was not set. Setting it to 1000 epochs. To train without an epoch limit, set `max_epochs=-1`.
+2024-08-02 17:37:36,504 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-08-02 17:37:36,539 - anomalib.data.base.datamodule - INFO - No normal test images found. Sampling from training set using a split ratio of 0.20
+                    INFO     No normal test images found. Sampling from training set using a split ratio of 0.20                                                                                          datamodule.py:177
+2024-08-02 17:37:40,025 - anomalib.metrics.f1_score - WARNING - F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead
+[08/02/24 17:37:40] WARNING  F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead                                                f1_score.py:33
+2024-08-02 17:37:40,027 - anomalib.metrics.f1_score - WARNING - F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead
+                    WARNING  F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead                                                f1_score.py:33
+2024-08-02 17:37:40,391 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[08/02/24 17:37:40] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ CflowModel               │  236 M │
+│ 1 │ _transform            │ Compose                  │      0 │
+│ 2 │ normalization_metrics │ MinMax                   │      0 │
+│ 3 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 4 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 6 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 81.6 M
+Non-trainable params: 154 M
+Total params: 236 M
+Total estimated model params size (MB): 946
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing
+`Trainer(logger=ALogger(...))`
+Epoch 999/999 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:01:00 • 0:00:00 0.00it/s train_loss_step: 256264.859 pixel_AUROC: 0.908 pixel_F1Score: 0.000 train_loss_epoch: 273628.5312024-08-03 12:37:14,368 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1000` reached.
+[08/03/24 12:37:14] INFO     `Trainer.fit` stopped: `max_epochs=1000` reached.                                                                                                                              rank_zero.py:63
+Epoch 999/999 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:01:00 • 0:00:00 0.00it/s train_loss_step: 256264.859 pixel_AUROC: 0.908 pixel_F1Score: 0.000 train_loss_epoch: 273628.5312024-08-03 12:37:15,576 - anomalib.callbacks.timer - INFO - Training took 68375.17 seconds
+[08/03/24 12:37:15] INFO     Training took 68375.17 seconds                                                                                                                                                     timer.py:59
+Epoch 999/999 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:01:00 • 0:00:00 0.00it/s train_loss_step: 256264.859 pixel_AUROC: 0.910 pixel_F1Score: 0.000 train_loss_epoch: 256264.859
+2024-08-03 12:37:15,584 - anomalib.metrics.f1_score - WARNING - F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead
+                    WARNING  F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead                                                f1_score.py:33
+2024-08-03 12:37:15,587 - anomalib.metrics.f1_score - WARNING - F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead
+                    WARNING  F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead                                                f1_score.py:33
+2024-08-03 12:37:15,863 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[08/03/24 12:37:15] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:01 • 0:00:00 0.00it/s  2024-08-03 12:37:21,742 - anomalib.callbacks.timer - INFO - Testing took 5.084686517715454 seconds
+Throughput (batch_size=256) : 4.523386037637947 FPS
+[08/03/24 12:37:21] INFO     Testing took 5.084686517715454 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=256) : 4.523386037637947 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.7954545021057129     │
+│       image_F1Score       │    0.7058823704719543     │
+│        pixel_AUROC        │    0.8010809421539307     │
+│       pixel_F1Score       │    0.13571229577064514    │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:01 • 0:00:00 0.00it/s
+
