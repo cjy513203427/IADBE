@@ -1,0 +1,85 @@
+/bin/bash /home/jinyao/PycharmProjects/IADBE/train_test_cardboard_stfpm.sh
+(IADBE) jinyao@jinyao-System-Product-Name:~/PycharmProjects/IADBE$ /bin/bash /home/jinyao/PycharmProjects/IADBE/train_test_cardboard_stfpm.sh
+Running command: anomalib train --data ./configs/data/custom_dataset_normal_abnormal_cardboard.yaml --model anomalib.models.Stfpm
+2024-08-07 16:02:45,725 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[08/07/24 16:02:45] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-08-07 16:02:45,739 - anomalib.models.components.base.anomaly_module - INFO - Initializing Stfpm model.
+                    INFO     Initializing Stfpm model.                                                                                                                                                 anomaly_module.py:42
+2024-08-07 16:02:45,955 - timm.models.helpers - INFO - Loading pretrained weights from url (https://download.pytorch.org/models/resnet18-5c106cde.pth)
+                    INFO     Loading pretrained weights from url (https://download.pytorch.org/models/resnet18-5c106cde.pth)                                                                                 helpers.py:247
+2024-08-07 16:02:46,317 - anomalib.callbacks - INFO - Loading the callbacks
+[08/07/24 16:02:46] INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-08-07 16:02:46,327 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Stfpm
+                    INFO     Overriding gradient_clip_val from None with 0 for Stfpm                                                                                                                           engine.py:84
+2024-08-07 16:02:46,328 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Stfpm
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Stfpm                                                                                                                        engine.py:84
+2024-08-07 16:02:46,422 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[08/07/24 16:02:46] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-08-07 16:02:46,430 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-08-07 16:02:46,431 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-08-07 16:02:46,432 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-08-07 16:02:46,433 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-08-07 16:02:46,433 - anomalib.models.components.base.anomaly_module - WARNING - No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use case. Please override `configure_transforms` in your model.
+                    WARNING  No implementation of `configure_transforms` was provided in the Lightning model. Using default transforms from the base class. This may not be suitable for your use     anomaly_module.py:235
+                             case. Please override `configure_transforms` in your model.
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/utilities.py:73: `max_epochs` was not set. Setting it to 1000 epochs. To train without an epoch limit, set `max_epochs=-1`.
+2024-08-07 16:02:46,477 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-08-07 16:02:46,502 - anomalib.data.base.datamodule - INFO - No normal test images found. Sampling from training set using a split ratio of 0.20
+                    INFO     No normal test images found. Sampling from training set using a split ratio of 0.20                                                                                          datamodule.py:177
+2024-08-07 16:02:49,816 - anomalib.metrics.f1_score - WARNING - F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead
+[08/07/24 16:02:49] WARNING  F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead                                                f1_score.py:33
+2024-08-07 16:02:49,818 - anomalib.metrics.f1_score - WARNING - F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead
+                    WARNING  F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead                                                f1_score.py:33
+2024-08-07 16:02:49,958 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[08/07/24 16:02:49] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ model                 │ STFPMModel               │  5.6 M │
+│ 1 │ loss                  │ STFPMLoss                │      0 │
+│ 2 │ _transform            │ Compose                  │      0 │
+│ 3 │ normalization_metrics │ MinMax                   │      0 │
+│ 4 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 6 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 2.8 M
+Non-trainable params: 2.8 M
+Total params: 5.6 M
+Total estimated model params size (MB): 22
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('train_loss', ..., logger=True)` but have no logger configured. You can enable one by doing
+`Trainer(logger=ALogger(...))`
+Epoch 999/999 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6/6 0:00:00 • 0:00:00 18.86it/s train_loss_step: 3.219 pixel_AUROC: 0.671 pixel_F1Score: 0.174 train_loss_epoch: 4.6982024-08-07 16:39:09,067 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1000` reached.
+[08/07/24 16:39:09] INFO     `Trainer.fit` stopped: `max_epochs=1000` reached.                                                                                                                              rank_zero.py:63
+Epoch 999/999 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6/6 0:00:00 • 0:00:00 18.86it/s train_loss_step: 3.219 pixel_AUROC: 0.671 pixel_F1Score: 0.174 train_loss_epoch: 4.6982024-08-07 16:39:09,330 - anomalib.callbacks.timer - INFO - Training took 2179.36 seconds
+[08/07/24 16:39:09] INFO     Training took 2179.36 seconds                                                                                                                                                      timer.py:59
+Epoch 999/999 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6/6 0:00:00 • 0:00:00 18.86it/s train_loss_step: 3.219 pixel_AUROC: 0.701 pixel_F1Score: 0.157 train_loss_epoch: 5.117
+2024-08-07 16:39:09,343 - anomalib.metrics.f1_score - WARNING - F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead
+                    WARNING  F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead                                                f1_score.py:33
+2024-08-07 16:39:09,344 - anomalib.metrics.f1_score - WARNING - F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead
+                    WARNING  F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead                                                f1_score.py:33
+2024-08-07 16:39:09,356 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+                    INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s  2024-08-07 16:39:13,469 - anomalib.callbacks.timer - INFO - Testing took 3.758141040802002 seconds
+Throughput (batch_size=32) : 6.120047052595905 FPS
+[08/07/24 16:39:13] INFO     Testing took 3.758141040802002 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=32) : 6.120047052595905 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.9166666269302368     │
+│       image_F1Score       │    0.7692307829856873     │
+│        pixel_AUROC        │    0.9062623381614685     │
+│       pixel_F1Score       │    0.33580440282821655    │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s
+

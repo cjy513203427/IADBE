@@ -1,0 +1,82 @@
+/bin/bash /home/jinyao/PycharmProjects/IADBE/train_test_cardboard_uflow.sh
+(IADBE) jinyao@jinyao-System-Product-Name:~/PycharmProjects/IADBE$ /bin/bash /home/jinyao/PycharmProjects/IADBE/train_test_cardboard_uflow.sh
+Running command: anomalib train --data ./configs/data/custom_dataset_normal_abnormal_cardboard.yaml --model anomalib.models.Uflow
+2024-08-07 18:58:59,543 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[08/07/24 18:58:59] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-08-07 18:58:59,565 - anomalib.models.components.base.anomaly_module - INFO - Initializing Uflow model.
+                    INFO     Initializing Uflow model.                                                                                                                                                 anomaly_module.py:42
+2024-08-07 18:58:59,574 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-08-07 18:58:59,575 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Uflow
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Uflow                                                                                                                        engine.py:84
+2024-08-07 18:58:59,668 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[08/07/24 18:58:59] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-08-07 18:58:59,676 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-08-07 18:58:59,677 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-08-07 18:58:59,678 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-08-07 18:58:59,679 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/loops/utilities.py:73: `max_epochs` was not set. Setting it to 1000 epochs. To train without an epoch limit, set `max_epochs=-1`.
+2024-08-07 18:58:59,729 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+                    INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-08-07 18:58:59,755 - anomalib.data.base.datamodule - INFO - No normal test images found. Sampling from training set using a split ratio of 0.20
+                    INFO     No normal test images found. Sampling from training set using a split ratio of 0.20                                                                                          datamodule.py:177
+2024-08-07 18:59:03,305 - anomalib.metrics.f1_score - WARNING - F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead
+[08/07/24 18:59:03] WARNING  F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead                                                f1_score.py:33
+2024-08-07 18:59:03,307 - anomalib.metrics.f1_score - WARNING - F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead
+                    WARNING  F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead                                                f1_score.py:33
+2024-08-07 18:59:06,885 - timm.models.helpers - INFO - Loading pretrained weights from url (https://dl.fbaipublicfiles.com/deit/M48_448.pth)
+[08/07/24 18:59:06] INFO     Loading pretrained weights from url (https://dl.fbaipublicfiles.com/deit/M48_448.pth)                                                                                           helpers.py:247
+2024-08-07 18:59:09,640 - timm.models.helpers - INFO - Loading pretrained weights from url (https://dl.fbaipublicfiles.com/deit/S24_224.pth)
+[08/07/24 18:59:09] INFO     Loading pretrained weights from url (https://dl.fbaipublicfiles.com/deit/S24_224.pth)                                                                                           helpers.py:247
+2024-08-07 18:59:11,063 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[08/07/24 18:59:11] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+┏━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃   ┃ Name                  ┃ Type                     ┃ Params ┃
+┡━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ 0 │ loss                  │ UFlowLoss                │      0 │
+│ 1 │ _transform            │ Compose                  │      0 │
+│ 2 │ normalization_metrics │ MinMax                   │      0 │
+│ 3 │ image_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 4 │ pixel_threshold       │ F1AdaptiveThreshold      │      0 │
+│ 5 │ image_metrics         │ AnomalibMetricCollection │      0 │
+│ 6 │ pixel_metrics         │ AnomalibMetricCollection │      0 │
+│ 7 │ model                 │ UflowModel               │  422 M │
+└───┴───────────────────────┴──────────────────────────┴────────┘
+Trainable params: 12.2 M
+Non-trainable params: 409 M
+Total params: 422 M
+Total estimated model params size (MB): 1.7 K
+/home/jinyao/anaconda3/envs/IADBE/lib/python3.10/site-packages/lightning/pytorch/core/module.py:494: You called `self.log('loss', ..., logger=True)` but have no logger configured. You can enable one by doing
+`Trainer(logger=ALogger(...))`
+Epoch 999/999 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6/6 0:00:21 • 0:00:00 0.29it/s pixel_AUROC: 0.968 pixel_F1Score: 0.4442024-08-08 03:31:43,475 - lightning.pytorch.utilities.rank_zero - INFO - `Trainer.fit` stopped: `max_epochs=1000` reached.
+[08/08/24 03:31:43] INFO     `Trainer.fit` stopped: `max_epochs=1000` reached.                                                                                                                                       rank_zero.py:63
+Epoch 999/999 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6/6 0:00:21 • 0:00:00 0.29it/s pixel_AUROC: 0.968 pixel_F1Score: 0.4442024-08-08 03:31:44,752 - anomalib.callbacks.timer - INFO - Training took 30753.66 seconds
+[08/08/24 03:31:44] INFO     Training took 30753.66 seconds                                                                                                                                                              timer.py:59
+Epoch 999/999 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6/6 0:00:21 • 0:00:00 0.29it/s pixel_AUROC: 0.968 pixel_F1Score: 0.444
+2024-08-08 03:31:44,758 - anomalib.metrics.f1_score - WARNING - F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead
+                    WARNING  F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead                                                         f1_score.py:33
+2024-08-08 03:31:44,760 - anomalib.metrics.f1_score - WARNING - F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead
+                    WARNING  F1Score class exists for backwards compatibility. It will be removed in v1.1. Please use BinaryF1Score from torchmetrics instead                                                         f1_score.py:33
+2024-08-08 03:31:45,135 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[08/08/24 03:31:45] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                                    cuda.py:58
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:02 • 0:00:00 0.00it/s  2024-08-08 03:31:53,096 - anomalib.callbacks.timer - INFO - Testing took 7.31977105140686 seconds
+Throughput (batch_size=32) : 3.1421747809420078 FPS
+[08/08/24 03:31:53] INFO     Testing took 7.31977105140686 seconds                                                                                                                                                      timer.py:109
+                             Throughput (batch_size=32) : 3.1421747809420078 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.8863636255264282     │
+│       image_F1Score       │           0.625           │
+│        pixel_AUROC        │    0.8660277724266052     │
+│       pixel_F1Score       │    0.2905558943748474     │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:02 • 0:00:00 0.00it/s
+
