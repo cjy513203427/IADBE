@@ -192,7 +192,7 @@ anomalib predict --config <path/to/config> --return_predictions
 </details>
 
 # 📜 Custom Dataset Mode
-IADBE can help you out with training and inference for your own custom dataset. The default dataset format is based on Anomalib, but you can use YOLO if you want to. Just check out [yolo_custom_dataset_setting]().
+IADBE can help you out with training and inference for your own custom dataset. The default dataset format is based on Anomalib, but you can use YOLO if you want to. Just check out [yolo_custom_dataset_setting](https://github.com/cjy513203427/IADBE/tree/master/yolo#custom-dataset).
 1. The first thing you need to do is import your own dataset to the project and create a custom data configuration file.
 
 <details>
