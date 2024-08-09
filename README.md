@@ -61,7 +61,7 @@ You can either use it as a virtual machine with the same command to train, test 
 ## Standard Dataset
 IADBE can download the standard datasets (MVTec, MVTec3D, Btech, VisA, Kolektor) with API/CLI automatically. If you have any issues with downloading the datasets, you can also download them directly from their official websites. 
 ## Custom Dataset
-We've uploaded a custom dataset to [IADBE_Custom_Dataset](https://huggingface.co/datasets/gt111lk/IADBE_Custom_Dataset). It's got both anomalib and YOLO format datasets.
+We've uploaded a custom dataset to [IADBE_Custom_Dataset](https://huggingface.co/datasets/gt111lk/IADBE_Custom_Dataset/tree/main). It's got both anomalib and YOLO format datasets.
 You can import it with the Huggingface way, or just clone it from GitHub and download it to your local machine.
 
 <details>
@@ -150,7 +150,7 @@ For the futher use of anomalib cli, you can retrieve [Training via CLI from Trai
 # 🤖 Inference
 
 Anomalib includes multiple inferencing scripts, including Torch, Lightning, Gradio, and OpenVINO inferencers to perform inference using the trained/exported model. Here we show an inference example using the Lightning inferencer.
-If you want to test our pretrained model without training, you can find it on Huggingface [IADBE_Models] (https://huggingface.co/gt111lk/IADBE_Models).
+If you want to test our pretrained model without training, you can find it on Huggingface [IADBE_Models](https://huggingface.co/gt111lk/IADBE_Models/tree/main).
 <details>
 <summary>Inference via API</summary>
 
