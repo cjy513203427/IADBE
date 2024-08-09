@@ -2,7 +2,7 @@
 It is worth noting that previous research accompanying open-source projects often takes
 a lot of time due to problems with environment deployment, and some projects do not work due to versioning
 problems. However, in this project the solution will be deployed using Docker or Conda. The primary goal is to provide
-researchers with a ready-to-use industrial anomaly detection platform. This platform based on [anomalib](https://github.com/openvinotoolkit/anomalib) should be able to
+researchers with a ready-to-use industrial anomaly detection platform. This platform is mainly based on [Anomalib](https://github.com/openvinotoolkit/anomalib) and partly based on [YOLOv8](https://github.com/ultralytics/ultralytics) should be able to
 reproduce and identify previous research, be bug free and easy to deploy.
 
 # 📦 Installation 
@@ -31,6 +31,9 @@ pip install anomalib
 # Install the full package, this will install Anomalib CLI. Anomalib CLI is a command line interface for training, testing.
 anomalib install
 
+# Install ultralytics
+pip install ultralytics
+
 # Or using your favorite virtual environment
 # ...
 
@@ -53,6 +56,31 @@ docker run --gpus all -it --rm iadbe bash
 ```
 </details>
 You can either use it as a virtual machine with the same command to train, test and inference or set docker env as your external environment.
+
+# 📘 Dataset
+## Standard Dataset
+IADBE can download the standard datasets (MVTec, MVTec3D, Btech, VisA, Kolektor) with API/CLI automatically. If you have any issues with downloading the datasets, you can also download them directly from their official websites. 
+## Custom Dataset
+We've uploaded a custom dataset to [IADBE_Custom_Dataset](https://huggingface.co/datasets/gt111lk/IADBE_Custom_Dataset). It's got both anomalib and YOLO format datasets.
+You can import it with the Huggingface way, or just clone it from GitHub and download it to your local machine.
+
+<details>
+<summary>Use Huggingface</summary>
+
+```python
+from datasets import load_dataset
+
+ds = load_dataset("gt111lk/IADBE_Custom_Dataset")
+```
+</details>
+
+<details>
+<summary>Use Git Clone</summary>
+
+```bash
+git clone https://huggingface.co/datasets/gt111lk/IADBE_Custom_Dataset
+```
+</details>
 
 # 🧠 Training and Testing
 
@@ -122,7 +150,7 @@ For the futher use of anomalib cli, you can retrieve [Training via CLI from Trai
 # 🤖 Inference
 
 Anomalib includes multiple inferencing scripts, including Torch, Lightning, Gradio, and OpenVINO inferencers to perform inference using the trained/exported model. Here we show an inference example using the Lightning inferencer.
-
+If you want to test our pretrained model without training, you can find it on Huggingface [IADBE_Models] (https://huggingface.co/gt111lk/IADBE_Models).
 <details>
 <summary>Inference via API</summary>
 
@@ -163,9 +191,8 @@ anomalib predict --config <path/to/config> --return_predictions
 ```
 </details>
 
-# 📜 Custom Dataset
-IADBE can help you with training and inference for your own custom dataset.
-
+# 📜 Custom Dataset Mode
+IADBE can help you out with training and inference for your own custom dataset. The default dataset format is based on Anomalib, but you can use YOLO if you want to. Just check out [yolo_custom_dataset_setting]().
 1. The first thing you need to do is import your own dataset to the project and create a custom data configuration file.
 
 <details>

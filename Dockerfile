@@ -18,4 +18,7 @@ RUN pip install anomalib
 # Install the full package
 RUN anomalib install
 
+# Install ultralytics
+pip install ultralytics
+
 CMD ["bash"]
