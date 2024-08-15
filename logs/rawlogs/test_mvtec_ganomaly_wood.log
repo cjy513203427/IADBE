@@ -1,0 +1,678 @@
+/bin/bash /home/jinyao/PycharmProjects/IADBE/test_mvtec_ganomaly_wood.sh
+(IADBE) jinyao@jinyao-System-Product-Name:~/PycharmProjects/IADBE$ /bin/bash /home/jinyao/PycharmProjects/IADBE/test_mvtec_ganomaly_wood.sh
+Running command: anomalib test --config ./configs/models/ganomaly.yaml --data anomalib.data.MVTec --data.category screw --ckpt_path /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/latest/weights/lightning/model.ckpt
+2024-08-15 11:46:33,104 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[08/15/24 11:46:33] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-08-15 11:46:33,121 - anomalib.models.components.base.anomaly_module - INFO - Initializing Ganomaly model.
+                    INFO     Initializing Ganomaly model.                                                                                                                                              anomaly_module.py:42
+2024-08-15 11:46:33,128 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-08-15 11:46:33,129 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Ganomaly
+                    INFO     Overriding gradient_clip_val from None with 0 for Ganomaly                                                                                                                        engine.py:84
+2024-08-15 11:46:33,130 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Ganomaly
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Ganomaly                                                                                                                     engine.py:84
+2024-08-15 11:46:33,222 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[08/15/24 11:46:33] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-08-15 11:46:33,231 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-08-15 11:46:33,232 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-08-15 11:46:33,233 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:46:33,234 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:46:34,538 - anomalib.data.image.mvtec - INFO - Found the dataset.
+[08/15/24 11:46:34] INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-08-15 11:46:34,581 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+[08/15/24 11:46:34] INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-08-15 11:46:35,622 - lightning.pytorch.utilities.rank_zero - INFO - Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+[08/15/24 11:46:35] INFO     Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                    rank_zero.py:63
+2024-08-15 11:46:37,349 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[08/15/24 11:46:37] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+2024-08-15 11:46:37,351 - lightning.pytorch.utilities.rank_zero - INFO - Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+                    INFO     Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                     rank_zero.py:63
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:09 • 0:00:00 0.44it/s  2024-08-15 11:46:50,291 - anomalib.callbacks.timer - INFO - Testing took 12.616548299789429 seconds
+Throughput (batch_size=32) : 12.681757022455216 FPS
+[08/15/24 11:46:50] INFO     Testing took 12.616548299789429 seconds                                                                                                                                           timer.py:109
+                             Throughput (batch_size=32) : 12.681757022455216 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.46136507391929626    │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:09 • 0:00:00 0.44it/s
+Running command: anomalib test --config ./configs/models/ganomaly.yaml --data anomalib.data.MVTec --data.category pill --ckpt_path /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/latest/weights/lightning/model.ckpt
+2024-08-15 11:46:56,256 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[08/15/24 11:46:56] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-08-15 11:46:56,273 - anomalib.models.components.base.anomaly_module - INFO - Initializing Ganomaly model.
+                    INFO     Initializing Ganomaly model.                                                                                                                                              anomaly_module.py:42
+2024-08-15 11:46:56,280 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-08-15 11:46:56,281 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Ganomaly
+                    INFO     Overriding gradient_clip_val from None with 0 for Ganomaly                                                                                                                        engine.py:84
+2024-08-15 11:46:56,282 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Ganomaly
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Ganomaly                                                                                                                     engine.py:84
+2024-08-15 11:46:56,376 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[08/15/24 11:46:56] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-08-15 11:46:56,384 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-08-15 11:46:56,385 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-08-15 11:46:56,386 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:46:56,387 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:46:57,666 - anomalib.data.image.mvtec - INFO - Found the dataset.
+[08/15/24 11:46:57] INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-08-15 11:46:57,709 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+[08/15/24 11:46:57] INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-08-15 11:46:58,742 - lightning.pytorch.utilities.rank_zero - INFO - Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+[08/15/24 11:46:58] INFO     Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                    rank_zero.py:63
+2024-08-15 11:47:00,320 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[08/15/24 11:47:00] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+2024-08-15 11:47:00,322 - lightning.pytorch.utilities.rank_zero - INFO - Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+                    INFO     Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                     rank_zero.py:63
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6/6 0:00:11 • 0:00:00 0.44it/s  2024-08-15 11:47:13,802 - anomalib.callbacks.timer - INFO - Testing took 13.135159492492676 seconds
+Throughput (batch_size=32) : 12.713968193187748 FPS
+[08/15/24 11:47:13] INFO     Testing took 13.135159492492676 seconds                                                                                                                                           timer.py:109
+                             Throughput (batch_size=32) : 12.713968193187748 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.5971085429191589     │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6/6 0:00:11 • 0:00:00 0.44it/s
+Running command: anomalib test --config ./configs/models/ganomaly.yaml --data anomalib.data.MVTec --data.category capsule --ckpt_path /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/latest/weights/lightning/model.ckpt
+2024-08-15 11:47:19,887 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[08/15/24 11:47:19] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-08-15 11:47:19,904 - anomalib.models.components.base.anomaly_module - INFO - Initializing Ganomaly model.
+                    INFO     Initializing Ganomaly model.                                                                                                                                              anomaly_module.py:42
+2024-08-15 11:47:19,910 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-08-15 11:47:19,911 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Ganomaly
+                    INFO     Overriding gradient_clip_val from None with 0 for Ganomaly                                                                                                                        engine.py:84
+2024-08-15 11:47:19,912 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Ganomaly
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Ganomaly                                                                                                                     engine.py:84
+2024-08-15 11:47:20,003 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[08/15/24 11:47:20] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-08-15 11:47:20,012 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-08-15 11:47:20,013 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-08-15 11:47:20,013 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:47:20,014 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:47:21,294 - anomalib.data.image.mvtec - INFO - Found the dataset.
+[08/15/24 11:47:21] INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-08-15 11:47:21,337 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+[08/15/24 11:47:21] INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-08-15 11:47:22,375 - lightning.pytorch.utilities.rank_zero - INFO - Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+[08/15/24 11:47:22] INFO     Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                    rank_zero.py:63
+2024-08-15 11:47:23,968 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[08/15/24 11:47:23] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+2024-08-15 11:47:23,970 - lightning.pytorch.utilities.rank_zero - INFO - Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+                    INFO     Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                     rank_zero.py:63
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:11 • 0:00:00 0.35it/s  2024-08-15 11:47:37,738 - anomalib.callbacks.timer - INFO - Testing took 13.432830333709717 seconds
+Throughput (batch_size=32) : 9.826670680768276 FPS
+[08/15/24 11:47:37] INFO     Testing took 13.432830333709717 seconds                                                                                                                                           timer.py:109
+                             Throughput (batch_size=32) : 9.826670680768276 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │            0.5            │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:11 • 0:00:00 0.35it/s
+Running command: anomalib test --config ./configs/models/ganomaly.yaml --data anomalib.data.MVTec --data.category carpet --ckpt_path /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/latest/weights/lightning/model.ckpt
+2024-08-15 11:47:44,057 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[08/15/24 11:47:44] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-08-15 11:47:44,074 - anomalib.models.components.base.anomaly_module - INFO - Initializing Ganomaly model.
+                    INFO     Initializing Ganomaly model.                                                                                                                                              anomaly_module.py:42
+2024-08-15 11:47:44,081 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-08-15 11:47:44,082 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Ganomaly
+                    INFO     Overriding gradient_clip_val from None with 0 for Ganomaly                                                                                                                        engine.py:84
+2024-08-15 11:47:44,083 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Ganomaly
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Ganomaly                                                                                                                     engine.py:84
+2024-08-15 11:47:44,176 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[08/15/24 11:47:44] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-08-15 11:47:44,184 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-08-15 11:47:44,185 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-08-15 11:47:44,186 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:47:44,186 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:47:45,491 - anomalib.data.image.mvtec - INFO - Found the dataset.
+[08/15/24 11:47:45] INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-08-15 11:47:45,538 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+[08/15/24 11:47:45] INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-08-15 11:47:46,573 - lightning.pytorch.utilities.rank_zero - INFO - Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+[08/15/24 11:47:46] INFO     Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                    rank_zero.py:63
+2024-08-15 11:47:48,199 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[08/15/24 11:47:48] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+2024-08-15 11:47:48,201 - lightning.pytorch.utilities.rank_zero - INFO - Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+                    INFO     Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                     rank_zero.py:63
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:08 • 0:00:00 0.36it/s  2024-08-15 11:48:00,741 - anomalib.callbacks.timer - INFO - Testing took 12.209575176239014 seconds
+Throughput (batch_size=32) : 9.58264299217331 FPS
+[08/15/24 11:48:00] INFO     Testing took 12.209575176239014 seconds                                                                                                                                           timer.py:109
+                             Throughput (batch_size=32) : 9.58264299217331 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.41051363945007324    │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:08 • 0:00:00 0.36it/s
+Running command: anomalib test --config ./configs/models/ganomaly.yaml --data anomalib.data.MVTec --data.category grid --ckpt_path /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/latest/weights/lightning/model.ckpt
+2024-08-15 11:48:06,716 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[08/15/24 11:48:06] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-08-15 11:48:06,733 - anomalib.models.components.base.anomaly_module - INFO - Initializing Ganomaly model.
+                    INFO     Initializing Ganomaly model.                                                                                                                                              anomaly_module.py:42
+2024-08-15 11:48:06,739 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-08-15 11:48:06,740 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Ganomaly
+                    INFO     Overriding gradient_clip_val from None with 0 for Ganomaly                                                                                                                        engine.py:84
+2024-08-15 11:48:06,741 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Ganomaly
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Ganomaly                                                                                                                     engine.py:84
+2024-08-15 11:48:06,833 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[08/15/24 11:48:06] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-08-15 11:48:06,842 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-08-15 11:48:06,843 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-08-15 11:48:06,844 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:48:06,844 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:48:08,148 - anomalib.data.image.mvtec - INFO - Found the dataset.
+[08/15/24 11:48:08] INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-08-15 11:48:08,194 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+[08/15/24 11:48:08] INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-08-15 11:48:09,229 - lightning.pytorch.utilities.rank_zero - INFO - Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+[08/15/24 11:48:09] INFO     Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                    rank_zero.py:63
+2024-08-15 11:48:10,856 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[08/15/24 11:48:10] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+2024-08-15 11:48:10,858 - lightning.pytorch.utilities.rank_zero - INFO - Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+                    INFO     Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                     rank_zero.py:63
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3/3 0:00:05 • 0:00:00 0.41it/s  2024-08-15 11:48:18,128 - anomalib.callbacks.timer - INFO - Testing took 6.945750951766968 seconds
+Throughput (batch_size=32) : 11.229887242092541 FPS
+[08/15/24 11:48:18] INFO     Testing took 6.945750951766968 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=32) : 11.229887242092541 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.8872180581092834     │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3/3 0:00:05 • 0:00:00 0.41it/s
+Running command: anomalib test --config ./configs/models/ganomaly.yaml --data anomalib.data.MVTec --data.category tile --ckpt_path /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/latest/weights/lightning/model.ckpt
+2024-08-15 11:48:24,112 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[08/15/24 11:48:24] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-08-15 11:48:24,130 - anomalib.models.components.base.anomaly_module - INFO - Initializing Ganomaly model.
+                    INFO     Initializing Ganomaly model.                                                                                                                                              anomaly_module.py:42
+2024-08-15 11:48:24,136 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-08-15 11:48:24,137 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Ganomaly
+                    INFO     Overriding gradient_clip_val from None with 0 for Ganomaly                                                                                                                        engine.py:84
+2024-08-15 11:48:24,138 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Ganomaly
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Ganomaly                                                                                                                     engine.py:84
+2024-08-15 11:48:24,231 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[08/15/24 11:48:24] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-08-15 11:48:24,239 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-08-15 11:48:24,240 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-08-15 11:48:24,241 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:48:24,242 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:48:25,569 - anomalib.data.image.mvtec - INFO - Found the dataset.
+[08/15/24 11:48:25] INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-08-15 11:48:25,613 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+[08/15/24 11:48:25] INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-08-15 11:48:26,651 - lightning.pytorch.utilities.rank_zero - INFO - Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+[08/15/24 11:48:26] INFO     Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                    rank_zero.py:63
+2024-08-15 11:48:28,295 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[08/15/24 11:48:28] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+2024-08-15 11:48:28,297 - lightning.pytorch.utilities.rank_zero - INFO - Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+                    INFO     Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                     rank_zero.py:63
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:07 • 0:00:00 0.42it/s  2024-08-15 11:48:38,986 - anomalib.callbacks.timer - INFO - Testing took 10.356406927108765 seconds
+Throughput (batch_size=32) : 11.297354461202435 FPS
+[08/15/24 11:48:38] INFO     Testing took 10.356406927108765 seconds                                                                                                                                           timer.py:109
+                             Throughput (batch_size=32) : 11.297354461202435 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.4588744640350342     │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:07 • 0:00:00 0.42it/s
+Running command: anomalib test --config ./configs/models/ganomaly.yaml --data anomalib.data.MVTec --data.category wood --ckpt_path /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/latest/weights/lightning/model.ckpt
+2024-08-15 11:48:45,227 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[08/15/24 11:48:45] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-08-15 11:48:45,244 - anomalib.models.components.base.anomaly_module - INFO - Initializing Ganomaly model.
+                    INFO     Initializing Ganomaly model.                                                                                                                                              anomaly_module.py:42
+2024-08-15 11:48:45,251 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-08-15 11:48:45,252 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Ganomaly
+                    INFO     Overriding gradient_clip_val from None with 0 for Ganomaly                                                                                                                        engine.py:84
+2024-08-15 11:48:45,253 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Ganomaly
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Ganomaly                                                                                                                     engine.py:84
+2024-08-15 11:48:45,346 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[08/15/24 11:48:45] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-08-15 11:48:45,354 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-08-15 11:48:45,355 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-08-15 11:48:45,356 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:48:45,357 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:48:46,659 - anomalib.data.image.mvtec - INFO - Found the dataset.
+[08/15/24 11:48:46] INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-08-15 11:48:46,701 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+[08/15/24 11:48:46] INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-08-15 11:48:47,789 - lightning.pytorch.utilities.rank_zero - INFO - Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+[08/15/24 11:48:47] INFO     Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                    rank_zero.py:63
+2024-08-15 11:48:49,418 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[08/15/24 11:48:49] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+2024-08-15 11:48:49,419 - lightning.pytorch.utilities.rank_zero - INFO - Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+                    INFO     Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                     rank_zero.py:63
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3/3 0:00:06 • 0:00:00 0.35it/s  2024-08-15 11:48:58,381 - anomalib.callbacks.timer - INFO - Testing took 8.630862712860107 seconds
+Throughput (batch_size=32) : 9.153198542051756 FPS
+[08/15/24 11:48:58] INFO     Testing took 8.630862712860107 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=32) : 9.153198542051756 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.6578947901725769     │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3/3 0:00:06 • 0:00:00 0.35it/s
+Running command: anomalib test --config ./configs/models/ganomaly.yaml --data anomalib.data.MVTec --data.category zipper --ckpt_path /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/latest/weights/lightning/model.ckpt
+2024-08-15 11:49:04,360 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[08/15/24 11:49:04] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-08-15 11:49:04,377 - anomalib.models.components.base.anomaly_module - INFO - Initializing Ganomaly model.
+                    INFO     Initializing Ganomaly model.                                                                                                                                              anomaly_module.py:42
+2024-08-15 11:49:04,384 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-08-15 11:49:04,385 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Ganomaly
+                    INFO     Overriding gradient_clip_val from None with 0 for Ganomaly                                                                                                                        engine.py:84
+2024-08-15 11:49:04,385 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Ganomaly
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Ganomaly                                                                                                                     engine.py:84
+2024-08-15 11:49:04,478 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[08/15/24 11:49:04] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-08-15 11:49:04,487 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-08-15 11:49:04,488 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-08-15 11:49:04,489 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:49:04,489 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:49:05,775 - anomalib.data.image.mvtec - INFO - Found the dataset.
+[08/15/24 11:49:05] INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-08-15 11:49:05,821 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+[08/15/24 11:49:05] INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-08-15 11:49:06,867 - lightning.pytorch.utilities.rank_zero - INFO - Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+[08/15/24 11:49:06] INFO     Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                    rank_zero.py:63
+2024-08-15 11:49:08,469 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[08/15/24 11:49:08] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+2024-08-15 11:49:08,470 - lightning.pytorch.utilities.rank_zero - INFO - Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+                    INFO     Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                     rank_zero.py:63
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:09 • 0:00:00 0.45it/s  2024-08-15 11:49:20,828 - anomalib.callbacks.timer - INFO - Testing took 12.007710218429565 seconds
+Throughput (batch_size=32) : 12.57525350405638 FPS
+[08/15/24 11:49:20] INFO     Testing took 12.007710218429565 seconds                                                                                                                                           timer.py:109
+                             Throughput (batch_size=32) : 12.57525350405638 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.3479516804218292     │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:09 • 0:00:00 0.45it/s
+Running command: anomalib test --config ./configs/models/ganomaly.yaml --data anomalib.data.MVTec --data.category cable --ckpt_path /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/latest/weights/lightning/model.ckpt
+2024-08-15 11:49:27,070 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[08/15/24 11:49:27] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-08-15 11:49:27,088 - anomalib.models.components.base.anomaly_module - INFO - Initializing Ganomaly model.
+                    INFO     Initializing Ganomaly model.                                                                                                                                              anomaly_module.py:42
+2024-08-15 11:49:27,094 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-08-15 11:49:27,095 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Ganomaly
+                    INFO     Overriding gradient_clip_val from None with 0 for Ganomaly                                                                                                                        engine.py:84
+2024-08-15 11:49:27,096 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Ganomaly
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Ganomaly                                                                                                                     engine.py:84
+2024-08-15 11:49:27,189 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[08/15/24 11:49:27] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-08-15 11:49:27,198 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-08-15 11:49:27,199 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-08-15 11:49:27,199 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:49:27,200 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:49:28,480 - anomalib.data.image.mvtec - INFO - Found the dataset.
+[08/15/24 11:49:28] INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-08-15 11:49:28,525 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+[08/15/24 11:49:28] INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-08-15 11:49:29,564 - lightning.pytorch.utilities.rank_zero - INFO - Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+[08/15/24 11:49:29] INFO     Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                    rank_zero.py:63
+2024-08-15 11:49:31,166 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[08/15/24 11:49:31] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+2024-08-15 11:49:31,168 - lightning.pytorch.utilities.rank_zero - INFO - Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+                    INFO     Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                     rank_zero.py:63
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:11 • 0:00:00 0.34it/s  2024-08-15 11:49:47,030 - anomalib.callbacks.timer - INFO - Testing took 15.507637739181519 seconds
+Throughput (batch_size=32) : 9.6726530837776 FPS
+[08/15/24 11:49:47] INFO     Testing took 15.507637739181519 seconds                                                                                                                                           timer.py:109
+                             Throughput (batch_size=32) : 9.6726530837776 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.4923163056373596     │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5/5 0:00:11 • 0:00:00 0.34it/s
+Running command: anomalib test --config ./configs/models/ganomaly.yaml --data anomalib.data.MVTec --data.category toothbrush --ckpt_path /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/latest/weights/lightning/model.ckpt
+2024-08-15 11:49:53,091 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[08/15/24 11:49:53] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-08-15 11:49:53,108 - anomalib.models.components.base.anomaly_module - INFO - Initializing Ganomaly model.
+                    INFO     Initializing Ganomaly model.                                                                                                                                              anomaly_module.py:42
+2024-08-15 11:49:53,115 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-08-15 11:49:53,116 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Ganomaly
+                    INFO     Overriding gradient_clip_val from None with 0 for Ganomaly                                                                                                                        engine.py:84
+2024-08-15 11:49:53,116 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Ganomaly
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Ganomaly                                                                                                                     engine.py:84
+2024-08-15 11:49:53,208 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[08/15/24 11:49:53] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-08-15 11:49:53,217 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-08-15 11:49:53,218 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-08-15 11:49:53,218 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:49:53,219 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:49:54,513 - anomalib.data.image.mvtec - INFO - Found the dataset.
+[08/15/24 11:49:54] INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-08-15 11:49:54,557 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+[08/15/24 11:49:54] INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-08-15 11:49:55,583 - lightning.pytorch.utilities.rank_zero - INFO - Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+[08/15/24 11:49:55] INFO     Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                    rank_zero.py:63
+2024-08-15 11:49:57,203 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[08/15/24 11:49:57] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+2024-08-15 11:49:57,204 - lightning.pytorch.utilities.rank_zero - INFO - Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+                    INFO     Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                     rank_zero.py:63
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2/2 0:00:02 • 0:00:00 0.38it/s  2024-08-15 11:50:02,856 - anomalib.callbacks.timer - INFO - Testing took 5.31399130821228 seconds
+Throughput (batch_size=32) : 7.903663661454037 FPS
+[08/15/24 11:50:02] INFO     Testing took 5.31399130821228 seconds                                                                                                                                             timer.py:109
+                             Throughput (batch_size=32) : 7.903663661454037 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.4750000238418579     │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2/2 0:00:02 • 0:00:00 0.38it/s
+Running command: anomalib test --config ./configs/models/ganomaly.yaml --data anomalib.data.MVTec --data.category transistor --ckpt_path /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/latest/weights/lightning/model.ckpt
+2024-08-15 11:50:08,792 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[08/15/24 11:50:08] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-08-15 11:50:08,809 - anomalib.models.components.base.anomaly_module - INFO - Initializing Ganomaly model.
+                    INFO     Initializing Ganomaly model.                                                                                                                                              anomaly_module.py:42
+2024-08-15 11:50:08,815 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-08-15 11:50:08,816 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Ganomaly
+                    INFO     Overriding gradient_clip_val from None with 0 for Ganomaly                                                                                                                        engine.py:84
+2024-08-15 11:50:08,817 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Ganomaly
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Ganomaly                                                                                                                     engine.py:84
+2024-08-15 11:50:08,909 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[08/15/24 11:50:08] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-08-15 11:50:08,918 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-08-15 11:50:08,919 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-08-15 11:50:08,919 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:50:08,920 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:50:10,195 - anomalib.data.image.mvtec - INFO - Found the dataset.
+[08/15/24 11:50:10] INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-08-15 11:50:10,241 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+[08/15/24 11:50:10] INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-08-15 11:50:11,266 - lightning.pytorch.utilities.rank_zero - INFO - Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+[08/15/24 11:50:11] INFO     Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                    rank_zero.py:63
+2024-08-15 11:50:12,874 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[08/15/24 11:50:12] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+2024-08-15 11:50:12,875 - lightning.pytorch.utilities.rank_zero - INFO - Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+                    INFO     Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                     rank_zero.py:63
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:09 • 0:00:00 0.34it/s  2024-08-15 11:50:24,270 - anomalib.callbacks.timer - INFO - Testing took 11.05079960823059 seconds
+Throughput (batch_size=32) : 9.049118936653272 FPS
+[08/15/24 11:50:24] INFO     Testing took 11.05079960823059 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=32) : 9.049118936653272 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.4908333420753479     │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:09 • 0:00:00 0.34it/s
+Running command: anomalib test --config ./configs/models/ganomaly.yaml --data anomalib.data.MVTec --data.category metal_nut --ckpt_path /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/latest/weights/lightning/model.ckpt
+2024-08-15 11:50:30,564 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[08/15/24 11:50:30] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-08-15 11:50:30,582 - anomalib.models.components.base.anomaly_module - INFO - Initializing Ganomaly model.
+                    INFO     Initializing Ganomaly model.                                                                                                                                              anomaly_module.py:42
+2024-08-15 11:50:30,588 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-08-15 11:50:30,589 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Ganomaly
+                    INFO     Overriding gradient_clip_val from None with 0 for Ganomaly                                                                                                                        engine.py:84
+2024-08-15 11:50:30,590 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Ganomaly
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Ganomaly                                                                                                                     engine.py:84
+2024-08-15 11:50:30,684 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[08/15/24 11:50:30] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-08-15 11:50:30,693 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-08-15 11:50:30,694 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-08-15 11:50:30,695 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:50:30,695 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:50:32,016 - anomalib.data.image.mvtec - INFO - Found the dataset.
+[08/15/24 11:50:32] INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-08-15 11:50:32,061 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+[08/15/24 11:50:32] INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-08-15 11:50:33,092 - lightning.pytorch.utilities.rank_zero - INFO - Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+[08/15/24 11:50:33] INFO     Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                    rank_zero.py:63
+2024-08-15 11:50:34,749 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[08/15/24 11:50:34] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+2024-08-15 11:50:34,750 - lightning.pytorch.utilities.rank_zero - INFO - Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+                    INFO     Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                     rank_zero.py:63
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:06 • 0:00:00 0.47it/s  2024-08-15 11:50:43,995 - anomalib.callbacks.timer - INFO - Testing took 8.902271747589111 seconds
+Throughput (batch_size=32) : 12.918050949314592 FPS
+[08/15/24 11:50:43] INFO     Testing took 8.902271747589111 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=32) : 12.918050949314592 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.4833821952342987     │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:06 • 0:00:00 0.47it/s
+Running command: anomalib test --config ./configs/models/ganomaly.yaml --data anomalib.data.MVTec --data.category bottle --ckpt_path /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/latest/weights/lightning/model.ckpt
+2024-08-15 11:50:50,255 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[08/15/24 11:50:50] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-08-15 11:50:50,272 - anomalib.models.components.base.anomaly_module - INFO - Initializing Ganomaly model.
+                    INFO     Initializing Ganomaly model.                                                                                                                                              anomaly_module.py:42
+2024-08-15 11:50:50,278 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-08-15 11:50:50,279 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Ganomaly
+                    INFO     Overriding gradient_clip_val from None with 0 for Ganomaly                                                                                                                        engine.py:84
+2024-08-15 11:50:50,280 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Ganomaly
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Ganomaly                                                                                                                     engine.py:84
+2024-08-15 11:50:50,373 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[08/15/24 11:50:50] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-08-15 11:50:50,382 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-08-15 11:50:50,383 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-08-15 11:50:50,383 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:50:50,384 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:50:51,679 - anomalib.data.image.mvtec - INFO - Found the dataset.
+[08/15/24 11:50:51] INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-08-15 11:50:51,721 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+[08/15/24 11:50:51] INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-08-15 11:50:52,758 - lightning.pytorch.utilities.rank_zero - INFO - Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+[08/15/24 11:50:52] INFO     Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                    rank_zero.py:63
+2024-08-15 11:50:54,411 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[08/15/24 11:50:54] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+2024-08-15 11:50:54,412 - lightning.pytorch.utilities.rank_zero - INFO - Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+                    INFO     Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                     rank_zero.py:63
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3/3 0:00:05 • 0:00:00 0.41it/s  2024-08-15 11:51:02,229 - anomalib.callbacks.timer - INFO - Testing took 7.468421220779419 seconds
+Throughput (batch_size=32) : 11.113459933013521 FPS
+[08/15/24 11:51:02] INFO     Testing took 7.468421220779419 seconds                                                                                                                                            timer.py:109
+                             Throughput (batch_size=32) : 11.113459933013521 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │            0.5            │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3/3 0:00:05 • 0:00:00 0.41it/s
+Running command: anomalib test --config ./configs/models/ganomaly.yaml --data anomalib.data.MVTec --data.category hazelnut --ckpt_path /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/latest/weights/lightning/model.ckpt
+2024-08-15 11:51:08,292 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[08/15/24 11:51:08] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-08-15 11:51:08,310 - anomalib.models.components.base.anomaly_module - INFO - Initializing Ganomaly model.
+                    INFO     Initializing Ganomaly model.                                                                                                                                              anomaly_module.py:42
+2024-08-15 11:51:08,316 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-08-15 11:51:08,317 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Ganomaly
+                    INFO     Overriding gradient_clip_val from None with 0 for Ganomaly                                                                                                                        engine.py:84
+2024-08-15 11:51:08,318 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Ganomaly
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Ganomaly                                                                                                                     engine.py:84
+2024-08-15 11:51:08,411 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[08/15/24 11:51:08] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-08-15 11:51:08,420 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-08-15 11:51:08,421 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-08-15 11:51:08,422 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:51:08,422 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:51:09,759 - anomalib.data.image.mvtec - INFO - Found the dataset.
+[08/15/24 11:51:09] INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-08-15 11:51:09,803 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+[08/15/24 11:51:09] INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-08-15 11:51:10,850 - lightning.pytorch.utilities.rank_zero - INFO - Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+[08/15/24 11:51:10] INFO     Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                    rank_zero.py:63
+2024-08-15 11:51:12,486 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[08/15/24 11:51:12] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+2024-08-15 11:51:12,487 - lightning.pytorch.utilities.rank_zero - INFO - Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+                    INFO     Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                     rank_zero.py:63
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:08 • 0:00:00 0.36it/s  2024-08-15 11:51:24,220 - anomalib.callbacks.timer - INFO - Testing took 11.374043464660645 seconds
+Throughput (batch_size=32) : 9.671142926591758 FPS
+[08/15/24 11:51:24] INFO     Testing took 11.374043464660645 seconds                                                                                                                                           timer.py:109
+                             Throughput (batch_size=32) : 9.671142926591758 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.5539286136627197     │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:08 • 0:00:00 0.36it/s
+Running command: anomalib test --config ./configs/models/ganomaly.yaml --data anomalib.data.MVTec --data.category leather --ckpt_path /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/latest/weights/lightning/model.ckpt
+2024-08-15 11:51:30,311 - anomalib.utils.config - WARNING - Anomalib currently does not support multi-gpu training. Setting devices to 1.
+[08/15/24 11:51:30] WARNING  Anomalib currently does not support multi-gpu training. Setting devices to 1.                                                                                                    config.py:262
+2024-08-15 11:51:30,328 - anomalib.models.components.base.anomaly_module - INFO - Initializing Ganomaly model.
+                    INFO     Initializing Ganomaly model.                                                                                                                                              anomaly_module.py:42
+2024-08-15 11:51:30,335 - anomalib.callbacks - INFO - Loading the callbacks
+                    INFO     Loading the callbacks                                                                                                                                                           __init__.py:43
+2024-08-15 11:51:30,336 - anomalib.engine.engine - INFO - Overriding gradient_clip_val from None with 0 for Ganomaly
+                    INFO     Overriding gradient_clip_val from None with 0 for Ganomaly                                                                                                                        engine.py:84
+2024-08-15 11:51:30,336 - anomalib.engine.engine - INFO - Overriding num_sanity_val_steps from None with 0 for Ganomaly
+                    INFO     Overriding num_sanity_val_steps from None with 0 for Ganomaly                                                                                                                     engine.py:84
+2024-08-15 11:51:30,428 - lightning.pytorch.utilities.rank_zero - INFO - Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default `ModelSummary` callback.
+[08/15/24 11:51:30] INFO     Trainer already configured with model summary callbacks: [<class 'lightning.pytorch.callbacks.rich_model_summary.RichModelSummary'>]. Skipping setting a default               rank_zero.py:63
+                             `ModelSummary` callback.
+2024-08-15 11:51:30,436 - lightning.pytorch.utilities.rank_zero - INFO - GPU available: True (cuda), used: True
+                    INFO     GPU available: True (cuda), used: True                                                                                                                                         rank_zero.py:63
+2024-08-15 11:51:30,437 - lightning.pytorch.utilities.rank_zero - INFO - TPU available: False, using: 0 TPU cores
+                    INFO     TPU available: False, using: 0 TPU cores                                                                                                                                       rank_zero.py:63
+2024-08-15 11:51:30,438 - lightning.pytorch.utilities.rank_zero - INFO - IPU available: False, using: 0 IPUs
+                    INFO     IPU available: False, using: 0 IPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:51:30,438 - lightning.pytorch.utilities.rank_zero - INFO - HPU available: False, using: 0 HPUs
+                    INFO     HPU available: False, using: 0 HPUs                                                                                                                                            rank_zero.py:63
+2024-08-15 11:51:31,779 - anomalib.data.image.mvtec - INFO - Found the dataset.
+[08/15/24 11:51:31] INFO     Found the dataset.                                                                                                                                                                mvtec.py:412
+2024-08-15 11:51:31,825 - lightning.pytorch.utilities.rank_zero - INFO - You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+[08/15/24 11:51:31] INFO     You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' |         rank_zero.py:63
+                             'high')` which will trade-off precision for performance. For more details, read
+                             https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2024-08-15 11:51:32,918 - lightning.pytorch.utilities.rank_zero - INFO - Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+[08/15/24 11:51:32] INFO     Restoring states from the checkpoint path at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                    rank_zero.py:63
+2024-08-15 11:51:34,601 - lightning.pytorch.accelerators.cuda - INFO - LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[08/15/24 11:51:34] INFO     LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]                                                                                                                                           cuda.py:58
+2024-08-15 11:51:34,603 - lightning.pytorch.utilities.rank_zero - INFO - Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt
+                    INFO     Loaded model weights from the checkpoint at /home/jinyao/PycharmProjects/IADBE/results/Ganomaly/MVTec/pill/v0/weights/lightning/model.ckpt                                     rank_zero.py:63
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:08 • 0:00:00 0.37it/s  2024-08-15 11:51:47,366 - anomalib.callbacks.timer - INFO - Testing took 12.399277687072754 seconds
+Throughput (batch_size=32) : 10.000582544359014 FPS
+[08/15/24 11:51:47] INFO     Testing took 12.399277687072754 seconds                                                                                                                                           timer.py:109
+                             Throughput (batch_size=32) : 10.000582544359014 FPS
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃        Test metric        ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│        image_AUROC        │    0.32778531312942505    │
+│         image_PRO         │            1.0            │
+└───────────────────────────┴───────────────────────────┘
+Testing ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:08 • 0:00:00 0.37it/s
+
