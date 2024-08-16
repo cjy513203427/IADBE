@@ -26,7 +26,7 @@ git clone https://github.com/cjy513203427/IADBE.git
 cd IADBE
 
 # Install anomalib
-pip install anomalib
+pip install anomalib==1.1.0
 
 # Install the full package, this will install Anomalib CLI. Anomalib CLI is a command line interface for training, testing.
 anomalib install
@@ -176,12 +176,12 @@ predictions = engine.predict(
 anomalib predict -h
 
 # Predict by using the default values.
-anomalib predict --custom_model anomalib.models.Patchcore \
+anomalib predict --model anomalib.models.Patchcore \
                  --data anomalib.data.MVTec \
                  --ckpt_path <path/to/custom_model.ckpt>
 
 # Predict by overriding arguments.
-anomalib predict --custom_model anomalib.models.Patchcore \
+anomalib predict --model anomalib.models.Patchcore \
                  --data anomalib.data.MVTec \
                  --ckpt_path <path/to/custom_model.ckpt>
                  --return_predictions

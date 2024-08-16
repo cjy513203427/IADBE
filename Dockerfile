@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y libgl1-mesa-glx
 RUN apt-get install -y libglib2.0-0
 
 # install anomalib
-RUN pip install anomalib
+RUN pip install anomalib==1.1.0
 
 # Install the full package
 RUN anomalib install
