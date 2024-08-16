@@ -1,12 +1,12 @@
 import re
 
 # processing raw logs, extract metric values and concatenate string.
-with open('../logs/rawlogs/train_test_mvtec_fre.log', 'r') as file:
+with open('../logs/rawlogs/test_mvtec_uflow_carpet.log', 'r') as file:
     log_data = file.read()
 
 
 pattern = re.compile(
-    r"--data\.category (\w+) --config"  # Match dataset categories
+    r"--data\.category (\w+)"  # Match dataset categories
     r"[\s\S]*?"  # Match any character (including line breaks) zero or more times
     r"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n"
     r"┃        Test metric        ┃       DataLoader 0        ┃\n"
@@ -52,7 +52,7 @@ for i in range(len(matches)):
     print(f"pixel_PRO            {pixel_PRO_values[i]:.2f}")
 
 # Prepare LaTeX string
-latex_values = " & ".join([f"{value:.2f}" for value in pixel_PRO_values])
+latex_values = " & ".join([f"{value:.2f}" for value in image_AUROC_values])
 print(f"LaTeX string: {latex_values}")
 
 # Print the counts
