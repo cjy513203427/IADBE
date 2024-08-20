@@ -21,4 +21,6 @@ RUN anomalib install
 # Install ultralytics
 RUN pip install ultralytics
 
-CMD ["bash"]
+# Keep container running
+CMD ["bash", "-c", "while true; do sleep 1000; done"]
+
