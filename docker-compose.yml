@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  iadbe:
+    build:
+      context: ./IADBE
+    container_name: iadbe
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./IADBE:/app
+
+  iadbe_frontend:
+    build:
+      context: ./IADBE_Frontend
+    container_name: iadbe_frontend
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./IADBE_Frontend/src:/app/src
+
+
+  iadbe_server:
+    build:
+      context: ./IADBE_Server
+    container_name: iadbe_server
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./IADBE_Server:/app
