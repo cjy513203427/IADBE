@@ -62,7 +62,7 @@ y_ticks = [0, 5000, 10000, 50000, 100000, 200000, 300000, 350000]
 plt.yticks(custom_scale(np.array(y_ticks)), y_ticks)
 
 # Adding titles and labels
-plt.title('Training Time vs Image AUROC Value for Different Models')
+plt.title('Training Time and Image AUROC Value for Different Models')
 plt.xlabel('Model Name')
 plt.ylabel('Training Time (s)')
 plt.xticks(rotation=90)
