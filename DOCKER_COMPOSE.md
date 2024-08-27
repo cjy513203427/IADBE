@@ -23,7 +23,7 @@ cp IADBE/docker-compose.yml ./
 
 So, the file structure should look like this:
 ```shell
-├── IADBE
+├── IADBE_ALL
 │   ├── docker-compose.yml
 │   ├── IADBE
 │   ├── IADBE_Frontend
