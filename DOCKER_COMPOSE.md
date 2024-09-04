@@ -21,6 +21,16 @@ Copy docker-compose.yml here.
 cp IADBE/docker-compose.yml ./
 ```
 
+So, the file structure should look like this:
+```shell
+├── IADBE_ALL
+│   ├── docker-compose.yml
+│   ├── IADBE
+│   ├── IADBE_Frontend
+│   └── IADBE_Server
+
+```
+
 Build docker images with docker-compose.yml
 ```shell
 docker-compose up --build -d

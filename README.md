@@ -1,3 +1,13 @@
+# 📚 Architecture
+As you can see in the figure, the IADBE system is made up of three main parts: IADBE, IADBE Server, and IADBE Backend. IADBE is the system's core, with API and CLI acting as gateways. Datasets, models, and metrics are some of the system's most important parts. Models are based on open-source Anomalib and YOLOv8. The system has three main entry points: Train, Test, and Predict.
+
+![IADBE Architecture](docs/imgs/iadbe_architecture.png)
+
+In IADBE Server, we've used the SpringBoot and Kotlin frameworks. IADBE Server gets training and testing results files from IADBE and then handles them, including logging and CSV processing. In IADBE Frontend, we've used the Angular framework. The frontend sends an HTTP request to the server, and the server then sends JSON data back to the frontend. The frontend provides visualisations that are both stylish and really functional.
+
+To make the deployment process easier, we use the [Docker Compose](https://github.com/cjy513203427/IADBE/blob/master/DOCKER_COMPOSE.md) to put together the IADBE, IADBE Server, and IADBE Frontend images, and then run them together.
+We use GitHub for version control. We publish all the relevant software, including [IADBE](https://github.com/cjy513203427/IADBE), [IADBE Server](https://github.com/cjy513203427/IADBE_Server), and [IADBE Frontend](https://github.com/cjy513203427/IADBE_Frontend), on GitHub so that it can be reproduced and verified. We've uploaded [custom datasets](https://huggingface.co/datasets/gt111lk/IADBE_Custom_Dataset) and [pre-trained models](https://huggingface.co/gt111lk/IADBE_Models) to Huggingface.
+We've tested the cross-platform functionality on a range of operating systems, including Windows 11 and 10, as well as Ubuntu 22 and 20. It's been shown that these systems can run the IADBE system without any significant issues.
 # 📖 Introduction
 It is worth noting that previous research accompanying open-source projects often takes
 a lot of time due to problems with environment deployment, and some projects do not work due to versioning
