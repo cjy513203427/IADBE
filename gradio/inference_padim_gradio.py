@@ -1,52 +1,7 @@
 import gradio as gr
 from anomalib.engine import Engine
+from anomalib.models import Padim
 from pathlib import Path
-
-# Import all possible model classes
-from anomalib.models import (
-    Cfa,
-    Cflow,
-    Csflow,
-    Dfkde,
-    Dfm,
-    Draem,
-    Dsr,
-    EfficientAd,
-    Fastflow,
-    Fre,
-    Ganomaly,
-    Padim,
-    Patchcore,
-    ReverseDistillation,
-    Rkde,
-    Stfpm,
-    Uflow,
-    AiVad,
-    WinClip,
-)
-
-# Mapping model filename prefixes to corresponding classes
-model_mapping = {
-    "Cfa": Cfa,
-    "Cflow": Cflow,
-    "Csflow": Csflow,
-    "Dfkde": Dfkde,
-    "Dfm": Dfm,
-    "Draem": Draem,
-    "Dsr": Dsr,
-    "EfficientAd": EfficientAd,
-    "Fastflow": Fastflow,
-    "Fre": Fre,
-    "Ganomaly": Ganomaly,
-    "Padim": Padim,
-    "Patchcore": Patchcore,
-    "ReverseDistillation": ReverseDistillation,
-    "Rkde": Rkde,
-    "Stfpm": Stfpm,
-    "Uflow": Uflow,
-    "AiVad": AiVad,
-    "WinClip": WinClip,
-}
 
 # Define the inference function
 def predict(image_path, model_path):
@@ -58,23 +13,14 @@ def predict(image_path, model_path):
         logger=False,
     )
 
-    # Get the model filename prefix to determine the model type
-    model_filename = Path(model_path).stem  # Get the filename without extension
-    model_type = model_filename.split("_")[0]  # Use the first part of the filename as the model type
-
-    # Select the corresponding model class based on the filename
-    model_class = model_mapping.get(model_type)
-    if model_class is None:
-        raise ValueError(f"Unknown model type: {model_type}. Please ensure the model file name is correct.")
-
     # Initialize the model
-    model = model_class()
+    model = Padim()
 
-    # Get the image filename
+    # Get the image file name
     image_filename = Path(image_path).name
 
-    # Dynamically set the result save path, replacing "Padim" with the extracted model type
-    result_dir = Path(f"results/{model_type}/latest/images")
+    # Define the result save path (using Path object to ensure cross-platform compatibility)
+    result_dir = Path("results/Padim/latest/images")
     result_dir.mkdir(parents=True, exist_ok=True)  # Create directory if it doesn't exist
 
     # Perform inference
@@ -87,11 +33,9 @@ def predict(image_path, model_path):
     result_path = result_dir / image_filename
     return str(result_path)
 
-
 # Function to clear input fields
 def clear_inputs():
     return None, None
-
 
 # Define the Gradio interface
 with gr.Blocks() as demo:
