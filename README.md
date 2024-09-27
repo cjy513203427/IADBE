@@ -31,10 +31,6 @@ Installing the library with Conda
 conda create -n IADBE python=3.10
 conda activate IADBE
 
-# Clone the repository and install in editable mode
-git clone https://github.com/cjy513203427/IADBE.git
-cd IADBE
-
 # Install anomalib
 pip install anomalib==1.1.0
 
