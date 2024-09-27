@@ -62,7 +62,7 @@ cd IADBE
 # Build docker image
 docker build --no-cache -t iadbe .
 # Run docker container
-docker run --gpus all -it --name iadbe --rm iadbe bash
+docker run --gpus all -it --shm-size="8g" --name iadbe --rm iadbe bash
 ```
 </details>
 You can either use it as a virtual machine with the same command to train, test and inference or set docker env as your external environment.
