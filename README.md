@@ -1,5 +1,5 @@
 # 📚 Architecture
-As you can see in the figure, the IADBE system is made up of three main parts: IADBE, IADBE Server, and IADBE Backend. IADBE is the system's core, with API and CLI acting as gateways. Datasets, models, and metrics are some of the system's most important parts. Models are based on open-source Anomalib and YOLOv8. The system has three main entry points: Train, Test, and Predict.
+As you can see in the figure, the IADBE system is made up of three main parts: IADBE, IADBE Server, and IADBE Backend. IADBE is the system's core, with API and CLI acting as gateways. Datasets, Models, and Metrics are some of the system's most important parts. Models are based on open-source Anomalib and YOLOv8. The system has three main entry points: Train, Test, and Predict.
 
 ![IADBE Architecture](docs/imgs/iadbe_architecture.png)
 
@@ -19,7 +19,7 @@ reproduce and identify previous research, be bug free and easy to deploy.
 Tested on Linux (Ubuntu22/20), Windows (Win11/10) ✅
 
 IADBE offers two ways to install the library: Conda and Docker. Use Conda if you want to make changes to dependencies and work in dev mode. 
-Use Docker if you want to copy our environment(python, torch...) exactly. ⚠️We assume that you have installed the nvidia driver and CUDA. Otherwise, you can train on CPU.
+Use Docker if you want to copy our environment (python, torch...) exactly. ⚠️We assume that you have installed the nvidia driver and CUDA. Otherwise, you can train on CPU.
 
 <details>
 <summary>Install from Conda</summary>
