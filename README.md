@@ -31,6 +31,9 @@ Installing the library with Conda
 conda create -n IADBE python=3.10
 conda activate IADBE
 
+# To avoid anomalib install bug
+pip install pip==24.0
+
 # Install anomalib
 pip install anomalib==1.1.0
 
