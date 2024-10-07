@@ -1,5 +1,5 @@
 # 📚 Architecture
-As you can see in the figure, the IADBE system is made up of three main parts: IADBE, IADBE Server, and IADBE Backend. IADBE is the system's core, with API and CLI acting as gateways. Datasets, models, and metrics are some of the system's most important parts. Models are based on open-source Anomalib and YOLOv8. The system has three main entry points: Train, Test, and Predict.
+As you can see in the figure, the IADBE system is made up of three main parts: IADBE, IADBE Server, and IADBE Backend. IADBE is the system's core, with API and CLI acting as gateways. Datasets, Models, and Metrics are some of the system's most important parts. Models are based on open-source Anomalib and YOLOv8. The system has three main entry points: Train, Test, and Predict.
 
 ![IADBE Architecture](docs/imgs/iadbe_architecture.png)
 
@@ -19,7 +19,7 @@ reproduce and identify previous research, be bug free and easy to deploy.
 Tested on Linux (Ubuntu22/20), Windows (Win11/10) ✅
 
 IADBE offers two ways to install the library: Conda and Docker. Use Conda if you want to make changes to dependencies and work in dev mode. 
-Use Docker if you want to copy our environment(python, torch...) exactly. ⚠️We assume that you have installed the nvidia driver and CUDA. Otherwise, you can train on CPU.
+Use Docker if you want to copy our environment (python, torch...) exactly. ⚠️We assume that you have installed the nvidia driver and CUDA. Otherwise, you can train on CPU.
 
 <details>
 <summary>Install from Conda</summary>
@@ -31,9 +31,8 @@ Installing the library with Conda
 conda create -n IADBE python=3.10
 conda activate IADBE
 
-# Clone the repository and install in editable mode
-git clone https://github.com/cjy513203427/IADBE.git
-cd IADBE
+# To avoid anomalib install bug
+pip install pip==24.0
 
 # Install anomalib
 pip install anomalib==1.1.0
@@ -62,7 +61,7 @@ cd IADBE
 # Build docker image
 docker build --no-cache -t iadbe .
 # Run docker container
-docker run --gpus all -it --name iadbe --rm iadbe bash
+docker run --gpus all -it --shm-size="8g" --name iadbe --rm iadbe bash
 ```
 </details>
 You can either use it as a virtual machine with the same command to train, test and inference or set docker env as your external environment.
@@ -263,7 +262,7 @@ anomalib predict --model anomalib.models.Padim \
 ```
 
 # 📊 Benchmark Results
-These are partial results of benchmark. You can find more details in my paper, which I'll upload later. The results come from raw logs, which you can find under `logs/rawlogs`.
+These are partial results of benchmark. You can find more details in my paper under folder `papers/`. The results come from raw logs, which you can find under `logs/rawlogs`.
 ## Image Level AUROC on MVTec
 |           | Screw     | Pill      | Capsule   | Carpet     | Grid      | Tile       | Wood      | Zipper    | Cable     | Toothbrush | Transistor | Metal Nut  | Bottle     | Hazelnut   | Leather    | Average   |
 |-----------|-----------|-----------|-----------|------------|-----------|------------|-----------|-----------|-----------|------------|------------|------------|------------|------------|------------|-----------|

@@ -7,6 +7,9 @@ WORKDIR /app
 # copy project files to docker container
 COPY . .
 
+# Make all files in the current directory executable
+RUN chmod -R +x ./
+
 # install libgl1-mesa-glx package
 RUN apt-get update && apt-get install -y libgl1-mesa-glx
 # install libglib2.0-0 package
@@ -23,4 +26,3 @@ RUN pip install ultralytics
 
 # Keep container running
 CMD ["bash", "-c", "while true; do sleep 1000; done"]
-
