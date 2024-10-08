@@ -1,5 +1,5 @@
 # 📚 Architecture
-As you can see in the figure, the IADBE system is made up of three main parts: IADBE, IADBE Server, and IADBE Backend. IADBE is the system's core, with API and CLI acting as gateways. Datasets, Models, and Metrics are some of the system's most important parts. Models are based on open-source Anomalib and YOLOv8. The system has three main entry points: Train, Test, and Predict.
+As you can see in the figure, the IADBE (Industrial Anomaly Detection Benchmark Engine) system is made up of three main parts: IADBE, IADBE Server, and IADBE Backend. IADBE is the system's core, with API and CLI acting as gateways. Datasets, Models, and Metrics are some of the system's most important parts. Models are based on open-source Anomalib and YOLOv8. The system has three main entry points: Train, Test, and Predict.
 
 ![IADBE Architecture](docs/imgs/iadbe_architecture.png)
 
